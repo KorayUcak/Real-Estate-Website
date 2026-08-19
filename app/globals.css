@@ -1,26 +1,594 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+  Coast 2 Coast Properties Turkey — design tokens.
+  Tailwind v4 reads these from @theme and generates the utilities
+  (bg-shell, text-ink, font-display, ...). No tailwind.config.js needed.
+*/
+@theme {
+  /*
+    ══════════════════════════════════════════════════════════════════
+    MARKA PALETİ — "sessiz lüks" (Savills / Knight Frank / Domus Nova).
+    ══════════════════════════════════════════════════════════════════
+
+    TOKEN ADLARI BİLİNÇLİ OLARAK KORUNDU (`sea`, `sea-deep`, `gold`…).
+    Değişen yalnızca DEĞERLER. Site baştan sona bu değişkenler üzerine
+    kurulu olduğu için palet buradan döndüğünde 40+ dosya kendiliğinden
+    yeni kimliğe geçiyor. Adları da değiştirmek yüzlerce çağrı yerini
+    dokunmak, hiçbir görsel kazanç sağlamadan devasa bir diff üretmek
+    olurdu. Ad artık rengi değil ROLÜ tarif ediyor:
+
+      sea-deep → en koyu kurumsal ton (footer, CTA bantları, butonlar)
+      sea      → açık zeminde okunan vurgu (ikon, eyebrow, bağlantı)
+      gold     → dönüşüm aksanı
+      shell    → sayfa zemini,  ink → metin,  line → 1px kenarlık
+
+    Eski palet parlak Akdeniz mavisi + amber sarısıydı: canlı ama ucuz;
+    "yazlık site" dili. Yeni palet üç şeyden oluşuyor — sıcak krem zemin,
+    zengin antrasit metin ve koyu İngiliz yeşili. Doygunluk kasten düşük:
+    lüks emlak markaları renkle değil, boşluk ve tipografiyle konuşur.
+  */
+
+  /*
+    METİN — saf siyah DEĞİL. #000 ekranda sert ve dijital duruyor;
+    hafif yeşile çalan bir antrasit, yeşil aksanla aynı ailede kalıyor.
+    Krem zemin üstünde kontrast: ink 13.8:1, ink-70 5.6:1, ink-40 4.1:1.
+  */
+  --color-ink: #23292b;
+  --color-ink-70: #5b6462;
+  --color-ink-40: #79817d;
+
+  /*
+    ZEMİNLER — sıcak krem. Önceki nötrler maviye çalıyordu (#fbfdfe) ve
+    ekranda "beyaz kâğıt" değil "soğuk arayüz" hissi veriyordu. Kremin
+    sarı ucu fotoğraflardaki sıcak taş ve ahşap tonlarını da destekliyor.
+  */
+  --color-shell: #fbf9f5;
+  --color-shell-deep: #f3efe7;
+  --color-line: #e4ded2;
+
+  /*
+    BİRİNCİL — koyu İngiliz yarış yeşili (British Racing Green).
+    Parlak mavi her emlak sitesinde var; yeşil hem ayrıştırıyor hem de
+    kremle birlikte klasik bir Londra vitrin dili kuruyor.
+  */
+  --color-sea: #2f5a4c;
+  --color-sea-soft: #3d6e5c;
+  --color-sea-deep: #16332b;
+  /* Bölüm zeminlerinde kullanılan en açık yeşil yıkama. */
+  --color-sea-tint: #edf2ee;
+
+  /*
+    AKSAN — şampanya. Eski #FFC107 saf bir uyarı sarısıydı; kırılıp
+    griye çekilmiş hâli metal/pirinç çağrışımı yapıyor.
+
+    `gold-deep`: açık zeminde METİN için. Şampanya da krem üstünde
+    AA'yı geçmiyor, o yüzden yazı bu koyu türeviyle yazılır (5.3:1).
+  */
+  --color-gold: #c2a461;
+  --color-gold-deep: #7a6326;
+
+  /*
+    TİPOGRAFİ — serif başlık + grotesk gövde. Gerekçe layout.tsx'te.
+
+    `--font-display` YALNIZCA başlıklara ve büyük vurgulara gider. Küçük
+    puntolu büyük harfli arayüz metni (eyebrow, buton) bilinçli olarak
+    `--font-sans` kullanır: yüksek kontrastlı bir serif 11px'te ve geniş
+    harf aralığıyla dizildiğinde tırnaklar kırpılıyor, sonuç "zarif" değil
+    "bozuk" görünüyor. Lüks markaların çoğu tam olarak bu ayrımı yapar —
+    serif başlık, sans arayüz.
+
+    Yedek yığın serif tarafında serif kalmalı: font yüklenemezse sayfa
+    sans-serif'e düşerse tasarımın karakteri tamamen kayar.
+  */
+  --font-display: var(--font-playfair), "Iowan Old Style", "Palatino Linotype",
+    ui-serif, Georgia, serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  /*
+    Bölüm arası dikey ritim. Masaüstü değeri; mobil karşılığı hemen aşağıda.
+  */
+  --spacing-section: 7rem;
+
+  /*
+    GÖLGELER — iki tane, ikisi de neredeyse görünmez.
+
+    Eski kartlar `shadow-md` + `hover:shadow-xl` taşıyordu: Tailwind'in
+    varsayılan gölgeleri nötr siyah ve YAKIN (küçük blur, belirgin kenar).
+    Ekranda "kabartma düğme" etkisi veriyor, yani tam olarak kaçınmak
+    istediğimiz ucuz his. Yerine geçen kural:
+
+      DURAĞAN HÂL   → gölge yok, yalnızca 1px `border-line`.
+      HOVER         → tek, çok geniş, çok düşük opaklıkta yayılım.
+
+    Renk siyah değil metin antrasiti: krem zemin üstünde nötr siyah gri
+    bir leke bırakıyor, aynı aileden bir gölge ise "ışık" gibi davranıyor.
+  */
+  --shadow-soft: 0 18px 40px -24px rgb(35 41 43 / 0.22);
+  /* Açılır paneller (navigasyon menüsü, filtre kutusu) için bir tık derin. */
+  --shadow-panel: 0 28px 64px -32px rgb(35 41 43 / 0.3);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/*
+  BÖLÜM BOŞLUĞU MOBİLDE KÜÇÜLÜR.
 
-@media (prefers-color-scheme: dark) {
+  7rem (112px) masaüstünde bölümleri birbirinden ayıran şey; 375px'lik bir
+  ekranda ise ilk ekranın üçte birini yiyen boş bir bant. İletişim
+  sayfasında ölçüldü: hero kaldırıldıktan sonra başlıktan "Send an
+  enquiry"ye kadar 112px boşluk kalıyordu.
+
+  Düzeltme tek değişkende çünkü `py-section` bu token'dan besleniyor —
+  onlarca bölüme tek tek `py-16 lg:py-section` yazmak yerine token'ın
+  kendisi kırılma noktasına duyarlı hâle geldi. Yeni bölümler bu davranışı
+  hatırlamak zorunda kalmadan doğru boşlukla doğuyor.
+
+  @theme dışında ve @layer dışında: @theme statik token üretir, medya
+  sorgusu kabul etmez. Aynı özel değişkeni :root üzerinde ezmek Tailwind'in
+  ürettiği `padding-block: var(--spacing-section)` bildirimini olduğu gibi
+  bırakır, yalnızca değeri değişir.
+*/
+@media (width < 640px) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    /* 3.5rem → 3rem: bilgi sayfaları mobilde hâlâ çok uzundu. */
+    --spacing-section: 3rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (640px <= width < 1024px) {
+  :root {
+    --spacing-section: 5rem;
+  }
 }
+
+@layer base {
+  /*
+    YATAY TAŞMA AĞI.
+
+    `overflow-x: clip`, `hidden` DEĞİL — ve bu fark burada kritik.
+
+    `overflow-x: hidden` elemanı bir KAYDIRMA KABI (scroll container) hâline
+    getirir. Bunun yan etkisi `position: sticky`nin kırılmasıdır: sticky bir
+    eleman, en yakın kaydırma kabına göre yapışır. `body` kaba dönüşünce
+    sitedeki iki sticky öğe de bozulur — site başlığı (`sticky top-0`) ve
+    /properties filtre çubuğu. Sayfa yatayda düzelir, gezinme çubuğu düşer;
+    net bir kayıp.
+
+    `clip` ise kaydırma kabı OLUŞTURMAZ, sadece taşan pikseli keser. Sticky
+    çalışmaya devam eder. Chrome 90+, Firefox 81+, Safari 16+.
+
+    NOT: bu bir ağ, çözüm değil. Taşmanın gerçek kaynağı home-hero.tsx
+    içindeki ölçeklenen parallax katmanıydı ve orada düzeltildi. Burası,
+    ileride benzer bir katman eklendiğinde sayfanın yatay kaymasını
+    engelleyen ikinci savunma hattı.
+  */
+  html,
+  body {
+    overflow-x: clip;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    /*
+      Taban renk HTML'de duruyor, body'de değil: body şeffaf kalmalı ki
+      arkasına sabitlenmiş siluet katmanı (bkz. layout.tsx) görünebilsin.
+    */
+    background-color: var(--color-shell);
+  }
+
+  body {
+    background-color: transparent;
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+  }
+
+  /*
+    KEskİN KÖŞE KURALI — ve tek istisnası.
+
+    Taban kural değişmedi: hiçbir kutu, buton, görsel veya form alanı kendi
+    başına yuvarlanamaz. Varsayılan 90 derecedir ve bu satır, yanlışlıkla
+    sızan bir yuvarlatmayı hâlâ sıfırlar.
+
+    DEĞİŞEN: kural artık `rounded-*` sınıfı TAŞIYAN elemanı atlıyor. Önceki
+    hâli `*` üzerinde `!important` olduğu için bir `rounded-2xl` yazmak
+    sessizce hiçbir şey yapmıyordu — sınıf uygulanıyor, kural onu eziyordu.
+    Sessiz olması en kötü kısmı: yuvarlatmanın neden görünmediğini anlamak
+    için bu dosyaya kadar inmek gerekiyordu.
+
+    Yeni hâliyle yuvarlatma OPT-IN: yalnızca sınıfı açıkça yazan eleman
+    yuvarlanır. Şu an bunu yalnızca ARAMA/FİLTRE KONTROLLERİ yapıyor
+    (hero paneli, filtre çubuğu). Kartlar, butonlar ve bölüm kutuları kare
+    kalır — yumuşaklık kontrollere ait, içeriğe değil.
+
+    `:not([class*="rounded"])` özgüllüğü (0,1,0); `!important` ile birlikte
+    Tailwind utility'lerini ezmeye devam eder.
+  */
+  *:not([class*="rounded"]),
+  *:not([class*="rounded"])::before,
+  *:not([class*="rounded"])::after {
+    border-radius: 0 !important;
+  }
+
+  /*
+    Başlıklar her yerde display ailesini kullanır. Bunu tek tek
+    `font-display` yazmak yerine burada tanımlamak, sayfalar arasında
+    başlık sesinin ayrışmasını imkânsız kılar.
+
+    AĞIRLIK 800 → 600. Bu, aile değişiminin zorunlu sonucu: Montserrat
+    800'de otoriter duruyordu, Playfair 800'de sadece kalın duruyor —
+    tırnaklar gövdeye yapışıp harf içleri kapanıyor. Serifin ağırlığı
+    kesitten değil kontrasttan gelir.
+
+    HARF ARALIĞI -0.02em → -0.005em. Negatif aralık geometrik bir sansı
+    toparlar; serifte tırnakların birbirine değmesine yol açar. Sıfıra
+    yakın bir değer harflerin kendi ritmini bozmadan bırakıyor.
+
+    Büyük harfle dizilen başlıklar (hero, bölüm başlıkları) bunun üstüne
+    kendi POZİTİF aralığını yazar — büyük harf her ailede nefes ister.
+  */
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+
+  ::selection {
+    background-color: var(--color-sea-deep);
+    color: var(--color-shell);
+  }
+
+  /*
+    Klavye ile gezinen kullanıcılar için görünür odak (a11y + SEO sinyali).
+    Sarı burada bilinçli: koyu mavi bloklarda da açık zeminlerde de görünür
+    kalan tek marka rengi bu.
+  */
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  .container-page {
+    width: 100%;
+    margin-inline: auto;
+    max-width: 82rem;
+    padding-inline: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    .container-page {
+      padding-inline: 3rem;
+    }
+  }
+
+  /*
+    Bölüm üstü küçük etiket: "01 — ÖNE ÇIKANLAR".
+    Serif DEĞİL, sans: 11px'te geniş harf aralığıyla dizilen bir didone'nin
+    ince tırnakları ekranda kırpılır. Arayüz metni sans ailesinde kalıyor.
+  */
+  .eyebrow {
+    font-family: var(--font-sans);
+    font-size: 0.6875rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  /*
+    Kurumsal buton dili: kare, büyük harf, geniş harf aralığı, kalın kesit.
+    Yumuşak "hap" butonlar ciddiyeti düşürdüğü için tamamen kaldırıldı.
+  */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    padding: 1.125rem 2rem;
+    /* Eyebrow ile aynı gerekçe: küçük punto + büyük harf = sans. */
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition:
+      background-color 0.2s ease,
+      color 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  /*
+    Renk kuralı: birincil eylem KOYU YEŞİL, hover ŞAMPANYA.
+    Şampanya zemin üstünde yazı daima koyu antrasit — açık yazı bu tonda
+    okunmaz.
+
+    Hover'da renk sıçraması yerine "ısınma": yeşilden şampanyaya geçiş
+    ikisi de düşük doygunlukta olduğu için yumuşak okunuyor.
+  */
+  .btn-solid {
+    background-color: var(--color-sea-deep);
+    color: var(--color-shell);
+  }
+
+  .btn-solid:hover {
+    background-color: var(--color-gold);
+    color: var(--color-ink);
+  }
+
+  /* İkincil/dönüşüm CTA'sı (WhatsApp, "hemen sor") — marka sarısı. */
+  .btn-accent {
+    background-color: var(--color-gold);
+    color: var(--color-ink);
+  }
+
+  .btn-accent:hover {
+    background-color: var(--color-sea-deep);
+    color: var(--color-shell);
+  }
+
+  .btn-light {
+    background-color: var(--color-shell);
+    color: var(--color-sea-deep);
+  }
+
+  .btn-light:hover {
+    background-color: var(--color-gold);
+    color: var(--color-ink);
+  }
+
+  /* Koyu zeminde çerçeveli ikincil buton. */
+  .btn-outline-light {
+    border: 1px solid color-mix(in srgb, var(--color-shell) 45%, transparent);
+    color: var(--color-shell);
+  }
+
+  .btn-outline-light:hover {
+    border-color: var(--color-gold);
+    color: var(--color-gold);
+  }
+
+  /* Açık zeminde çerçeveli ikincil buton. */
+  .btn-outline-dark {
+    border: 1px solid var(--color-line);
+    color: var(--color-sea-deep);
+  }
+
+  .btn-outline-dark:hover {
+    border-color: var(--color-gold);
+    background-color: var(--color-sea-tint);
+  }
+
+  /*
+    BÖLÜM ZEMİNLERİ — siluet parallax'ının çalışma biçimi.
+
+    Sabit siluet katmanı sayfanın en altında duruyor (layout.tsx). Bölümler
+    bu katmanın ne kadarını geçireceğine kendi opaklığıyla karar verir:
+
+      .veil-clear → en şeffaf, siluet en çok burada görünür
+      .veil-solid → yüksek kontrastlı okuma alanı (neredeyse opak beyaz)
+      .veil-tint  → hafif deniz mavisi tonlu ara bölüm
+
+    Bölümleri sırayla bu üç sınıfla dizmek, "boş beyaz blok" hissini
+    ortadan kaldırır: göz her bölümde arka plandaki manzarayı yeniden
+    yakalar ama metin kontrastı hiçbir yerde düşmez.
+  */
+  /*
+    Opaklık matematiği burada önemli: siluet %22 opaklıkta duruyor ve
+    bölümün tülü onun ne kadarını geçireceğini belirliyor. Net görünürlük
+    = siluet opaklığı × (1 − tül opaklığı). Örneğin veil-clear için
+    0.22 × 0.55 ≈ %12 — fark edilir ama metni yormaz. İlk denemede tül
+    %62 beyazdı ve etki %3'e düşüyordu: yani hiç.
+  */
+  .veil-clear {
+    background-color: color-mix(in srgb, #fff 55%, transparent);
+  }
+
+  /* Yoğun okuma alanı: siluet neredeyse tamamen kesilir. */
+  .veil-solid {
+    background-color: color-mix(in srgb, #fff 93%, transparent);
+  }
+
+  .veil-tint {
+    background-color: color-mix(in srgb, var(--color-sea-tint) 66%, transparent);
+  }
+
+  /*
+    Buzlu cam panel (ilan sayfasındaki talep kartı, hero arama çubuğu).
+    `backdrop-filter` ancak ARKASINDA bir şey varsa görünür; bu yüzden panelin
+    altına daima bir görsel ya da degrade konur — düz zemin üzerinde efekt
+    kaybolur ve panel yalnızca yarı saydam bir kutuya dönüşür.
+  */
+  /*
+    NOT: `--color-navy` ve `--color-olive` bu dosyada TANIMSIZDI. Palet bir
+    tur önce yeniden adlandırılmış (navy → sea-deep, olive → gold) ama bu üç
+    bildirim güncellenmemişti.
+
+    Sessiz bir hataydı: tanımsız bir özel değişken `color-mix()` içine
+    girince fonksiyonun tamamı geçersiz olur ve tarayıcı BİLDİRİMİ ATAR.
+    Yani panelin kenarlığı ve kaydırıcı tutamacının çerçevesi hiç
+    çizilmiyordu — konsola hata da düşmüyordu, çünkü CSS geçersiz bildirimi
+    sessizce yok sayar.
+  */
+  .glass-panel {
+    background-color: color-mix(in srgb, var(--color-shell) 78%, transparent);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid color-mix(in srgb, var(--color-sea-deep) 18%, transparent);
+  }
+
+  /*
+    Çift uçlu fiyat kaydırıcısı.
+    İki <input type="range"> üst üste bindirilir: rayları şeffaf ve
+    `pointer-events:none` yapılır ki alttaki inputun tutamacı da tıklanabilsin;
+    tutamaçlar `pointer-events:auto` ile tek tek geri açılır.
+  */
+  .range-input {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    pointer-events: none;
+    margin: 0;
+  }
+
+  .range-input:focus {
+    outline: none;
+  }
+
+  .range-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    pointer-events: auto;
+    height: 1.125rem;
+    width: 1.125rem;
+    background-color: var(--color-shell);
+    border: 2px solid var(--color-sea-deep);
+    box-shadow: 0 2px 10px rgba(15, 35, 55, 0.3);
+    cursor: grab;
+    transition: transform 0.15s ease;
+  }
+
+  .range-input::-webkit-slider-thumb:active {
+    transform: scale(1.12);
+    cursor: grabbing;
+  }
+
+  .range-input::-moz-range-thumb {
+    pointer-events: auto;
+    height: 1.125rem;
+    width: 1.125rem;
+    background-color: var(--color-shell);
+    border: 2px solid var(--color-sea-deep);
+    box-shadow: 0 2px 10px rgba(15, 35, 55, 0.3);
+    cursor: grab;
+  }
+
+  /* Klavye ile odaklandığında tutamaç görünür biçimde işaretlenir. */
+  .range-input:focus-visible::-webkit-slider-thumb {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+
+  .range-input:focus-visible::-moz-range-thumb {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+
+  /*
+    KAYDIRMA İLE BELİRME — bkz. components/reveal.tsx.
+
+    Temel durum bilinçli olarak BOŞ: `.reveal` hiçbir şey yapmaz, içerik
+    tam görünürdür. Animasyon yalnızca iki koşul birden sağlanınca eklenir:
+    kullanıcı hareket kısıtlaması istemiyorsa ve tarayıcı kaydırmaya bağlı
+    zaman çizelgesini destekliyorsa. Böylece JavaScript kapalı olsa da,
+    Firefox olsa da, hidrasyon gecikse de içerik hiçbir koşulda gizlenmez.
+  */
+  @media (prefers-reduced-motion: no-preference) {
+    @supports (animation-timeline: view()) {
+      .reveal {
+        animation: reveal-rise linear both;
+        animation-timeline: view();
+        animation-range: entry 5% cover 25%;
+      }
+    }
+  }
+
+  /* Yatay kaydırılan şeritlerde çubuk gizlenir — kaydırma yine çalışır. */
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/*
+  `.reveal` animasyonunun kare tanımı. @layer dışında: keyframes katmanlara
+  ait değildir ve Tailwind'in katman sıralamasından etkilenmez.
+*/
+@keyframes reveal-rise {
+  from {
+    opacity: 0;
+    transform: translateY(var(--reveal-y, 28px));
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
+  Hero giriş animasyonu — zaman tabanlı, JavaScript'siz.
+
+  Temel durum yine GÖRÜNÜR: animasyon yalnızca hareket kısıtlaması
+  istenmemişse çalışır. CSS render-blocking olduğu için "önce boş, sonra
+  belirdi" sıçraması yaşanmaz; JavaScript hiç yüklenmese bile başlık
+  ekranda kalır. Önceki framer-motion varyantları bunu garanti etmiyordu:
+  H1 hidrasyona kadar opacity:0 olarak duruyordu.
+*/
+@media (prefers-reduced-motion: no-preference) {
+  .rise-in {
+    animation: reveal-rise 0.85s cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .rise-in-2 {
+    animation-delay: 0.09s;
+  }
+
+  .rise-in-3 {
+    animation-delay: 0.18s;
+  }
+
+  .rise-in-4 {
+    animation-delay: 0.27s;
+  }
+
+  .rise-in-5 {
+    animation-delay: 0.36s;
+  }
+}
+
+/*
+  "Pencere" bandı (components/reveal-window.tsx).
+
+  `clip-path: inset(0)` iki iş birden yapar:
+   1. İçindeki `position: fixed` görseli bu bandın sınırlarına kırpar,
+   2. spesifikasyon gereği o görsel için kapsayan blok olur — yani görsel
+      viewport'a göre sabitlenir ama banttan taşmaz.
+
+  `background-attachment: fixed` ile aynı sonucu verir, iOS Safari'de
+  kırılmadan. Ayrı bir dosya yerine burada duruyor çünkü Tailwind'in
+  arbitrary değerleriyle `clip-path` yazmak okunaksız oluyor.
+*/
+.reveal-window {
+  clip-path: inset(0);
+}
+
+/* Hareket kısıtlaması istendiğinde sabitleme kapanır: bant normal akar. */
+@media (prefers-reduced-motion: reduce) {
+  .reveal-window {
+    clip-path: none;
+  }
+
+  .reveal-window > .fixed {
+    position: absolute;
+  }
+}
+

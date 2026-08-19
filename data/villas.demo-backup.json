@@ -1,0 +1,568 @@
+[
+  {
+    "id": "c2c-001",
+    "slug": "sea-view-villa-tasyaka-fethiye",
+    "reference": "C2C-FET-014",
+    "title": "Villa Mavi — Panoramic Bay View Villa in Taşyaka, Fethiye",
+    "headline": "A four-bedroom architect-built villa above Fethiye marina, with an infinity pool aimed straight at the bay.",
+    "status": "for-sale",
+    "featured": true,
+    "propertyType": "Detached villa",
+    "location": {
+      "areaSlug": "tasyaka",
+      "area": "Taşyaka",
+      "district": "Fethiye",
+      "city": "Fethiye",
+      "region": "Muğla",
+      "country": "Türkiye",
+      "coordinates": {
+        "lat": 36.6285,
+        "lng": 29.0972
+      }
+    },
+    "price": {
+      "gbp": 685000,
+      "currency": "GBP"
+    },
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "buildSizeSqm": 265,
+    "plotSizeSqm": 720,
+    "floors": 3,
+    "yearBuilt": 2021,
+    "distanceToBeachKm": 1.8,
+    "deedStatus": "Individual TAPU, ready to transfer",
+    "citizenshipEligible": true,
+    "features": [
+      "Private infinity pool",
+      "Panoramic sea view",
+      "Underfloor heating",
+      "Fully fitted German kitchen",
+      "Covered parking for two cars",
+      "Smart-home lighting and climate control",
+      "Landscaped Mediterranean garden",
+      "Walk to Fethiye marina"
+    ],
+    "highlights": [
+      "Uninterrupted views over Fethiye bay and the Twelve Islands",
+      "Ten minutes on foot to the marina promenade and Tuesday market",
+      "Completed 2021 with individual title deed already issued"
+    ],
+    "description": [
+      "Villa Mavi occupies one of the last elevated plots in Taşyaka, the residential shoulder of Fethiye town where the hillside turns to face the bay. The house is arranged over three levels so that every principal room — including all four bedrooms — takes the view rather than sharing it.",
+      "The ground floor opens completely onto the pool terrace through full-height sliding glazing, so the living space and the 10-metre infinity pool read as a single room in summer. A separate winter lounge with a wood burner and underfloor heating makes the villa genuinely usable between November and March, which matters more than most buyers expect.",
+      "Because the property is walkable to Fethiye centre, it performs as both a lock-up-and-leave second home and a strong year-round rental asset. The individual title deed is issued and clean, and the purchase price sits comfortably above the current Turkish citizenship-by-investment threshold."
+    ],
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Infinity pool and terrace of a luxury villa in Taşyaka, Fethiye, overlooking Fethiye bay at sunset",
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1724582586529-62622e50c0b3?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Open-plan living room of a Fethiye sea-view villa with full-height sliding glazing onto the pool terrace",
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1611596189148-a74728c484ca?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Master bedroom with private balcony and panoramic bay view in a Taşyaka villa for sale in Fethiye",
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1682888813913-e13f18692019?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Fitted German kitchen with island in a modern detached villa in Fethiye, Turkey",
+        "width": 2000,
+        "height": 1333
+      }
+    ],
+    "seo": {
+      "title": "Sea View Villa for Sale in Taşyaka, Fethiye | 4 Bed, Private Pool",
+      "description": "Four-bedroom sea-view villa for sale in Taşyaka, Fethiye. Infinity pool, 265 m² build, individual title deed, ten minutes from the marina. £685,000 — viewings arranged by Coast 2 Coast Properties Turkey.",
+      "keywords": [
+        "villa for sale Fethiye",
+        "Taşyaka villa",
+        "sea view villa Fethiye",
+        "Fethiye property for sale",
+        "buy villa Turkey",
+        "Fethiye marina property"
+      ]
+    },
+    "publishedAt": "2026-04-18",
+    "updatedAt": "2026-08-02"
+  },
+  {
+    "id": "c2c-002",
+    "slug": "blue-lagoon-view-villa-oludeniz",
+    "reference": "C2C-OLU-007",
+    "title": "Villa Lagün — Blue Lagoon View Villa in Ölüdeniz",
+    "headline": "A three-bedroom stone-and-glass villa on the Ölüdeniz hillside, looking down onto the Blue Lagoon.",
+    "status": "for-sale",
+    "featured": true,
+    "propertyType": "Detached villa",
+    "location": {
+      "areaSlug": "oludeniz",
+      "area": "Ölüdeniz",
+      "district": "Fethiye",
+      "city": "Fethiye",
+      "region": "Muğla",
+      "country": "Türkiye",
+      "coordinates": {
+        "lat": 36.5501,
+        "lng": 29.1173
+      }
+    },
+    "price": {
+      "gbp": 495000,
+      "currency": "GBP"
+    },
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "buildSizeSqm": 190,
+    "plotSizeSqm": 540,
+    "floors": 2,
+    "yearBuilt": 2019,
+    "distanceToBeachKm": 1.1,
+    "deedStatus": "Individual TAPU, mortgage-free",
+    "citizenshipEligible": true,
+    "features": [
+      "Direct Blue Lagoon view",
+      "Private 8m pool",
+      "Stone-clad facade",
+      "Air conditioning throughout",
+      "Sun terrace and outdoor kitchen",
+      "Established rental history",
+      "Gated plot with automatic entrance",
+      "Furnished to a turnkey standard"
+    ],
+    "highlights": [
+      "Uninterrupted sightline to the Blue Lagoon and Babadağ paragliding descent",
+      "Proven short-let history with repeat British guests",
+      "Sold furnished and turnkey — rentable from completion"
+    ],
+    "description": [
+      "Villa Lagün sits on the quiet upper road out of Ölüdeniz, high enough that the Blue Lagoon opens up below the terrace and low enough to still walk down to the beach road. The stone facade and deep roof overhangs keep the interior cool through August without leaning on air conditioning.",
+      "Inside, the layout is deliberately simple: a double-height living space on the entrance level, three double bedrooms — two with en-suite access — and a covered outdoor kitchen that ends up hosting most of the summer. The 8-metre pool is positioned to catch afternoon sun until it drops behind Babadağ.",
+      "The villa is being sold furnished with an existing short-let booking history, which makes it one of the few properties in our Ölüdeniz portfolio that can produce income in its first season without any further outlay."
+    ],
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1660080909195-a9a2e030581e?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Stone-clad villa in Ölüdeniz with a private pool overlooking the Blue Lagoon",
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1776068040104-4931100c5219?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Sun terrace and outdoor kitchen of an Ölüdeniz villa for sale with Blue Lagoon views",
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1637649228998-6c78a67dfa6c?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Double-height lounge with stone wall in a three-bedroom Ölüdeniz villa, Fethiye",
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1760204741315-abfc98ce3bf5?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Double bedroom with sea view balcony in a furnished villa for sale in Ölüdeniz, Turkey",
+        "width": 2000,
+        "height": 1333
+      }
+    ],
+    "seo": {
+      "title": "Blue Lagoon View Villa for Sale in Ölüdeniz | 3 Bed, Furnished",
+      "description": "Three-bedroom villa for sale in Ölüdeniz with direct Blue Lagoon views, private pool and proven rental history. Sold furnished at £495,000 — arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "keywords": [
+        "Ölüdeniz villa for sale",
+        "Blue Lagoon property",
+        "villa for sale Oludeniz Turkey",
+        "Fethiye villa with pool",
+        "buy property Ölüdeniz",
+        "Turkey holiday home for sale"
+      ]
+    },
+    "publishedAt": "2026-05-30",
+    "updatedAt": "2026-07-27"
+  },
+  {
+    "id": "c2c-003",
+    "slug": "hillside-villa-hisaronu",
+    "reference": "C2C-HIS-021",
+    "title": "Villa Zeytin — Hillside Villa in Hisarönü",
+    "headline": "A three-bedroom villa above Hisarönü with a private pool and the whole valley in front of it.",
+    "status": "for-sale",
+    "featured": true,
+    "propertyType": "Detached villa",
+    "location": {
+      "areaSlug": "hisaronu",
+      "area": "Hisarönü",
+      "district": "Fethiye",
+      "city": "Fethiye",
+      "region": "Muğla",
+      "country": "Türkiye",
+      "coordinates": {
+        "lat": 36.5747,
+        "lng": 29.1225
+      }
+    },
+    "price": {
+      "gbp": 310000,
+      "currency": "GBP"
+    },
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "buildSizeSqm": 165,
+    "plotSizeSqm": 420,
+    "floors": 2,
+    "yearBuilt": 2020,
+    "distanceToBeachKm": 2.4,
+    "deedStatus": "Individual TAPU, mortgage-free",
+    "citizenshipEligible": false,
+    "features": [
+      "Private 7m pool",
+      "Valley and mountain view",
+      "Walk to Hisarönü centre",
+      "Air conditioning throughout",
+      "Covered parking",
+      "Landscaped garden",
+      "Solar hot water",
+      "Sold part-furnished"
+    ],
+    "highlights": [
+      "Ten minutes on foot to the Hisarönü strip, far enough up the hill to stay quiet",
+      "Strong July–September occupancy with British repeat guests",
+      "Below the citizenship threshold — a straightforward lifestyle purchase"
+    ],
+    "description": [
+      "Villa Zeytin sits on the terraced slope above Hisarönü, where the valley opens out towards Babadağ. The house is arranged over two floors with the living space, kitchen and a guest WC at garden level, and three double bedrooms above.",
+      "The plot is 420 m² with a seven-metre pool, mature olive trees and a covered parking bay. Everything is on one title deed, mortgage-free, and the vendor is a British owner who has held the property since new.",
+      "Hisarönü is the most rental-driven address we cover: the resort centre is a ten-minute walk downhill and Ölüdeniz beach is a short dolmuş ride away."
+    ],
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Whitewashed hillside villa with a private pool and garden in Hisarönü, Fethiye",
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1696986324679-dad26261d579?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Bright open-plan living and dining room with full-height windows in a Hisarönü villa",
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1634207521799-5616b235ac74?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Light double bedroom with white linen in a three-bedroom villa near Ölüdeniz",
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1758805770252-8b15aee90e09?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "View from the terrace over the valley and the turquoise coast beyond Hisarönü",
+        "width": 2000,
+        "height": 1333
+      }
+    ],
+    "seo": {
+      "title": "Hillside Villa for Sale in Hisarönü | 3 Bed with Pool",
+      "description": "Three-bedroom hillside villa for sale in Hisarönü with a private pool, valley views and a clean individual title deed. £310,000 — arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "keywords": [
+        "Hisarönü villa for sale",
+        "property for sale Hisaronu",
+        "Fethiye villa with pool",
+        "buy villa Ölüdeniz area",
+        "Turkey rental property"
+      ]
+    },
+    "publishedAt": "2026-06-14",
+    "updatedAt": "2026-08-02"
+  },
+  {
+    "id": "c2c-004",
+    "slug": "beachside-villa-calis",
+    "reference": "C2C-CAL-033",
+    "title": "Villa Deniz — Beachside Villa in Çalış",
+    "headline": "A four-bedroom family villa a level ten-minute walk from Çalış beach and its sunset promenade.",
+    "status": "for-sale",
+    "featured": true,
+    "propertyType": "Detached villa",
+    "location": {
+      "areaSlug": "calis",
+      "area": "Çalış",
+      "district": "Fethiye",
+      "city": "Fethiye",
+      "region": "Muğla",
+      "country": "Türkiye",
+      "coordinates": {
+        "lat": 36.6486,
+        "lng": 29.0921
+      }
+    },
+    "price": {
+      "gbp": 420000,
+      "currency": "GBP"
+    },
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "buildSizeSqm": 210,
+    "plotSizeSqm": 500,
+    "floors": 2,
+    "yearBuilt": 2021,
+    "distanceToBeachKm": 0.8,
+    "deedStatus": "Individual TAPU, mortgage-free",
+    "citizenshipEligible": false,
+    "features": [
+      "800m to Çalış beach",
+      "Private 9m pool",
+      "Level walk to the promenade",
+      "Underfloor heating",
+      "Four double bedrooms",
+      "Two en-suites",
+      "Outdoor kitchen and pergola",
+      "Off-street parking for two cars"
+    ],
+    "highlights": [
+      "Flat, level walk to the beach — no hill, which matters more than buyers expect",
+      "Four genuine doubles: the plan works for two families sharing",
+      "Built 2021 to current earthquake regulations, with DASK in place"
+    ],
+    "description": [
+      "Villa Deniz was completed in 2021 on one of the quieter residential streets behind Çalış beach. The ground floor is open-plan with a separate utility room; upstairs there are four double bedrooms, two of them en-suite.",
+      "The garden is level and low-maintenance, with a nine-metre pool, a pergola and a built-in outdoor kitchen. Parking for two cars sits behind an automatic gate.",
+      "Çalış suits owners who want to walk everywhere: the promenade, the water taxi into Fethiye and the Sunday market are all within reach on foot."
+    ],
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Modern four-bedroom villa with a private pool and terrace in Çalış, Fethiye",
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1758315417336-38777d626815?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Open-plan living room with floor-to-ceiling glazing in a Çalış beachside villa",
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1631048501786-4e97f20eac71?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Calm double bedroom with soft natural light in a family villa near Çalış beach",
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1769869173719-997e7be14a56?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Upper terrace looking across the rooftops towards Çalış beach and the bay",
+        "width": 2000,
+        "height": 1333
+      }
+    ],
+    "seo": {
+      "title": "Beachside Villa for Sale in Çalış, Fethiye | 4 Bed with Pool",
+      "description": "Four-bedroom villa for sale in Çalış, an 800m level walk from the beach. Private pool, two en-suites and a clean title deed. £420,000 with Coast 2 Coast Properties Turkey.",
+      "keywords": [
+        "Çalış villa for sale",
+        "Calis beach property",
+        "Fethiye family villa",
+        "4 bedroom villa Turkey",
+        "buy property Calis"
+      ]
+    },
+    "publishedAt": "2026-06-28",
+    "updatedAt": "2026-08-05"
+  },
+  {
+    "id": "c2c-005",
+    "slug": "marina-view-villa-gocek",
+    "reference": "C2C-GOC-004",
+    "title": "Villa Marina — Marina View Villa in Göcek",
+    "headline": "A five-bedroom architect-built villa above Göcek marina, in the most defensive resale market we cover.",
+    "status": "for-sale",
+    "featured": true,
+    "propertyType": "Detached villa",
+    "location": {
+      "areaSlug": "gocek",
+      "area": "Göcek",
+      "district": "Fethiye",
+      "city": "Fethiye",
+      "region": "Muğla",
+      "country": "Türkiye",
+      "coordinates": {
+        "lat": 36.7522,
+        "lng": 28.9403
+      }
+    },
+    "price": {
+      "gbp": 1150000,
+      "currency": "GBP"
+    },
+    "bedrooms": 5,
+    "bathrooms": 4,
+    "buildSizeSqm": 340,
+    "plotSizeSqm": 900,
+    "floors": 3,
+    "yearBuilt": 2022,
+    "distanceToBeachKm": 1.6,
+    "deedStatus": "Individual TAPU, mortgage-free",
+    "citizenshipEligible": true,
+    "features": [
+      "Panoramic marina view",
+      "Infinity-edge 12m pool",
+      "Five en-suite bedrooms",
+      "Lift to all three floors",
+      "Smart home system",
+      "Staff kitchen and utility floor",
+      "Double garage",
+      "Landscaped irrigated garden"
+    ],
+    "highlights": [
+      "Göcek holds value better than anywhere else on this coast — six marinas and strict low-density planning",
+      "Architect-built in 2022 with a lift, which is rare in the local market",
+      "Comfortably above the citizenship investment threshold"
+    ],
+    "description": [
+      "Villa Marina occupies a 900 m² plot on the hillside above Göcek, arranged over three floors with a lift connecting all of them. Every bedroom is en-suite, and the principal suite takes the whole top floor.",
+      "The living space opens onto a twelve-metre infinity-edge pool with the marina and the gulf beyond it. A separate lower floor holds the second kitchen, utility space and a double garage.",
+      "Göcek is the yachting capital of the Gulf of Fethiye. Low-density planning rules, six marinas and a short transfer from Dalaman airport keep this the most defensive resale market on the coast."
+    ],
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1706808849780-7a04fbac83ef?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Architect-built five-bedroom villa with an infinity pool above Göcek marina",
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1779903726439-5c27e3996c8a?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Dining area opening onto a terrace with a panoramic view over Göcek and the gulf",
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1779239358567-8a8e26f503d1?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Principal bedroom suite with morning light in a luxury Göcek villa",
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1717404719828-a443f37235ae?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Covered terrace and infinity-edge pool overlooking the marina at Göcek",
+        "width": 2000,
+        "height": 1333
+      }
+    ],
+    "seo": {
+      "title": "Marina View Villa for Sale in Göcek | 5 Bed, Citizenship Eligible",
+      "description": "Five-bedroom architect-built villa for sale above Göcek marina with an infinity pool, lift and five en-suites. £1,150,000 and citizenship eligible — Coast 2 Coast Properties Turkey.",
+      "keywords": [
+        "Göcek villa for sale",
+        "Gocek luxury property",
+        "Turkish citizenship property",
+        "5 bedroom villa Turkey",
+        "marina view villa Fethiye"
+      ]
+    },
+    "publishedAt": "2026-07-05",
+    "updatedAt": "2026-08-08"
+  },
+  {
+    "id": "c2c-006",
+    "slug": "marina-residence-apartment-fethiye",
+    "reference": "C2C-FET-058",
+    "title": "Marina Residence — Sea View Apartment in Fethiye",
+    "headline": "A two-bedroom apartment on the Fethiye marina promenade, with a balcony over the bay.",
+    "status": "for-sale",
+    "featured": true,
+    "propertyType": "Apartment",
+    "location": {
+      "areaSlug": "fethiye-centre",
+      "area": "Fethiye Merkez",
+      "district": "Fethiye",
+      "city": "Fethiye",
+      "region": "Muğla",
+      "country": "Türkiye",
+      "coordinates": {
+        "lat": 36.6213,
+        "lng": 29.1164
+      }
+    },
+    "price": {
+      "gbp": 185000,
+      "currency": "GBP"
+    },
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "buildSizeSqm": 95,
+    "plotSizeSqm": 95,
+    "floors": 1,
+    "yearBuilt": 2018,
+    "distanceToBeachKm": 0.3,
+    "deedStatus": "Individual TAPU, mortgage-free",
+    "citizenshipEligible": false,
+    "features": [
+      "Sea-view balcony",
+      "Third floor with lift",
+      "Communal pool",
+      "Walk to the marina and Tuesday market",
+      "Air conditioning",
+      "Secure entry",
+      "Allocated parking space",
+      "Low monthly aidat"
+    ],
+    "highlights": [
+      "On the promenade: everything in Fethiye town is walkable from the front door",
+      "Lift and allocated parking — both scarce in central Fethiye",
+      "The lowest entry point in our portfolio, and the easiest to let year-round"
+    ],
+    "description": [
+      "Marina Residence is a 2018 block on the Fethiye promenade, a few minutes from the marina and the Tuesday market. This third-floor apartment has two double bedrooms, a bathroom and an open-plan living space opening onto a sea-view balcony.",
+      "The building has a lift, secure entry, a communal pool and an allocated parking space. Monthly service charges (aidat) are low for the area and cover the pool, gardens and cleaning.",
+      "Central Fethiye works year-round rather than only in summer: a working town with full-time amenities, which makes this the easiest property in our portfolio to let outside the peak season."
+    ],
+    "images": [
+      {
+        "src": "https://images.unsplash.com/photo-1772902362618-c45e3e804001?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Apartment building with sea-view balconies on the Fethiye marina promenade",
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1633505899118-4ca6bd143043?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Bright open-plan living space with large windows in a Fethiye marina apartment",
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1780662805447-36c9c1a6641e?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Double bedroom with warm wood detailing in a two-bedroom Fethiye apartment",
+        "width": 2000,
+        "height": 1333
+      },
+      {
+        "src": "https://images.unsplash.com/photo-1689717887631-088197cdc2ca?auto=format&fit=crop&w=2000&h=1333&q=80",
+        "alt": "Private balcony with table and chairs looking over Fethiye bay",
+        "width": 2000,
+        "height": 1333
+      }
+    ],
+    "seo": {
+      "title": "Sea View Apartment for Sale in Fethiye Marina | 2 Bed",
+      "description": "Two-bedroom sea-view apartment for sale on the Fethiye marina promenade with a lift, communal pool and allocated parking. £185,000 with Coast 2 Coast Properties Turkey.",
+      "keywords": [
+        "Fethiye apartment for sale",
+        "sea view apartment Turkey",
+        "Fethiye marina property",
+        "2 bedroom apartment Fethiye",
+        "cheap property Fethiye"
+      ]
+    },
+    "publishedAt": "2026-07-19",
+    "updatedAt": "2026-08-09"
+  }
+]

@@ -12,6 +12,11 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    /*
+      Tek seferlik veri taşıma betikleri: düz Node CommonJS, uygulama
+      paketine hiç girmiyorlar. Next/TS kuralları burada geçerli değil.
+    */
+    "scripts/**",
   ]),
 ]);
 

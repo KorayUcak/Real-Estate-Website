@@ -1,0 +1,25 @@
+{
+  "companyName": "Coast 2 Coast Properties Turkey",
+  "contact": {
+    "phoneDisplay": "+90 534 052 00 30",
+    "phoneE164": "+905340520030",
+    "whatsappNumber": "905340520030",
+    "email": "info@coast2coastpropertiesturkey.co.uk",
+    "openingHours": "Mon–Sat, 09:00–19:00 (TRT)",
+    "address": {
+      "full": "Cumhuriyet Mah. Çarşı Caddesi Likya Is Merkezi No.1/208-Fethiye/MUGLA",
+      "street": "Cumhuriyet Mah. Çarşı Caddesi Likya Is Merkezi No.1/208",
+      "district": "Fethiye",
+      "city": "Muğla",
+      "country": "TR",
+      "countryName": "Türkiye"
+    }
+  },
+  "social": {
+    "instagram": "https://www.instagram.com/coast2coastpropertiesturkey/",
+    "facebook": "https://www.facebook.com/coast2coastpropertiesturkey/",
+    "x": "https://x.com/coast2coastpro",
+    "linkedin": ""
+  },
+  "updatedAt": "2026-08-17"
+}
