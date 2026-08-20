@@ -5,9 +5,26 @@
  * Google, yerel SEO'da bu tutarlılığı doğrudan bir güven sinyali olarak kullanır.
  */
 
-/** TODO: Alan adı kesinleştiğinde .env.local içinde NEXT_PUBLIC_SITE_URL olarak ezin. */
+/**
+ * ÜRETİM ALAN ADI — TEK KAYNAK.
+ *
+ * ⚠️ `www.` DAHİL. Değer buradan şu alanların TAMAMINA gidiyor:
+ * `metadataBase`, canonical, hreflang kümesi, `og:url`, sitemap girdileri,
+ * robots.txt host satırı, schema.org `@id` düğümleri ve e-posta şablonları.
+ *
+ * Bu yüzden alan adı YALNIZCA burada değişir. Örneğin `metadataBase`e elle
+ * "www"lu bir adres yazıp gerisini bırakmak, paylaşım görsellerinin bir
+ * alan adına, canonical'ların başka bir alan adına işaret etmesi demekti —
+ * Google için tek bir sayfanın iki ayrı adresi, yani bölünmüş sinyal.
+ *
+ * Barındırma tarafında www ↔ apex arasında TEK YÖNLÜ bir yönlendirme
+ * olmalı; iki adres de 200 dönerse buradaki tutarlılık tek başına yetmez.
+ *
+ * `.env.local` içindeki NEXT_PUBLIC_SITE_URL bunu ezer (staging için).
+ */
 export const SITE_URL = (
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://coast2coastpropertiesturkey.co.uk"
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  "https://www.coast2coastpropertiesturkey.co.uk"
 ).replace(/\/$/, "");
 
 export const siteConfig = {

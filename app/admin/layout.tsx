@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Montserrat, Playfair_Display } from "next/font/google";
 import { AdminTopBar } from "@/components/admin/admin-top-bar";
 import { getAdminSession } from "@/lib/admin/auth";
+import { SITE_URL } from "@/lib/site";
 import "../globals.css";
 
 /**
@@ -91,6 +92,25 @@ export const viewport: Viewport = {
  *     değil. Yönetici hangi tarafta olduğunu bir bakışta anlıyor.
  */
 export const metadata: Metadata = {
+  /**
+   * ⚠️ İKİNCİ KÖK LAYOUT'UN KENDİ `metadataBase`İ OLMAK ZORUNDA.
+   *
+   * Bu alan `app/[lang]/layout.tsx` içinde zaten tanımlıydı, ama metadata
+   * layout'lar arasında MİRAS ALINMIYOR — panel ayrı bir kök (rota tabanlı
+   * i18n'de vitrin `app/[lang]/` altına taşınınca zorunlu oldu). Sonuç:
+   * build her panel rotası için "metadataBase not set, using
+   * http://localhost:3000" uyarısı veriyordu.
+   *
+   * Panel `noindex` olsa bile bu önemli: uyarı gerçek bir eksikliği
+   * gösteriyor ve göreli bir OG yolu eklenirse sessizce localhost'a
+   * çözülürdü.
+   *
+   * SABİT DEĞİL `SITE_URL`: alan adı tek kaynaktan geliyor (lib/site.ts) ve
+   * canonical, hreflang, sitemap, schema `@id` ile OG url alanlarının
+   * tamamı aynı yerden besleniyor. Buraya elle bir alan adı yazmak, o
+   * zincirin dışında kalan tek değer olurdu.
+   */
+  metadataBase: new URL(SITE_URL),
   title: "Admin — Coast 2 Coast",
   /*
     Panel arama motorlarına KAPALI. robots.ts'teki disallow kuralı
