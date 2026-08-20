@@ -51,6 +51,8 @@ import {
 } from "@/lib/property-filters";
 import { serviceAreas } from "@/lib/site";
 import type { PropertyCardData } from "@/lib/property-card-data";
+import { useT } from "@/components/translation";
+import type { TranslationKey } from "@/lib/i18n";
 
 /**
  * İlan tarayıcı — filtre çubuğu + animasyonlu ızgara.
@@ -79,6 +81,7 @@ import type { PropertyCardData } from "@/lib/property-card-data";
  */
 const PAGE_SIZE = 12;
 export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
+  const { t } = useT();
   const reduceMotion = useReducedMotion();
   const { format } = useLocale();
   const headingId = useId();
@@ -232,7 +235,7 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
   const priceTouched =
     filters.minPrice > bounds.min || filters.maxPrice < bounds.max;
 
-  /* Sıralama bir filtre değil, bir tercih — "Clear all filters" onu bozmaz. */
+  /* Sıralama bir filtre değil, bir tercih — "{t("explorer.clearFilters")}" onu bozmaz. */
   const reset = () => setFilters(defaultFilters(bounds));
 
   const toggleArea = (slug: string) =>
@@ -266,11 +269,14 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
     () =>
       CATEGORY_ORDER.map((category) => ({
         value: category,
-        label: CATEGORY_LABEL[category],
+        label: t(CATEGORY_LABEL[category] as TranslationKey),
         icon: CATEGORY_ICON[category],
         count: villas.filter((villa) => categoryOf(villa) === category).length,
       })),
-    [villas],
+    /* `t` bağımlılıkta: dil değişince etiketler yeniden hesaplanmalı.
+       `useT()` onu dile göre memolar, yani her render'da yeni referans
+       üretip memoyu boşa çıkarmıyor. */
+    [villas, t],
   );
 
   const areaLabel =
@@ -278,12 +284,12 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
       ? "All areas"
       : filters.areas.length === 1
         ? (areaOptions.find((area) => area.slug === filters.areas[0])?.name ??
-          "1 area")
-        : `${filters.areas.length} areas`;
+          t("explorer.oneArea"))
+        : t("explorer.areaCount", { count: filters.areas.length });
 
   const typeLabel =
     filters.categories.length === 0
-      ? "Any type"
+      ? t("explorer.anyType")
       : filters.categories.map((category) => CATEGORY_LABEL[category]).join(", ");
 
   return (
@@ -458,7 +464,7 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
                   >
                     <span className="inline-flex items-center gap-2.5">
                       <option.icon className="size-4" aria-hidden="true" />
-                      {option.label}
+                      {t(option.label as TranslationKey)}
                     </span>
                     <span className="text-xs tabular-nums opacity-60">
                       {option.count}
@@ -484,10 +490,15 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
           <div className="flex w-full items-center gap-2 sm:ml-auto sm:w-auto">
             <SelectMenu
               tone="pill"
-              label="Sort"
+              label={t("explorer.sort")}
               value={sort}
               onChange={(value) => setUserSort(value as SortKey)}
-              options={SORT_OPTIONS}
+              /* SORT_OPTIONS.label bir ÇEVİRİ ANAHTARI (bkz.
+                 lib/property-filters.ts); menüye çözülmüş hâli veriliyor. */
+              options={SORT_OPTIONS.map((o) => ({
+                ...o,
+                label: t(o.label as TranslationKey),
+              }))}
               align="end"
               className="min-w-0 sm:ml-auto"
             />
@@ -505,7 +516,7 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
                   className="inline-flex shrink-0 items-center gap-2 px-3 py-2.5 text-sm text-ink-70 underline-offset-4 transition-colors hover:text-sea-deep hover:underline sm:px-4"
                 >
                   <RotateCcw className="size-3.5" aria-hidden="true" />
-                  Reset
+                  {t("explorer.reset")}
                 </motion.button>
               ) : null}
             </AnimatePresence>
@@ -525,8 +536,8 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
             */}
             <p aria-live="polite" className="sr-only">
               {results.length === 1
-                ? "1 property matches your filters"
-                : `${results.length} properties match your filters`}
+                ? t("explorer.resultCountOne")
+                : t("explorer.resultCountOther", { count: results.length })}
             </p>
 
             {/*
@@ -543,7 +554,7 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
             */}
             <div
               role="group"
-              aria-label="Result layout"
+              aria-label={t("explorer.layout")}
               className="ml-auto flex shrink-0 items-center rounded-sm border border-line bg-white p-0.5 sm:ml-0"
             >
               {(
@@ -624,7 +635,7 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
                   key={category}
                   onRemove={() => toggleCategory(category)}
                   icon={CATEGORY_ICON[category]}
-                  label={CATEGORY_LABEL[category]}
+                  label={t(CATEGORY_LABEL[category] as TranslationKey)}
                 />
               ))}
 
@@ -658,7 +669,7 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
       {/* -------------------------------------------------------------- IZGARA */}
       <section aria-labelledby={headingId} className="container-page pb-16 pt-6 sm:pt-8">
         <h2 id={headingId} className="sr-only">
-          Property results
+          {t("explorer.results")}
         </h2>
 
         {/*
@@ -728,7 +739,7 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
                   transition={{ duration: 0.25, ease: EASE_OUT_EXPO }}
                   className="btn btn-outline-dark"
                 >
-                  Load more properties
+                  {t("explorer.loadMore")}
                   <ChevronDown className="size-4" aria-hidden="true" />
                 </motion.button>
               ) : null}
@@ -754,16 +765,15 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
                   : "Nothing matches those filters"}
               </p>
               <p className="mt-3 max-w-sm text-sm leading-relaxed text-ink-70">
-                A meaningful share of what we sell never reaches this page. Tell
-                us the brief and we will match it off-market.
-              </p>
+                {t("explorer.emptyBody")}
+            </p>
               <button
                 type="button"
                 onClick={reset}
                 className="mt-8 inline-flex items-center gap-2 bg-sea-deep px-7 py-3.5 text-sm font-medium text-shell transition-colors hover:bg-sea"
               >
                 <RotateCcw className="size-4" aria-hidden="true" />
-                Clear all filters
+                {t("explorer.clearFilters")}
               </button>
             </motion.div>
           ) : null}
@@ -826,6 +836,7 @@ function SearchField({
   value: string;
   onChange: (value: string) => void;
 }) {
+  const { t } = useT();
   const inputId = useId();
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -854,7 +865,7 @@ function SearchField({
             onChange("");
           }
         }}
-        placeholder="Search by keyword…"
+        placeholder={t("explorer.searchPlaceholder")}
         autoComplete="off"
         spellCheck={false}
         className="w-full rounded-sm border border-line bg-white py-2.5 pl-11 pr-10 text-sm text-sea-deep transition-colors placeholder:text-ink-40 hover:border-sea-deep focus:border-sea-deep focus:outline-none"
@@ -872,7 +883,7 @@ function SearchField({
           className="absolute right-1.5 top-1/2 inline-flex size-7 -translate-y-1/2 items-center justify-center rounded-sm text-ink-40 transition-colors hover:bg-shell-deep hover:text-sea-deep"
         >
           <X className="size-3.5" aria-hidden="true" />
-          <span className="sr-only">Clear search</span>
+          <span className="sr-only">{t("explorer.clearSearch")}</span>
         </button>
       ) : null}
     </div>
@@ -989,6 +1000,7 @@ function Chip({
   icon?: React.ComponentType<{ className?: string }>;
   onRemove: () => void;
 }) {
+  const { t } = useT();
   return (
     <li>
       <button
@@ -999,7 +1011,7 @@ function Chip({
         {Icon ? <Icon className="size-3 text-sea" /> : null}
         {label}
         <X className="size-3 text-ink-40 transition-colors group-hover:text-sea-deep" />
-        <span className="sr-only">Remove filter</span>
+        <span className="sr-only">{t("explorer.removeFilter")}</span>
       </button>
     </li>
   );
@@ -1026,6 +1038,7 @@ function PriceRange({
   format: (gbp: number) => string;
   onChange: (next: { minPrice: number; maxPrice: number }) => void;
 }) {
+  const { t } = useT();
   const span = bounds.max - bounds.min;
   const toPercent = (value: number) => ((value - bounds.min) / span) * 100;
 
@@ -1061,7 +1074,7 @@ function PriceRange({
 
         <input
           type="range"
-          aria-label="Minimum price"
+          aria-label={t("explorer.minPrice")}
           min={bounds.min}
           max={bounds.max}
           step={PRICE_STEP}
@@ -1079,7 +1092,7 @@ function PriceRange({
         />
         <input
           type="range"
-          aria-label="Maximum price"
+          aria-label={t("explorer.maxPrice")}
           min={bounds.min}
           max={bounds.max}
           step={PRICE_STEP}
@@ -1098,7 +1111,7 @@ function PriceRange({
       </div>
 
       <p className="mt-5 text-xs leading-relaxed text-ink-40">
-        Guide prices. Purchase costs add roughly 6–8% on top.
+        {t("explorer.priceNote")}
       </p>
     </div>
   );

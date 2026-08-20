@@ -8,6 +8,7 @@ import { EASE_OUT_EXPO } from "@/components/reveal";
 import { cn } from "@/lib/cn";
 import { swipeHandlers } from "@/lib/swipe";
 import type { VillaImage } from "@/lib/types";
+import { useT } from "@/components/translation";
 
 /**
  * İlan galerisi: mozaik ızgara (1 büyük + 2 küçük) ve tam ekran lightbox.
@@ -29,6 +30,7 @@ export function PropertyGallery({
   images: VillaImage[];
   title: string;
 }) {
+  const { t } = useT();
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -80,7 +82,7 @@ export function PropertyGallery({
       >
         <span className="inline-flex items-center gap-2 text-sm text-ink-40">
           <Images className="size-4" aria-hidden="true" />
-          Photography coming soon
+          {t("properties.noPhotos")}
         </span>
       </div>
     );
@@ -104,7 +106,7 @@ export function PropertyGallery({
         >
           <span className="pointer-events-none absolute bottom-4 left-4 inline-flex items-center gap-2 bg-ink/60 px-4 py-2 text-xs text-shell backdrop-blur-md">
             <Expand className="size-3.5" aria-hidden="true" />
-            View gallery
+            {t("properties.galleryOpen")}
           </span>
         </GalleryTile>
 
@@ -215,7 +217,7 @@ export function PropertyGallery({
           <button
             type="button"
             onClick={() => dialogRef.current?.close()}
-            aria-label="Close gallery"
+            aria-label={t("properties.galleryClose")}
             className="absolute right-4 top-4 z-10 inline-flex size-11 items-center justify-center rounded-sm border border-white/25 bg-ink/40 text-shell backdrop-blur-md transition-colors hover:bg-ink/70 sm:right-6 sm:top-6"
           >
             <X className="size-5" strokeWidth={1.5} aria-hidden="true" />
@@ -235,12 +237,12 @@ export function PropertyGallery({
             <>
               <LightboxArrow
                 side="left"
-                label="Previous photo"
+                label={t("properties.previousPhoto")}
                 onClick={() => step(-1)}
               />
               <LightboxArrow
                 side="right"
-                label="Next photo"
+                label={t("properties.nextPhoto")}
                 onClick={() => step(1)}
               />
             </>

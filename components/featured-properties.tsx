@@ -1,4 +1,5 @@
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/locale-link";
+import { getT } from "@/lib/i18n/server";
 import { ArrowRight } from "lucide-react";
 import { FeaturedCarousel } from "@/components/featured-carousel";
 import { Reveal } from "@/components/reveal";
@@ -17,6 +18,7 @@ import { getFeaturedVillas } from "@/lib/villas";
  * bir karuselde "kaydırılacak bir şey var" hissi vermiyordu.
  */
 export async function FeaturedProperties() {
+  const t = await getT();
   const villas = await getFeaturedVillas(7);
 
   /** Dar görünüm modeli: koordinatlar sınırı hiç geçmiyor. */
@@ -35,7 +37,7 @@ export async function FeaturedProperties() {
             id="featured-heading"
             className="font-display text-2xl uppercase leading-[1.1] tracking-[0.02em] text-sea-deep sm:text-4xl"
           >
-            Featured properties
+            {t("home.featuredHeading")}
           </h2>
         </Reveal>
 
@@ -57,7 +59,7 @@ export async function FeaturedProperties() {
         {/* CTA karuselin ALTINDA ve ortada kalıyor. Sayı taşımıyor. */}
         <Reveal className="mt-10 flex justify-center sm:mt-12" y={16}>
           <Link href="/properties" className="btn btn-solid">
-            View all properties
+            {t("home.featuredCta")}
             <ArrowRight className="size-4" aria-hidden="true" />
           </Link>
         </Reveal>

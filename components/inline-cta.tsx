@@ -1,6 +1,7 @@
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/locale-link";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { getSettings, whatsappHref } from "@/lib/settings";
+import { getT } from "@/lib/i18n/server";
 
 /**
  * Yazı içine ve sonuna yerleştirilen dönüşüm bandı.
@@ -11,11 +12,16 @@ import { getSettings, whatsappHref } from "@/lib/settings";
  * metnin parçası değil, ona eşlik eden bir öğe.
  */
 export async function InlineCta({
-  title = "Looking for a property in Fethiye?",
-  text = "Tell us your budget and timeline and we will send a shortlist — including the properties we would talk you out of.",
-  ctaLabel = "Contact us",
+  /*
+    VARSAYILANLAR ARTIK BURADA DEĞİL, GÖVDEDE.
+    Parametre varsayılanı olarak yazılsalardı İngilizce sabitler olurdu ve
+    `t()` bu noktada henüz çözülmemiş oluyor (bileşen async).
+  */
+  title,
+  text,
+  ctaLabel,
   ctaHref = "/contact",
-  whatsappMessage = "Hello Coast 2 Coast — I've been reading your guides and I'd like to talk about buying in Fethiye.",
+  whatsappMessage,
   tone = "sea-deep",
 }: {
   title?: string;
@@ -26,6 +32,13 @@ export async function InlineCta({
   /** "sea-deep": koyu, dikkat çeken. "soft": açık, metne daha yakın duran. */
   tone?: "sea-deep" | "soft";
 }) {
+  const t = await getT();
+
+  const heading = title ?? t("panel.lookingFor");
+  const body = text ?? t("blog.listCtaText");
+  const label = ctaLabel ?? t("properties.register");
+  const waMessage = whatsappMessage ?? t("blog.listCtaWhatsapp");
+
   const settings = await getSettings();
 
   const isNavy = tone === "sea-deep";
@@ -44,14 +57,14 @@ export async function InlineCta({
           isNavy ? "text-shell" : "text-sea-deep"
         }`}
       >
-        {title}
+        {heading}
       </p>
       <p
         className={`mt-5 max-w-xl leading-relaxed ${
           isNavy ? "text-shell/80" : "text-ink-70"
         }`}
       >
-        {text}
+        {body}
       </p>
 
       <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -63,12 +76,12 @@ export async function InlineCta({
               : "bg-sea-deep text-shell hover:bg-sea"
           }`}
         >
-          {ctaLabel}
+          {label}
           <ArrowRight className="size-4" aria-hidden="true" />
         </Link>
 
         <a
-          href={whatsappHref(settings.contact.whatsappNumber, whatsappMessage)}
+          href={whatsappHref(settings.contact.whatsappNumber, waMessage)}
           target="_blank"
           rel="noopener noreferrer"
           className={`inline-flex items-center justify-center gap-2 border px-7 py-3.5 text-sm font-medium transition-colors ${
@@ -78,7 +91,7 @@ export async function InlineCta({
           }`}
         >
           <MessageCircle className="size-4" aria-hidden="true" />
-          WhatsApp us
+          {t("panel.whatsappUs")}
         </a>
       </div>
     </aside>

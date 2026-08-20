@@ -16,7 +16,7 @@ import type {
   WebSite,
   WithContext,
 } from "schema-dts";
-import { contact, siteConfig, SITE_URL } from "@/lib/site";
+import { contact, getServiceArea, siteConfig, SITE_URL } from "@/lib/site";
 import { socialProfileList, type SiteSettings } from "@/lib/settings";
 import { safeMapCoordinates } from "@/lib/villa-format";
 import type { Post, Villa } from "@/lib/types";
@@ -28,6 +28,50 @@ import type { Post, Villa } from "@/lib/types";
  */
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
+
+/**
+ * ÇEKİRDEK SATIŞ BÖLGELERİ — ajansın gerçekten çalıştığı altı yer.
+ *
+ * `serviceAreas` on ikiden fazla bölge taşıyor (Kalkan, Dalaman, Bekçiler...);
+ * hepsini `areaServed` içine dökmek sinyali seyreltir. Buradaki altısı,
+ * markanın uzmanlık iddiasını taşıdığı çekirdek — /about-turkey sayfasında
+ * her birinin koordinatlı bir `Place` düğümü zaten var.
+ *
+ * Slug listesi elle yazılıyor ama İSİMLER `serviceAreas`ten okunuyor:
+ * bölge adı bir yerde değişirse schema sessizce eskimez.
+ */
+const CORE_AREA_SLUGS = [
+  "fethiye-centre",
+  "oludeniz",
+  "calis",
+  "hisaronu",
+  "ovacik",
+  "uzumlu",
+] as const;
+
+/**
+ * `@id`, /about-turkey'deki `areaPlaceSchema` düğümleriyle AYNI.
+ *
+ * Bu tekrar değil, birleştirme: Google ve LLM'ler aynı @id'yi taşıyan
+ * düğümleri tek varlıkta toplar. Sonuç — "Ölüdeniz" burada ajansın hizmet
+ * bölgesi, orada koordinatı ve adresi olan bir yer; ikisi tek kayıt olur.
+ * Adı ayrıca yazıyoruz ki düğüm bu sayfada tek başına da anlamlı olsun.
+ */
+function coreAreasServed() {
+  return CORE_AREA_SLUGS.flatMap((slug) => {
+    const area = getServiceArea(slug);
+
+    if (!area) return [];
+
+    return [
+      {
+        "@type": "Place" as const,
+        "@id": `${SITE_URL}/about-turkey#area-${slug}`,
+        name: `${area.name}, Fethiye, Muğla, Türkiye`,
+      },
+    ];
+  });
+}
 
 /**
  * Kurumsal düğüm. `settings` ZORUNLU parametre: NAP (Name/Address/Phone)
@@ -46,10 +90,17 @@ export function organizationSchema(
     "@context": "https://schema.org",
     "@type": "RealEstateAgent",
     "@id": ORG_ID,
+    /**
+     * `name` ekranda görünen adla BİREBİR aynı kalmalı (NAP tutarlılığı) ve
+     * bu yüzden panelden gelen `companyName`i kullanıyor. Bitişik yazım
+     * `alternateName` olarak duruyor — bkz. siteConfig.alternateName.
+     */
     name: companyName,
+    alternateName: siteConfig.alternateName,
     legalName: siteConfig.legalName,
     url: `${SITE_URL}/`,
-    description: siteConfig.description,
+    /** Uzun varlık tanımı; meta açıklama ayrı alandır (siteConfig.description). */
+    description: siteConfig.profileDescription,
     image: `${SITE_URL}/opengraph-image`,
     logo: `${SITE_URL}/logo.png`,
     foundingDate: siteConfig.founded,
@@ -70,18 +121,52 @@ export function organizationSchema(
       longitude: contact.geo.longitude,
     },
     /**
-     * Satış bölgesi Fethiye; hedef pazar ise artık tek bir ülke değil.
-     * Tek bir ülkeyi (eskiden "United Kingdom") saymak, uluslararası
-     * alıcıya bakan bir siteye dar bir sinyal veriyordu — `Place` ile
-     * coğrafi sınır koymadan "dünya geneli" demek daha doğru.
+     * İki ayrı soruya cevap veriyor ve ikisi de gerekli:
+     *
+     *   NEREDE MÜLK SATIYORUZ → Fethiye ve altı çekirdek mahalle/bölge.
+     *     Yerel aramanın ve "Ölüdeniz'de villa" tipi sorguların okuduğu yer
+     *     burası; ilçe adlarını tek tek saymak, tek bir "Fethiye" satırının
+     *     veremeyeceği çözünürlükte bir sinyal.
+     *   MÜŞTERİ NEREDEN GELİYOR → dünya geneli. Tek bir ülkeyi (eskiden
+     *     "United Kingdom") saymak uluslararası alıcıya bakan bir siteye
+     *     dar bir sinyaldi.
      */
     areaServed: [
       { "@type": "AdministrativeArea", name: "Fethiye, Muğla, Türkiye" },
+      ...coreAreasServed(),
       { "@type": "Country", name: "Türkiye" },
       { "@type": "Place", name: "Worldwide" },
     ],
-    /** Başlıktaki dil seçicisiyle aynı üçlü (bkz. lib/locale.ts). */
-    knowsLanguage: ["en", "tr", "ru"],
+    /**
+     * BCP 47 etiketleri, çıplak dil kodları değil: "en" İngilizceyi
+     * söyler, "en-GB" hangi İngilizceyi konuştuğumuzu da söyler. Bir
+     * İngiliz alıcının aradığı sinyal ikincisi. Üçlü, başlıktaki dil
+     * seçicisiyle aynı (bkz. lib/locale.ts).
+     */
+    knowsLanguage: ["en-GB", "tr-TR", "ru-RU"],
+    /**
+     * UZMANLIK ALANLARI.
+     *
+     * `knowsAbout` bir anahtar kelime çöplüğü değil, varlığın neyde yetkin
+     * olduğunu söyleyen alan — LLM'ler bir soruyu kime bağlayacağına
+     * karar verirken tam olarak buna bakar. Bu yüzden dört madde, arama
+     * terimi gibi değil, gerçek uzmanlık iddiası gibi yazılı.
+     */
+    knowsAbout: [
+      "Fethiye Luxury Real Estate",
+      "UK Expat property investment in Turkey",
+      "Turkish Title Deed Process for Foreigners",
+      "Holiday Homes Fethiye",
+    ],
+    /*
+      HEDEF KİTLE NEDEN AYRI BİR ALANDA DEĞİL:
+      schema.org'da `audience`, Organization (dolayısıyla RealEstateAgent)
+      üzerinde TANIMLI DEĞİL — CreativeWork, Product ve Service taşır.
+      Uydurma bir alan eklemek düğümü doğrulamadan düşürür ve okuyan taraf
+      tüm bloğu güvenilmez sayabilir. UK expat / yabancı yatırımcı / premium
+      Türk alıcı üçlüsü bu yüzden `description` içinde, düz cümle olarak
+      duruyor; hizmet bazında kitle gerekirse doğru yer `serviceSchema`.
+    */
     sameAs: socialProfileList(settings),
     contactPoint: {
       "@type": "ContactPoint",

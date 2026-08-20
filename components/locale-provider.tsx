@@ -1,64 +1,59 @@
 "use client";
 
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useMemo,
-  useSyncExternalStore,
-} from "react";
+import { createContext, useCallback, useContext, useMemo, useSyncExternalStore } from "react";
 import {
   CURRENCIES,
   formatPrice,
   type CurrencyCode,
   type Rates,
 } from "@/lib/currency";
-import {
-  DEFAULT_CURRENCY,
-  DEFAULT_LANGUAGE,
-  isLanguage,
-  type LanguageCode,
-} from "@/lib/locale";
+import { LANGUAGE_META, type LanguageCode } from "@/lib/locale";
 
 /**
- * DİL + PARA BİRİMİ DURUMU — tek seçim, iki ayrı saklanan eksen.
+ * DİL + PARA BİRİMİ DURUMU — artık İKİ FARKLI KAYNAKTAN.
  *
- * Arayüzde artık TEK bir seçici var (bkz. locale-switcher) ve dört hazır
- * çiftten birini yazıyor. Buna rağmen durum tek bir "seçenek kimliği" olarak
- * DEĞİL, iki düz alan olarak saklanıyor:
+ * ─────────────────────────────────────────────────────────────────────────
+ * DİL       → URL'den gelir (`app/[lang]/`), sunucudan prop olarak iner.
+ * PARA BİRİMİ → localStorage'da kalır.
  *
- *   - `language` çeviriyi/etiketleri, `currency` matematiği sürer. İkisini
- *     tek bir id'nin arkasına saklamak, her okuyanı önce o id'yi çözmeye
- *     zorlardı — `format()` para birimini doğrudan ister.
- *   - Çiftler listesi ürün kararıdır ve değişebilir (yarın "EN + USD"
- *     eklenebilir). Depolama biçimi bu karara bağlı kalmamalı; eski
- *     kombinasyonlar da geçerli durum olarak okunmaya devam eder
- *     (bkz. `matchLocalization`).
+ * NEDEN AYRIŞTILAR. Önceden ikisi de localStorage'daydı ve bu doğruydu:
+ * çeviri yoktu, dil yalnızca bir arayüz tercihiydi. Rota tabanlı i18n ile
+ * dil artık SAYFANIN KİMLİĞİ — /tr/properties ile /properties iki ayrı
+ * belge, iki ayrı canonical, iki ayrı hreflang girdisi. Böyle bir şey
+ * tarayıcı depolamasında tutulamaz: Google localStorage okumaz.
  *
- * Yani ekseni birlikte YAZIYORUZ, ayrı ayrı OKUYORUZ.
+ * Para birimi ise gerçekten bir tercih olmaya devam ediyor. URL'e yazmak
+ * (/tr/eur/properties) her sayfayı dört katına çıkarır ve dördü de aynı
+ * metni taşıyan yinelenen içerik olurdu. Fiyat, çevrilmiş bir metin değil
+ * biçimlendirilmiş bir sayı — istemcide kalması doğru.
+ *
+ * Yani: DİL sunucuda çözülür ve HTML'e girer, PARA BİRİMİ istemcide.
+ * ─────────────────────────────────────────────────────────────────────────
  */
 
 type LocaleContextValue = {
   language: LanguageCode;
   currency: CurrencyCode;
   rates: Rates;
-  /** Her iki ekseni TEK adımda yazar — başlıktaki seçicinin tek eylemi. */
-  setLocalization: (language: LanguageCode, currency: CurrencyCode) => void;
+  /** Yalnızca para birimi — dil değişimi bir GEZİNMEDİR (bkz. locale-switcher). */
+  setCurrency: (currency: CurrencyCode) => void;
   /** GBP tutarı alır, seçili para biriminde biçimlenmiş string döner. */
   format: (gbpAmount: number) => string;
 };
 
 const LocaleContext = createContext<LocaleContextValue | null>(null);
 
-const LANGUAGE_KEY = "c2c:lang";
 const CURRENCY_KEY = "c2c:currency";
 
 /**
  * localStorage harici bir sistemdir; React'e useSyncExternalStore ile bağlanır.
  * Bunun useState + useEffect'e üstünlüğü:
- *  - Sunucu anlık görüntüsü ile istemci ilk render'ı hiç çelişmez → hydration hatası yok.
+ *  - Sunucu anlık görüntüsü ile istemci ilk render'ı çelişmez → hydration hatası yok.
  *  - Sekmeler arası senkron çalışır (storage olayı).
  *  - Effect içinde setState çağrılmadığı için ekstra render turu oluşmaz.
+ *
+ * ⚠️ Snapshot PRİMİTİF dönmek zorunda: her çağrıda yeni bir nesne dönseydi
+ * React onu Object.is ile "değişmiş" sayar ve sonsuz döngüye girerdi.
  */
 const listeners = new Set<() => void>();
 
@@ -76,76 +71,60 @@ function subscribe(onStoreChange: () => void) {
   };
 }
 
-/**
- * ⚠️ İKİ AYRI ABONELİK, TEK NESNE DEĞİL.
- *
- * `getSnapshot` her çağrıldığında `{ language, currency }` gibi YENİ bir nesne
- * dönseydi React onu her seferinde değişmiş sayar ve sonsuz render döngüsüne
- * girerdi (useSyncExternalStore snapshot'ı Object.is ile karşılaştırır).
- * Bu yüzden her eksen kendi hook'unu kullanıyor ve daima bir PRİMİTİF dönüyor.
- */
-function getLanguageSnapshot(): LanguageCode {
-  const stored = window.localStorage.getItem(LANGUAGE_KEY);
-  return isLanguage(stored) ? stored : DEFAULT_LANGUAGE;
-}
-
-function getCurrencySnapshot(): CurrencyCode {
-  const stored = window.localStorage.getItem(CURRENCY_KEY);
-  return CURRENCIES.includes(stored as CurrencyCode)
-    ? (stored as CurrencyCode)
-    : DEFAULT_CURRENCY;
+function getStoredCurrency(): string | null {
+  return window.localStorage.getItem(CURRENCY_KEY);
 }
 
 /**
- * Sunucuda üretilen HTML daima EN + GBP gösterir — yani Google'ın taradığı
- * statik çıktıdaki fiyatlar her zaman KAYNAK para birimindedir.
+ * Sunucuda saklanan değer YOKTUR — HTML daima dilin varsayılan para
+ * biriminde üretilir. Yani /tr sayfası taranırken fiyatlar ₺, /properties
+ * taranırken £ görünür: her dil kendi pazarının parasıyla indekslenir.
  */
-const getServerLanguageSnapshot = (): LanguageCode => DEFAULT_LANGUAGE;
-const getServerCurrencySnapshot = (): CurrencyCode => DEFAULT_CURRENCY;
+const getServerCurrency = (): string | null => null;
 
 export function LocaleProvider({
   children,
+  language,
   rates,
 }: {
   children: React.ReactNode;
+  /** Rotadan çözülen dil — `app/[lang]/(site)/layout.tsx` geçiriyor. */
+  language: LanguageCode;
   /** Sunucuda çözülen GBP tabanlı kurlar — istemcide ekstra istek yapılmaz. */
   rates: Rates;
 }) {
-  const language = useSyncExternalStore(
+  const stored = useSyncExternalStore(
     subscribe,
-    getLanguageSnapshot,
-    getServerLanguageSnapshot,
+    getStoredCurrency,
+    getServerCurrency,
   );
 
-  const currency = useSyncExternalStore(
-    subscribe,
-    getCurrencySnapshot,
-    getServerCurrencySnapshot,
-  );
+  /**
+   * Saklanan değer yoksa DİLİN parası devreye girer: Türkçe sayfaya gelen
+   * kullanıcı ₺ görür, hiçbir şey seçmeden. Açıkça bir para birimi seçmişse
+   * o kazanır — dil değiştirmek, kullanıcının bilinçli tercihini ezmemeli.
+   */
+  const currency = useMemo<CurrencyCode>(() => {
+    if (stored && CURRENCIES.includes(stored as CurrencyCode)) {
+      return stored as CurrencyCode;
+    }
+    return LANGUAGE_META[language].currency;
+  }, [stored, language]);
 
-  const setLocalization = useCallback(
-    (nextLanguage: LanguageCode, nextCurrency: CurrencyCode) => {
-      /*
-        İki yazma, TEK emit: ikisini ayrı ayrı yayınlasaydık React arada bir
-        kez daha render eder ve kullanıcı bir kare boyunca yeni dil + ESKİ para
-        birimi kombinasyonunu görürdü.
-      */
-      window.localStorage.setItem(LANGUAGE_KEY, nextLanguage);
-      window.localStorage.setItem(CURRENCY_KEY, nextCurrency);
-      emit();
-    },
-    [],
-  );
+  const setCurrency = useCallback((next: CurrencyCode) => {
+    window.localStorage.setItem(CURRENCY_KEY, next);
+    emit();
+  }, []);
 
   const value = useMemo<LocaleContextValue>(
     () => ({
       language,
       currency,
       rates,
-      setLocalization,
+      setCurrency,
       format: (gbpAmount: number) => formatPrice(gbpAmount, currency, rates),
     }),
-    [language, currency, rates, setLocalization],
+    [language, currency, rates, setCurrency],
   );
 
   return (

@@ -22,6 +22,14 @@ export function SettingsForm({ initial }: { initial: SiteSettings }) {
   const [companyName, setCompanyName] = useState(initial.companyName);
   const [phoneDisplay, setPhoneDisplay] = useState(initial.contact.phoneDisplay);
   const [phoneE164, setPhoneE164] = useState(initial.contact.phoneE164);
+  /* İkinci hat opsiyonel; alanı taşımayan eski bir kayıtta `undefined`
+     gelir ve kontrolsüz input'a düşmemek için boş dizeye sabitleniyor. */
+  const [phoneSecondaryDisplay, setPhoneSecondaryDisplay] = useState(
+    initial.contact.phoneSecondaryDisplay ?? "",
+  );
+  const [phoneSecondaryE164, setPhoneSecondaryE164] = useState(
+    initial.contact.phoneSecondaryE164 ?? "",
+  );
   const [whatsapp, setWhatsapp] = useState(initial.contact.whatsappNumber);
   const [email, setEmail] = useState(initial.contact.email);
   const [openingHours, setOpeningHours] = useState(initial.contact.openingHours);
@@ -87,6 +95,8 @@ export function SettingsForm({ initial }: { initial: SiteSettings }) {
           contact: {
             phoneDisplay,
             phoneE164,
+            phoneSecondaryDisplay,
+            phoneSecondaryE164,
             whatsappNumber: whatsapp,
             email,
             openingHours,
@@ -208,6 +218,20 @@ export function SettingsForm({ initial }: { initial: SiteSettings }) {
             onChange={setPhoneE164}
             hint="E.164, used by tel: links"
             placeholder="+905340520030"
+          />
+          <TextField
+            label="Second phone (display)"
+            value={phoneSecondaryDisplay}
+            onChange={setPhoneSecondaryDisplay}
+            hint="Shown under the primary number — leave blank to hide it"
+            placeholder="+90 543 903 35 19"
+          />
+          <TextField
+            label="Second phone (dial)"
+            value={phoneSecondaryE164}
+            onChange={setPhoneSecondaryE164}
+            hint="E.164, used by tel: links"
+            placeholder="+905439033519"
           />
           <TextField
             label="WhatsApp number"

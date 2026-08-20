@@ -6,6 +6,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 import { PropertyCard } from "@/components/property-card";
 import { cn } from "@/lib/cn";
 import type { PropertyCardData } from "@/lib/property-card-data";
+import { useT } from "@/components/translation";
 
 /**
  * Ana sayfa vitrininin yatay karuseli.
@@ -27,6 +28,7 @@ const GAP = "pl-5 sm:pl-6";
 const GAP_OFFSET = "-ml-5 sm:-ml-6";
 
 export function FeaturedCarousel({ cards }: { cards: PropertyCardData[] }) {
+  const { t } = useT();
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     containScroll: "trimSnaps",
@@ -84,7 +86,7 @@ export function FeaturedCarousel({ cards }: { cards: PropertyCardData[] }) {
       className="relative"
       role="group"
       aria-roledescription="carousel"
-      aria-label="Featured properties"
+      aria-label={t("home.featuredHeading")}
     >
       <div className="overflow-hidden" ref={emblaRef}>
         <ul className={cn("flex touch-pan-y items-stretch", GAP_OFFSET)}>
@@ -141,13 +143,13 @@ export function FeaturedCarousel({ cards }: { cards: PropertyCardData[] }) {
       */}
       <Arrow
         side="left"
-        label="Previous properties"
+        label={t("properties.previousProperties")}
         disabled={!canPrev}
         onClick={() => emblaApi?.scrollPrev()}
       />
       <Arrow
         side="right"
-        label="Next properties"
+        label={t("properties.nextProperties")}
         disabled={!canNext}
         onClick={() => emblaApi?.scrollNext()}
       />

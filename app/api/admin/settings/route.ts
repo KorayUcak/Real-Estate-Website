@@ -117,6 +117,16 @@ export async function PUT(request: NextRequest) {
     contact: {
       phoneDisplay: asPhone(contact.phoneDisplay),
       phoneE164: `+${asDigits(contact.phoneE164)}`,
+      /*
+        İkinci hat opsiyonel: boş bırakılırsa numara yayınlanmaz. Bu yüzden
+        `+` yalnızca rakam VARSA ekleniyor — koşulsuz eklemek, boş alanı
+        `tel:+` diye geçerli görünen ama hiçbir yeri aramayan bir bağlantıya
+        çevirirdi.
+      */
+      phoneSecondaryDisplay: asPhone(contact.phoneSecondaryDisplay),
+      phoneSecondaryE164: asDigits(contact.phoneSecondaryE164)
+        ? `+${asDigits(contact.phoneSecondaryE164)}`
+        : "",
       whatsappNumber: asDigits(contact.whatsappNumber),
       email,
       openingHours: asString(contact.openingHours, 120),

@@ -11,6 +11,7 @@ import { Price } from "@/components/price";
 import { cn } from "@/lib/cn";
 import { villaSummaryLine } from "@/lib/villa-format";
 import type { Villa } from "@/lib/types";
+import { useT } from "@/components/translation";
 /**
  * Panelin okuduğu ALANLAR — tam `Villa` değil.
  *
@@ -48,6 +49,7 @@ const STATUS_LABEL: Record<Villa["status"], string> = {
  * kalırsa alt kısmı erişilemez hâle gelmesin diye.
  */
 export function EnquiryPanel({ villa }: { villa: EnquiryVilla }) {
+  const { t } = useT();
   const reduceMotion = useReducedMotion();
   const { contact } = useSettings();
 
@@ -91,7 +93,7 @@ export function EnquiryPanel({ villa }: { villa: EnquiryVilla }) {
         </div>
 
         <h2 id="enquiry-heading" className="sr-only">
-          Price and enquiry
+          {t("panel.priceAndEnquiry")}
         </h2>
 
         <Price
@@ -131,7 +133,7 @@ export function EnquiryPanel({ villa }: { villa: EnquiryVilla }) {
               className="relative inline-flex w-full items-center justify-center gap-2 bg-gold px-6 py-4 font-sans text-xs font-bold uppercase tracking-widest text-ink transition-colors hover:bg-sea-deep hover:text-shell"
             >
               <MessageCircle className="size-4" aria-hidden="true" />
-              Get info on WhatsApp
+              {t("panel.whatsappInfo")}
             </a>
           </span>
 
@@ -146,11 +148,10 @@ export function EnquiryPanel({ villa }: { villa: EnquiryVilla }) {
 
         <div className="mt-8 border-t border-line/70 pt-8">
           <p className="font-display text-lg leading-snug text-sea-deep">
-            Request the full details
+            {t("panel.requestDetails")}
           </p>
           <p className="mt-2 text-xs leading-relaxed text-ink-40">
-            Floor plans, running costs and recent rental figures — sent by a
-            person, usually within one working day.
+            {t("panel.detailsBody")}
           </p>
 
           <div className="mt-6">
@@ -168,9 +169,8 @@ export function EnquiryPanel({ villa }: { villa: EnquiryVilla }) {
           className="mt-0.5 size-4 shrink-0 text-sea"
           aria-hidden="true"
         />
-        Viewings arranged within 48 hours. No obligation, and no third-party
-        agent joining halfway through.
-      </p>
+        {t("panel.viewingsNote")}
+          </p>
     </div>
   );
 }

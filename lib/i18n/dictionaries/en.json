@@ -1,0 +1,1355 @@
+{
+  "common": {
+    "aboutTurkeyImageAlt": "Fethiye bay on Turkey's turquoise coast, seen from the hillside above the marina",
+    "approxNote": "approx. — priced in {gbp}",
+    "languageAndCurrency": "Language & Currency",
+    "languageAndCurrencyAria": "Language and currency: {value}",
+    "privacyFull": "Privacy policy in full",
+    "skipToContent": "Skip to content",
+    "termsFull": "Terms of use in full"
+  },
+  "nav": {
+    "Properties": "Properties",
+    "About Turkey": "About Turkey",
+    "Viewing Day": "Viewing Day",
+    "Viewing Trips": "Viewing Trips",
+    "Buying": "Buying",
+    "Selling": "Selling",
+    "Buying Process": "Buying Process",
+    "Selling Process": "Selling Process",
+    "Citizenship": "Citizenship",
+    "Turkish Citizenship": "Turkish Citizenship",
+    "Insurance": "Insurance",
+    "Property Insurance": "Property Insurance",
+    "Insights & Guides": "Insights & Guides",
+    "About": "About",
+    "Contact": "Contact",
+    "Guides": "Guides"
+  },
+  "navDescriptions": {
+    "/about-turkey": "The coast, the areas and what living here is like",
+    "/buying-process": "Every stage from offer to title deed",
+    "/selling-process": "How we price, market and complete a sale",
+    "/citizenship": "Residency and citizenship by investment",
+    "/insurance": "DASK and the cover a deed transfer requires"
+  },
+  "header": {
+    "primaryNavAria": "Primary",
+    "mobileNavAria": "Mobile",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "callAria": "Call us on {phone}"
+  },
+  "footer": {
+    "tagline": "A property consultant in Fethiye",
+    "exploreHeading": "Explore",
+    "guidesHeading": "Guides",
+    "areasHeading": "Fethiye & surrounding areas",
+    "footerNavAria": "Footer",
+    "guidesNavAria": "Guides",
+    "areasNavAria": "Areas we cover",
+    "rights": "© {year} {company}. All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "socialAria": "{company} on {network}"
+  },
+  "form": {
+    "name": "Full name",
+    "email": "Email",
+    "phone": "Phone (optional)",
+    "budget": "Budget (optional)",
+    "budgetPlaceholder": "Select a range",
+    "message": "How can we help?",
+    "honeypot": "Company (leave blank)",
+    "submitPage": "Send enquiry",
+    "submitPanel": "Request details",
+    "sending": "Sending…",
+    "privacyNote": "We reply personally, never share your details, and do not add you to a mailing list without asking.",
+    "successTitle": "Message received",
+    "successWhatsapp": "Need an answer sooner? Message us on WhatsApp"
+  },
+  "contact": {
+    "heading": "Send an enquiry",
+    "officeLabel": "Türkiye office",
+    "officeNote": "Fastest between 09:00 and 19:00 Turkish time.",
+    "whatsappLabel": "WhatsApp",
+    "whatsappNote": "The fastest way to reach us — usually answered within the hour.",
+    "emailLabel": "Email",
+    "emailNote": "Attach anything you have found elsewhere and we will assess it.",
+    "addressLabel": "Office",
+    "mapEyebrow": "Find us",
+    "mapHeading": "Our office in Fethiye",
+    "mapBody": "Drop in when you are on the coast — coffee is on us, and there is usually a property worth seeing the same afternoon."
+  },
+  "consent": {
+    "heading": "Cookies on this site",
+    "body": "We use essential storage to remember your language and currency. With your permission we also use Microsoft Clarity to see how visitors use the site, which sets cookies on your device. We will not load it unless you say yes.",
+    "acceptAll": "Accept all",
+    "essentialOnly": "Essential only",
+    "privacyLink": "Read our Privacy Policy",
+    "settingsLink": "Cookie settings",
+    "regionLabel": "Cookie consent"
+  },
+  "home": {
+    "heroTitle": "Find your dream property",
+    "heroCta": "View properties",
+    "heroPrevImage": "Previous image",
+    "heroNextImage": "Next image",
+    "featuredHeading": "Featured properties",
+    "featuredCta": "View all properties",
+    "areasEyebrow": "Area intelligence",
+    "areasHeading": "Where to buy on the Fethiye coast",
+    "areaGuide": "Area guide",
+    "areaImageAlt": "Property for sale in {area}, Fethiye — {headline}",
+    "faqEyebrow": "Straight answers",
+    "faqHeading": "Questions buyers actually ask",
+    "faqWhatsapp": "Ask us on WhatsApp",
+    "faqWhatsappMessage": "Hello Coast 2 Coast — I have a question about buying property in Fethiye.",
+    "ctaEyebrow": "Next step",
+    "ctaHeading": "Start with a conversation, not a brochure",
+    "ctaBody": "Tell us the budget and the timeline. We will come back with a shortlist — including the properties we would talk you out of.",
+    "ctaWhatsappMessage": "Hello Coast 2 Coast — I'd like to talk about buying a villa in Fethiye.",
+    "ctaBookCall": "Book a call",
+    "listingCount": {
+      "one": "{count} listing",
+      "few": "{count} listings",
+      "many": "{count} listings",
+      "other": "{count} listings"
+    }
+  },
+  "faq": {
+    "q1": "Can foreign citizens buy property in Fethiye?",
+    "a1": "Yes. Foreign nationals can buy freehold property in Turkey in their own name. Purchases sit outside restricted military zones in Fethiye, Ölüdeniz, Hisarönü, Ovacık, Çalış, Üzümlü and Göcek, and the title deed (TAPU) is registered directly to you.",
+    "q2": "What are the total buying costs on top of the villa price?",
+    "a2": "Budget roughly 6–8% of the purchase price. That typically covers the 4% property transfer tax, the mandatory valuation report, notary and translation fees, DASK earthquake insurance, and independent legal representation.",
+    "q3": "How long does buying a villa in Turkey take?",
+    "a3": "From accepted offer to title deed transfer, most purchases in the Fethiye area complete within the same week, assuming the funds are available.",
+    "q4": "Does buying a villa in Fethiye qualify me for Turkish citizenship?",
+    "a4": "Property purchases at or above the current government investment threshold can qualify for Turkish citizenship, provided the property is held for three years. We flag eligible listings and refer you to a specialist immigration lawyer before you commit.",
+    "q5": "Can you rent the villa out when we are not using it?",
+    "a5": "Yes. Short-let demand in Ölüdeniz and Hisarönü is strong from May to October. We introduce vetted local management companies and can share realistic occupancy and yield figures for each property before you buy."
+  },
+  "areas": {
+    "fethiye-centre": {
+      "headline": "Marina living, year-round town",
+      "blurb": "Fethiye's town centre pairs a working marina, the Tuesday market and full-time amenities with sea-view apartments and hillside villas."
+    },
+    "oludeniz": {
+      "headline": "The Blue Lagoon postcard",
+      "blurb": "Turkey's most photographed bay. Ölüdeniz villas trade on lagoon views, paragliding skies and the strongest short-let demand in the region."
+    },
+    "hisaronu": {
+      "headline": "Nightlife and rental yield",
+      "blurb": "A compact resort centre minutes from Ölüdeniz beach — the go-to for buyers chasing summer rental occupancy."
+    },
+    "ovacik": {
+      "headline": "Quiet valley, mountain air",
+      "blurb": "Ovacık sits above the coast in a green valley: larger plots, cooler evenings and a calmer, family-first pace."
+    },
+    "calis": {
+      "headline": "Sunsets on a long flat beach",
+      "blurb": "Çalış Beach offers a level promenade, famous sunsets and easy-access properties — popular with retirees and long-stay owners."
+    },
+    "uzumlu": {
+      "headline": "Village life beneath Babadağ",
+      "blurb": "Üzümlü is Fethiye's highland village: vineyards, cooler summers and detached villas at noticeably lower price per square metre."
+    },
+    "tasyaka": {
+      "headline": "Walk to the marina",
+      "blurb": "Taşyaka is the residential edge of Fethiye town — walkable to the marina and promenade, prized for panoramic bay views."
+    },
+    "gocek": {
+      "headline": "Six marinas, blue-chip addresses",
+      "blurb": "Göcek is the yachting capital of the Gulf. Low-density, high-value, and the most defensive resale market we cover."
+    },
+    "yaniklar": {
+      "headline": "Pine coast, no crowds",
+      "blurb": "A quiet stretch of pine-backed coastline north of Çalış, built around large low-density complexes. Beaches and forest on one side, a fifteen-minute drive to Fethiye on the other."
+    },
+    "dalaman": {
+      "headline": "Ten minutes from the runway",
+      "blurb": "The airport town, and the shortest transfer on this coast. Sarıgerme's long sand beach sits fifteen minutes away and prices stay well below the Fethiye resorts."
+    },
+    "kalkan": {
+      "headline": "Cliffside villas, infinity pools",
+      "blurb": "Whitewashed houses stacked above a working harbour, an hour and a half south of Fethiye. The most established luxury rental market on the Turquoise Coast."
+    },
+    "seydikemer": {
+      "headline": "Mountains, rivers, more land",
+      "blurb": "Inland farming country thirty minutes from Fethiye, on the road to Saklıkent Gorge. Plots here are two or three times the size you would get on the coast for the money."
+    },
+    "bekciler": {
+      "headline": "Highland air, cooler summers",
+      "blurb": "A forested plateau well above sea level, where August nights are genuinely cool. A long drive from the beaches, and priced accordingly."
+    }
+  },
+  "turkey": {
+    "areaDetail": {
+      "fethiye-centre": {
+        "intro": "Fethiye is a genuine working town rather than a resort built for the summer. The harbour is busy in February, the Tuesday and Friday markets run all year, and the three-mile promenade stays open when the resort belt has shuttered.",
+        "points": [
+          "A Lycian rock-tomb hillside and a Roman amphitheatre sit inside the town itself, not on a coach trip from it.",
+          "Tuesday and Friday markets are the weekly rhythm of the town — produce, textiles and a great deal of noise.",
+          "Full-time amenities: state and private hospitals, banks, schools, and an airport transfer of roughly 45 minutes.",
+          "The most active winter season on this coast, which matters enormously if you intend to live here rather than visit."
+        ],
+        "bestFor": "Year-round living and the most defensive resale market"
+      },
+      "oludeniz": {
+        "intro": "Ölüdeniz is Türkiye's most photographed stretch of coast and the reason many buyers first look at this region. The Blue Lagoon is a protected national park, which means the view you buy cannot be built out behind you.",
+        "points": [
+          "The Blue Lagoon sits within a protected nature park — the setting is permanent, not subject to the next planning application.",
+          "Babadağ above the bay is one of the world's best-known paragliding sites and hosts the International Air Games each autumn.",
+          "The strongest short-let demand in the Fethiye region, reliably from May through to October.",
+          "A resort in the truest sense: expect a genuinely quiet November through March."
+        ],
+        "bestFor": "Rental income and the view people fly out for"
+      },
+      "hisaronu": {
+        "intro": "Hisarönü sits on the hill between Ölüdeniz and Fethiye and delivers the same beach access for noticeably less per square metre. It is compact, walkable and unapologetically lively through the season.",
+        "points": [
+          "Shopping streets, markets and a dense restaurant strip within walking distance of almost any address.",
+          "Family attractions including a fun park and an aqua park, which keeps it filling with returning families.",
+          "The lowest entry price of the areas within reach of Ölüdeniz beach.",
+          "Peak-season noise is real. Buyers seeking quiet are consistently happier in Ovacık or Çalış."
+        ],
+        "bestFor": "Yield-focused investors and best value near the lagoon"
+      },
+      "ovacik": {
+        "intro": "Ovacık shares the valley with Hisarönü but keeps its distance from the noise. Plots are larger, the evenings are cooler, and the pace is set by families rather than by the bar strip a few minutes down the road.",
+        "points": [
+          "Larger plots and more garden for the money than anywhere else within ten minutes of Ölüdeniz.",
+          "Close enough to walk to Hisarönü's restaurants, far enough that you cannot hear them.",
+          "A green valley setting with mountain air that makes August materially more comfortable.",
+          "A car is useful here, though not strictly essential."
+        ],
+        "bestFor": "Families and buyers who want space without isolation, highest short term rentals"
+      },
+      "calis": {
+        "intro": "Çalış Beach is the flat, walkable, open-all-year option and the area we recommend most often to buyers planning to spend real time here. It has the largest established foreign resident community on this stretch of coast.",
+        "points": [
+          "A long, completely traffic-free promenade — which matters more than people expect when planning for later life.",
+          "The best sunsets in the region, and a water-taxi link into Fethiye harbour through the season.",
+          "International dining and an established expat community, so the winter is sociable rather than empty.",
+          "The beach is pebble rather than sand, and Fethiye centre is a fifteen-minute drive."
+        ],
+        "bestFor": "Retirees, long-stay owners and winter living"
+      },
+      "uzumlu": {
+        "intro": "Yeşil Üzümlü is Fethiye's highland village, twenty-five minutes inland and several degrees cooler. It is a working Turkish village with a genuine local market, vineyards and a well-known annual mushroom festival each May.",
+        "points": [
+          "The lowest price per square metre of any area we cover — your budget buys substantially more house and land.",
+          "Traditional village life: local crafts, regional wine, and a weekly market that is not aimed at tourists.",
+          "Noticeably cooler summers thanks to the altitude, and a striking mountain backdrop.",
+          "A car is essential, and short-let rental demand is a fraction of the coast."
+        ],
+        "bestFor": "Space, value and a genuinely Turkish setting"
+      },
+      "tasyaka": {
+        "intro": "Taşyaka is the residential shoulder of Fethiye town where the hillside turns to face the bay. It is the only area on this list where a genuine panoramic sea view comes with a walk to the marina.",
+        "points": [
+          "Panoramic views over Fethiye bay and the Twelve Islands from elevated plots.",
+          "Walking distance to the marina promenade, the market and the hospital.",
+          "Supply is genuinely constrained — elevated plots are largely built out, so good properties move quickly.",
+          "The highest price per square metre of the areas we cover, and the most defensive on resale."
+        ],
+        "bestFor": "A sea view without giving up town convenience"
+      },
+      "gocek": {
+        "intro": "Göcek is the yachting capital of the gulf: six marinas, five-star hotels, and a low-density planning regime that has deliberately kept high-rise development out. It is thirty minutes from Fethiye and twenty from Dalaman airport.",
+        "points": [
+          "Six marinas and a boating culture that draws an international crowd from April to October.",
+          "Island boat tours through the Twelve Islands leave from the town itself.",
+          "Strict low-density planning has protected the setting — and, with it, values.",
+          "The most expensive market we cover, and the most resilient in a downturn."
+        ],
+        "bestFor": "Blue-chip resale and the yachting set"
+      }
+    },
+    "lifestyle": {
+      "climate": {
+        "title": "The climate",
+        "body": "A Mediterranean pattern: hot, dry summers regularly above 35°C in July and August, and mild winters where daytime temperatures often sit in the mid-teens. Rain arrives in concentrated bursts between December and February rather than spreading through the year."
+      },
+      "getting-there": {
+        "title": "Getting there",
+        "body": "Dalaman airport is roughly 45 minutes from Fethiye and 20 from Göcek, with direct and connecting flights from major European, Gulf and regional hubs through the season and a reduced winter schedule. Flight time from most of Europe is around three to four hours."
+      },
+      "healthcare": {
+        "title": "Healthcare",
+        "body": "Fethiye has both state and private hospitals, with English-speaking staff common in the private sector. Foreign residents holding a residence permit can join the state health scheme (SGK), and private cover is widely available and inexpensive by international standards."
+      },
+      "cost": {
+        "title": "Cost of living",
+        "body": "Day-to-day costs — produce, eating out, fuel, domestic help and property maintenance — remain substantially below the equivalents in most of Europe and North America. Imported goods, cars and electronics are the exception and can cost more than at home."
+      },
+      "community": {
+        "title": "The community",
+        "body": "Çalış and Ovacık hold the largest established international communities, with active social clubs, English-language services and a sociable winter. Üzümlü and Seydikemer are far more traditionally Turkish, which suits some buyers precisely."
+      },
+      "schooling": {
+        "title": "Schooling",
+        "body": "State schooling is free and taught in Turkish. Private and international options exist in the wider Muğla region, and most relocating families with school-age children look carefully at this before choosing an area."
+      }
+    },
+    "investment": {
+      "freehold": {
+        "title": "Freehold ownership in your own name",
+        "body": "Foreign nationals can buy freehold property in Türkiye outright, with the title deed (TAPU) registered directly to them. There is no leasehold structure, no ground rent and no service charge regime of the kind buyers from many countries are used to."
+      },
+      "entry-price": {
+        "title": "Entry prices that still surprise international buyers",
+        "body": "A detached villa with a private pool and a sea view on this coast remains a fraction of the equivalent in Spain, Portugal or the south of France. That gap is what brings most of our buyers here in the first place."
+      },
+      "rental": {
+        "title": "A long, reliable rental season",
+        "body": "Tourism to the Fethiye coast has recovered strongly and short-let demand runs from May to October, with Ölüdeniz and Hisarönü the strongest performers. A well-managed property can comfortably cover its running costs."
+      },
+      "residency": {
+        "title": "A straightforward residency route",
+        "body": "Türkiye operates accessible short-term residence permits for property owners, and the process is well trodden for foreign applicants. We support permit applications as part of our aftercare."
+      },
+      "citizenship": {
+        "title": "Citizenship at a defined threshold",
+        "body": "Property investment at or above the current government threshold can qualify the whole family for Turkish citizenship, with the asset retained rather than donated."
+      },
+      "costs": {
+        "title": "Low ongoing costs of ownership",
+        "body": "Annual property tax is modest by international standards, and maintenance, gardening and pool servicing are affordable enough that many owners keep a villa serviced year-round without a second thought."
+      }
+    },
+    "nearby": {
+      "kayakoy": {
+        "name": "Kayaköy",
+        "blurb": "The stone ghost village abandoned in 1923 and now a protected heritage site. Several hundred roofless houses climb the hillside, with a scattering of boutique hotels and long-lunch restaurants at the bottom. It has stood in as a film location more than once."
+      },
+      "faralya": {
+        "name": "Faralya",
+        "blurb": "A cliffside village above Butterfly Valley, reached by a mountain road with a view that stops conversation. The valley below is accessible by boat or a serious walk, and the whole area is deliberately undeveloped."
+      },
+      "seydikemer": {
+        "name": "Seydikemer",
+        "blurb": "A small inland town thirty-five minutes from Fethiye, ringed by mountains and unusually well watered. It sits near the Saklıkent Gorge and is noticeably more affordable than anywhere on the coast."
+      }
+    },
+    "faq": {
+      "q1": "How long can I stay in Turkey as a property owner?",
+      "a1": "Property ownership does not by itself grant unlimited stay. Visa-free allowances depend on your nationality, and for many passports the limit is 90 days in any 180-day period. Owners who want to stay longer apply for a short-term residence permit, which is a well-established route for property owners and one we help with as part of aftercare.",
+      "q2": "What is the weather like in Fethiye in winter?",
+      "a2": "Daytime temperatures commonly sit in the mid-teens Celsius from December to February, with concentrated periods of rain rather than persistent drizzle. Many resort businesses in Ölüdeniz and Hisarönü close for the season, while Fethiye centre, Çalış and Taşyaka stay open all year.",
+      "q3": "Is Fethiye a good place to retire?",
+      "a3": "It is one of the most established retirement destinations on the Turkish coast, with large settled international communities / expats, flat walkable streets and good access to both state and private healthcare. The practical questions worth asking are healthcare cover, winter sociability and how easily family can visit.",
+      "q4": "Do I need to speak Turkish to live in Fethiye?",
+      "a4": "Not to get by. English is widely spoken across Fethiye, Ölüdeniz, Hisarönü and Çalış, and official processes are handled with sworn translators. Learning some Turkish transforms daily life in the villages and markets, and it is genuinely appreciated — but it is not a barrier to buying or living here.",
+      "q5": "Which area of Fethiye is best for rental income?",
+      "a5": "Ölüdeniz and Hisarönü carry the strongest short-let demand, with a season running from May to October. Central Fethiye and Çalış let for less per week but achieve occupancy over a longer period, including winter lets. Üzümlü, Ovacık and Seydikemer are lovely to own but considerably harder to fill in peak season."
+    }
+  },
+  "aboutTurkey": {
+    "areasHeading": "The areas",
+    "availableNow": "Available now",
+    "bestForLabel": "Best for",
+    "ctaBody": "Two days on the ground will tell you more than two months of browsing. We build the itinerary around your shortlist, drive you between the areas, and there is no charge for our time.",
+    "ctaHeading": "Reading about it only gets you so far",
+    "ctaPrimary": "Plan a viewing trip",
+    "ctaSecondary": "Ask us anything",
+    "faqEyebrow": "Straight answers",
+    "faqHeading": "Living in Turkey: the questions we get asked",
+    "faqLede": "Residency, winters, healthcare and language — the practical things that decide whether a move works.",
+    "heroEyebrow": "About Türkiye",
+    "heroLede": "Türkiye's turquoise coast offers something Spain and Portugal priced out a decade ago. Here is the honest picture, the climate, the costs, the communities and the areas.",
+    "heroTitle": "The land of beauty, where anything is possible",
+    "jumpToAreas": "Jump to the area guides",
+    "livingHeading": "What living here is actually like",
+    "livingLede": "The Fethiye region runs on a rhythm that takes about a year to learn: a long, hot, busy summer, a beautiful and genuinely quiet winter, and two shoulder seasons that most owners end up considering the best months of all.",
+    "metaDescription": "Lifestyle, climate, healthcare, cost of living and the case for investing on Turkey's turquoise coast — plus honest guides to Fethiye, Ölüdeniz, Hisarönü, Çalış, Göcek, Üzümlü, Ovacık and Taşyaka.",
+    "metaTitle": "Living in Fethiye: A Guide to Turkey's Turquoise Coast",
+    "propertyCount": {
+      "one": "{count} property",
+      "few": "{count} properties",
+      "many": "{count} properties",
+      "other": "{count} properties"
+    },
+    "seeForYourself": "See it for yourself",
+    "whyEyebrow": "Why buy here",
+    "whyHeading": "Six reasons international buyers keep choosing this coast",
+    "whyLede": "Not the brochure version. These are the arguments that actually come up when our buyers explain the decision to family at home."
+  },
+  "process": {
+    "buyingSteps": {
+      "brief": {
+        "title": "The brief",
+        "summary": "We agree your budget, target area and the real purpose of the purchase before a single property is sent.",
+        "detail": [
+          "A holiday home, a rental asset and a permanent move lead to three different shortlists — we separate them at the start.",
+          "We set a realistic all-in budget: the villa price plus 6–8% in purchase costs, so nothing is a surprise in week six.",
+          "You get a written shortlist with the honest drawbacks included, not a portal dump of everything in range."
+        ],
+        "timing": "Week 1",
+        "owner": "You and your named consultant"
+      },
+      "viewing-trip": {
+        "title": "The viewing trip",
+        "summary": "A two-day itinerary across Fethiye, Ölüdeniz, Hisarönü and Göcek, built around the shortlist rather than our stock.",
+        "detail": [
+          "Six to eight properties over two days. More than that and they blur into one another.",
+          "We drive you to the shops, the beach and the school run so you see the daily reality, not just the terrace."
+        ],
+        "timing": "Week 2–3",
+        "owner": "Coast 2 Coast, on the ground"
+      },
+      "offer": {
+        "title": "Offer and reservation",
+        "summary": "We negotiate in Turkish on your behalf, then hold the property with a reservation contract translated line by line.",
+        "detail": [
+          "A reservation deposit — typically £2,000–£5,000 — takes the property off the market.",
+          "The contract states exactly what is included, the completion deadline and the conditions under which your deposit is returned.",
+          "Nothing is signed until you have read the English translation and your solicitor has seen it."
+        ],
+        "timing": "Week 3",
+        "owner": "Coast 2 Coast and the seller"
+      },
+      "legal-checks": {
+        "title": "Independent legal checks",
+        "summary": "Your own solicitor runs the title search at the Land Registry while we open your tax number and bank account.",
+        "detail": [
+          "The TAKBİS title search confirms the seller is the registered owner and exposes any mortgage, lien or unpaid tax on the property.",
+          "We confirm the property sits outside a restricted military zone — a standard clearance for foreign buyers.",
+          "You receive a Turkish tax number and a local bank account, both required before the transfer can complete."
+        ],
+        "timing": "Week 3–5",
+        "owner": "Your independent solicitor"
+      },
+      "valuation": {
+        "title": "Valuation report and DASK",
+        "summary": "A government-licensed SPK valuation report is mandatory on every sale to a foreign buyer, alongside earthquake insurance.",
+        "detail": [
+          "The SPK report is produced by a licensed independent valuer and is submitted directly to the Land Registry.",
+          "If the valuation comes in below the agreed price, we tell you and renegotiate — this is exactly what the report exists to catch.",
+          "DASK earthquake insurance is compulsory and must be active before the deed can transfer."
+        ],
+        "timing": "Week 4–6",
+        "owner": "Licensed valuer and insurer"
+      },
+      "funds": {
+        "title": "Currency transfer and DAB",
+        "summary": "Funds are converted through a Turkish bank, which issues the foreign currency purchase certificate (DAB) the registry requires.",
+        "detail": [
+          "Foreign buyers must convert the purchase amount into Turkish lira through a bank in Türkiye and obtain a DAB certificate.",
+          "We introduce a regulated FX broker — on a £600,000 purchase the spread between a broker and a high-street bank is rarely trivial.",
+          "The DAB is issued in your name and is a prerequisite for the title deed appointment, so it cannot be left to the last day."
+        ],
+        "timing": "Week 5–7",
+        "owner": "You, your bank and FX broker"
+      },
+      "tapu": {
+        "title": "Title deed transfer (TAPU)",
+        "summary": "Transfer at the Land Registry, in person or by power of attorney, with a sworn translator present throughout.",
+        "detail": [
+          "The 4% property transfer tax is paid before the appointment; by law it is shared, but in practice the split is negotiated.",
+          "A sworn translator is legally required so that nothing is signed in a language you do not read.",
+          "You leave the appointment as the registered freehold owner, with the TAPU issued in your own name."
+        ],
+        "timing": "Week 6–8",
+        "owner": "Land Registry, with us present"
+      },
+      "handover": {
+        "title": "Handover and aftercare",
+        "summary": "Utilities transferred, subscriptions opened, keys handed over — and a contact who still answers next season.",
+        "detail": [
+          "Electricity, water and internet are transferred into your name; we handle the paperwork in person.",
+          "We support residence permit applications and introduce vetted rental management companies where you want an income.",
+          "Annual property tax, DASK renewal and maintenance reminders continue after completion."
+        ],
+        "timing": "Completion onwards",
+        "owner": "Coast 2 Coast aftercare"
+      }
+    },
+    "sellingSteps": {
+      "valuation": {
+        "title": "Honest valuation",
+        "summary": "We value your property against what has actually completed nearby, not against what neighbours are asking.",
+        "detail": [
+          "Asking prices in Fethiye and Ölüdeniz can sit well above achieved prices; we work from completed comparables.",
+          "You receive a realistic range and the likely time to sell at each price point within it.",
+          "If the number you need is not achievable this season, we say so rather than take the listing and let it stagnate."
+        ],
+        "timing": "Week 1",
+        "owner": "Coast 2 Coast valuation visit"
+      },
+      "paperwork": {
+        "title": "Paperwork and compliance",
+        "summary": "We audit the title deed, habitation certificate, energy certificate and DASK before the property goes live.",
+        "detail": [
+          "The TAPU is checked for liens, mortgages and unpaid dues that would stall a sale at the registry.",
+          "An iskân (habitation certificate) and a valid energy performance certificate (Enerji Kimlik Belgesi) are legally required to sell.",
+          "Fixing paperwork before marketing costs days; discovering it after an accepted offer costs the buyer."
+        ],
+        "timing": "Week 1–2",
+        "owner": "Coast 2 Coast and your solicitor"
+      },
+      "presentation": {
+        "title": "Presentation",
+        "summary": "Professional photography and a floor plan — shot at the right hour, not on a phone at midday.",
+        "detail": [
+          "Architectural photography at golden hour, plus wide establishing shots that place the property in its bay or valley.",
+          "A measured floor plan removes the single most common question in first enquiries.",
+          "Light staging advice before the shoot: what to remove, repaint or replant for the highest return per lira spent."
+        ],
+        "timing": "Week 2",
+        "owner": "Our photographer"
+      },
+      "marketing": {
+        "title": "Marketing to the right buyer",
+        "summary": "Your property is placed in front of international buyers directly, not only on the local Turkish portals.",
+        "detail": [
+          "Listed in English on our own site with full SEO, plus the international portals your buyer actually searches.",
+          "Circulated first to our registered buyer list — a meaningful share of sales never reach a public portal.",
+          "Turkish-language distribution runs in parallel for domestic and citizenship-programme buyers."
+        ],
+        "timing": "Week 3 onwards",
+        "owner": "Coast 2 Coast marketing"
+      },
+      "viewings": {
+        "title": "Qualified viewings",
+        "summary": "We screen enquiries for budget and intent, accompany every viewing and send you written feedback after each one.",
+        "detail": [
+          "Buyers are qualified on budget and timescale before they are given your address.",
+          "If you live abroad, you never need to be present — we hold keys and manage access.",
+          "Written feedback after every viewing, including the objections, so pricing decisions are based on evidence."
+        ],
+        "timing": "Ongoing",
+        "owner": "Coast 2 Coast, accompanied"
+      },
+      "offer": {
+        "title": "Offer and negotiation",
+        "summary": "We put every offer to you in writing with the buyer's position and funding behind it, then negotiate on your terms.",
+        "detail": [
+          "You see who the buyer is, how they are funding the purchase and how quickly they can complete.",
+          "A cash buyer at a slightly lower figure often beats a higher offer that depends on a sale back home.",
+          "Once agreed, a reservation contract fixes the price and the completion deadline."
+        ],
+        "timing": "On offer",
+        "owner": "You decide, we negotiate"
+      },
+      "buyer-checks": {
+        "title": "Buyer's legal and valuation stage",
+        "summary": "The buyer's solicitor runs the title search while the mandatory SPK valuation is carried out on your property.",
+        "detail": [
+          "If your buyer is foreign, a licensed SPK valuation report is compulsory — we prepare the property and the documents for it.",
+          "We keep both solicitors moving and flag anything that threatens the completion date early.",
+          "Where a valuation lands below the agreed price, we manage the renegotiation rather than let the sale collapse."
+        ],
+        "timing": "2–4 weeks",
+        "owner": "Buyer's solicitor and valuer"
+      },
+      "completion": {
+        "title": "Completion and funds",
+        "summary": "Deed transfer at the Land Registry, funds released to you, utilities closed and taxes settled correctly.",
+        "detail": [
+          "Transfer happens in person or under power of attorney if you cannot travel.",
+          "Capital gains tax applies if you sell within five years of purchase; beyond five years the gain is exempt for individuals.",
+          "We close utility accounts and cancel standing orders so no bill follows you home."
+        ],
+        "timing": "Completion day",
+        "owner": "Land Registry, with us present"
+      }
+    },
+    "buyingCosts": {
+      "transfer-tax": {
+        "item": "Property transfer tax (tapu harcı)",
+        "amount": "4% of the declared value",
+        "note": "Legally split between buyer and seller; in practice usually negotiated."
+      },
+      "spk-valuation": {
+        "item": "SPK valuation report",
+        "amount": "£150 – £300",
+        "note": "Mandatory on every sale to a foreign buyer."
+      },
+      "legal": {
+        "item": "Independent legal representation",
+        "amount": "£1,000 – £1,800",
+        "note": "Always instruct your own solicitor, never the seller's."
+      },
+      "notary": {
+        "item": "Notary, sworn translator and power of attorney",
+        "amount": "£250 – £500",
+        "note": "Higher if you complete remotely under power of attorney."
+      },
+      "dask": {
+        "item": "DASK earthquake insurance",
+        "amount": "£60 – £150 per year",
+        "note": "Compulsory, and required before the deed can transfer."
+      },
+      "utilities": {
+        "item": "Utility subscriptions and connection",
+        "amount": "£150 – £350",
+        "note": "One-off, payable when accounts move into your name."
+      }
+    },
+    "buyingFaq": {
+      "q1": "Can a foreign citizen buy property in Fethiye?",
+      "a1": "Yes. Foreign nationals can buy freehold property in Türkiye in their own name, and the title deed (TAPU) is registered directly to you. Purchases in Fethiye, Ölüdeniz, Hisarönü, Ovacık, Çalış, Üzümlü and Göcek sit outside restricted military zones, and the standard registry clearance confirms this before completion.",
+      "q2": "How long does it take to buy a villa in Turkey?",
+      "a2": "Most purchases in the Fethiye area complete within four to eight weeks of an accepted offer, assuming the property has an individual title deed and no outstanding debts. The two stages that most often add time are the SPK valuation report and the currency transfer certificate (DAB).",
+      "q3": "Do I need to be in Turkey to complete the purchase?",
+      "a3": "No. You can complete under a power of attorney granted to your solicitor, signed either at a Turkish notary during your viewing trip or at a Turkish consulate or embassy in your own country. Most of our buyers attend the title deed appointment in person, but it is not a requirement.",
+      "q4": "What are the total costs on top of the villa price?",
+      "a4": "Budget roughly 6–8% of the purchase price. That covers the 4% property transfer tax, the mandatory SPK valuation report, notary and sworn translation fees, DASK earthquake insurance and independent legal representation.",
+      "q5": "Does buying in Fethiye qualify me for Turkish citizenship?",
+      "a5": "Purchases at or above the current government investment threshold can qualify, provided the property is held for three years and the payment is made in the prescribed way. We flag eligible listings and refer you to a specialist immigration lawyer before you commit to anything on that basis."
+    },
+    "sellingFaq": {
+      "q1": "What does it cost to sell a property in Turkey?",
+      "a1": "Agency commission in the Fethiye region is typically 3% plus VAT, payable on completion. The seller's share of the 4% transfer tax is negotiable and in practice often falls to the buyer. You will also need a valid energy performance certificate, which costs a few thousand lira if you do not already hold one.",
+      "q2": "Will I pay capital gains tax when I sell?",
+      "a2": "If you sell within five years of the purchase date, the gain is subject to Turkish income tax on a sliding scale, calculated on the difference between the indexed purchase price and the sale price. After five years of ownership, gains realised by individuals are exempt. Your tax position at home is separate and worth checking with an adviser in your own country.",
+      "q3": "How long does it take to sell a villa in Fethiye?",
+      "a3": "A correctly priced villa in Ölüdeniz, Hisarönü or central Fethiye typically finds a buyer within three to six months, with the strongest enquiry volume between February and June as international buyers plan viewing trips. From accepted offer to completion is a further four to eight weeks.",
+      "q4": "Do I need to be in Turkey to sell my property?",
+      "a4": "No. We hold keys and manage all viewings, and you can complete the transfer under a power of attorney granted to your solicitor. Many of our sellers handle the entire process from abroad.",
+      "q5": "What documents do I need before listing?",
+      "a5": "Your title deed (TAPU), the habitation certificate (iskân), a valid energy performance certificate (Enerji Kimlik Belgesi), active DASK earthquake insurance and up-to-date proof that property tax and any site maintenance dues are paid. We audit all of these before the property goes live."
+    },
+    "painPoints": {
+      "reach": {
+        "problem": "My property is not reaching the right market",
+        "answer": "Most listings are pushed to whoever happens to be browsing. Yours needs to reach international buyers actively planning a purchase in Fethiye — a much smaller, much more valuable audience."
+      },
+      "communication": {
+        "problem": "My agent never tells me anything",
+        "answer": "You get written feedback after every single viewing, including the objections, plus a monthly summary of enquiry numbers and where they came from."
+      },
+      "viewings": {
+        "problem": "My property is not getting enough viewings",
+        "answer": "Viewing volume is almost always a pricing or presentation problem rather than an exposure problem. We will tell you which of the two it is, honestly, and what to do about it."
+      }
+    },
+    "marketing": {
+      "massTitle": "Mass marketing",
+      "massTraits": [
+        "Desperate",
+        "Sporadic",
+        "Uncontrolled",
+        "Pricing mistakes",
+        "Listed everywhere, owned by no one"
+      ],
+      "targetedTitle": "Targeted marketing",
+      "targetedTraits": [
+        "High impact",
+        "Correct audience",
+        "Quality marketing",
+        "Controlled",
+        "Personalised to your property"
+      ]
+    },
+    "soleAgent": [
+      "Six months, with no additional fee for the exclusivity itself.",
+      "Your property is worked properly rather than sitting in a pile shared between five agencies.",
+      "We invest in professional photography and a measured floor plan up front.",
+      "Access to our network of partner agents overseas — channels our competitors in this region are not using.",
+      "No tie-in beyond the six months. If we have not delivered, you walk away."
+    ]
+  },
+  "buyingProcess": {
+    "askStage": "Ask about a stage",
+    "colAmount": "Typical amount",
+    "colItem": "Item",
+    "colNotes": "Notes",
+    "costsDisclaimer": "Guidance only, current at the time of writing, and not legal or tax advice. Rates and thresholds are set by the Turkish government and change — we confirm the exact figures for your purchase in writing before you commit.",
+    "costsEyebrow": "The real number",
+    "costsHeading": "What a purchase costs on top of the price",
+    "costsLede": "Budget 6–8% of the purchase price. Percentages below are set by statute; cash figures are the market range we see in the Fethiye area and are quoted per transaction.",
+    "costsTableCaption": "Typical costs of buying a property in Fethiye, in addition to the purchase price",
+    "ctaBody": "Send us your budget and timeline and we will come back with properties that fit — plus a written breakdown of what the purchase would cost you all in.",
+    "ctaBrowse": "Browse villas for sale",
+    "ctaHeading": "Ready to see the shortlist?",
+    "ctaSelling": "See how we sell property in Fethiye",
+    "ctaTrip": "Arrange a viewing trip",
+    "faqEyebrow": "Straight answers",
+    "faqFooter": "Something not covered here? Ask — you will get a person, not a form response.",
+    "faqHeading": "Questions buyers ask us first",
+    "heroEyebrow": "The buying process",
+    "heroLede": "Türkiye's land registry is faster and cleaner than most buyers expect. What catches people out is the sequence — the valuation report, the currency certificate, the insurance that must exist before a deed can move. Here is all of it, in order.",
+    "heroTitle": "Buying a property in Fethiye, one stage at a time",
+    "metaDescription": "How buying a property in Fethiye actually works, from the first brief to the title deed. Eight stages, four to eight weeks, and the full 6–8% of purchase costs set out before you commit.",
+    "metaTitle": "The Buying Process in Fethiye, Step by Step",
+    "stagesEyebrow": "Stage by stage",
+    "stagesHeading": "From first brief to keys in hand",
+    "stagesLede": "Nothing on this list happens without your written sign-off, and every stage has a named person responsible for it.",
+    "statContact": "Named contact throughout",
+    "statCosts": "Purchase costs on top of the price",
+    "statStages": "Stages, all handled for you",
+    "statWeeks": "Weeks from offer to title deed"
+  },
+  "sellingProcess": {
+    "approachEyebrow": "Our approach",
+    "approachHeading": "Targeted marketing, not mass marketing",
+    "approachLede": "Listing a property everywhere is not a strategy. Reaching the small number of buyers actively planning a purchase in Fethiye is.",
+    "ctaBody": "A written appraisal based on completed sales nearby, not on what the villa down the road is asking. No obligation, and no pressure to list with us afterwards.",
+    "ctaHeading": "Find out what your property is really worth",
+    "ctaPrimary": "Request a valuation",
+    "ctaSecondary": "Read the buying process",
+    "docsDisclaimer": "Guidance only, current at the time of writing, and not legal or tax advice. Turkish capital gains rules and your tax position at home are separate questions — we will point you to specialists in both.",
+    "docsEyebrow": "Before you list",
+    "docsHeading": "Six documents to have ready",
+    "docsLede": "Gathering these before marketing costs a few days. Discovering a gap after an accepted offer costs you the buyer.",
+    "faqEyebrow": "Straight answers",
+    "faqFooter": "If your question is about your specific property, ask directly — the answer usually depends on when you bought and what you paid.",
+    "faqHeading": "What sellers ask us most",
+    "formMessage": "I'd like a valuation on my property. It is a ___ bedroom ___ in ___ (area), approximately ___ m².",
+    "formSubmit": "Request valuation",
+    "heroCta": "Request a free valuation",
+    "heroEyebrow": "The selling process",
+    "heroLede": "Most properties that sit unsold in Fethiye are not badly located or badly built — they are priced against the neighbours' asking prices and presented with phone photographs. This is how we do it differently, and what we need from you.",
+    "heroTitle": "Selling your property on the Fethiye coast",
+    "metaDescription": "How to sell a villa or apartment in Fethiye, from honest valuation to funds in your account. Eight stages, the paperwork you need in advance, and what it costs to sell in Türkiye.",
+    "metaTitle": "Selling Your Property in Fethiye: The Process",
+    "painEyebrow": "Sound familiar?",
+    "painHeading": "Three things we hear from sellers every week",
+    "soleBody": "No additional fee for the exclusivity. What you get in return is a property that is genuinely worked rather than one sitting in a pile shared between five agencies.",
+    "soleHeading": "Make us your sole agent for six months",
+    "stagesEyebrow": "Stage by stage",
+    "stagesHeading": "From valuation to funds released",
+    "stagesLede": "You can run the entire sale from abroad. We hold keys, manage access, accompany every viewing and complete under power of attorney if you would rather not travel.",
+    "statAppraisal": "From valuation request to written appraisal",
+    "statMonths": "Months to a buyer at the right price",
+    "statStages": "Stages, managed on your behalf",
+    "statTrips": "Trips required — sell from anywhere",
+    "valuationBody": "A written appraisal based on what has actually completed nearby — not on what the villa down the road is asking. No pressure to list with us afterwards.",
+    "valuationEyebrow": "No obligation",
+    "valuationHeading": "Request a free property valuation",
+    "valuationWhatsapp": "Valuation on WhatsApp",
+    "whatsappMessage": "Hello Coast 2 Coast — I'd like a free valuation on my property in Fethiye.",
+    "documents": {
+      "tapu": {
+        "title": "Title deed (TAPU)",
+        "body": "The original deed in your name. We check it against the registry for liens, mortgages or unpaid charges before listing."
+      },
+      "iskan": {
+        "title": "Habitation certificate (iskân)",
+        "body": "Confirms the building was completed to its approved plans. Its absence is the single most common reason a Fethiye sale stalls."
+      },
+      "energy": {
+        "title": "Energy performance certificate",
+        "body": "The Enerji Kimlik Belgesi is legally required to sell. If you do not have one, we arrange it — it takes a few days, not weeks."
+      },
+      "dask": {
+        "title": "Active DASK policy",
+        "body": "Compulsory earthquake insurance must be current for the deed to transfer. We check the renewal date at the start, not the end."
+      },
+      "tax": {
+        "title": "Paid-up tax and site dues",
+        "body": "Annual property tax and any complex maintenance charges must be settled and evidenced before the registry appointment."
+      },
+      "passport": {
+        "title": "Passport and tax number",
+        "body": "Plus a power of attorney if you will not be in Türkiye on completion day. This can be signed at a Turkish consulate or embassy in your own country."
+      }
+    }
+  },
+  "citizenship": {
+    "steps": {
+      "eligibility": {
+        "title": "Confirm eligibility and shortlist",
+        "summary": "We identify properties that comfortably clear the {threshold} threshold on a licensed valuation, not just on the asking price.",
+        "detail": [
+          "The qualifying figure is {threshold} USD, assessed by an official valuation — not the price on the listing and not the figure declared at the registry.",
+          "You may combine several properties to reach the threshold; they do not need to be a single purchase.",
+          "Residential, commercial and land purchases all qualify, provided the valuation and payment conditions are met."
+        ],
+        "timing": "Week 1–2",
+        "owner": "Coast 2 Coast, with your solicitor"
+      },
+      "valuation": {
+        "title": "Obtain the official valuation report",
+        "summary": "A government-licensed (SPK) appraisal company inspects the property and files a report confirming the value meets the threshold.",
+        "detail": [
+          "The report must be produced by a licensed appraiser on the official list and is filed directly with the authorities.",
+          "The valuation must confirm the threshold is met at the time of purchase — a report obtained months earlier will not carry.",
+          "If the valuation lands below the threshold, the application fails. This is exactly why we check it before you commit."
+        ],
+        "timing": "Week 2–3",
+        "owner": "Licensed SPK appraiser"
+      },
+      "payment": {
+        "title": "Transfer funds through a Turkish bank",
+        "summary": "The purchase amount is transferred to a bank in Türkiye and exchanged into Turkish lira, which produces the certificate the application requires.",
+        "detail": [
+          "Payment must be routed through the Turkish banking system and evidenced — cash purchases do not qualify.",
+          "The bank issues a foreign currency purchase certificate (DAB) in your name against the exchanged amount.",
+          "Bank receipts must show the buyer paying the seller directly; third-party payments cause applications to be rejected."
+        ],
+        "timing": "Week 3–4",
+        "owner": "You, your bank and FX broker"
+      },
+      "tapu": {
+        "title": "Title deed transfer with the 3-year annotation",
+        "summary": "The deed transfers into your name carrying an official annotation that the property will not be sold for {years} years.",
+        "detail": [
+          "The annotation is a legal commitment recorded on the TAPU itself, not a private undertaking.",
+          "A sworn translator attends the Land Registry appointment; nothing is signed in a language you do not read.",
+          "You become the registered freehold owner on the day, with full use of the property throughout the holding period."
+        ],
+        "timing": "Week 4–6",
+        "owner": "Land Registry, with us present"
+      },
+      "conformity": {
+        "title": "Certificate of conformity",
+        "summary": "The Ministry reviews the valuation, the payment evidence and the deed, then issues the certificate confirming the investment qualifies.",
+        "detail": [
+          "This certificate is the document that unlocks the citizenship application itself.",
+          "Every piece of evidence from the previous stages is examined together — which is why sequence matters so much.",
+          "Your solicitor submits and tracks this on your behalf."
+        ],
+        "timing": "Week 6–8",
+        "owner": "Your immigration solicitor"
+      },
+      "residence-permit": {
+        "title": "Residence permit and citizenship application",
+        "summary": "Applications are submitted to the Directorate General of Migration Management for you, your spouse and any children under 18.",
+        "detail": [
+          "The applicant, their spouse and children under 18 are all included in the same application.",
+          "Biometrics and documents are lodged together; there is no language test and no interview requirement.",
+          "You are not required to live in Türkiye before or after approval."
+        ],
+        "timing": "Week 8–10",
+        "owner": "Directorate General of Migration Management"
+      },
+      "approval": {
+        "title": "Approval, ID card and passport",
+        "summary": "Approval typically follows within around three months, after which Turkish ID cards and passports are issued to the family.",
+        "detail": [
+          "Timescales are indicative and depend on application volumes — three months is typical rather than guaranteed.",
+          "Any children born after citizenship is granted become Turkish citizens automatically.",
+          "Türkiye permits dual nationality, so your existing passport is unaffected."
+        ],
+        "timing": "~3 months",
+        "owner": "Republic of Türkiye"
+      }
+    },
+    "benefits": {
+      "family": {
+        "title": "The whole family, in one application",
+        "body": "The main applicant, their spouse and all children under 18 are granted citizenship together. Children born afterwards are Turkish citizens automatically."
+      },
+      "dual": {
+        "title": "Dual nationality is permitted",
+        "body": "Türkiye does not require you to renounce your existing citizenship, so you keep your existing passport alongside the Turkish one."
+      },
+      "no-residence": {
+        "title": "No residence requirement",
+        "body": "There is no obligation to live in Türkiye before or after the grant, no language examination and no interview to sit."
+      },
+      "retained": {
+        "title": "The investment is retained, not spent",
+        "body": "Unlike a donation-based programme, you keep the asset. After {years} years you are free to sell, and citizenship remains permanent."
+      },
+      "e2": {
+        "title": "Access to the E-2 investor route",
+        "body": "Türkiye holds an E-2 treaty with the United States, which Turkish citizens can use to apply for an investor visa — a route not open to most other nationalities directly."
+      },
+      "rights": {
+        "title": "Full domestic rights",
+        "body": "Citizens have the same access to healthcare, education, property ownership and business registration as any other Turkish national."
+      }
+    },
+    "documents": [
+      "Passport copies for every applicant, notarised and translated",
+      "Birth certificates for the applicant, spouse and any children",
+      "Marriage certificate or proof of marital status",
+      "Residence certificates confirming current address",
+      "Valid Turkish health insurance cover",
+      "Biometric photographs to the official specification",
+      "The title deed (TAPU) carrying the three-year annotation",
+      "The SPK valuation report and bank payment evidence (DAB)"
+    ],
+    "faq": {
+      "q1": "How much do I need to invest for Turkish citizenship in 2026?",
+      "a1": "The minimum property investment is {threshold} USD, confirmed by an official valuation report from a government-licensed appraisal company. The threshold rose from $250,000 to {threshold} in June 2022. You may combine more than one property to reach the figure, and residential, commercial and land purchases all qualify.",
+      "q2": "How long do I have to keep the property?",
+      "a2": "A minimum of {years} years. The commitment is recorded as a formal annotation on the title deed itself, so it is a legal restriction rather than an informal undertaking. You have full use of the property throughout, and once the period ends you are free to sell — your citizenship is permanent and is not affected by the sale.",
+      "q3": "How long does the citizenship process take?",
+      "a3": "Approval typically arrives within around three months of a complete application being submitted, with the property purchase and certificate of conformity taking roughly six to eight weeks before that. Timescales are indicative and depend on application volumes at the Directorate General of Migration Management.",
+      "q4": "Who in my family is included?",
+      "a4": "The main applicant, their spouse and all children under 18 are granted citizenship in the same application. Children born after citizenship is granted become Turkish citizens automatically. Adult children are not included and would need to qualify in their own right.",
+      "q5": "Do I have to give up my current citizenship?",
+      "a5": "No, not on Türkiye’s side — it permits dual nationality outright. Most countries take the same view, so applicants keep both passports; a handful do restrict it, which is worth confirming with your own authorities before you apply.",
+      "q6": "Do I need to live in Turkey or speak Turkish?",
+      "a6": "Neither. There is no residence requirement before or after the grant, no language examination and no interview. You do need to be physically present for biometrics, and for the title deed appointment unless you complete under a power of attorney.",
+      "q7": "Can I rent the property out during the three years?",
+      "a7": "Yes. The annotation restricts sale, not use. You can live in the property, leave it empty or let it out commercially throughout the holding period, and the rental income is yours.",
+      "q8": "What happens if the valuation comes in below the threshold?",
+      "a8": "The application cannot proceed on that property. This is why we check the likely valuation before you commit rather than after — a property marketed at {threshold} does not automatically value at {threshold}, and the official report is the only figure that counts."
+    }
+  },
+  "citizenshipPage": {
+    "benefitsDisclaimer": "Visa-free travel arrangements are set by each destination country and change regularly. Check the current position for your intended destinations before relying on it — we do not advise on travel rights.",
+    "benefitsEyebrow": "Why people do it",
+    "benefitsHeading": "What Turkish citizenship gives you",
+    "cond1Body": "Assessed by an official SPK valuation report, not by the asking price. One property or several combined — both are accepted.",
+    "cond1Title": "Property worth {threshold} or more",
+    "cond2Body": "The TAPU carries a formal annotation that the property will not be sold for {years} years. You keep full use of it throughout.",
+    "cond2Title": "A {years}-year commitment on the title deed",
+    "cond3Body": "The purchase must be paid through the Turkish banking system and exchanged into lira, producing the DAB certificate the application requires.",
+    "cond3Title": "Funds routed through a Turkish bank",
+    "cond4Body": "The property needs an individual deed with no liens, mortgages or unpaid charges. We verify this before you pay a deposit.",
+    "cond4Title": "A clean, transferable title",
+    "condEyebrow": "The four conditions",
+    "condHeading": "What actually has to be true",
+    "condLede": "Most failed applications fail on one of these four points, and almost always on the first. A property marketed at {threshold} does not automatically value at {threshold}.",
+    "consultBody": "We will tell you honestly whether your budget clears the threshold on a real valuation, what the total cost looks like, and how long it is likely to take for your family.",
+    "consultEyebrow": "Free consultation",
+    "consultHeading": "Get a citizenship consultation",
+    "consultNote": "We work alongside English-speaking immigration solicitors who are instructed by you, not by us.",
+    "consultWhatsapp": "Ask on WhatsApp",
+    "ctaBody": "We will shortlist properties that clear the threshold on a real valuation, not on an optimistic asking price — and tell you plainly if your budget does not reach it yet.",
+    "ctaHeading": "Find out what your budget qualifies for",
+    "ctaPrimary": "See qualifying properties",
+    "ctaSecondary": "How the purchase works",
+    "disclaimer": "Coast 2 Coast Properties Turkey is a property consultancy, not a law firm or a licensed immigration adviser. The figures on this page reflect the rules in force at the time of writing and are set by the Turkish government, which changes them — the threshold moved from $250,000 to {threshold} in 2022. Nothing here is legal or immigration advice. We introduce you to English-speaking solicitors who are instructed by you and who confirm your position in writing before you commit any funds.",
+    "docsHeading": "What you will be asked for",
+    "docsNote": "Every foreign-issued document needs a notarised Turkish translation, and several need an apostille from the issuing country. Starting this early is the single easiest way to shorten the timeline.",
+    "faqEyebrow": "Straight answers",
+    "faqFooter": "If your situation is unusual — a company purchase, a shared deed, an adult child — ask us directly. The answer genuinely depends on the detail.",
+    "faqHeading": "Turkish citizenship questions, answered",
+    "formMessage": "I'm interested in Turkish citizenship through property investment. Please could you tell me what my budget would qualify for?",
+    "formSubmit": "Request consultation",
+    "heroEyebrow": "Citizenship by investment",
+    "heroLede": "Unlike donation-based programmes, this one leaves you holding the asset. Invest {threshold} or more in Turkish property, hold it for {years} years, and you, your spouse and your children under 18 can become Turkish citizens — with no residence requirement, no language test and no interview.",
+    "heroTitle": "A Turkish passport, through a property you actually keep",
+    "importantLabel": "Important:",
+    "metaDescription": "Turkish citizenship through property investment from {threshold}. The full process, the {years}-year holding period, the documents required, and who in your family is included — explained by a Fethiye consultancy that handles the purchase end to end.",
+    "metaTitle": "Turkish Citizenship by Property Investment",
+    "stagesEyebrow": "Stage by stage",
+    "stagesHeading": "From shortlist to passport",
+    "stagesLede": "Seven stages, typically five to six months end to end. We handle the property side and coordinate with English-speaking solicitors who handle the application itself.",
+    "statApproval": "Typical approval time",
+    "statFamily": "Spouse and under-18s included",
+    "statHolding": "Holding period on the deed",
+    "statInvestment": "Minimum property investment"
+  },
+  "insurance": {
+    "policies": {
+      "dask": {
+        "name": "DASK — compulsory earthquake insurance",
+        "status": "Compulsory by law",
+        "summary": "The state-backed earthquake scheme (Doğal Afet Sigortaları Kurumu). Every residential property on registered land must hold a live policy.",
+        "detail": [
+          "Required before a title deed can transfer and before utility subscriptions can be opened or moved into your name.",
+          "The premium is calculated from the property's size in square metres, its construction type and its seismic risk zone — not from what you paid for it.",
+          "DASK is explicit that it covers the 'bare bones' rebuild cost only, up to a maximum sum insured set by the state and revised annually.",
+          "Anything above that cap, and everything inside the building, is your responsibility to insure separately."
+        ]
+      },
+      "buildings": {
+        "name": "Buildings insurance",
+        "status": "Strongly recommended",
+        "summary": "Private cover for the structure itself, written on rebuild value rather than market value — the two are very different numbers.",
+        "detail": [
+          "Rebuild value is calculated as the property's square metres, taken from the TAPU, multiplied by the current cost per square metre to rebuild.",
+          "A villa that would sell for £600,000 might cost far less to rebuild; insuring on market value means paying for cover you cannot claim.",
+          "Extends beyond earthquake to fire, storm, flood, burst pipes, impact and malicious damage.",
+          "Tops up the gap that DASK's statutory cap leaves behind on higher-value properties."
+        ]
+      },
+      "contents": {
+        "name": "Contents insurance",
+        "status": "Optional but advised",
+        "summary": "Everything that would fall out if you turned the building upside down: furnishings, appliances, personal valuables and outdoor items.",
+        "detail": [
+          "Typically covers furniture, beds, bedding, clothes, electrical equipment, outdoor furniture and jewellery.",
+          "High-value single items — jewellery, watches, art, bicycles — usually need to be listed and valued individually.",
+          "Pay attention to the excess: the amount you contribute to every claim. A low premium with a high excess can be poor value.",
+          "Particularly worth holding if the property is let out or left empty for months at a time."
+        ]
+      }
+    },
+    "daskCovered": [
+      "Earthquake damage to the building structure",
+      "Fire caused by an earthquake",
+      "Explosion caused by an earthquake",
+      "Landslide caused by an earthquake",
+      "Tsunami caused by an earthquake",
+      "The rebuild cost of the structure, up to the state-set annual cap"
+    ],
+    "daskNotCovered": [
+      "Contents of any kind — furniture, electronics, clothing, jewellery",
+      "Fire, flood or storm damage that is not the result of an earthquake",
+      "Theft or burglary, whether or not it follows an earthquake",
+      "Water damage from burst pipes or appliance failure",
+      "Any rebuild cost above the state-set maximum sum insured",
+      "Loss of rental income while the property is uninhabitable",
+      "Personal liability if someone is injured at the property",
+      "Swimming pools, garden walls, landscaping and outbuildings"
+    ],
+    "privateCovered": [
+      "Fire, smoke, lightning and explosion",
+      "Storm, flood and burst pipes",
+      "Theft and attempted theft, including forced entry damage",
+      "Accidental glass and sanitary ware breakage",
+      "Rebuild cost above the DASK cap",
+      "Alternative accommodation while repairs are carried out",
+      "Personal liability cover for injury to visitors",
+      "Optional add-ons: rental income protection, pool and garden cover"
+    ],
+    "privateNotCovered": [
+      "Wear, tear and gradual deterioration",
+      "Existing damage present before the policy started",
+      "Damage from failing to maintain the property",
+      "Unoccupancy beyond the period stated in the policy — usually 30 to 60 days",
+      "Undeclared high-value items above the single-article limit",
+      "Damage during building works unless specifically declared"
+    ],
+    "checklist": {
+      "tapu": {
+        "title": "Your TAPU",
+        "body": "The title deed gives the registered square metres, which drives both the DASK premium and the rebuild calculation."
+      },
+      "construction": {
+        "title": "Construction type and year built",
+        "body": "Reinforced concrete, steel or masonry, plus the build year — all three change the earthquake risk rating."
+      },
+      "inventory": {
+        "title": "A written inventory",
+        "body": "Photograph and list everything you want covered before you call. Reconstructing this after a loss is far harder than doing it now."
+      },
+      "valuations": {
+        "title": "Valuations for high-value items",
+        "body": "Jewellery, watches and art usually need individual receipts or valuations to be covered at full value."
+      },
+      "occupancy": {
+        "title": "Your occupancy pattern",
+        "body": "How many months a year the property sits empty, and whether it is let commercially. Both affect cover and must be declared."
+      },
+      "excess": {
+        "title": "The excess you are comfortable with",
+        "body": "Decide what you would contribute per claim before comparing premiums, otherwise the cheapest quote will win on the wrong measure."
+      }
+    },
+    "faq": {
+      "q1": "Is DASK insurance compulsory in Turkey?",
+      "a1": "Yes. DASK (Doğal Afet Sigortaları Kurumu) is compulsory for residential properties on registered land. A live policy is required before a title deed can transfer and before electricity and water subscriptions can be opened or moved into your name. It renews annually and lapsing can block utility transactions.",
+      "q2": "Is DASK enough on its own?",
+      "a2": "No, and DASK itself is clear about this. It covers the bare rebuild cost of the structure up to a maximum sum insured set by the state each year, and only for earthquake-related damage. It covers no contents at all, no theft, no water damage and no fire unless the fire was caused by an earthquake. Most owners hold DASK plus a private buildings and contents policy.",
+      "q3": "How is my DASK premium calculated?",
+      "a3": "From the property's size in square metres as registered on the TAPU, its construction type, and the seismic risk zone it sits in. It is not based on the purchase price or market value, so two identically priced villas in different risk zones can carry noticeably different premiums.",
+      "q4": "Should I insure my villa for its market value?",
+      "a4": "No — insure it for its rebuild value. Rebuild value is the registered square metres multiplied by the current cost per square metre to rebuild, and it is usually well below the market price because it excludes the land. Insuring on market value means paying a higher premium for cover you could never claim.",
+      "q5": "What is an excess and why does it matter?",
+      "a5": "The excess is the amount you contribute to every claim before the insurer pays anything. A policy with a low premium and a high excess can cost you far more on a real claim than a slightly dearer policy with a modest excess. Agree the excess you are comfortable with before you start comparing quotes.",
+      "q6": "Can I insure a property I rent out or leave empty?",
+      "a6": "Yes, but both must be declared. Most private policies limit continuous unoccupancy to somewhere between 30 and 60 days, and letting commercially usually requires a specific endorsement. Undeclared use is the most common reason an otherwise valid claim is refused.",
+      "q7": "Can I arrange insurance in English?",
+      "a7": "Yes. We work with a local Fethiye insurance provider whose team handles home, car and health policies in English and Russian as well as Turkish, so you get the policy wording explained before you sign rather than after."
+    }
+  },
+  "insurancePage": {
+    "buyingProcessLink": "the buying process",
+    "checklistEyebrow": "Before you get quotes",
+    "checklistHeading": "Six things to have in front of you",
+    "checklistLede": "Gathering these first turns a vague quote into an accurate one — and an accurate quote is the only kind that pays out what you expect.",
+    "coverEyebrow": "Covered vs not covered",
+    "coverHeading": "Read this before you assume you are covered",
+    "coverLede": "The two lists below are the ones worth screenshotting. Almost every unpleasant surprise after a claim sits in the right-hand column.",
+    "ctaBody": "Send us your current policy and we will tell you plainly what it does and does not cover — in English, without a sales pitch attached.",
+    "ctaHeading": "Not sure whether you are properly covered?",
+    "ctaPrimary": "Get in touch",
+    "daskBuyingNote": "If you are buying rather than renewing, DASK is arranged as part of the purchase — see ",
+    "daskCapNote": "The maximum sum insured is set by the state and revised every year — ask us for the figure currently in force before you rely on it.",
+    "daskCoversLabel": "What DASK covers",
+    "daskHeading": "DASK — compulsory earthquake cover",
+    "daskNotCoversLabel": "What DASK does not cover",
+    "disclaimer": "Coast 2 Coast Properties Turkey is a property consultancy, not a regulated insurance broker. The cover described here is typical rather than universal — every insurer words its policy differently, and the DASK maximum sum insured is set by the state and changes annually. Always read the policy schedule and the exclusions before you buy, and confirm the current figures with the provider.",
+    "faqEyebrow": "Straight answers",
+    "faqHeading": "Insurance questions owners ask",
+    "formMessage": "I'd like a quote for property insurance. My property is approximately ___ m² in ___ (area), built in ___.",
+    "formSubmit": "Request a quote",
+    "heroEyebrow": "Insurance in Türkiye",
+    "heroLede": "Every home in Türkiye must carry state-backed earthquake cover, and almost every owner assumes that is the job done. DASK itself is explicit that it insures the bare rebuild cost of the structure and nothing else — no contents, no theft, no water damage. Here is what each policy actually does.",
+    "heroNote": "Arranged with our local Fethiye provider, in English or Russian.",
+    "heroTitle": "DASK is compulsory. It is also nowhere near enough.",
+    "metaDescription": "DASK earthquake cover is compulsory in Türkiye but insures only the bare rebuild cost of the structure. What DASK covers, what it does not, and the buildings and contents policies that fill the gap.",
+    "metaTitle": "Property Insurance in Türkiye: DASK and Beyond",
+    "policiesEyebrow": "The three policies",
+    "policiesHeading": "What each one is for",
+    "policiesLede": "One is required by law, two are not — and the gap between them is where most owners discover they were underinsured.",
+    "privateCoversLabel": "Typically covered",
+    "privateHeading": "Private buildings and contents cover",
+    "privateNotCoversLabel": "Usually excluded",
+    "quoteBody": "Send us the square metres from your TAPU and roughly what you want covered. We will come back with a comparison in English — DASK, buildings and contents priced separately so you can see what each one costs.",
+    "quoteHeading": "Request an insurance quote",
+    "quoteWhatsapp": "Quote on WhatsApp",
+    "typeCar": "Car insurance",
+    "typeHealth": "Health insurance",
+    "typeHome": "Home insurance"
+  },
+  "about": {
+    "ctaBody": "Not a call centre, not a lead form that disappears into a CRM. Tell us what you are considering and you will get a considered reply from someone who has stood in the properties concerned.",
+    "ctaHeading": "Talk to the person who will handle your purchase",
+    "ctaPrimary": "Get in touch",
+    "ctaWhatsapp": "Message us on WhatsApp",
+    "heroEyebrow": "About Coast 2 Coast",
+    "heroLede": "Coast 2 Coast Properties Turkey was built around a straightforward observation: most people buying on this coast are making the largest purchase of their lives in a legal system and a language they do not know. That deserves more than a portal listing and a handshake.",
+    "heroTitle": "A small firm, on the ground, answering to international buyers",
+    "imageAlt": "Fethiye bay and the surrounding coastline, where Coast 2 Coast Properties Turkey is based",
+    "metaDescription": "Coast 2 Coast Properties Turkey is a boutique international property consultancy based in Fethiye. We take on fewer listings, represent the buyer properly, and stay reachable long after the title deed is signed.",
+    "metaTitle": "About Us — A Boutique Property Consultancy in Fethiye",
+    "missionBody": "To handle every stage of a Fethiye purchase — shortlist, viewing trip, negotiation, independent legal checks, valuation, currency, title deed and aftercare — through a single named contact who is accountable for all of it, and to turn down the business when the property does not stand up.",
+    "missionLabel": "Our mission",
+    "notDoingEyebrow": "Just as important",
+    "notDoingHeading": "What we don't do",
+    "notDoingLede": "Overseas property has earned a share of its reputation. These are the practices we have deliberately built the firm to avoid.",
+    "principlesEyebrow": "How we work",
+    "principlesHeading": "Four commitments we will put in writing",
+    "storyCta": "See exactly how a purchase runs",
+    "storyEyebrow": "Our story",
+    "storyHeading": "Built on the coast we sell",
+    "storyP1": "We are based in Fethiye, not in a call centre elsewhere. That means we have walked every property on this site, we know which hillside loses the sun in November, and we know which developments have unresolved habitation certificates before the paperwork tells us.",
+    "storyP2": "The firm was founded to bridge two systems that rarely explain themselves to each other. Buyers arrive expecting the conveyancing habits of their own country. Türkiye offers a land registry that is faster and cleaner than most people expect, but with its own requirements — the SPK valuation report, DASK, the DAB currency certificate — that nobody mentions until they hold something up.",
+    "storyP3": "Our job is to remove that gap entirely: to make a purchase in Fethiye feel as legible as one at home, without pretending the two processes are the same.",
+    "visionBody": "That buying a home on the Turkish coast becomes something families do with confidence rather than nerve — because the process was explained, the risks were named out loud, and the person guiding them had nothing to hide.",
+    "visionEyebrow": "Our vision and mission",
+    "visionLabel": "Our vision",
+    "whatsappMessage": "Hello Coast 2 Coast — I'd like to know more about how you work.",
+    "principles": {
+      "represent": {
+        "title": "We represent you, not the seller",
+        "body": "Your solicitor is instructed by you and is independent of us. We will never recommend the seller's lawyer, and we will tell you when a deal is not worth doing — including when the property is one of ours."
+      },
+      "language": {
+        "title": "Nothing is signed in a language you cannot read",
+        "body": "Every reservation contract, valuation report and registry document is translated in full before you sign. A sworn translator attends the title deed appointment as a matter of course, not on request."
+      },
+      "contact": {
+        "title": "One named contact, start to finish",
+        "body": "You are not handed between a sales team, a legal team and an aftercare team. The person who meets you at Dalaman is the person who answers the phone in February."
+      },
+      "say-no": {
+        "title": "We say no more often than yes",
+        "body": "Properties with unresolved title, missing habitation certificates or optimistic pricing do not make it onto this site. A short portfolio is the point, not a limitation."
+      }
+    },
+    "notDoing": [
+      "We do not run coach tours where eight buyers view the same villa and are pressured to reserve on the day.",
+      "We do not take a commission from a developer to steer you towards a specific project.",
+      "We do not quote a headline price and reveal the 6–8% of purchase costs after you have committed.",
+      "We do not disappear once the title deed transfers — the fifth year of ownership matters as much as the first."
+    ]
+  },
+  "viewingDay": {
+    "bookBody": "Tell us roughly when you could travel and what you are looking for. We will come back with a proposed itinerary and a shortlist to approve — before anyone books a flight.",
+    "bookHeading": "Book your viewing trip",
+    "bookWhatsapp": "Rather ask on WhatsApp?",
+    "ctaAsk": "Ask a question first",
+    "ctaBook": "Book your viewing trip",
+    "faq": {
+      "q1": "How much does a viewing trip cost?",
+      "a1": "There is no charge for our time, the transport during the trip or the itinerary planning. You cover your own flights and accommodation, and we are happy to recommend or help arrange both. There is no deposit and no obligation to buy.",
+      "q2": "How many properties will I see?",
+      "a2": "Six to eight over a full day is the sensible maximum, and most trips run across two or three days. More than that and the properties genuinely start to blur together — we would rather show you fewer houses properly than march you through twenty.",
+      "q3": "How long should I stay?",
+      "a3": "Three to four nights suits most buyers. That gives two full viewing days, a third day to revisit favourites or meet a solicitor, and enough time to sit in a couple of areas at different times of day rather than only seeing them from the car.",
+      "q4": "When is the best time of year to visit?",
+      "a4": "February to June is ideal: the weather is comfortable for walking around properties, everything is open, and you avoid the August heat. Visiting in winter has one real advantage — you see which areas genuinely stay open, which is difficult to judge in July.",
+      "q5": "Can you help with flights and accommodation?",
+      "a5": "Yes. We will suggest where to stay based on the areas you want to see — staying in the right place does half the work of assessing it — and we can help you find flights into Dalaman, which is around 45 minutes from Fethiye.",
+      "q6": "What if I want to buy after I fly home?",
+      "a6": "That is straightforward. You can complete under a power of attorney granted to your solicitor, signed either at a Turkish notary while you are here or at a Turkish consulate or embassy in your own country. Many of our buyers complete this way."
+    },
+    "faqEyebrow": "Straight answers",
+    "faqHeading": "Viewing trip questions",
+    "faqLede": "Costs, timings, how many properties and what happens if you decide not to buy — which is a completely normal outcome.",
+    "finalBody": "Start with the portfolio, or read how a purchase actually runs from offer to title deed. When you are ready, the trip will be here.",
+    "finalHeading": "Not ready to fly yet?",
+    "finalPrimary": "Browse villas for sale",
+    "finalSecondary": "Read about the region",
+    "heroEyebrow": "Viewing trips",
+    "heroLede": "A viewing trip with us is not a coach tour. {host1} and {host2} collect you from your accommodation, drive you between properties chosen from a shortlist you agreed before flying, and tell you the truth about every one of them — including the ones we would talk you out of.",
+    "heroTitle": "Two days on the ground beat two months of browsing",
+    "included": [
+      "Collection from and return to your accommodation, every day of the trip",
+      "Private, air-conditioned transport between every property",
+      "A named consultant with you throughout — the same person, start to finish",
+      "A shortlist agreed with you in writing before you travel",
+      "Local knowledge on each area: winter closures, access, rental demand, resale",
+      "Introduction to an independent English-speaking solicitor if you need one",
+      "Full aftersale support"
+    ],
+    "includedHeading": "What is included",
+    "metaDescription": "Plan a property viewing trip to Fethiye, Ölüdeniz and Göcek. A shortlist agreed before you fly, private transport, a named consultant throughout and no charge for our time.",
+    "metaTitle": "Property Viewing Trips in Fethiye, Turkey",
+    "notDoing": [
+      "No coach tours with eight buyers viewing the same villa on the same morning",
+      "No properties shown above your stated budget to make others look reasonable",
+      "No 'today only' pricing, and no pressure to reserve before you fly home",
+      "No second agent joining halfway through the trip",
+      "No obligation whatsoever — a trip that ends without a purchase is a normal outcome"
+    ],
+    "notDoingHeading": "What we don't do",
+    "notDoingLede": "Overseas property viewing trips have earned a reputation. These are the practices we have deliberately built the trip to avoid.",
+    "serviceName": "Property viewing trips in Fethiye, Türkiye",
+    "statConsultant": "Named consultant, start to finish",
+    "statCost": "For our time and transport",
+    "statDays": "Days, built around your shortlist",
+    "statProperties": "Properties a day, maximum",
+    "whatsappMessage": "Hello Coast 2 Coast — I'd like to arrange a viewing trip to Fethiye."
+  },
+  "blog": {
+    "allArticles": "All articles",
+    "ctaHeading": "Reading is a good start. A shortlist is better.",
+    "ctaProperties": "Ready to look at actual properties?",
+    "empty": "The first articles are being written. In the meantime, the buying and selling process guides cover the ground in detail.",
+    "eyebrow": "Insights",
+    "heading": "Notes from the Fethiye property market",
+    "inThisArticle": "In this article",
+    "keepReading": "Keep reading",
+    "lede": "No recycled press releases and no market hype. These are the things we end up explaining on the phone every week — written down properly so you can read them before we speak.",
+    "listCtaText": "Tell us your budget, your timeline and how you plan to use the property. We will come back with what actually fits — and what to avoid.",
+    "listCtaWhatsapp": "Hello Coast 2 Coast — I've been reading your guides and I'd like to talk about buying in Fethiye.",
+    "metaTitle": "Fethiye Property Insights & Buying Guides",
+    "notFoundBody": "This article is no longer available. Browse our latest guides on buying property in Fethiye.",
+    "notFoundTitle": "Article not found",
+    "postCtaText": "Every villa on our books has been walked by us in person and has a clean individual title deed. Tell us what you need and we will send the shortlist."
+  },
+  "properties": {
+    "aboutProperty": "About this property",
+    "area": "Area",
+    "areaGuideCta": "Read the area guide",
+    "areasEyebrow": "Browse by area",
+    "areasHeading": "The neighbourhood matters",
+    "areasHeadingSub": "more than the house",
+    "askWhatsapp": "Ask on WhatsApp",
+    "bathrooms": "Bathrooms",
+    "bedrooms": "Bedrooms",
+    "citizenshipProgramme": "Citizenship programme",
+    "deedStatus": "Deed status",
+    "featured": "Featured",
+    "features": "Features",
+    "floors": "Floors",
+    "galleryClose": "Close gallery",
+    "galleryOpen": "View gallery",
+    "heading": "Villas for sale in Fethiye",
+    "internal": "internal",
+    "internalArea": "Internal area",
+    "keyFacts": "Key facts",
+    "lede": "Every property walked by us in person, with a clean individual title deed.",
+    "legalHeading": "Title deed and legal position",
+    "location": "Location",
+    "moreFromPortfolio": "More from the portfolio",
+    "nextPhoto": "Next photo",
+    "nextProperties": "Next properties",
+    "noPhotos": "Photography coming soon",
+    "notFoundBody": "This property is no longer listed. Browse our current villas for sale in Fethiye, Ölüdeniz and Göcek.",
+    "notFoundTitle": "Property not found",
+    "offMarketBody": "A meaningful share of what we sell goes to a registered buyer before it is ever advertised. Tell us the brief and we will send matches as they arrive.",
+    "offMarketHeading": "The best properties rarely reach this page",
+    "plot": "plot",
+    "previousPhoto": "Previous photo",
+    "previousProperties": "Previous properties",
+    "priceOnApplication": "Price on application",
+    "readBuying": "Read the full buying process",
+    "reference": "Reference",
+    "register": "Register your requirements",
+    "type": "Type",
+    "view": "View",
+    "viewAll": "View all properties",
+    "whyThisOne": "Why this one"
+  },
+  "explorer": {
+    "anyArea": "Any area",
+    "anyType": "Any type",
+    "areaCount": "{count} areas",
+    "bedrooms": "Bedrooms",
+    "categoryApartment": "Apartment",
+    "categoryPlot": "Plot",
+    "categoryVilla": "Villa",
+    "clearFilters": "Clear all filters",
+    "clearSearch": "Clear search",
+    "emptyBody": "A meaningful share of what we sell never reaches this page. Tell us the brief and we will send matches as they arrive.",
+    "gridView": "Grid view",
+    "layout": "Result layout",
+    "listView": "List view",
+    "loadMore": "Load more properties",
+    "location": "Location",
+    "maxPrice": "Maximum price",
+    "minPrice": "Minimum price",
+    "oneArea": "1 area",
+    "priceNote": "Guide prices. Purchase costs add roughly 6–8% on top.",
+    "removeFilter": "Remove filter",
+    "reset": "Reset",
+    "resultCountOne": "1 property matches your filters",
+    "resultCountOther": "{count} properties match your filters",
+    "results": "Property results",
+    "searchLabel": "Search properties by keyword",
+    "searchPlaceholder": "Search by keyword…",
+    "sort": "Sort",
+    "sortNewest": "Newest",
+    "sortPriceAsc": "Price: Low to High",
+    "sortPriceDesc": "Price: High to Low",
+    "sortRecommended": "Recommended"
+  },
+  "panel": {
+    "detailsBody": "Floor plans, running costs and recent rental figures — sent by a person, usually within the working day.",
+    "enquire": "Enquire",
+    "lookingFor": "Looking for a property in Fethiye?",
+    "priceAndEnquiry": "Price and enquiry",
+    "requestDetails": "Request the full details",
+    "viewingsNote": "Viewings arranged within 48 hours. No obligation, and no third-party agent joining halfway.",
+    "whatsappInfo": "Get info on WhatsApp",
+    "whatsappUs": "WhatsApp us"
+  },
+  "tripForm": {
+    "arrival": "Arrival",
+    "datesHint": "Not sure yet? Leave these blank — we will suggest the best weeks based on what you want to see.",
+    "family": "Family with children",
+    "friends": "Group of friends",
+    "justMe": "Just me",
+    "lookingFor": "What are you looking for?",
+    "lookingForPlaceholder": "Number of bedrooms, must-haves, areas you are drawn to, and whether this is a holiday home, a rental asset or a move.",
+    "note": "No deposit and no obligation. We confirm the shortlist with you before anyone books a flight.",
+    "phoneLabel": "Phone / WhatsApp",
+    "preferredDates": "Preferred dates (optional)",
+    "returnDate": "Return",
+    "submit": "Book your viewing trip",
+    "successBody": "We will come back with a proposed itinerary and a shortlist to review before you book anything.",
+    "successTitle": "Your trip request is with us",
+    "successWhatsapp": "Need an answer sooner? Message us on WhatsApp",
+    "travellingAs": "Travelling as"
+  },
+  "validation": {
+    "checkFields": "Please check the highlighted fields and try again.",
+    "email": "Please enter an email address we can reply to.",
+    "message": "A sentence or two about what you are looking for helps us reply properly.",
+    "name": "Please tell us your name.",
+    "returnBeforeArrival": "The return date cannot be before the arrival date.",
+    "sendFailed": "We could not send your enquiry just now. Please try again, or call us on {phone}.",
+    "success": "Thank you — your enquiry is with us. We reply to every message personally, usually within one working day."
+  },
+  "imagery": {
+    "named": {
+      "homeHero": "The turquoise Blue Lagoon at Ölüdeniz seen from the mountain road above Fethiye",
+      "homeCredentials": "Terraced infinity pools framed by cypress trees at a Mediterranean villa estate",
+      "homeProcess": "Islands and headlands in the Gulf of Fethiye seen through morning haze",
+      "homeCta": "Swimming pool on a hillside terrace looking out over the Mediterranean",
+      "propertiesHero": "The Blue Lagoon at Ölüdeniz enclosed by forested mountains",
+      "propertiesCta": "Clifftop swimming pool above the Mediterranean sea",
+      "about": "Yachts at anchor in a sheltered bay on the Fethiye coast",
+      "aboutTurkey": "Ölüdeniz beach and the resort behind it seen from the hillside road",
+      "revealAreas": "Contemporary architectural interior opening onto the coast",
+      "revealProcess": "Green mountains falling into the bright blue sea on the Fethiye coast",
+      "blog": "The bay and the town seen from the hillside road above Fethiye",
+      "buyingProcess": "White modern villa with a pool and palm trees on the Turkish coast",
+      "sellingProcess": "Sunlit villa facade with a large blue swimming pool",
+      "citizenship": "Coastal town rooftops above a turquoise Mediterranean bay",
+      "insurance": "Contemporary house with a covered terrace and swimming pool",
+      "viewingDay": "Terraced pools framed by cypress trees at a Mediterranean estate",
+      "contact": "Sunset over the headlands and open water off the Fethiye coast"
+    },
+    "slides": [
+      "Luxury villa with a sea view terrace and infinity pool on the Mediterranean coast",
+      "Modern coastal architecture with clean white lines and full-height glazing",
+      "Infinity pool at a contemporary luxury villa looking out over the water"
+    ]
+  }
+}

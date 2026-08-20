@@ -4,7 +4,9 @@ import { useActionState, useId } from "react";
 import { CircleAlert, CircleCheck, Loader2, MessageCircle, Send } from "lucide-react";
 import { submitEnquiry } from "@/app/actions/enquiry";
 import { EMPTY_ENQUIRY_STATE, type EnquiryState } from "@/lib/enquiry";
-import { useWhatsappLink } from "@/components/settings-provider";
+import { useSettings, useWhatsappLink } from "@/components/settings-provider";
+import { useT } from "@/components/translation";
+import type { TranslationKey } from "@/lib/i18n";
 
 /**
  * Talep formu. `useActionState` ile Server Action'a bağlıdır:
@@ -40,7 +42,7 @@ type LeadFormProps = {
 };
 
 const inputStyles =
-  "w-full rounded-none border-b border-line bg-transparent px-0 py-3 text-sm text-ink outline-none transition-colors placeholder:text-ink-40 focus:border-sea";
+  "w-full rounded-none border-b border-line bg-transparent px-0 py-3 text-sm text-ink outline-none transition-colors focus:border-sea";
 
 export function LeadForm({
   variant = "page",
@@ -80,6 +82,8 @@ export function LeadForm({
       : "Hello Coast 2 Coast — I'd like to talk about buying a villa in Fethiye.");
 
   const whatsappUrl = useWhatsappLink(resolvedWhatsapp);
+  const { t, tag } = useT();
+  const { contact } = useSettings();
 
   /** Bütçe alanı: açıkça belirtilmediyse geniş formda görünür, dar panelde görünmez. */
   const budgetVisible = showBudget ?? variant === "page";
@@ -88,13 +92,18 @@ export function LeadForm({
     return (
       <div
         role="status"
+        lang={tag}
         className="flex flex-col items-start gap-5 border border-sea/30 bg-sea/5 p-8"
       >
         <CircleCheck className="size-8 text-sea" aria-hidden="true" />
         <p className="font-display text-xl leading-snug text-sea-deep">
-          Message received
+          {t("form.successTitle")}
         </p>
-        <p className="text-sm leading-relaxed text-ink-70">{state.message}</p>
+        <p className="text-sm leading-relaxed text-ink-70">
+          {/* Sunucu ANAHTAR döndürüyor; çözüm istemcide, kullanıcının
+              diliyle (bkz. lib/enquiry.ts). */}
+          {t(state.message as TranslationKey, { phone: contact.phoneDisplay })}
+        </p>
         <a
           href={whatsappUrl}
           target="_blank"
@@ -102,14 +111,21 @@ export function LeadForm({
           className="inline-flex items-center gap-2 text-sm text-sea underline underline-offset-4"
         >
           <MessageCircle className="size-4" aria-hidden="true" />
-          Need an answer sooner? Message us on WhatsApp
+          {t("form.successWhatsapp")}
         </a>
       </div>
     );
   }
 
   return (
-    <form action={formAction} noValidate className="flex flex-col gap-6">
+    <form
+      action={formAction}
+      noValidate
+      /* Etiketler çevrili, sayfa gövdesi değil — `lang` gerçekten dil
+         değiştiren düğümde duruyor (bkz. components/translation.tsx). */
+      lang={tag}
+      className="flex flex-col gap-6"
+    >
       {propertyReference ? (
         <input type="hidden" name="propertyReference" value={propertyReference} />
       ) : null}
@@ -124,7 +140,7 @@ export function LeadForm({
         autoComplete="off" olmazsa tarayıcı otomatik doldurup tuzağı tetikleyebilir.
       */}
       <div aria-hidden="true" className="hidden">
-        <label htmlFor={fieldId("company")}>Company (leave blank)</label>
+        <label htmlFor={fieldId("company")}>{t("form.honeypot")}</label>
         <input
           id={fieldId("company")}
           type="text"
@@ -139,10 +155,9 @@ export function LeadForm({
           id={fieldId("name")}
           errorId={errorId("name")}
           name="name"
-          label="Full name"
+          label={t("form.name")}
           autoComplete="name"
-          placeholder="Jane Whitfield"
-          error={state.fieldErrors.name}
+          error={state.fieldErrors.name && t(state.fieldErrors.name as TranslationKey)}
           required
         />
         <Field
@@ -150,10 +165,9 @@ export function LeadForm({
           errorId={errorId("email")}
           name="email"
           type="email"
-          label="Email"
+          label={t("form.email")}
           autoComplete="email"
-          placeholder="jane@example.com"
-          error={state.fieldErrors.email}
+          error={state.fieldErrors.email && t(state.fieldErrors.email as TranslationKey)}
           required
         />
       </div>
@@ -164,10 +178,9 @@ export function LeadForm({
           errorId={errorId("phone")}
           name="phone"
           type="tel"
-          label="Phone (optional)"
+          label={t("form.phone")}
           autoComplete="tel"
-          placeholder="Include your country code"
-          error={state.fieldErrors.phone}
+          error={state.fieldErrors.phone && t(state.fieldErrors.phone as TranslationKey)}
         />
 
         {budgetVisible ? (
@@ -176,7 +189,7 @@ export function LeadForm({
               htmlFor={fieldId("budget")}
               className="eyebrow text-ink-40"
             >
-              Budget (optional)
+              {t("form.budget")}
             </label>
             <select
               id={fieldId("budget")}
@@ -184,7 +197,7 @@ export function LeadForm({
               defaultValue=""
               className={`${inputStyles} cursor-pointer`}
             >
-              <option value="">Select a range</option>
+              <option value="">{t("form.budgetPlaceholder")}</option>
               <option value="Up to £250,000">Up to £250,000</option>
               <option value="£250,000 – £450,000">£250,000 – £450,000</option>
               <option value="£450,000 – £750,000">£450,000 – £750,000</option>
@@ -196,7 +209,7 @@ export function LeadForm({
 
       <div className="flex flex-col gap-2">
         <label htmlFor={fieldId("message")} className="eyebrow text-ink-40">
-          How can we help?
+          {t("form.message")}
         </label>
         <textarea
           id={fieldId("message")}
@@ -204,7 +217,6 @@ export function LeadForm({
           rows={variant === "panel" ? 3 : 5}
           required
           defaultValue={resolvedMessage}
-          placeholder="Tell us your timeline, whether this is a holiday home or an investment, and when you could travel."
           aria-invalid={state.fieldErrors.message ? true : undefined}
           aria-describedby={
             state.fieldErrors.message ? errorId("message") : undefined
@@ -213,7 +225,7 @@ export function LeadForm({
         />
         {state.fieldErrors.message ? (
           <FieldError id={errorId("message")}>
-            {state.fieldErrors.message}
+            {state.fieldErrors.message && t(state.fieldErrors.message as TranslationKey)}
           </FieldError>
         ) : null}
       </div>
@@ -228,7 +240,7 @@ export function LeadForm({
           className="inline-flex items-start gap-2 text-sm text-red-700"
         >
           <CircleAlert className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
-          {state.message}
+          {t(state.message as TranslationKey, { phone: contact.phoneDisplay })}
         </p>
       ) : null}
 
@@ -240,20 +252,19 @@ export function LeadForm({
         {isPending ? (
           <>
             <Loader2 className="size-4 animate-spin" aria-hidden="true" />
-            Sending…
+            {t("form.sending")}
           </>
         ) : (
           <>
             <Send className="size-4" aria-hidden="true" />
             {submitLabel ??
-              (variant === "panel" ? "Request details" : "Send enquiry")}
+              t(variant === "panel" ? "form.submitPanel" : "form.submitPage")}
           </>
         )}
       </button>
 
       <p className="text-xs leading-relaxed text-ink-40">
-        We reply personally, never share your details, and do not add you to a
-        mailing list without asking.
+        {t("form.privacyNote")}
       </p>
     </form>
   );
@@ -265,7 +276,6 @@ function Field({
   name,
   label,
   type = "text",
-  placeholder,
   autoComplete,
   error,
   required = false,
@@ -275,7 +285,6 @@ function Field({
   name: string;
   label: string;
   type?: string;
-  placeholder?: string;
   autoComplete?: string;
   error?: string;
   required?: boolean;
@@ -290,7 +299,6 @@ function Field({
         name={name}
         type={type}
         required={required}
-        placeholder={placeholder}
         autoComplete={autoComplete}
         aria-invalid={error ? true : undefined}
         aria-describedby={error ? errorId : undefined}

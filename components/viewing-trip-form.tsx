@@ -11,7 +11,9 @@ import {
 } from "lucide-react";
 import { submitEnquiry } from "@/app/actions/enquiry";
 import { EMPTY_ENQUIRY_STATE, type EnquiryState } from "@/lib/enquiry";
-import { useWhatsappLink } from "@/components/settings-provider";
+import { useSettings, useWhatsappLink } from "@/components/settings-provider";
+import { useT } from "@/components/translation";
+import type { TranslationKey } from "@/lib/i18n";
 
 /**
  * Görüntüleme gezisi rezervasyon formu.
@@ -33,6 +35,8 @@ const WHATSAPP_MESSAGE =
   "Hello Coast 2 Coast — I'd like to arrange a viewing trip to Fethiye.";
 
 export function ViewingTripForm() {
+  const { t, tag } = useT();
+  const { contact } = useSettings();
   const whatsappUrl = useWhatsappLink(WHATSAPP_MESSAGE);
 
   const [state, formAction, isPending] = useActionState<EnquiryState, FormData>(
@@ -58,13 +62,12 @@ export function ViewingTripForm() {
       >
         <CircleCheck className="size-8 text-sea" aria-hidden="true" />
         <p className="font-display text-2xl leading-snug text-sea-deep">
-          Your trip request is with us
+          {t("tripForm.successTitle")}
         </p>
-        <p className="leading-relaxed text-ink-70">{state.message}</p>
+        <p className="leading-relaxed text-ink-70">{t(state.message as TranslationKey, { phone: contact.phoneDisplay })}</p>
         <p className="text-sm leading-relaxed text-ink-40">
-          We will come back with a proposed itinerary and a shortlist to review
-          before you book any flights.
-        </p>
+          {t("tripForm.successBody")}
+          </p>
         <a
           href={whatsappUrl}
           target="_blank"
@@ -72,19 +75,19 @@ export function ViewingTripForm() {
           className="inline-flex items-center gap-2 text-sm text-sea underline underline-offset-4"
         >
           <MessageCircle className="size-4" aria-hidden="true" />
-          Need an answer sooner? Message us on WhatsApp
+          {t("tripForm.successWhatsapp")}
         </a>
       </div>
     );
   }
 
   return (
-    <form action={formAction} noValidate className="flex flex-col gap-8">
+    <form lang={tag} action={formAction} noValidate className="flex flex-col gap-8">
       <input type="hidden" name="enquiryType" value="Viewing trip" />
 
       {/* Honeypot — gerçek kullanıcı görmez, bot doldurur. */}
       <div aria-hidden="true" className="hidden">
-        <label htmlFor={fieldId("company")}>Company (leave blank)</label>
+        <label htmlFor={fieldId("company")}>{t("form.honeypot")}</label>
         <input
           id={fieldId("company")}
           type="text"
@@ -99,10 +102,10 @@ export function ViewingTripForm() {
           id={fieldId("name")}
           errorId={errorId("name")}
           name="name"
-          label="Full name"
+          label={t("form.name")}
           autoComplete="name"
-          placeholder="Jane Whitfield"
-          error={state.fieldErrors.name}
+          
+          error={state.fieldErrors.name && t(state.fieldErrors.name as TranslationKey)}
           required
         />
         <Field
@@ -110,10 +113,10 @@ export function ViewingTripForm() {
           errorId={errorId("email")}
           name="email"
           type="email"
-          label="Email"
+          label={t("form.email")}
           autoComplete="email"
-          placeholder="jane@example.com"
-          error={state.fieldErrors.email}
+          
+          error={state.fieldErrors.email && t(state.fieldErrors.email as TranslationKey)}
           required
         />
       </div>
@@ -124,15 +127,15 @@ export function ViewingTripForm() {
           errorId={errorId("phone")}
           name="phone"
           type="tel"
-          label="Phone / WhatsApp"
+          label={t("tripForm.phoneLabel")}
           autoComplete="tel"
-          placeholder="Include your country code"
-          error={state.fieldErrors.phone}
+          
+          error={state.fieldErrors.phone && t(state.fieldErrors.phone as TranslationKey)}
         />
 
         <div className="flex flex-col gap-2">
           <label htmlFor={fieldId("travellers")} className="eyebrow text-ink-40">
-            Travelling as
+            {t("tripForm.travellingAs")}
           </label>
           <select
             id={fieldId("travellers")}
@@ -141,10 +144,10 @@ export function ViewingTripForm() {
             className={`${inputStyles} cursor-pointer`}
           >
             <option value="">Select</option>
-            <option value="1 person">Just me</option>
+            <option value="1 person">{t("tripForm.justMe")}</option>
             <option value="2 people">Two of us</option>
-            <option value="Family with children">Family with children</option>
-            <option value="Group of friends">Group of friends</option>
+            <option value="Family with children">{t("tripForm.family")}</option>
+            <option value="Group of friends">{t("tripForm.friends")}</option>
           </select>
         </div>
       </div>
@@ -152,12 +155,11 @@ export function ViewingTripForm() {
       {/* --------------------------------------------------------- TARİHLER */}
       <fieldset className="border-0 p-0">
         <legend className="eyebrow mb-1 text-ink-40">
-          Preferred dates (optional)
+          {t("tripForm.preferredDates")}
         </legend>
         <p className="mb-6 text-xs leading-relaxed text-ink-40">
-          Not sure yet? Leave these blank — we will suggest the best weeks based
-          on what you want to see.
-        </p>
+          {t("tripForm.datesHint")}
+          </p>
 
         <div className="grid gap-8 sm:grid-cols-2">
           <div className="flex flex-col gap-2">
@@ -165,7 +167,7 @@ export function ViewingTripForm() {
               htmlFor={fieldId("arrivalDate")}
               className="eyebrow text-ink-40"
             >
-              Arrival
+              {t("tripForm.arrival")}
             </label>
             <input
               id={fieldId("arrivalDate")}
@@ -181,7 +183,7 @@ export function ViewingTripForm() {
               htmlFor={fieldId("departureDate")}
               className="eyebrow text-ink-40"
             >
-              Return
+              {t("tripForm.returnDate")}
             </label>
             <input
               id={fieldId("departureDate")}
@@ -198,7 +200,7 @@ export function ViewingTripForm() {
             />
             {state.fieldErrors.departureDate ? (
               <FieldError id={errorId("departureDate")}>
-                {state.fieldErrors.departureDate}
+                {state.fieldErrors.departureDate && t(state.fieldErrors.departureDate as TranslationKey)}
               </FieldError>
             ) : null}
           </div>
@@ -207,7 +209,7 @@ export function ViewingTripForm() {
 
       <div className="flex flex-col gap-2">
         <label htmlFor={fieldId("budget")} className="eyebrow text-ink-40">
-          Budget (optional)
+          {t("form.budget")}
         </label>
         <select
           id={fieldId("budget")}
@@ -215,7 +217,7 @@ export function ViewingTripForm() {
           defaultValue=""
           className={`${inputStyles} cursor-pointer`}
         >
-          <option value="">Select a range</option>
+          <option value="">{t("form.budgetPlaceholder")}</option>
           <option value="Up to £250,000">Up to £250,000</option>
           <option value="£250,000 – £450,000">£250,000 – £450,000</option>
           <option value="£450,000 – £750,000">£450,000 – £750,000</option>
@@ -225,14 +227,14 @@ export function ViewingTripForm() {
 
       <div className="flex flex-col gap-2">
         <label htmlFor={fieldId("message")} className="eyebrow text-ink-40">
-          What are you looking for?
+          {t("tripForm.lookingFor")}
         </label>
         <textarea
           id={fieldId("message")}
           name="message"
           rows={5}
           required
-          placeholder="Number of bedrooms, must-haves, areas you are drawn to, and whether this is a holiday home, a rental asset or a move."
+          placeholder={t("tripForm.lookingForPlaceholder")}
           aria-invalid={state.fieldErrors.message ? true : undefined}
           aria-describedby={
             state.fieldErrors.message ? errorId("message") : undefined
@@ -241,7 +243,7 @@ export function ViewingTripForm() {
         />
         {state.fieldErrors.message ? (
           <FieldError id={errorId("message")}>
-            {state.fieldErrors.message}
+            {state.fieldErrors.message && t(state.fieldErrors.message as TranslationKey)}
           </FieldError>
         ) : null}
       </div>
@@ -252,7 +254,7 @@ export function ViewingTripForm() {
           className="inline-flex items-start gap-2 text-sm text-red-700"
         >
           <CircleAlert className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
-          {state.message}
+          {t(state.message as TranslationKey, { phone: contact.phoneDisplay })}
         </p>
       ) : null}
 
@@ -264,21 +266,20 @@ export function ViewingTripForm() {
         {isPending ? (
           <>
             <Loader2 className="size-4 animate-spin" aria-hidden="true" />
-            Sending…
+            {t("form.sending")}
           </>
         ) : (
           <>
             <CalendarCheck className="size-4" aria-hidden="true" />
-            Book your viewing trip
+            {t("tripForm.submit")}
           </>
         )}
       </button>
 
       <p className="inline-flex items-start gap-2 text-xs leading-relaxed text-ink-40">
         <Send className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />
-        No deposit and no obligation. We confirm the shortlist with you before
-        anyone books a flight.
-      </p>
+        {t("tripForm.note")}
+          </p>
     </form>
   );
 }

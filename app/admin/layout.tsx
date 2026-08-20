@@ -1,6 +1,74 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
+import { Inter, Montserrat, Playfair_Display } from "next/font/google";
 import { AdminTopBar } from "@/components/admin/admin-top-bar";
 import { getAdminSession } from "@/lib/admin/auth";
+import "../globals.css";
+
+/**
+ * PANELİN KÖK LAYOUT'U.
+ *
+ * Rota tabanlı i18n gelene kadar burası sıradan bir iç layout'tu ve
+ * <html>/<body> kabuğunu `app/layout.tsx`ten miras alıyordu. Vitrinin
+ * tamamı `app/[lang]/` altına taşınınca o kök ortadan kalktı: panelin dil
+ * öneki almaması gerektiği için onu da taşımak yanlış olurdu (/tr/admin
+ * diye bir yönetim paneli yok).
+ *
+ * Dolayısıyla panel artık KENDİ kökü. Fontlar ve globals.css burada
+ * yeniden tanımlanıyor — `next/font` aynı dosyaları paylaştığı için
+ * ikinci bir indirme oluşmuyor, yalnızca CSS değişkenleri bu ağaçta da
+ * tanımlı hâle geliyor.
+ *
+ * `lang="en"` SABİT ve doğru: panel tek dilli.
+ */
+const montserrat = Montserrat({
+  subsets: ["latin", "latin-ext"], // latin-ext: Türkçe ş/ğ/ı karakterleri
+  variable: "--font-montserrat",
+  display: "swap",
+  /*
+    600 ve 700 de alınıyor: başlıkların tamamı 800 değil. Kart başlıkları
+    ve panel etiketleri daha hafif kesitlerde diziliyor ve tarayıcının
+    eksik kesiti sentezlemesine (fake bold) izin vermek, geometrik bir
+    ailede harf formlarını gözle görülür biçimde bozar.
+  */
+  weight: ["600", "700", "800"],
+});
+
+/**
+ * SADECE MARKA İŞARETİ İÇİN — başlıklar için DEĞİL.
+ *
+ * Başlıklar Montserrat'a geçti; logo geçmedi ve bu bilinçli. `logo.tsx`
+ * içindeki SVG geometrisi Playfair'in kapital yüksekliğine ve genişliğine
+ * göre ayarlanmış: metin taban çizgileri, çatı ile kelime işareti
+ * arasındaki 7 birimlik optik boşluk ve viewBox yüksekliği o orana
+ * bağlı. Aileyi değiştirmek logoyu "güncellemek" değil, yeniden çizmek
+ * demek — Montserrat aynı puntoda belirgin şekilde daha geniş, ortalanmış
+ * kelime işareti 280 birimlik viewBox'tan taşardı.
+ *
+ * Tek kesit (600) indiriliyor: yığın `--font-playfair` tanımsız kalsaydı
+ * logo sistem serifine (Georgia/Palatino) düşerdi ve marka işareti
+ * ziyaretçinin işletim sistemine göre değişirdi — bir lüks markada kabul
+ * edilemez.
+ */
+const playfair = Playfair_Display({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-playfair",
+  display: "swap",
+  weight: ["600"],
+});
+
+const inter = Inter({
+  subsets: ["latin", "latin-ext"],
+  variable: "--font-inter",
+  display: "swap",
+  weight: ["400", "500", "600", "700"],
+});
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0f2337",
+  colorScheme: "light",
+};
 
 /**
  * ADMIN KABUĞU — üst menü, kenar çubuğu YOK.
@@ -38,6 +106,13 @@ export default async function AdminLayout({
   const { isAuth } = await getAdminSession();
 
   return (
+    <html
+      lang="en"
+      className={`${montserrat.variable} ${playfair.variable} ${inter.variable} h-full`}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
+      <body className="flex min-h-full flex-col font-sans text-ink">
     <div className="flex min-h-screen flex-col bg-shell-deep">
       <AdminTopBar isAuth={isAuth} />
 
@@ -51,5 +126,7 @@ export default async function AdminLayout({
         {children}
       </main>
     </div>
+      </body>
+    </html>
   );
 }

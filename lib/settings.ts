@@ -38,6 +38,16 @@ export type SiteSettings = {
   contact: {
     phoneDisplay: string;
     phoneE164: string;
+    /**
+     * İKİNCİ HAT — opsiyonel.
+     *
+     * Zorunlu olsaydı, alanı taşımayan eski bir `settings.json` (ve panelden
+     * gelen her gövde) tip düzeyinde geçersiz olurdu. Opsiyonel olduğu için
+     * eksik alan sessizce `lib/site.ts` varsayılanına düşüyor — dosyanın
+     * "kodun ÜSTÜNE yazan katman" olma sözleşmesiyle aynı davranış.
+     */
+    phoneSecondaryDisplay?: string;
+    phoneSecondaryE164?: string;
     whatsappNumber: string;
     email: string;
     openingHours: string;
@@ -65,6 +75,8 @@ export const DEFAULT_SETTINGS: SiteSettings = {
   contact: {
     phoneDisplay: staticContact.phoneDisplay,
     phoneE164: staticContact.phoneE164,
+    phoneSecondaryDisplay: staticContact.phoneSecondaryDisplay,
+    phoneSecondaryE164: staticContact.phoneSecondaryE164,
     whatsappNumber: staticContact.whatsappNumber,
     email: staticContact.email,
     openingHours: staticContact.openingHours,

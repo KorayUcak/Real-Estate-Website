@@ -63,7 +63,6 @@ export const BUYING_STEPS: ProcessStep[] = [
     detail: [
       "Six to eight properties over two days. More than that and they blur into one another.",
       "We drive you to the shops, the beach and the school run so you see the daily reality, not just the terrace.",
-      "No convoy, no second agent joining halfway, no pressure to reserve on the day.",
     ],
     timing: "Week 2–3",
     owner: "Coast 2 Coast, on the ground",
@@ -274,6 +273,24 @@ export const SELLING_STEPS: ProcessStep[] = [
  * piyasa aralığıdır — bu ayrımı sütun başlıklarında da koruyoruz.
  * TODO: Oranlar değiştiğinde (özellikle tapu harcı) burayı güncelleyin.
  */
+/**
+ * Sözlük anahtarları — ilgili dizilerle AYNI SIRADA.
+ *
+ * Adımların kendi `id` alanı zaten var ve çeviri onunla eşleşiyor; aşağıdaki
+ * iki liste ise id taşımayan diziler için (maliyet tablosu, satıcı
+ * itirazları). Sıra bozulursa çeviri kayar, bu yüzden ikisi de tek yerde.
+ */
+export const BUYING_COST_KEYS = [
+  "transfer-tax",
+  "spk-valuation",
+  "legal",
+  "notary",
+  "dask",
+  "utilities",
+] as const;
+
+export const PAIN_POINT_KEYS = ["reach", "communication", "viewings"] as const;
+
 export const BUYING_COSTS = [
   {
     item: "Property transfer tax (tapu harcı)",

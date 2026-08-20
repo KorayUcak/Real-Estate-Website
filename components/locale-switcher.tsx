@@ -1,15 +1,20 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { usePathname, useRouter } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { Check, ChevronDown, Globe } from "lucide-react";
 import { useLocale } from "@/components/locale-provider";
+import { useT } from "@/components/translation";
 import { cn } from "@/lib/cn";
 import { CURRENCY_META } from "@/lib/currency";
 import {
   LANGUAGE_META,
+  localizedPath,
   LOCALIZATION_OPTIONS,
   matchLocalization,
+  routeFromLanguage,
+  stripLocale,
   type LocalizationOption,
 } from "@/lib/locale";
 
@@ -57,7 +62,10 @@ export function LocaleSwitcher({
   tone?: Tone;
   layout?: "inline" | "stacked";
 }) {
-  const { language, currency, setLocalization } = useLocale();
+  const { language, currency, setCurrency } = useLocale();
+  const { t } = useT();
+  const router = useRouter();
+  const pathname = usePathname();
 
   const [open, setOpen] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -89,10 +97,32 @@ export function LocaleSwitcher({
     if (returnFocus) triggerRef.current?.focus();
   };
 
+  /**
+   * SEÇİM — tek eylem, iki farklı mekanizma.
+   *
+   * Para birimi bir tercih: localStorage'a yazılır ve sayfa yerinde
+   * güncellenir. Dil ise bir ADRES: /tr/properties ayrı bir belgedir, oraya
+   * GİDİLİR. Kullanıcı için ikisi hâlâ tek tıklama — ayrım yalnızca
+   * uygulamada.
+   *
+   * Sıra önemli: önce para birimi yazılır, sonra gezinme başlar. Ters
+   * olsaydı yeni sayfa eski para birimiyle bir kare boyunca render edilirdi.
+   *
+   * `stripLocale` şart: kullanıcı /tr/properties'teyken Rusça'ya geçerse
+   * hedef /ru/properties olmalı — mevcut yola körlemesine önek eklemek
+   * /ru/tr/properties üretirdi.
+   */
   const commit = (index: number) => {
     const option = LOCALIZATION_OPTIONS[index];
     if (!option) return;
-    setLocalization(option.language, option.currency);
+
+    setCurrency(option.currency);
+
+    if (option.language !== language) {
+      const canonical = stripLocale(pathname);
+      router.push(localizedPath(canonical, routeFromLanguage(option.language)));
+    }
+
     close();
   };
 
@@ -161,7 +191,9 @@ export function LocaleSwitcher({
         /* Görünür etiket yok — erişilebilir ad ile seçili değeri birlikte
            okutuyoruz ki ekran okuyucu "Language and currency: English
            (GBP – £)" desin. */
-        aria-label={`Language and currency: ${fullLabel(selected)}`}
+        aria-label={t("common.languageAndCurrencyAria", {
+          value: fullLabel(selected),
+        })}
         className={cn(
           "inline-flex items-center gap-1.5 rounded-sm border px-2.5 py-2 font-sans text-[11px] font-semibold uppercase tracking-[0.12em] transition-colors",
           block && "w-full justify-between px-3.5 py-3 text-xs",
@@ -188,7 +220,7 @@ export function LocaleSwitcher({
         {open ? (
           <motion.ul
             role="listbox"
-            aria-label="Language and currency"
+            aria-label={t("common.languageAndCurrency")}
             tabIndex={-1}
             onKeyDown={onKeyDown}
             initial={
@@ -225,7 +257,7 @@ export function LocaleSwitcher({
               className="px-3 pb-1.5 pt-1 font-sans text-[9px] font-bold uppercase tracking-[0.24em] text-ink-40"
               aria-hidden="true"
             >
-              Language &amp; Currency
+              {t("common.languageAndCurrency")}
             </li>
 
             {LOCALIZATION_OPTIONS.map((option, index) => {

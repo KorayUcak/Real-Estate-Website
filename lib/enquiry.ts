@@ -42,19 +42,32 @@ export type Enquiry = {
   receivedAt: string;
 };
 
-export const SUCCESS_MESSAGE =
-  "Thank you — your enquiry is with us. We reply to every message personally, usually within one working day.";
+/**
+ * ⚠️ BU SABİTLER ARTIK ÇEVİRİ ANAHTARI TAŞIYOR, METİN DEĞİL.
+ *
+ * `lib/enquiry.ts` hem sunucu eyleminde hem istemci formunda kullanılıyor
+ * ve dili bilmiyor. Metni burada tutmak, üç dilli bir sitede formun
+ * her zaman İngilizce cevap vermesi demekti — üstelik hata mesajı, yani
+ * kullanıcının en çok yardıma ihtiyaç duyduğu an.
+ *
+ * Anahtarı `components/lead-form.tsx` ve `viewing-trip-form.tsx` çözüyor.
+ */
+export const SUCCESS_MESSAGE = "validation.success";
 
 /**
  * Sağlayıcı hatasında gösterilen metin. Telefon numarası BİLEREK içinde:
  * e-posta gitmediyse kullanıcıya "bir şeyler ters gitti" deyip yolcu etmek,
  * o müşteriyi kaybetmek demektir.
  */
-export const DELIVERY_ERROR_MESSAGE =
-  "We could not send your enquiry just now. Please try again, or call us on +90 534 052 00 30.";
+/**
+ * Telefon numarası metne GÖMÜLÜ DEĞİL, `{phone}` yer tutucusuyla geliyor:
+ * numara `data/settings.json` üzerinden panelden düzenlenebiliyor ve üç
+ * çeviriye sabitlenmiş bir numara, yönetici onu değiştirdiğinde sessizce
+ * eskir.
+ */
+export const DELIVERY_ERROR_MESSAGE = "validation.sendFailed";
 
-export const VALIDATION_ERROR_MESSAGE =
-  "Please check the highlighted fields and try again.";
+export const VALIDATION_ERROR_MESSAGE = "validation.checkFields";
 
 /**
  * Kasıtlı olarak gevşek bir e-posta kontrolü: RFC 5322'yi tam uygulayan
@@ -124,16 +137,16 @@ export function validateEnquiry(source: EnquirySource): EnquiryValidation {
   const fieldErrors: Record<string, string> = {};
 
   if (name.length < 2) {
-    fieldErrors.name = "Please tell us your name.";
+    fieldErrors.name = "validation.name";
   }
 
   if (!EMAIL_PATTERN.test(email)) {
-    fieldErrors.email = "Please enter an email address we can reply to.";
+    fieldErrors.email = "validation.email";
   }
 
   if (message.length < 10) {
     fieldErrors.message =
-      "A sentence or two about what you are looking for helps us reply properly.";
+      "validation.message";
   }
 
   /**
@@ -143,7 +156,7 @@ export function validateEnquiry(source: EnquirySource): EnquiryValidation {
    */
   if (arrivalDate && departureDate && departureDate < arrivalDate) {
     fieldErrors.departureDate =
-      "The return date cannot be before the arrival date.";
+      "validation.returnBeforeArrival";
   }
 
   if (Object.keys(fieldErrors).length > 0) {

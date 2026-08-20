@@ -2,12 +2,13 @@
 
 import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/locale-link";
 import useEmblaCarousel from "embla-carousel-react";
 import { ArrowRight, Bath, BedDouble, ChevronLeft, ChevronRight, MapPin, Ruler } from "lucide-react";
 import { Price } from "@/components/price";
 import { cn } from "@/lib/cn";
 import type { PropertyCardData } from "@/lib/property-card-data";
+import { useT } from "@/components/translation";
 
 /**
  * EVRENSEL İLAN KARTI — ana sayfa, /properties ve benzer ilanlar listesi.
@@ -53,6 +54,7 @@ export function PropertyCard({
    */
   layout?: "grid" | "list";
 }) {
+  const { t } = useT();
   const slides = villa.images;
   const href = `/properties/${villa.slug}`;
   const isList = layout === "list";
@@ -125,11 +127,11 @@ export function PropertyCard({
    * "bilinmiyor" demektir; "0 m²" basmak yanlış bilgi olur.
    */
   const stats = [
-    villa.bedrooms > 0 && { icon: BedDouble, label: "Bedrooms", value: villa.bedrooms },
-    villa.bathrooms > 0 && { icon: Bath, label: "Bathrooms", value: villa.bathrooms },
+    villa.bedrooms > 0 && { icon: BedDouble, label: t("properties.bedrooms"), value: villa.bedrooms },
+    villa.bathrooms > 0 && { icon: Bath, label: t("properties.bathrooms"), value: villa.bathrooms },
     villa.buildSizeSqm > 0 && {
       icon: Ruler,
-      label: "Internal area",
+      label: t("properties.internalArea"),
       value: `${villa.buildSizeSqm} m²`,
     },
   ].filter(Boolean) as { icon: typeof BedDouble; label: string; value: string | number }[];
@@ -340,8 +342,8 @@ export function PropertyCard({
               görünür. `group-hover` tek başına bırakılsaydı telefonda hiç
               görünmezdi — hover diye bir şey yok. 44px dokunma hedefi.
             */}
-            <CarouselButton side="left" onClick={scrollPrev} label="Previous photo" />
-            <CarouselButton side="right" onClick={scrollNext} label="Next photo" />
+            <CarouselButton side="left" onClick={scrollPrev} label={t("properties.previousPhoto")} />
+            <CarouselButton side="right" onClick={scrollNext} label={t("properties.nextPhoto")} />
 
             {/* Sayfa noktaları — konumu bildirir ve doğrudan atlamayı sağlar. */}
             <div className="pointer-events-none absolute inset-x-0 bottom-0 z-20 flex justify-center bg-gradient-to-t from-ink/45 to-transparent pb-3 pt-8">
@@ -451,7 +453,7 @@ export function PropertyCard({
             />
           ) : (
             <span className="font-display text-lg font-bold uppercase tracking-tight text-ink-40">
-              Price on application
+              {t("properties.priceOnApplication")}
             </span>
           )}
 

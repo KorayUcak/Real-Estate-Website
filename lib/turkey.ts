@@ -65,7 +65,8 @@ export const AREA_DETAIL: Record<
       "A green valley setting with mountain air that makes August materially more comfortable.",
       "A car is useful here, though not strictly essential.",
     ],
-    bestFor: "Families and buyers who want space without isolation",
+    bestFor:
+      "Families and buyers who want space without isolation, highest short term rentals",
   },
   calis: {
     intro:
@@ -119,6 +120,35 @@ export const AREA_DETAIL: Record<
  * metin bloğu olarak sunuluyor.
  * TODO: Fotoğraf geldiğinde bunları da ana bölge listesine taşıyın.
  */
+/**
+ * /about-turkey REHBERİNDE GÖSTERİLMEYEN bölgeler.
+ *
+ * ⚠️ BUNLAR SİLİNMİŞ DEĞİL. `serviceAreas` (lib/site.ts) hepsini taşımaya
+ * devam ediyor ve taşımak ZORUNDA:
+ *
+ *   · Konum filtresi bu slug'larla çalışıyor — listeden çıkarsa
+ *     Dalaman'daki bir villa filtrelenemez hâle gelir.
+ *   · İlan kayıtlarındaki `location.areaSlug` bu listeye bağlı.
+ *   · Kart bileşenleri bölge adını buradan okuyor.
+ *   · schema.org `areaServed` alanı hizmet verilen bölgeleri sayıyor.
+ *
+ * Gizlenen tek şey /about-turkey sayfasındaki TANITIM KARTI. Bu dördü
+ * Fethiye ilçe sınırının dışında ya da kenarında kalıyor; bir "Fethiye ve
+ * çevresi" rehberinde anlatılmaları sayfayı odağından uzaklaştırıyordu.
+ * İlanları etkilenmiyor.
+ */
+export const HIDDEN_AREA_SLUGS = new Set([
+  "bekciler",
+  "tasyaka",
+  "seydikemer",
+  "dalaman",
+]);
+
+/** Rehberde gösterilecek mi — sayfa ve footer aynı yerden soruyor. */
+export function isAreaVisibleInGuide(slug: string): boolean {
+  return !HIDDEN_AREA_SLUGS.has(slug);
+}
+
 export const NEARBY_PLACES = [
   {
     name: "Kayaköy",
@@ -142,6 +172,34 @@ export type LifestyleFact = {
   title: string;
   body: string;
 };
+
+/**
+ * Sözlük anahtarları — diziyle AYNI SIRADA.
+ *
+ * Çeviriler `lib/i18n/dictionaries/*.json` içinde bu anahtarlarla duruyor.
+ * İngilizce başlığı anahtar yapmak (gezinme etiketlerinde olduğu gibi)
+ * burada işe yaramazdı: bu başlıklar cümle uzunluğunda ve düzenlenmeye
+ * açık, yani anahtar da her düzenlemede değişirdi.
+ */
+export const LIFESTYLE_KEYS = [
+  "climate",
+  "getting-there",
+  "healthcare",
+  "cost",
+  "community",
+  "schooling",
+] as const;
+
+export const INVESTMENT_KEYS = [
+  "freehold",
+  "entry-price",
+  "rental",
+  "residency",
+  "citizenship",
+  "costs",
+] as const;
+
+export const NEARBY_KEYS = ["kayakoy", "faralya", "seydikemer"] as const;
 
 export const LIFESTYLE_FACTS: LifestyleFact[] = [
   {
@@ -205,11 +263,6 @@ export const INVESTMENT_REASONS = [
 
 export const TURKEY_FAQS = [
   {
-    question: "Can foreign citizens buy property in Turkey?",
-    answer:
-      "Yes. Foreign nationals buy freehold in their own name and the title deed is registered directly to them, with the only restrictions applying to designated military zones — none of which affect the areas we cover. Owning property and staying long term are separate questions: how long you may remain visa-free depends on your nationality, which is why owners planning extended stays apply for a residence permit.",
-  },
-  {
     question: "How long can I stay in Turkey as a property owner?",
     answer:
       "Property ownership does not by itself grant unlimited stay. Visa-free allowances depend on your nationality, and for many passports the limit is 90 days in any 180-day period. Owners who want to stay longer apply for a short-term residence permit, which is a well-established route for property owners and one we help with as part of aftercare.",
@@ -217,12 +270,12 @@ export const TURKEY_FAQS = [
   {
     question: "What is the weather like in Fethiye in winter?",
     answer:
-      "Mild but genuinely wet. Daytime temperatures commonly sit in the mid-teens Celsius from December to February, with concentrated periods of rain rather than persistent drizzle. Many resort businesses in Ölüdeniz and Hisarönü close for the season, while Fethiye centre, Çalış and Taşyaka stay open all year.",
+      "Daytime temperatures commonly sit in the mid-teens Celsius from December to February, with concentrated periods of rain rather than persistent drizzle. Many resort businesses in Ölüdeniz and Hisarönü close for the season, while Fethiye centre, Çalış and Taşyaka stay open all year.",
   },
   {
     question: "Is Fethiye a good place to retire?",
     answer:
-      "It is one of the most established retirement destinations on the Turkish coast, particularly Çalış and Ovacık, where there are large settled international communities, flat walkable streets and good access to both state and private healthcare. The practical questions worth asking are healthcare cover, winter sociability and how easily family can visit.",
+      "It is one of the most established retirement destinations on the Turkish coast, with large settled international communities / expats, flat walkable streets and good access to both state and private healthcare. The practical questions worth asking are healthcare cover, winter sociability and how easily family can visit.",
   },
   {
     question: "Do I need to speak Turkish to live in Fethiye?",

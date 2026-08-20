@@ -69,20 +69,26 @@
   --color-gold-deep: #7a6326;
 
   /*
-    TİPOGRAFİ — serif başlık + grotesk gövde. Gerekçe layout.tsx'te.
+    TİPOGRAFİ — AĞIR GEOMETRİK BAŞLIK + grotesk gövde.
+
+    ⚠️ BU BİR GERİ DÖNÜŞ. Proje Montserrat 800 ile başladı, sonra
+    Playfair Display'e geçti (gerekçe o dönemde: "lüks emlakta otorite
+    kontrasttan gelir, ağırlıktan değil"). Şimdi tekrar ağır geometrik
+    sansa dönülüyor — bu, marka sahibinin sesle ilgili kararı, teknik bir
+    düzeltme değil. Playfair'in gerekçesi yanlış değildi; istenen ton
+    değişti: "yumuşak" değil, otoriter ve net.
 
     `--font-display` YALNIZCA başlıklara ve büyük vurgulara gider. Küçük
-    puntolu büyük harfli arayüz metni (eyebrow, buton) bilinçli olarak
-    `--font-sans` kullanır: yüksek kontrastlı bir serif 11px'te ve geniş
-    harf aralığıyla dizildiğinde tırnaklar kırpılıyor, sonuç "zarif" değil
-    "bozuk" görünüyor. Lüks markaların çoğu tam olarak bu ayrımı yapar —
-    serif başlık, sans arayüz.
+    puntolu büyük harfli arayüz metni (eyebrow, buton) `--font-sans`
+    kullanmaya devam ediyor — iki ailenin işi farklı.
 
-    Yedek yığın serif tarafında serif kalmalı: font yüklenemezse sayfa
-    sans-serif'e düşerse tasarımın karakteri tamamen kayar.
+    YEDEK YIĞIN ARTIK SANS. Serif yedekler (Iowan, Palatino) burada
+    kalsaydı font yüklenemediğinde başlıklar tırnaklı bir aileye düşer ve
+    tasarımın karakteri tamamen kayardı. Yedeğin, birincil ailenin
+    KARAKTERİNİ taşıması gerekir; sırf "güzel" olması yetmez.
   */
-  --font-display: var(--font-playfair), "Iowan Old Style", "Palatino Linotype",
-    ui-serif, Georgia, serif;
+  --font-display: var(--font-montserrat), "Helvetica Neue", Helvetica,
+    ui-sans-serif, system-ui, Arial, sans-serif;
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
   /*
@@ -214,25 +220,35 @@
     `font-display` yazmak yerine burada tanımlamak, sayfalar arasında
     başlık sesinin ayrışmasını imkânsız kılar.
 
-    AĞIRLIK 800 → 600. Bu, aile değişiminin zorunlu sonucu: Montserrat
-    800'de otoriter duruyordu, Playfair 800'de sadece kalın duruyor —
-    tırnaklar gövdeye yapışıp harf içleri kapanıyor. Serifin ağırlığı
-    kesitten değil kontrasttan gelir.
+    AĞIRLIK 600 → 800. Serif dönemin 600'ü buradaydı çünkü Playfair ağır
+    kesitte harf içlerini kapatıyordu. Montserrat'ın sorunu tam tersi:
+    600'de "kalın" bile görünmüyor, geometrik formlar ağırlığı yutuyor.
+    Otorite bu ailede kesitten geliyor.
 
-    HARF ARALIĞI -0.02em → -0.005em. Negatif aralık geometrik bir sansı
-    toparlar; serifte tırnakların birbirine değmesine yol açar. Sıfıra
-    yakın bir değer harflerin kendi ritmini bozmadan bırakıyor.
+    900 (Black) DEĞİL, 800 (ExtraBold). 900'de Montserrat'ın o'su ve e'si
+    neredeyse kapanıyor ve büyük puntoda başlık bir bloğa dönüşüyor; site
+    başlıkların çoğunu BÜYÜK HARFLE diziyor, orada fark daha da sert.
+    800 aynı ağırlık hissini veriyor, okunurluğu bırakmadan.
 
-    Büyük harfle dizilen başlıklar (hero, bölüm başlıkları) bunun üstüne
-    kendi POZİTİF aralığını yazar — büyük harf her ailede nefes ister.
+    HARF ARALIĞI -0.005em → -0.02em. Geometrik bir sansta harfler kendi
+    başlarına fazla nefes alır; hafif negatif aralık kelimeyi tek bir
+    kütle hâline getiriyor — istenen "otoriter" his büyük ölçüde bu.
+
+    h5/h6 DE EKLENDİ: brief h1–h6 diyor ve eski kural yalnızca h1–h4'ü
+    kapsıyordu, yani derin başlıklar sessizce gövde ailesinde kalıyordu.
+
+    Büyük harfle dizilen başlıklar bunun üstüne kendi POZİTİF aralığını
+    yazar — büyük harf her ailede nefes ister.
   */
   h1,
   h2,
   h3,
-  h4 {
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-display);
-    font-weight: 600;
-    letter-spacing: -0.005em;
+    font-weight: 800;
+    letter-spacing: -0.02em;
   }
 
   ::selection {

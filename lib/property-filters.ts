@@ -46,10 +46,18 @@ export type PropertyFilters = {
 
 export type PriceBounds = { min: number; max: number };
 
+/**
+ * ⚠️ ARTIK ÇEVİRİ ANAHTARI, GÖRÜNEN METİN DEĞİL.
+ *
+ * Bu değerler filtre çubuğunda rozet olarak basılıyor. Doğrudan metin
+ * tutmaya devam etselerdi Türkçe sayfada "Villa / Apartment / Plot"
+ * görünürdü. Anahtar döndürmek, çağıran tarafın `t()` ile çözmesini
+ * zorunlu kılıyor — yani unutulması derleme hatası veriyor.
+ */
 export const CATEGORY_LABEL: Record<PropertyCategory, string> = {
-  villa: "Villa",
-  apartment: "Apartment",
-  plot: "Plot",
+  villa: "explorer.categoryVilla",
+  apartment: "explorer.categoryApartment",
+  plot: "explorer.categoryPlot",
 };
 
 export const CATEGORY_ORDER: PropertyCategory[] = ["villa", "apartment", "plot"];
@@ -311,11 +319,12 @@ export type SortableProperty = {
   featured: boolean;
 };
 
+/** `label` bir ÇEVİRİ ANAHTARI — gerekçe CATEGORY_LABEL'de. */
 export const SORT_OPTIONS: { value: SortKey; label: string }[] = [
-  { value: "recommended", label: "Recommended" },
-  { value: "price-asc", label: "Price: Low to High" },
-  { value: "price-desc", label: "Price: High to Low" },
-  { value: "newest", label: "Newest" },
+  { value: "recommended", label: "explorer.sortRecommended" },
+  { value: "price-asc", label: "explorer.sortPriceAsc" },
+  { value: "price-desc", label: "explorer.sortPriceDesc" },
+  { value: "newest", label: "explorer.sortNewest" },
 ];
 
 export const DEFAULT_SORT: SortKey = "recommended";

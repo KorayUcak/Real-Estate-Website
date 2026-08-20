@@ -1,5 +1,6 @@
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/locale-link";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { CookieSettingsButton } from "@/components/cookie-banner";
 import { Logo } from "@/components/logo";
 import {
   FacebookIcon,
@@ -7,6 +8,13 @@ import {
   LinkedInIcon,
   XIcon,
 } from "@/components/social-icons";
+import {
+  NavLabel,
+  T,
+  TranslatedNav,
+  TranslatedRegion,
+} from "@/components/translation";
+import { isAreaVisibleInGuide } from "@/lib/turkey";
 import { guidesNav, primaryNav, serviceAreas } from "@/lib/site";
 import type { SiteSettings } from "@/lib/settings";
 
@@ -31,6 +39,7 @@ export function SiteFooter({ settings }: { settings: SiteSettings }) {
   ).filter((item) => item.href);
 
   return (
+    <TranslatedRegion>
     <footer className="mt-auto bg-sea-deep text-shell/80">
       <div className="container-page py-16 sm:py-20 lg:py-24">
         <div className="grid gap-12 sm:gap-14 lg:grid-cols-12">
@@ -45,7 +54,7 @@ export function SiteFooter({ settings }: { settings: SiteSettings }) {
 
             
             <p className="mt-6 max-w-sm text-sm leading-relaxed">
-              A property consultant in Fethiye
+              <T k="footer.tagline" />
             </p>
 
             <ul className="mt-8 space-y-3 text-sm not-italic">
@@ -58,6 +67,26 @@ export function SiteFooter({ settings }: { settings: SiteSettings }) {
                   {contact.phoneDisplay}
                 </a>
               </li>
+              {/*
+                İKİNCİ HAT. Panelden boşaltılabildiği için iki alan da dolu
+                değilse satır hiç basılmıyor — boş bir `tel:` bağlantısı
+                tıklanabilir görünüp hiçbir yeri aramaz.
+
+                İkon tekrarlanmıyor ama yeri `invisible` bir kopyayla
+                korunuyor: iki numara aynı sol kenardan başlıyor, ekran
+                okuyucu ise aynı simgeyi iki kez duyurmuyor.
+              */}
+              {contact.phoneSecondaryDisplay && contact.phoneSecondaryE164 ? (
+                <li>
+                  <a
+                    href={`tel:${contact.phoneSecondaryE164}`}
+                    className="inline-flex items-center gap-3 hover:text-shell"
+                  >
+                    <Phone className="size-4 shrink-0 invisible" aria-hidden="true" />
+                    {contact.phoneSecondaryDisplay}
+                  </a>
+                </li>
+              ) : null}
               <li>
                 <a
                   href={`mailto:${contact.email}`}
@@ -74,37 +103,50 @@ export function SiteFooter({ settings }: { settings: SiteSettings }) {
             </ul>
           </div>
 
-          <nav aria-label="Footer" className="lg:col-span-2">
-            <h2 className="eyebrow text-gold">Explore</h2>
+          <TranslatedNav labelKey="footer.footerNavAria" className="lg:col-span-2">
+            <h2 className="eyebrow text-gold">
+              <T k="footer.exploreHeading" />
+            </h2>
             <ul className="mt-7 space-y-3.5 text-sm">
               {primaryNav.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-shell/70 transition-colors hover:text-gold">
-                    {item.label}
+                    <NavLabel label={item.label} />
                   </Link>
                 </li>
               ))}
             </ul>
-          </nav>
+          </TranslatedNav>
 
           {/* Rehber sayfaları header'da değil — dahili linkleri buradan alıyorlar. */}
-          <nav aria-label="Guides" className="lg:col-span-2">
-            <h2 className="eyebrow text-gold">Guides</h2>
+          <TranslatedNav labelKey="footer.guidesNavAria" className="lg:col-span-2">
+            <h2 className="eyebrow text-gold">
+              <T k="footer.guidesHeading" />
+            </h2>
             <ul className="mt-7 space-y-3.5 text-sm">
               {guidesNav.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-shell/70 transition-colors hover:text-gold">
-                    {item.label}
+                    <NavLabel label={item.label} />
                   </Link>
                 </li>
               ))}
             </ul>
-          </nav>
+          </TranslatedNav>
 
-          <nav aria-label="Areas we cover" className="lg:col-span-4">
-            <h2 className="eyebrow text-gold">Fethiye &amp; surrounding areas</h2>
+          <TranslatedNav labelKey="footer.areasNavAria" className="lg:col-span-4">
+            <h2 className="eyebrow text-gold">
+              <T k="footer.areasHeading" />
+            </h2>
             <ul className="mt-7 grid grid-cols-2 gap-x-6 gap-y-3.5 text-sm">
-              {serviceAreas.map((area) => (
+              {/*
+                Süzgeç ÖLÜ ÇAPA içindir, içeriği kısıtlamak için değil.
+                Bu bağlantılar /about-turkey#area-<slug> adresine gidiyor;
+                rehberden gizlenen dört bölgenin orada karşılığı yok, yani
+                bağlantı sayfayı açar ama hiçbir yere kaydırmaz — kullanıcı
+                için sessiz bir kırık bağlantı.
+              */}
+              {serviceAreas.filter((area) => isAreaVisibleInGuide(area.slug)).map((area) => (
                 <li key={area.slug}>
                   <Link
                     href={`/about-turkey#area-${area.slug}`}
@@ -115,12 +157,12 @@ export function SiteFooter({ settings }: { settings: SiteSettings }) {
                 </li>
               ))}
             </ul>
-          </nav>
+          </TranslatedNav>
         </div>
 
         <div className="mt-16 flex flex-col gap-6 border-t border-shell/15 pt-8 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-xs text-shell/50">
-            © {year} {companyName}. All rights reserved.
+            <T k="footer.rights" vars={{ year, company: companyName }} />
           </p>
 
           {socialLinks.length > 0 ? (
@@ -144,17 +186,26 @@ export function SiteFooter({ settings }: { settings: SiteSettings }) {
           <ul className="flex gap-6 text-xs text-shell/50">
             <li>
               <Link href="/privacy-policy" className="text-shell/70 transition-colors hover:text-gold">
-                Privacy
+                <T k="footer.privacy" />
               </Link>
             </li>
             <li>
               <Link href="/terms" className="text-shell/70 transition-colors hover:text-gold">
-                Terms
+                <T k="footer.terms" />
               </Link>
+            </li>
+            {/*
+              RIZAYI GERİ ALMA YOLU — her sayfada. UK GDPR altında rızayı
+              geri çekmek vermek kadar kolay olmalı; banner bir kez kapanıp
+              erişilemez hâle gelseydi bu ölçüt karşılanmazdı.
+            */}
+            <li>
+              <CookieSettingsButton className="text-shell/70 transition-colors hover:text-gold" />
             </li>
           </ul>
         </div>
       </div>
     </footer>
+    </TranslatedRegion>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/locale-link";
 import { usePathname } from "next/navigation";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { ChevronDown, Menu, Phone, X } from "lucide-react";
@@ -16,6 +16,7 @@ import {
   type HeaderNavLink,
 } from "@/lib/site";
 import { useSettings } from "@/components/settings-provider";
+import { useT } from "@/components/translation";
 
 /** Grup mu, düz bağlantı mı — tip daraltma tek yerde. */
 function isGroup(
@@ -55,6 +56,12 @@ export function SiteHeader() {
     dolduruyor.
   */
   const { contact } = useSettings();
+  /*
+    `tag` başlığın <header> düğümüne yazılıyor: gezinme ÇEVRİLİ, sayfa
+    gövdesi henüz değil — dolayısıyla dil işareti belgenin köküne değil,
+    gerçekten dil değiştiren düğüme ait (bkz. components/translation.tsx).
+  */
+  const { t, tNav, tag } = useT();
   const reduceMotion = useReducedMotion();
 
   /**
@@ -241,6 +248,7 @@ export function SiteHeader() {
   return (
     <header
       ref={headerRef}
+      lang={tag}
       /*
         İki durum, tek eleman — koşullu render DEĞİL, sınıf değişimi. Aynı
         DOM düğümü kaldığı için `transition-colors` renkleri gerçekten
@@ -336,7 +344,7 @@ export function SiteHeader() {
           noktası `xl` olarak KALIYOR — menü kısaldı ama logo + telefon +
           para birimi anahtarı hâlâ geniş, altında sıkışıyor.
         */}
-        <nav aria-label="Primary" className="hidden xl:block">
+        <nav aria-label={t("header.primaryNavAria")} className="hidden xl:block">
           <ul className="flex items-center gap-x-5 2xl:gap-x-7">
             {headerNav.map((item) =>
               isGroup(item) ? (
@@ -364,7 +372,7 @@ export function SiteHeader() {
                           : "text-ink-70 hover:text-sea",
                     )}
                   >
-                    {item.label}
+                    {tNav(item.label)}
                   </Link>
                 </li>
               ),
@@ -388,7 +396,7 @@ export function SiteHeader() {
 
           <a
             href={`tel:${contact.phoneE164}`}
-            aria-label={`Call us on ${contact.phoneDisplay}`}
+            aria-label={t("header.callAria", { phone: contact.phoneDisplay })}
             title={contact.phoneDisplay}
             className={cn(
               "inline-flex size-11 items-center justify-center rounded-sm border transition-colors md:h-auto md:w-auto md:gap-2 md:px-4 md:py-2.5 md:font-sans md:text-[0.6875rem] md:font-semibold md:uppercase md:tracking-[0.14em] xl:px-3.5",
@@ -410,7 +418,7 @@ export function SiteHeader() {
             onClick={() => setOpenOnPath(isOpen ? null : pathname)}
             aria-expanded={isOpen}
             aria-controls="mobile-nav"
-            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-label={isOpen ? t("header.closeMenu") : t("header.openMenu")}
             className={cn(
               "inline-flex size-11 shrink-0 items-center justify-center rounded-sm border transition-colors xl:hidden",
               glass
@@ -502,7 +510,7 @@ export function SiteHeader() {
             <motion.nav
               id="mobile-nav"
               ref={panelRef}
-              aria-label="Mobile"
+              aria-label={t("header.mobileNavAria")}
               role="dialog"
               aria-modal="true"
               initial={reduceMotion ? false : { x: "100%" }}
@@ -525,7 +533,7 @@ export function SiteHeader() {
                 <button
                   type="button"
                   onClick={() => setOpenOnPath(null)}
-                  aria-label="Close menu"
+                  aria-label={t("header.closeMenu")}
                   className="-mr-2 inline-flex size-11 items-center justify-center text-ink-40 transition-colors hover:text-sea"
                 >
                   <X className="size-5" aria-hidden="true" />
@@ -589,7 +597,7 @@ export function SiteHeader() {
                               groupHasActiveChild ? "text-sea" : "text-ink",
                             )}
                           >
-                            {item.label}
+                            {tNav(item.label)}
                             <ChevronDown
                               aria-hidden="true"
                               className={cn(
@@ -634,7 +642,7 @@ export function SiteHeader() {
                                           : "text-ink-70",
                                       )}
                                     >
-                                      {child.label}
+                                      {tNav(child.label)}
                                     </Link>
                                   </li>
                                 ))}
@@ -651,7 +659,7 @@ export function SiteHeader() {
                             isActive(item.href) ? "text-sea" : "text-ink",
                           )}
                         >
-                          {item.label}
+                          {tNav(item.label)}
                         </Link>
                       )}
                     </motion.li>
@@ -679,6 +687,22 @@ export function SiteHeader() {
                   <Phone className="size-4" aria-hidden="true" />
                   {contact.phoneDisplay}
                 </a>
+                {/*
+                  İKİNCİ HAT — birincinin ALTINDA ama dolu bir düğme DEĞİL.
+
+                  İki özdeş altın blok üst üste konulsaydı çekmecenin tek
+                  birincil eylemi ikiye bölünürdü; ikinci numara çerçeveli
+                  bir varyant olarak duruyor: aynı hizada, açıkça ikincil.
+                */}
+                {contact.phoneSecondaryDisplay && contact.phoneSecondaryE164 ? (
+                  <a
+                    href={`tel:${contact.phoneSecondaryE164}`}
+                    className="flex items-center justify-center gap-2 border border-line px-5 py-3 font-sans text-xs font-bold uppercase tracking-widest text-ink transition-colors hover:border-sea hover:text-sea"
+                  >
+                    <Phone className="size-4" aria-hidden="true" />
+                    {contact.phoneSecondaryDisplay}
+                  </a>
+                ) : null}
               </div>
               </motion.nav>
             </div>
@@ -730,6 +754,7 @@ function NavGroup({
   isActive: (href: string) => boolean;
   reduceMotion: boolean;
 }) {
+  const { tNav, tNavDescription } = useT();
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const triggerRef = useRef<HTMLButtonElement>(null);
 
@@ -783,7 +808,7 @@ function NavGroup({
               : "text-ink-70 hover:text-sea",
         )}
       >
-        {item.label}
+        {tNav(item.label)}
         <ChevronDown
           aria-hidden="true"
           className={cn(
@@ -832,11 +857,11 @@ function NavGroup({
                     )}
                   >
                     <span className="block font-display text-sm font-semibold text-sea-deep">
-                      {child.label}
+                      {tNav(child.label)}
                     </span>
                     {child.description ? (
                       <span className="mt-1 block text-xs leading-relaxed text-ink-40">
-                        {child.description}
+                        {tNavDescription(child.href, child.description)}
                       </span>
                     ) : null}
                   </Link>

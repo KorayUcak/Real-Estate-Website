@@ -109,6 +109,16 @@ export const PRIVATE_NOT_COVERED = [
 ];
 
 /** Sigortacıyı aramadan önce hazırlanacaklar — eski sitedeki tavsiyenin genişletilmiş hâli. */
+/** QUOTE_CHECKLIST ile AYNI SIRADA — sözlük anahtarları. */
+export const QUOTE_CHECKLIST_KEYS = [
+  "tapu",
+  "construction",
+  "inventory",
+  "valuations",
+  "occupancy",
+  "excess",
+] as const;
+
 export const QUOTE_CHECKLIST = [
   {
     title: "Your TAPU",

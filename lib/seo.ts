@@ -1,4 +1,12 @@
 import type { Metadata } from "next";
+import {
+  DEFAULT_ROUTE_LOCALE,
+  LANGUAGE_META,
+  languageFromRoute,
+  localizedPath,
+  ROUTE_LOCALES,
+  type RouteLocale,
+} from "@/lib/locale";
 import { siteConfig } from "@/lib/site";
 
 /**
@@ -33,7 +41,48 @@ type SeoInput = {
   modifiedTime?: string;
   /** Teşekkür/başarı sayfaları gibi indekslenmemesi gereken rotalar için. */
   noIndex?: boolean;
+  /**
+   * Sayfanın dili. Verilmezse İngilizce varsayılır.
+   *
+   * Sayfalar bunu `lang()` (next/root-params) ile okuyup geçiriyor;
+   * canonical, hreflang ve og:locale üçü birden buradan türüyor.
+   */
+  locale?: RouteLocale;
 };
+
+/**
+ * HREFLANG KÜMESİ — her sayfa için üç dil + x-default.
+ *
+ * Google'ın kuralı KARŞILIKLILIK: /tr/properties Türkçe sürümü olarak
+ * kendini de listelemeli, yoksa küme geçersiz sayılır ve tamamı yok
+ * sayılır. Bu yüzden liste her dilde AYNI — sayfanın hangi dilde olduğuna
+ * bakılmaksızın üçü de yazılır.
+ *
+ * `x-default`: hangi dil de uymuyorsa oraya gitsin. Kök (İngilizce)
+ * doğru hedef — site birincil olarak Birleşik Krallık pazarına bakıyor.
+ */
+/** og:locale Facebook biçimi — hreflang etiketinden AYRI bir sözleşme. */
+const OG_LOCALES: Record<RouteLocale, string> = {
+  en: "en_GB",
+  tr: "tr_TR",
+  ru: "ru_RU",
+};
+
+function alternateLanguages(path: string): Record<string, string> {
+  const languages: Record<string, string> = {};
+
+  for (const locale of ROUTE_LOCALES) {
+    const tag = LANGUAGE_META[languageFromRoute(locale)].tag;
+    languages[tag] = localizedPath(path, locale);
+  }
+
+  /* İngilizce girdisi bölgeli etiketle de veriliyor: site en-GB yazıyor
+     ve Birleşik Krallık'taki arayana bu daha kesin bir eşleşme. */
+  languages["en-GB"] = localizedPath(path, DEFAULT_ROUTE_LOCALE);
+  languages["x-default"] = localizedPath(path, DEFAULT_ROUTE_LOCALE);
+
+  return languages;
+}
 
 /**
  * Sayfaya özel görsel yoksa devreye giren marka görseli.
@@ -62,7 +111,12 @@ export function pageMetadata({
   publishedTime,
   modifiedTime,
   noIndex = false,
+  locale = DEFAULT_ROUTE_LOCALE,
 }: SeoInput): Metadata {
+  /* Kanonik, sayfanın KENDİ dilindeki adresi — İngilizce'ye işaret ETMEZ.
+     Aksi hâlde Türkçe sayfa "asıl sürüm İngilizce" demiş olur ve dizinden
+     kendi kendini düşürür. */
+  const canonical = localizedPath(path, locale);
   const socialTitle = `${title} | ${siteConfig.name}`;
 
   /**
@@ -84,15 +138,16 @@ export function pageMetadata({
     ...(keywords?.length ? { keywords } : {}),
 
     alternates: {
-      canonical: path,
-      languages: { "en-GB": path },
+      canonical,
+      languages: alternateLanguages(path),
     },
 
     openGraph: {
       type,
-      url: path,
+      url: canonical,
       siteName: siteConfig.name,
-      locale: siteConfig.locale,
+      /* og:locale alt çizgili biçim ister (en_GB, tr_TR) — BCP 47 değil. */
+      locale: OG_LOCALES[locale],
       title: socialTitle,
       description,
       images: openGraphImages,

@@ -1,8 +1,9 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import { useT } from "@/components/translation";
 import Image from "next/image";
-import Link from "next/link";
+import { LocaleLink as Link } from "@/components/locale-link";
 import {
   AnimatePresence,
   motion,
@@ -34,6 +35,7 @@ import { swipeHandlers } from "@/lib/swipe";
 const HERO_VIDEO: string | null = null;
 
 export function HomeHero() {
+  const { t, slideAlt } = useT();
   const sectionRef = useRef<HTMLElement>(null);
   const reduceMotion = useReducedMotion();
 
@@ -221,7 +223,7 @@ export function HomeHero() {
               >
                 <Image
                   src={slides[slide].src}
-                  alt={slides[slide].alt}
+                  alt={slideAlt(slide, slides[slide].alt)}
                   fill
                   /*
                     YALNIZCA İLK SLAYT PRELOAD EDİLİR.
@@ -307,7 +309,7 @@ export function HomeHero() {
             */
             className="rise-in font-display text-[1.75rem] uppercase leading-[1.08] tracking-[0.02em] text-white drop-shadow-[0_2px_12px_rgba(10,20,30,0.35)] sm:text-5xl lg:text-6xl"
           >
-            Find your dream property
+            {t("home.heroTitle")}
           </h1>
 
           {/*
@@ -335,7 +337,7 @@ export function HomeHero() {
               href="/properties"
               className="btn btn-light px-12 tracking-[0.2em]"
             >
-              View properties
+              {t("home.heroCta")}
             </Link>
           </div>
         </div>
@@ -376,8 +378,8 @@ export function HomeHero() {
       */}
       {HERO_VIDEO ? null : (
         <>
-          <HeroArrow side="left" label="Previous image" onClick={() => go(-1)} />
-          <HeroArrow side="right" label="Next image" onClick={() => go(1)} />
+          <HeroArrow side="left" label={t("home.heroPrevImage")} onClick={() => go(-1)} />
+          <HeroArrow side="right" label={t("home.heroNextImage")} onClick={() => go(1)} />
         </>
       )}
 

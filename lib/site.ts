@@ -14,9 +14,32 @@ export const siteConfig = {
   name: "Coast 2 Coast Properties Turkey",
   shortName: "Coast 2 Coast",
   legalName: "Coast 2 Coast Properties Turkey Ltd.",
+  /**
+   * BOŞLUKSUZ YAZIM — schema.org `alternateName` için.
+   *
+   * Marka ekranda ve Google Business Profile'da "Coast 2 Coast" olarak
+   * yazılıyor; NAP tutarlılığı için `name` alanı bundan SAPMAMALI. Ama alan
+   * adı (coast2coast...) ve insanların arama kutusuna yazdığı hâl bitişik.
+   * `alternateName` tam olarak bunun içindir: aynı varlığın ikinci adı.
+   * İki yazımı iki ayrı `name` olarak beyan etmek yerine tek varlıkta
+   * toplamak, arama ve LLM tarafında birleşik bir kimlik verir.
+   */
+  alternateName: "Coast2Coast Properties Turkey",
   tagline: "Luxury villas in Fethiye, Ölüdeniz & Göcek",
   description:
     "Coast 2 Coast Properties Turkey is an international real estate consultancy specialising in luxury villas for sale in Fethiye, Ölüdeniz, Hisarönü, Ovacık, Çalış, Üzümlü and Göcek. End-to-end guidance from viewing trip to title deed.",
+  /**
+   * VARLIK TANIMI — yalnızca schema.org düğümü için, meta açıklama DEĞİL.
+   *
+   * Neden `description` alanından ayrı duruyor: meta açıklama SERP'te
+   * ~160 karakterde kesilir, yani orada uzun yazmak bilgi değil kırpılmış
+   * cümle üretir. Buradaki metni ise okuyan taraf (Google'ın varlık grafiği,
+   * ChatGPT/Gemini gibi motorların alıntı katmanı) kesmez — kimlere hizmet
+   * verildiği, hangi bölgeler ve hangi hizmetler tek paragrafta durur.
+   * İkisi ayrı alan olduğu için biri diğerini bozmadan uzayabilir.
+   */
+  profileDescription:
+    "Coast2Coast Properties Turkey is the premier luxury real estate agency in Fethiye, specializing in serving UK expats, foreign investors, and premium Turkish buyers. We offer expert guidance in property investment and holiday homes across central Fethiye, Ölüdeniz, Çalış, Hisarönü, Ovacık, and Üzümlü, alongside seamless title deed transfers and legal support.",
   locale: "en_GB",
   url: SITE_URL,
   founded: "2016",
@@ -32,12 +55,30 @@ export const siteConfig = {
  *
  * Yerel numara 0534 052 00 30; site uluslararası alıcıya baktığı için ekranda
  * daima ülke koduyla gösteriliyor.
+ *
+ * İkinci hat (`phoneSecondary*`) aynı ikiliyi tekrarlar ama WhatsApp karşılığı
+ * YOKTUR — gerekçe alanın kendi yorumunda.
  */
 export const contact = {
   /** İnsan tarafından okunan format */
   phoneDisplay: "+90 534 052 00 30",
   /** tel: ve WhatsApp linkleri için E.164 (boşluksuz) */
   phoneE164: "+905340520030",
+  /**
+   * İKİNCİ HAT — ofisin ikinci numarası.
+   *
+   * Birincil numaranın hemen ALTINDA gösteriliyor (footer, mobil çekmece,
+   * /contact kartı). Bilinçli olarak WhatsApp'a ve schema.org `telephone`
+   * alanına BAĞLANMADI: Google yerel SEO'da tek bir birincil numara bekler,
+   * ikinci bir `telephone` beyanı NAP sinyalini güçlendirmez, seyreltir.
+   * Ekranda "ayrıca buradan da ulaşabilirsiniz" bilgisi olarak duruyor.
+   *
+   * Yerel yazım 0543 903 35 19; ekranda birincil numarayla aynı kuralla,
+   * yani ülke koduyla gösteriliyor.
+   */
+  phoneSecondaryDisplay: "+90 543 903 35 19",
+  /** İkinci hattın tel: bağlantısı için E.164 (boşluksuz) */
+  phoneSecondaryE164: "+905439033519",
   /** wa.me sadece rakam kabul eder */
   whatsappNumber: "905340520030",
   email: "info@coast2coastpropertiesturkey.co.uk",

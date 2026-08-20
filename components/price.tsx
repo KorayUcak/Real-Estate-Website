@@ -1,6 +1,7 @@
 "use client";
 
 import { useLocale } from "@/components/locale-provider";
+import { useT } from "@/components/translation";
 import { formatPrice } from "@/lib/currency";
 
 /**
@@ -18,6 +19,7 @@ export function Price({
   showApproxNote?: boolean;
 }) {
   const { currency, rates } = useLocale();
+  const { t } = useT();
 
   /* GBP kaynak birimdir: çevrilmediği için "yaklaşık" notu da anlamsız. */
   const isConverted = currency !== "GBP";
@@ -27,7 +29,7 @@ export function Price({
       <data value={gbp}>{formatPrice(gbp, currency, rates)}</data>
       {showApproxNote && isConverted ? (
         <span className="ml-2 text-xs font-normal text-ink-40">
-          approx. — priced in {formatPrice(gbp, "GBP", rates)}
+          {t("common.approxNote", { gbp: formatPrice(gbp, "GBP", rates) })}
         </span>
       ) : null}
     </span>
