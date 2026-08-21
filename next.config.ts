@@ -46,8 +46,24 @@ const nextConfig: NextConfig = {
     /**
      * Next.js 16'da `qualities` allowlist'i zorunlu: tanımlamazsanız yalnızca
      * varsayılan 75 kullanılabilir. Hero gibi büyük görsellerde 85'e çıkıyoruz.
+     *
+     * 90 EKLENDİ — ve yalnızca TEK bir görsel için: /about banner'ı.
+     *
+     * Gerekçe, "daha yüksek daha iyidir" değil. Sitedeki diğer görseller
+     * Unsplash'ten kayıpsıza yakın geliyor ve 85'te yeniden kodlanınca
+     * gözle görülür bir kayıp olmuyor. About banner'ı ise KAYNAĞINDA
+     * sıkıştırılmış (WhatsApp üzerinden gelmiş bir JPEG): üzerine 85'lik
+     * ikinci bir kayıplı geçiş bindirmek, zaten var olan blok
+     * artefaktlarını belirginleştiriyor. 90, o ikinci geçişi mümkün olduğunca
+     * şeffaf tutmak için.
+     *
+     * ⚠️ Liste bilinçli olarak KISA tutuluyor. Her değer, her boyut için ayrı
+     * bir önbellek girdisi demek: `deviceSizes` × `formats` × `qualities`
+     * çarpımı optimizasyon önbelleğinin boyutunu doğrudan belirliyor.
+     * Yeni bir değer eklemeden önce, mevcutlardan biri gerçekten yetmiyor mu
+     * diye bakın.
      */
-    qualities: [75, 85],
+    qualities: [75, 85, 90],
     /** AVIF önce denenir; desteklemeyen tarayıcı WebP'ye düşer. */
     formats: ["image/avif", "image/webp"],
     /** Görseller bir yıl cache'lenir — dosya adları değiştiğinde zaten invalidate olur. */

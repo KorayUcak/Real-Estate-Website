@@ -282,7 +282,6 @@ export const SELLING_STEPS: ProcessStep[] = [
  */
 export const BUYING_COST_KEYS = [
   "transfer-tax",
-  "spk-valuation",
   "legal",
   "notary",
   "dask",
@@ -296,11 +295,6 @@ export const BUYING_COSTS = [
     item: "Property transfer tax (tapu harcı)",
     amount: "4% of the declared value",
     note: "Legally split between buyer and seller; in practice usually negotiated.",
-  },
-  {
-    item: "SPK valuation report",
-    amount: "£150 – £300",
-    note: "Mandatory on every sale to a foreign buyer.",
   },
   {
     item: "Independent legal representation",
@@ -319,7 +313,7 @@ export const BUYING_COSTS = [
   },
   {
     item: "Utility subscriptions and connection",
-    amount: "£150 – £350",
+    amount: "Less than £150",
     note: "One-off, payable when accounts move into your name.",
   },
 ] as const;

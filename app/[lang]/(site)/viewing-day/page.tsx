@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/locale-link";
+import { CtaSurface } from "@/components/cta-surface";
 import {
   ArrowRight,
   Check,
@@ -19,7 +20,6 @@ import { getT, getViewingDayCopy } from "@/lib/i18n/server";
 import { HOME_CRUMB, pageMetadata, type Crumb } from "@/lib/seo";
 
 import {
-  HOSTS,
 } from "@/lib/viewing-trip";
 
 
@@ -46,14 +46,6 @@ export async function generateMetadata(): Promise<Metadata> {
     type: "article",
   });
 }
-
-/* Rakamlar sabit, etiketler çeviriden (modül kapsamında `t()` yok). */
-const TRIP_STATS = [
-  { value: "2–3", key: "viewingDay.statDays" },
-  { value: "6–8", key: "viewingDay.statProperties" },
-  { value: "£0", key: "viewingDay.statCost" },
-  { value: "1", key: "viewingDay.statConsultant" },
-] as const;
 
 export default async function ViewingDayPage() {
   const t = await getT();
@@ -87,9 +79,7 @@ export default async function ViewingDayPage() {
 
       <main id="main">
         <PageHero
-          eyebrow={t("viewingDay.heroEyebrow")}
           title={t("viewingDay.heroTitle")}
-          lede={t("viewingDay.heroLede", { host1: HOSTS[0], host2: HOSTS[1] })}
           crumbs={CRUMBS}
           image={{
             ...imagery.viewingDay,
@@ -97,44 +87,7 @@ export default async function ViewingDayPage() {
                sinyali sayfanın diliyle aynı olmalı. */
             alt: t("imagery.named.viewingDay"),
           }}
-        >
-          <div className="flex flex-col gap-8">
-            <dl className="grid grid-cols-2 gap-x-8 gap-y-6 sm:gap-y-10 border-t border-line pt-6 sm:pt-10 sm:grid-cols-4">
-              {TRIP_STATS.map((stat) => (
-                <div key={stat.key}>
-                  <dt className="sr-only">{t(stat.key)}</dt>
-                  <dd>
-                    <span className="block font-display text-4xl text-sea-deep">
-                      {stat.value}
-                    </span>
-                    <span className="mt-2 block text-xs leading-relaxed text-ink-40">
-                      {t(stat.key)}
-                    </span>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <a
-                href="#book"
-                className="inline-flex items-center justify-center gap-2 bg-sea-deep px-8 py-4 text-sm font-medium text-shell transition-colors hover:bg-sea"
-              >
-                {t("viewingDay.ctaBook")}
-                <ArrowRight className="size-4" aria-hidden="true" />
-              </a>
-              <a
-                href={whatsappHref(settings.contact.whatsappNumber, whatsappMessage)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 border border-line px-8 py-4 text-sm font-medium text-sea-deep transition-colors hover:bg-shell-deep"
-              >
-                <MessageCircle className="size-4" aria-hidden="true" />
-                {t("viewingDay.ctaAsk")}
-              </a>
-            </div>
-          </div>
-        </PageHero>
+        />
 
         {/* ------------------------------------------- DAHİL / DAHİL DEĞİL */}
         <section
@@ -277,7 +230,7 @@ export default async function ViewingDayPage() {
         {/* ------------------------------------------------------------- CTA */}
         <section aria-labelledby="viewing-cta" className="bg-shell py-section">
           <div className="container-page">
-            <div className="grid gap-8 sm:gap-12 bg-sea px-8 py-10 sm:py-16 text-shell sm:px-14 lg:grid-cols-12 lg:items-center lg:px-20 lg:py-24">
+            <CtaSurface className="grid gap-8 sm:gap-12 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-7">
                 <h2
                   id="viewing-cta"
@@ -305,7 +258,7 @@ export default async function ViewingDayPage() {
                   {t("viewingDay.finalSecondary")}
                 </Link>
               </div>
-            </div>
+            </CtaSurface>
           </div>
         </section>
       </main>

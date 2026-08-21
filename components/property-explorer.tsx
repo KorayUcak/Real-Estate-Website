@@ -9,6 +9,7 @@ import {
   useState,
   useSyncExternalStore,
 } from "react";
+import { createPortal } from "react-dom";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   BedDouble,
@@ -80,8 +81,81 @@ import type { TranslationKey } from "@/lib/i18n";
  * her kırılma noktasında dolu bir dikdörtgen bırakıyor.
  */
 const PAGE_SIZE = 12;
+/**
+ * "İstemcide miyiz" — portal yalnızca tarayıcıda kurulabilir.
+ * Gerekçe ve `useSyncExternalStore` tercihi `site-header.tsx`te uzun uzun
+ * yazılı; burada aynı kalıp tekrarlanıyor.
+ */
+const noopSubscribe = () => () => {};
+const useIsClient = () =>
+  useSyncExternalStore(
+    noopSubscribe,
+    () => true,
+    () => false,
+  );
+
 export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
   const { t } = useT();
+
+  /** Mobil filtre çekmecesi — `sm` altında dört açılır kutunun yerine geçer. */
+  const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const isClient = useIsClient();
+
+  /**
+   * GÖVDE KAYDIRMA KİLİDİ.
+   *
+   * ⚠️ ASIL HATA BUYDU. Çekmece açıkken sayfa ARKADA kaymaya devam
+   * ediyordu: karartma katmanına ya da çekmecenin başlık/alt şeridine
+   * yapılan her sürükleme altındaki ilan listesini kaydırıyordu. Kullanıcı
+   * çekmeceyi kapattığında listenin bambaşka bir yerinde buluyordu kendini
+   * — ekranda "düzen bozuldu" olarak görünen şey buydu.
+   *
+   * `overflow: hidden` TEK BAŞINA YETMİYOR: iOS Safari onu yok sayıyor ve
+   * gövdeyi yine kaydırıyor. Güvenilir olan tek yöntem gövdeyi `position:
+   * fixed` yapıp mevcut kaydırma konumunu negatif `top` olarak vermek;
+   * kapanışta o konuma geri dönülüyor. Konum saklanmazsa çekmece her
+   * açıldığında sayfa başa fırlar.
+   */
+  useEffect(() => {
+    if (!mobileFiltersOpen) return;
+
+    const { body } = document;
+    const scrollY = window.scrollY;
+    const previous = {
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+    };
+
+    body.style.position = "fixed";
+    body.style.top = `-${scrollY}px`;
+    body.style.left = "0";
+    body.style.right = "0";
+    body.style.width = "100%";
+
+    return () => {
+      Object.assign(body.style, previous);
+      /* `instant`: kilit kalkarken yumuşak kaydırma bir zıplama gibi görünür. */
+      window.scrollTo({ top: scrollY, behavior: "instant" as ScrollBehavior });
+    };
+  }, [mobileFiltersOpen]);
+
+  /**
+   * Ekran `sm` üstüne çıkarsa çekmeceyi kapat.
+   *
+   * Çekmece `sm:hidden`; genişleyen bir viewport onu GÖRÜNMEZ yapardı ama
+   * durum `true` kalır ve yukarıdaki effect gövdeyi kilitli tutardı —
+   * kullanıcı hiçbir şey göremeden sayfayı kaydıramaz hâle gelirdi.
+   */
+  useEffect(() => {
+    if (!mobileFiltersOpen) return;
+    const query = window.matchMedia("(min-width: 640px)");
+    const close = () => setMobileFiltersOpen(false);
+    query.addEventListener("change", close);
+    return () => query.removeEventListener("change", close);
+  }, [mobileFiltersOpen]);
   const reduceMotion = useReducedMotion();
   const { format } = useLocale();
   const headingId = useId();
@@ -281,16 +355,179 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
 
   const areaLabel =
     filters.areas.length === 0
-      ? "All areas"
+      ? t("explorer.anyArea")
       : filters.areas.length === 1
         ? (areaOptions.find((area) => area.slug === filters.areas[0])?.name ??
           t("explorer.oneArea"))
         : t("explorer.areaCount", { count: filters.areas.length });
 
+  const priceLabel = priceTouched
+    ? `${format(filters.minPrice)} – ${format(filters.maxPrice)}`
+    : t("explorer.anyPrice");
+
+  const bedroomsLabel =
+    filters.minBedrooms === 0
+      ? t("explorer.anyBedrooms")
+      : `${filters.minBedrooms}+`;
+
   const typeLabel =
     filters.categories.length === 0
       ? t("explorer.anyType")
       : filters.categories.map((category) => CATEGORY_LABEL[category]).join(", ");
+
+
+  /*
+    FİLTRE PANELLERİ — İKİ YERDE KULLANILMAK ÜZERE AYRILDI.
+
+    Aynı seçenek listeleri hem masaüstündeki açılır kutularda hem de mobil
+    çekmecede görünüyor. JSX'i iki kez yazmak, bir seçeneğin yalnızca bir
+    yüzeyde güncellenmesiyle sonuçlanırdı — bu bileşende zaten yaşanmış bir
+    hata türü.
+  */
+  const locationPanel = (
+<ul className="flex flex-col">
+  {areaOptions.map((area) => {
+    const selected = filters.areas.includes(area.slug);
+    const empty = area.count === 0;
+
+    return (
+      <li key={area.slug}>
+        <button
+          type="button"
+          disabled={empty}
+          aria-pressed={selected}
+          onClick={() => toggleArea(area.slug)}
+          className={cn(
+            "flex w-full items-center justify-between gap-3 px-3 py-2.5 text-left text-sm transition-colors",
+            empty
+              ? "cursor-not-allowed text-ink-40/60"
+              : "text-sea-deep hover:bg-shell-deep",
+          )}
+        >
+          <span className="inline-flex items-center gap-2.5">
+            <span
+              aria-hidden="true"
+              className={cn(
+                "inline-flex size-4 shrink-0 items-center justify-center border transition-colors",
+                selected
+                  ? "border-sea bg-sea text-shell"
+                  : "border-line",
+              )}
+            >
+              {selected ? <Check className="size-3" /> : null}
+            </span>
+            {area.name}
+          </span>
+          <span className="text-xs tabular-nums text-ink-40">
+            {area.count}
+          </span>
+        </button>
+      </li>
+    );
+  })}
+</ul>
+  );
+
+  const pricePanel = (
+<PriceRange
+  bounds={bounds}
+  min={filters.minPrice}
+  max={filters.maxPrice}
+  format={format}
+  onChange={(next) =>
+    setFilters((current) => ({ ...current, ...next }))
+  }
+/>
+  );
+
+  const bedroomsPanel = (
+<div className="flex flex-wrap gap-2">
+  {BEDROOM_OPTIONS.map((count) => {
+    const selected = filters.minBedrooms === count;
+
+    return (
+      <button
+        key={count}
+        type="button"
+        aria-pressed={selected}
+        onClick={() =>
+          setFilters((current) => ({
+            ...current,
+            minBedrooms: count,
+          }))
+        }
+        className={cn(
+          "inline-flex items-center gap-1.5 border px-4 py-2 text-sm transition-colors",
+          selected
+            ? "border-sea-deep bg-sea-deep text-shell"
+            : "border-line text-sea-deep hover:border-sea-deep",
+        )}
+      >
+        {count === 0 ? (
+          "Any"
+        ) : (
+          <>
+            <BedDouble className="size-3.5" aria-hidden="true" />
+            {count}+
+          </>
+        )}
+      </button>
+    );
+  })}
+</div>
+  );
+
+  const typePanel = (
+<div className="flex flex-col gap-2">
+  {categoryOptions.map((option) => {
+    const selected = filters.categories.includes(option.value);
+    const empty = option.count === 0;
+
+    return (
+      <button
+        key={option.value}
+        type="button"
+        disabled={empty}
+        aria-pressed={selected}
+        onClick={() => toggleCategory(option.value)}
+        className={cn(
+          "flex items-center justify-between gap-3 border px-4 py-2.5 text-sm transition-colors",
+          empty && "cursor-not-allowed border-line/60 text-ink-40/60",
+          !empty && selected && "border-sea-deep bg-sea-deep text-shell",
+          !empty &&
+            !selected &&
+            "border-line text-sea-deep hover:border-sea-deep",
+        )}
+      >
+        <span className="inline-flex items-center gap-2.5">
+          <option.icon className="size-4" aria-hidden="true" />
+          {t(option.label as TranslationKey)}
+        </span>
+        <span className="text-xs tabular-nums opacity-60">
+          {option.count}
+        </span>
+      </button>
+    );
+  })}
+</div>
+  );
+
+  /** Mobil çekmecede başlık + panel; masaüstünde açılır kutu içeriği. */
+  const FILTER_SECTIONS = [
+    /*
+      `active` AÇIK BAYRAK — etiketi "hiçbiri" metniyle karşılaştırmıyoruz.
+
+      İlk sürüm `value !== t("explorer.anyArea")` gibi bir kıyas yapıyordu
+      ve sessizce bozuldu: konum etiketi "All areas" sabitinden geliyordu,
+      sözlükteki karşılığı ise "Any area" idi. Eşleşmeyince filtre hiç
+      seçim yokken bile ETKİN görünüyordu. Metne dayalı durum tespiti bu
+      yüzden her zaman kırılgan — durumu durumdan okuyoruz.
+    */
+    { key: "location", label: t("explorer.location"), value: areaLabel, active: filters.areas.length > 0, node: locationPanel },
+    { key: "price", label: t("explorer.price"), value: priceLabel, active: priceTouched, node: pricePanel },
+    { key: "bedrooms", label: t("explorer.bedrooms"), value: bedroomsLabel, active: filters.minBedrooms > 0, node: bedroomsPanel },
+    { key: "type", label: t("explorer.type"), value: typeLabel, active: filters.categories.length > 0, node: typePanel },
+  ] as const;
 
   return (
     <>
@@ -320,160 +557,57 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
             }
           />
 
-          {/* ------------------------------------------------------- KONUM */}
-          <FilterPopover
-            label="Location"
-            value={areaLabel}
-            active={filters.areas.length > 0}
+          {/*
+            MASAÜSTÜ FİLTRELERİ — `sm` ve üstü.
+
+            Mobilde gizleniyor çünkü dört açılır kutu 390px'te sarıp beş
+            satıra çıkıyordu: yapışkan çubuk 844px'lik ekranın ~520px'ini,
+            yani %62'sini kaplıyordu. Kullanıcı ilanları kaydırırken
+            ekranın üçte ikisi filtre çubuğuydu.
+
+            `sm:contents`: kapsayıcı görsel olarak YOK OLUYOR, çocukları
+            doğrudan üstteki `flex-wrap` çubuğunun öğesi hâline geliyor.
+            Böylece masaüstü düzeni birebir eskisi gibi sarıyor — araya
+            fazladan bir flex kutusu girmiyor.
+          */}
+          <div className="hidden sm:contents">
+            {FILTER_SECTIONS.map((section) => (
+              <FilterPopover
+                key={section.key}
+                label={section.label}
+                value={section.value}
+                active={section.active}
+                width={
+                  section.key === "location" ? undefined : "w-[min(20rem,calc(100vw-3rem))]"
+                }
+              >
+                {section.node}
+              </FilterPopover>
+            ))}
+          </div>
+
+          {/*
+            MOBİL FİLTRE DÜĞMESİ — dört kutunun yerine tek düğme.
+
+            Etkin filtre sayısı düğmenin üstünde rozet olarak duruyor;
+            çekmeceyi açmadan "bir şey seçili mi" sorusunun cevabı görünür
+            kalıyor. Bu olmadan daraltılmış bir filtre arayüzü, kullanıcının
+            neden az sonuç gördüğünü gizler.
+          */}
+          <button
+            type="button"
+            onClick={() => setMobileFiltersOpen(true)}
+            aria-expanded={mobileFiltersOpen}
+            className="inline-flex shrink-0 items-center gap-2 rounded-sm border border-line bg-white px-4 py-2.5 text-sm text-sea-deep transition-colors hover:border-sea-deep sm:hidden"
           >
-            <ul className="flex flex-col">
-              {areaOptions.map((area) => {
-                const selected = filters.areas.includes(area.slug);
-                const empty = area.count === 0;
-
-                return (
-                  <li key={area.slug}>
-                    <button
-                      type="button"
-                      disabled={empty}
-                      aria-pressed={selected}
-                      onClick={() => toggleArea(area.slug)}
-                      className={cn(
-                        "flex w-full items-center justify-between gap-3 px-3 py-2.5 text-left text-sm transition-colors",
-                        empty
-                          ? "cursor-not-allowed text-ink-40/60"
-                          : "text-sea-deep hover:bg-shell-deep",
-                      )}
-                    >
-                      <span className="inline-flex items-center gap-2.5">
-                        <span
-                          aria-hidden="true"
-                          className={cn(
-                            "inline-flex size-4 shrink-0 items-center justify-center border transition-colors",
-                            selected
-                              ? "border-sea bg-sea text-shell"
-                              : "border-line",
-                          )}
-                        >
-                          {selected ? <Check className="size-3" /> : null}
-                        </span>
-                        {area.name}
-                      </span>
-                      <span className="text-xs tabular-nums text-ink-40">
-                        {area.count}
-                      </span>
-                    </button>
-                  </li>
-                );
-              })}
-            </ul>
-          </FilterPopover>
-
-          {/* ------------------------------------------------------- FİYAT */}
-          <FilterPopover
-            label="Price"
-            value={
-              priceTouched
-                ? `${format(filters.minPrice)} – ${format(filters.maxPrice)}`
-                : "Any price"
-            }
-            active={priceTouched}
-            width="w-[min(22rem,calc(100vw-3rem))]"
-          >
-            <PriceRange
-              bounds={bounds}
-              min={filters.minPrice}
-              max={filters.maxPrice}
-              format={format}
-              onChange={(next) =>
-                setFilters((current) => ({ ...current, ...next }))
-              }
-            />
-          </FilterPopover>
-
-          {/* -------------------------------------------------- YATAK ODASI */}
-          <FilterPopover
-            label="Bedrooms"
-            value={filters.minBedrooms === 0 ? "Any" : `${filters.minBedrooms}+`}
-            active={filters.minBedrooms > 0}
-            width="w-[min(20rem,calc(100vw-3rem))]"
-          >
-            <div className="flex flex-wrap gap-2">
-              {BEDROOM_OPTIONS.map((count) => {
-                const selected = filters.minBedrooms === count;
-
-                return (
-                  <button
-                    key={count}
-                    type="button"
-                    aria-pressed={selected}
-                    onClick={() =>
-                      setFilters((current) => ({
-                        ...current,
-                        minBedrooms: count,
-                      }))
-                    }
-                    className={cn(
-                      "inline-flex items-center gap-1.5 border px-4 py-2 text-sm transition-colors",
-                      selected
-                        ? "border-sea-deep bg-sea-deep text-shell"
-                        : "border-line text-sea-deep hover:border-sea-deep",
-                    )}
-                  >
-                    {count === 0 ? (
-                      "Any"
-                    ) : (
-                      <>
-                        <BedDouble className="size-3.5" aria-hidden="true" />
-                        {count}+
-                      </>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          </FilterPopover>
-
-          {/* --------------------------------------------------------- TİP */}
-          <FilterPopover
-            label="Type"
-            value={typeLabel}
-            active={filters.categories.length > 0}
-            width="w-[min(20rem,calc(100vw-3rem))]"
-          >
-            <div className="flex flex-col gap-2">
-              {categoryOptions.map((option) => {
-                const selected = filters.categories.includes(option.value);
-                const empty = option.count === 0;
-
-                return (
-                  <button
-                    key={option.value}
-                    type="button"
-                    disabled={empty}
-                    aria-pressed={selected}
-                    onClick={() => toggleCategory(option.value)}
-                    className={cn(
-                      "flex items-center justify-between gap-3 border px-4 py-2.5 text-sm transition-colors",
-                      empty && "cursor-not-allowed border-line/60 text-ink-40/60",
-                      !empty && selected && "border-sea-deep bg-sea-deep text-shell",
-                      !empty &&
-                        !selected &&
-                        "border-line text-sea-deep hover:border-sea-deep",
-                    )}
-                  >
-                    <span className="inline-flex items-center gap-2.5">
-                      <option.icon className="size-4" aria-hidden="true" />
-                      {t(option.label as TranslationKey)}
-                    </span>
-                    <span className="text-xs tabular-nums opacity-60">
-                      {option.count}
-                    </span>
-                  </button>
-                );
-              })}
-            </div>
-          </FilterPopover>
+            <SlidersHorizontal className="size-4 text-sea" aria-hidden="true" />
+            {t("explorer.filters")}
+            {activeCount > 0 ? (
+              <span className="inline-flex size-5 items-center justify-center rounded-full bg-sea-deep text-[11px] font-semibold text-shell">
+                {activeCount}
+              </span>
+            ) : null}
+          </button>
 
           {/* ------------------------------------------- SIRALAMA + SAYAÇ */}
           {/*
@@ -487,7 +621,7 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
             Üçünü tek kapsayıcıya almak sarma davranışını öngörülebilir
             kılıyor: dar ekranda tam satır, geniş ekranda tek grup.
           */}
-          <div className="flex w-full items-center gap-2 sm:ml-auto sm:w-auto">
+          <div className="flex min-w-0 flex-1 items-center gap-2 sm:ml-auto sm:w-auto sm:flex-none">
             <SelectMenu
               tone="pill"
               label={t("explorer.sort")}
@@ -580,9 +714,142 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
                 </button>
               ))}
             </div>
+
           </div>
         </div>
       </div>
+
+      {/*
+        ⚠️ ÇEKMECE YAPIŞKAN ÇUBUĞUN DIŞINDA — ve bu zorunlu.
+
+        İlk sürümde çubuğun içindeydi ve `position: fixed` viewport'a değil
+        ÇUBUĞA göre konumlandı: panel ekranın 284px yukarısına çıkıp
+        başlığın arkasında kayboldu.
+
+        Sebep CSS'in az bilinen ama kesin bir kuralı: `backdrop-filter`
+        (çubuktaki `backdrop-blur-xl`) o elemanı, içindeki `fixed`
+        torunları için bir KAPSAYICI BLOK hâline getirir — aynı `transform`
+        ve `filter` gibi. Yani "fixed" artık ekranı değil, o kutuyu
+        referans alır. Çekmeceyi kardeş seviyeye almak tek doğru çözüm;
+        z-index ile örtbas edilebilecek bir sorun değil.
+      */}
+      {/* ------------------------------------------------ MOBİL FİLTRE ÇEKMECESİ */}
+      {/*
+        `sm` altında dört açılır kutunun yerini alan tam ekran katman.
+
+        NEDEN AÇILIR KUTU DEĞİL DE ÇEKMECE: mobilde bir popover ya ekranın
+        dışına taşar ya da klavye açıldığında konumu kayar. Alttan gelen
+        tam yükseklikli bir panel her iki sorunu da ortadan kaldırıyor ve
+        dört filtreyi aynı anda görünür kılıyor — kullanıcı hangi kriteri
+        değiştirdiğini görmek için kutu kutu dolaşmıyor.
+
+        z-[70]: başlık z-50, dil seçici paneli z-[100], rıza şeridi z-[110].
+        Çekmece başlığın üstünde ama rıza şeridinin altında kalmalı — rıza
+        her şeyin önünde durmaya devam etmeli.
+      */}
+      {/*
+        PORTAL — çekmece doğrudan <body> altına basılıyor.
+
+        Bu bileşen ağacında zaten bir kez `position: fixed` kaybedildi:
+        çekmece yapışkan çubuğun içindeyken `backdrop-filter` onu kapsayıcı
+        blok yapmış ve panel ekranın 284px yukarısına çıkmıştı. Kardeş
+        seviyeye almak o vakayı çözdü ama aynı tuzağı kapatmadı — ileride
+        herhangi bir üst kapsayıcıya `transform`, `filter`, `perspective`
+        ya da `contain` eklenirse hata aynen geri gelir ve tekrar
+        "z-index sorunu" gibi görünür.
+
+        Portal bunu yapısal olarak imkânsız kılıyor: <body> altında
+        kapsayıcı blok üretecek bir ata yok.
+      */}
+      {isClient
+        ? createPortal(
+            <AnimatePresence>
+              {mobileFiltersOpen ? (
+                /*
+                  `h-[100dvh]` — `inset-0` DEĞİL.
+
+                  iOS'ta `fixed inset-0` BÜYÜK viewport'u referans alır:
+                  adres çubuğu görünürken kutunun altı tarayıcı arayüzünün
+                  ARKASINDA kalır ve "Sonuçları göster" düğmesi erişilemez
+                  olur. `dvh` görünür yüksekliği takip ettiği için alt şerit
+                  her durumda ekranda.
+                */
+                <div className="fixed inset-x-0 top-0 z-[70] h-[100dvh] sm:hidden">
+            <motion.button
+              type="button"
+              aria-label={t("explorer.closeFilters")}
+              onClick={() => setMobileFiltersOpen(false)}
+              initial={reduceMotion ? false : { opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={reduceMotion ? undefined : { opacity: 0 }}
+              className="absolute inset-0 bg-ink/50 backdrop-blur-sm"
+            />
+
+            <motion.div
+              role="dialog"
+              aria-modal="true"
+              aria-label={t("explorer.filtersTitle")}
+              initial={reduceMotion ? false : { y: "100%" }}
+              animate={{ y: 0 }}
+              exit={reduceMotion ? undefined : { y: "100%" }}
+              transition={{ duration: 0.32, ease: EASE_OUT_EXPO }}
+              className="absolute inset-x-0 bottom-0 flex max-h-[88%] flex-col border-t border-line bg-shell"
+            >
+              <header className="flex shrink-0 items-center justify-between border-b border-line px-5 py-4">
+                <p className="font-display text-lg text-sea-deep">
+                  {t("explorer.filtersTitle")}
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setMobileFiltersOpen(false)}
+                  aria-label={t("explorer.closeFilters")}
+                  className="inline-flex size-9 items-center justify-center rounded-sm border border-line text-ink-40 transition-colors hover:border-sea hover:text-sea"
+                >
+                  <X className="size-4" aria-hidden="true" />
+                </button>
+              </header>
+
+              {/* Kaydırılan gövde: dört bölüm açık hâlde, üst üste. */}
+              <div className="flex-1 overflow-y-auto overscroll-contain px-5 py-5">
+                {FILTER_SECTIONS.map((section) => (
+                  <section key={section.key} className="border-b border-line/70 pb-6 pt-6 first:pt-0 last:border-0">
+                    <p className="eyebrow text-ink-40">{section.label}</p>
+                    <div className="mt-4">{section.node}</div>
+                  </section>
+                ))}
+              </div>
+
+              {/*
+                Sabit alt çubuk: sonuçları görmek için yukarı kaydırmak
+                gerekmiyor. Sayı düğmenin üstünde — seçim yaparken canlı
+                geri bildirim.
+              */}
+              <div className="flex shrink-0 items-center gap-3 border-t border-line px-5 py-4 pb-[calc(1rem+env(safe-area-inset-bottom))]">
+                {activeCount > 0 ? (
+                  <button
+                    type="button"
+                    onClick={reset}
+                    className="inline-flex shrink-0 items-center gap-2 px-3 py-3 text-sm text-ink-70 underline-offset-4 transition-colors hover:text-sea-deep hover:underline"
+                  >
+                    <RotateCcw className="size-3.5" aria-hidden="true" />
+                    {t("explorer.reset")}
+                  </button>
+                ) : null}
+                <button
+                  type="button"
+                  onClick={() => setMobileFiltersOpen(false)}
+                  className="flex-1 bg-sea-deep px-6 py-3.5 text-sm font-medium text-shell transition-colors hover:bg-sea"
+                >
+                  {t("explorer.showResults")} ({results.length})
+                </button>
+              </div>
+            </motion.div>
+                </div>
+              ) : null}
+            </AnimatePresence>,
+            document.body,
+          )
+        : null}
 
       {/*
         IZGARA ZEMİNİ.

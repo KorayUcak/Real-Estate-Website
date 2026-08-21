@@ -141,6 +141,40 @@ export function FeaturedCarousel({ cards }: { cards: PropertyCardData[] }) {
         Uçlarda `disabled`: gri değil, sönük ve tıklanamaz. Ekran okuyucu
         da `disabled` sayesinde "buraya kadar" bilgisini alıyor.
       */}
+      {/*
+        MOBİL / TABLET GEZİNME — şeridin ALTINDA, ortalanmış.
+
+        Yandaki `Arrow`lar `lg` altında gizli ve öyle kalmalı: dar ekranda
+        container'ın yan boşluğu yok, ok kartların üstüne binerdi. Ama tek
+        gezinme yolunun kaydırma olması yeterli değil — dokunmatik olmayan
+        girdiler ve şeridin kaydırılabilir olduğunu fark etmeyen kullanıcı
+        için görünür bir kontrol gerekiyor.
+
+        Şeridin altına alınca ikisi de çözülüyor: kartlara değmiyor,
+        açıkça görünüyor. Uçlarda `disabled` — sönük ve tıklanamaz, ekran
+        okuyucu da "buraya kadar" bilgisini alıyor.
+      */}
+      <div className="mt-6 flex items-center justify-center gap-3 lg:hidden">
+        <button
+          type="button"
+          onClick={() => emblaApi?.scrollPrev()}
+          disabled={!canPrev}
+          aria-label={t("properties.previousProperties")}
+          className="inline-flex size-11 items-center justify-center rounded-sm border border-line bg-white text-sea-deep transition-colors hover:border-sea-deep hover:bg-sea-deep hover:text-shell disabled:pointer-events-none disabled:opacity-35"
+        >
+          <ChevronLeft className="size-5" aria-hidden="true" />
+        </button>
+        <button
+          type="button"
+          onClick={() => emblaApi?.scrollNext()}
+          disabled={!canNext}
+          aria-label={t("properties.nextProperties")}
+          className="inline-flex size-11 items-center justify-center rounded-sm border border-line bg-white text-sea-deep transition-colors hover:border-sea-deep hover:bg-sea-deep hover:text-shell disabled:pointer-events-none disabled:opacity-35"
+        >
+          <ChevronRight className="size-5" aria-hidden="true" />
+        </button>
+      </div>
+
       <Arrow
         side="left"
         label={t("properties.previousProperties")}

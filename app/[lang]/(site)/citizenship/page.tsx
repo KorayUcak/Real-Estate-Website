@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/locale-link";
+import { CtaSurface } from "@/components/cta-surface";
 import {
   ArrowRight,
   BadgeCheck,
@@ -55,14 +56,6 @@ export async function generateMetadata(): Promise<Metadata> {
     type: "article",
   });
 }
-
-/* Rakamlar sabit, etiketler çeviriden (modül kapsamında `t()` yok). */
-const AT_A_GLANCE = [
-  { value: CITIZENSHIP_THRESHOLD_LABEL, key: "citizenshipPage.statInvestment" },
-  { value: `${CITIZENSHIP_HOLD_YEARS} yrs`, key: "citizenshipPage.statHolding" },
-  { value: "~3 mo", key: "citizenshipPage.statApproval" },
-  { value: "Family", key: "citizenshipPage.statFamily" },
-] as const;
 
 /**
  * Sayfanın en üstünde, göze çarpan dört koşul.
@@ -132,9 +125,7 @@ export default async function CitizenshipPage() {
 
       <main id="main">
         <PageHero
-          eyebrow={t("citizenshipPage.heroEyebrow")}
           title={t("citizenshipPage.heroTitle")}
-          lede={t("citizenshipPage.heroLede")}
           crumbs={CRUMBS}
           image={{
             ...imagery.citizenship,
@@ -142,23 +133,7 @@ export default async function CitizenshipPage() {
                sinyali sayfanın diliyle aynı olmalı. */
             alt: t("imagery.named.citizenship"),
           }}
-        >
-          <dl className="grid grid-cols-2 gap-x-8 gap-y-6 sm:gap-y-10 border-t border-line pt-6 sm:pt-10 sm:grid-cols-4">
-            {AT_A_GLANCE.map((item) => (
-              <div key={item.key}>
-                <dt className="sr-only">{t(item.key)}</dt>
-                <dd>
-                  <span className="block font-display text-4xl text-sea-deep">
-                    {item.value}
-                  </span>
-                  <span className="mt-2 block text-xs leading-relaxed text-ink-40">
-                    {t(item.key)}
-                  </span>
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </PageHero>
+        />
 
         {/* ------------------------------------------------------ KOŞULLAR */}
         <section
@@ -415,7 +390,7 @@ export default async function CitizenshipPage() {
               </span>
             </p>
 
-            <div className="grid gap-8 sm:gap-12 bg-sea px-8 py-10 sm:py-16 text-shell sm:px-14 lg:grid-cols-12 lg:items-center lg:px-20 lg:py-24">
+            <CtaSurface className="grid gap-8 sm:gap-12 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-7">
                 <h2
                   id="citizenship-cta"
@@ -443,7 +418,7 @@ export default async function CitizenshipPage() {
                   {t("citizenshipPage.ctaSecondary")}
                 </Link>
               </div>
-            </div>
+            </CtaSurface>
           </div>
         </section>
       </main>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { LocaleLink as Link } from "@/components/locale-link";
+import { CtaSurface } from "@/components/cta-surface";
 import { ArrowRight, MessageCircle } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
@@ -8,7 +9,6 @@ import { PropertyExplorer } from "@/components/property-explorer";
 import { Reveal } from "@/components/reveal";
 import { toPropertyCardList } from "@/lib/property-card-data";
 import { getSettings, whatsappHref } from "@/lib/settings";
-import { imagery } from "@/lib/imagery";
 import { breadcrumbSchema, itemListSchema } from "@/lib/schema";
 import { currentLocale } from "@/lib/current-locale";
 import { getT } from "@/lib/i18n/server";
@@ -194,18 +194,8 @@ export default async function PropertiesPage() {
         {/* --------------------------------------------------------------- CTA */}
         <section aria-labelledby="register-heading" className="bg-shell py-section">
           <div className="container-page">
-            <Reveal className="relative isolate overflow-hidden bg-sea-deep px-8 py-16 text-shell sm:px-14 lg:px-20">
-              <Image
-                src={imagery.propertiesCta.src}
-                alt=""
-                fill
-                sizes="(min-width: 1280px) 78rem, 100vw"
-                className="-z-10 object-cover"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute inset-0 -z-10 bg-gradient-to-r from-sea-deep via-sea-deep/92 to-sea-deep/60"
-              />
+            <Reveal>
+              <CtaSurface>
 
               <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
                 <div className="lg:col-span-7">
@@ -238,6 +228,7 @@ export default async function PropertiesPage() {
                   </a>
                 </div>
               </div>
+            </CtaSurface>
             </Reveal>
           </div>
         </section>

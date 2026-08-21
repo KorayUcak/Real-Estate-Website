@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/locale-link";
+import { CtaSurface } from "@/components/cta-surface";
 import { ArrowRight, MessageCircle, ShieldCheck } from "lucide-react";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { JsonLd } from "@/components/json-ld";
@@ -44,20 +45,6 @@ export async function generateMetadata(): Promise<Metadata> {
     type: "article",
   });
 }
-
-/**
- * Rakamlar sabit, ETİKETLER çeviriden geliyor.
- *
- * Modül kapsamında `t()` çağrılamaz — dil isteğe bağlı ve `t` sunucu
- * bileşeninin içinde çözülüyor. Bu yüzden sabit yalnızca değerleri ve
- * çeviri anahtarını taşıyor; metin bileşende eşleniyor.
- */
-const AT_A_GLANCE = [
-  { value: "4–8", key: "buyingProcess.statWeeks" },
-  { value: "6–8%", key: "buyingProcess.statCosts" },
-  { value: "8", key: "buyingProcess.statStages" },
-  { value: "1", key: "buyingProcess.statContact" },
-] as const;
 
 export default async function BuyingProcessPage() {
   /*
@@ -104,9 +91,7 @@ export default async function BuyingProcessPage() {
 
       <main id="main">
         <PageHero
-          eyebrow={t("buyingProcess.heroEyebrow")}
           title={t("buyingProcess.heroTitle")}
-          lede={t("buyingProcess.heroLede")}
           crumbs={CRUMBS}
           image={{
             ...imagery.buyingProcess,
@@ -114,23 +99,7 @@ export default async function BuyingProcessPage() {
                sinyali sayfanın diliyle aynı olmalı. */
             alt: t("imagery.named.buyingProcess"),
           }}
-        >
-          <dl className="grid grid-cols-2 gap-x-8 gap-y-6 sm:gap-y-10 border-t border-line pt-6 sm:pt-10 sm:grid-cols-4">
-            {AT_A_GLANCE.map((item) => (
-              <div key={item.key}>
-                <dt className="sr-only">{t(item.key)}</dt>
-                <dd>
-                  <span className="block font-display text-4xl text-sea-deep">
-                    {item.value}
-                  </span>
-                  <span className="mt-2 block text-xs leading-relaxed text-ink-40">
-                    {t(item.key)}
-                  </span>
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </PageHero>
+        />
 
         {/* ------------------------------------------------------ ZAMAN ÇİZGİSİ */}
         <section aria-labelledby="steps-heading" className="bg-shell py-section">
@@ -323,7 +292,7 @@ export default async function BuyingProcessPage() {
         {/* ------------------------------------------------------------- CTA */}
         <section aria-labelledby="buying-cta" className="bg-shell pb-section">
           <div className="container-page">
-            <div className="grid gap-8 sm:gap-12 bg-sea-deep px-8 py-10 sm:py-16 text-shell sm:px-14 lg:grid-cols-12 lg:items-center lg:px-20 lg:py-24">
+            <CtaSurface className="grid gap-8 sm:gap-12 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-7">
                 <h2
                   id="buying-cta"
@@ -361,7 +330,7 @@ export default async function BuyingProcessPage() {
                   .
                 </p>
               </div>
-            </div>
+            </CtaSurface>
           </div>
         </section>
       </main>

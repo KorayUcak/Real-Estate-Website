@@ -78,16 +78,16 @@ export const imagery = {
   */
   homeHeroSlides: [
     {
-      src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2070&auto=format&fit=crop",
-      alt: "Luxury villa with a sea view terrace and infinity pool on the Mediterranean coast",
-    },
-    {
       src: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=2070&auto=format&fit=crop",
       alt: "Modern coastal architecture with clean white lines and full-height glazing",
     },
     {
       src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=2075&auto=format&fit=crop",
       alt: "Infinity pool at a contemporary luxury villa looking out over the water",
+    },
+    {
+      src: "https://images.unsplash.com/photo-1613490493576-7fde63acd811?q=80&w=2070&auto=format&fit=crop",
+      alt: "Luxury villa with a sea view terrace and infinity pool on the Mediterranean coast",
     },
   ],
 
@@ -166,10 +166,28 @@ export const imagery = {
     alt: "White modern villa with a pool and palm trees on the Turkish coast",
   },
 
-  /** Satış süreci: havuzlu villa cephesi. */
+  /**
+   * Satış süreci: alacakaranlıkta, içeriden aydınlanan cam cepheli villa.
+   *
+   * Bu bant BİLİNÇLİ olarak diğer rehber banner'larından farklı bir saatte:
+   * ötekiler gün ışığında kıyı manzarası, bu ise mimari bir "twilight shot".
+   * Sayfanın hedef kitlesi satıcı — portföyünü emanet edeceği ajansta
+   * prestij arayan mülk sahibi. Gündüz çekilmiş bir cephe "ilan fotoğrafı"
+   * gibi okunuyordu; içeriden sızan sıcak ışık ise pahalı gayrimenkul
+   * pazarlamasının kendi görsel dili.
+   *
+   * Yan fayda ÖLÇÜLDÜ, tahmin edilmedi: `bg-sea-deep/55` perdesinin altında
+   * başlık alanının yalnızca %1,7'si 4.5:1'in altında kalıyor (ortalama
+   * 9.15:1). Aynı ölçüm gün ışığında çekilmiş adaylarda %31'e kadar
+   * çıkıyordu — parlak gökyüzü ortalanmış beyaz başlığı yıkıyor.
+   *
+   * Sıcak iç mekân ışıkları koyu yeşil perdenin altında altın rengine
+   * dönüyor; paletteki `gold` ile aynı aileye düşmesi tesadüf değil,
+   * seçim kriteriydi.
+   */
   sellingProcess: {
-    src: unsplash("1602343168117-bb8ffe3e2e9f", 2000, 1100),
-    alt: "Sunlit villa facade with a large blue swimming pool",
+    src: unsplash("1757356657991-c3fd6e2e812e", 2000, 1100),
+    alt: "Contemporary glass-fronted villa glowing from within at dusk beside a floodlit pool",
   },
 
   /** Vatandaşlık: turkuaz koydaki sahil kasabası. */

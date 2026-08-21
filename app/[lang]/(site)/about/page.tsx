@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { LocaleLink as Link } from "@/components/locale-link";
+import { Breadcrumbs } from "@/components/breadcrumbs";
+import { CtaSurface } from "@/components/cta-surface";
 import {
   ArrowRight,
   Compass,
@@ -12,15 +14,24 @@ import {
   Target,
 } from "lucide-react";
 import { JsonLd } from "@/components/json-ld";
-import { imagery } from "@/lib/imagery";
 import { getSettings, whatsappHref } from "@/lib/settings";
-import { PageHero } from "@/components/page-hero";
 import { aboutPageSchema, breadcrumbSchema } from "@/lib/schema";
 import { currentLocale } from "@/lib/current-locale";
 import { getAboutCopy, getT } from "@/lib/i18n/server";
 import { HOME_CRUMB, pageMetadata, type Crumb } from "@/lib/seo";
-import { siteConfig } from "@/lib/site";
 
+
+/**
+ * Hakkımızda banner görseli.
+ *
+ * `lib/imagery.ts` içindeki Unsplash havuzunda DEĞİL: bu marka fotoğrafı,
+ * stok görsel değil. Havuza koymak onu diğer sayfaların da çekebileceği
+ * genel bir görsel gibi gösterirdi.
+ */
+const ABOUT_BANNER = {
+  src: "/images/about/about-hero.jpeg",
+  alt: "Coast 2 Coast Properties Turkey",
+} as const;
 
 const CRUMBS: Crumb[] = [HOME_CRUMB, { name: "About", path: "/about" }];
 
@@ -71,34 +82,190 @@ export default async function AboutPage() {
       />
 
       <main id="main">
-        <PageHero
-          eyebrow={`Boutique consultancy · Fethiye · since ${siteConfig.founded}`}
-          title={t("about.heroTitle")}
-          lede={t("about.heroLede")}
-          crumbs={CRUMBS}
-          image={{
-            ...imagery.about,
-            /* Alt metni çeviriden: erişilebilirlik ve görsel arama
-               sinyali sayfanın diliyle aynı olmalı. */
-            alt: t("imagery.named.about"),
-          }}
-        />
+        {/*
+          HAKKIMIZDA BANNER'I — GÖRSEL, METİN YOK.
+
+          `PageHero` yerine bu sayfaya özel bir blok kullanılıyor: brief
+          banner'ın üstündeki tüm metnin kalkmasını istiyor, PageHero ise
+          eyebrow + h1 + lede üçlüsünü basmak için var. Ona bir "metni gizle"
+          anahtarı eklemek, dokuz sayfanın paylaştığı bileşeni tek sayfanın
+          istisnası için dallandırmak olurdu.
+
+          ⚠️ <h1> SİLİNMEDİ, GÖRÜNMEZ HÂLE GETİRİLDİ. Sayfadaki tek h1 buydu;
+          tamamen kaldırmak sayfayı başlıksız bırakır — ekran okuyucu
+          kullanıcısı için belge yapısı, arama motoru için ise sayfanın ne
+          hakkında olduğunu söyleyen ana sinyal kaybolurdu. `sr-only` ikisini
+          de korurken görsel isteği birebir karşılıyor: ekranda yalnızca
+          fotoğraf var.
+
+          Breadcrumb görselin ÜSTÜNDE değil, ÜZERİNDE değil — bandın önünde,
+          krem zeminde duruyor. Böylece fotoğrafın önünde hiçbir şey yok ama
+          gezinme de kaybolmuyor.
+        */}
+        {/*
+          HAKKIMIZDA BANNER'I — TAM GENİŞLİK, METİNSİZ.
+
+          Diğer iç sayfalarla AYNI aile: `PageHero`nun görselli varyantıyla
+          birebir aynı kabuk (tam genişlik, `object-cover`, üstünde tül,
+          altında `border-line`). Tek fark, üzerinde metin olmaması.
+
+          ⚠️ YÜKSEKLİK NEDEN ELLE VERİLİYOR: `PageHero` bandın yüksekliğini
+          İÇERİKTEN alıyor — eyebrow + h1 + lede bloğu onu ~680px'e itiyor.
+          Bu banner'da metin yok, dolayısıyla aynı kabuk kullanılsaydı bant
+          yalnızca breadcrumb yüksekliğinde, ~60px'lik bir şeride çökerdi.
+          `min-h-*` değerleri o yüzden ölçülerek seçildi: /buying-process
+          ve /insurance hero'ları masaüstünde 681–712px arasında oturuyor,
+          buradaki 42rem (672px) o aralığa denk geliyor.
+
+          MASAÜSTÜNDE 70vh. Önce 42rem'den 60vh'ye indirildi (metin ilk
+          ekranda görünsün diye), sonra 70vh'ye çıkıldı: 60vh kadrajın
+          üçte birini kesiyordu — gerekçe aşağıdaki `object-position`
+          notunda, ölçümle birlikte. 70vh hâlâ 42rem'in altında, yani
+          metin ilk ekranda görünmeye devam ediyor.
+
+          Sabit 672px, 900px'lik bir ekranda
+          başlıkla birlikte 770px ediyordu: altındaki metinden yalnızca
+          ~130px görünüyor, 800px'lik bir dizüstünde ise hiç görünmüyordu.
+          Banner'ın işi sayfayı tanıtmak, sayfanın yerine geçmek değil.
+          `vh` tercih edildi çünkü sorun ekran yüksekliğine bağlı: sabit bir
+          piksel değeri kısa ekranlarda yine kaplardı.
+
+          MOBİLDE 20rem — ve bu da hesaplanmış bir değer. Kaynak 1.25:1;
+          390px genişlikte görselin doğal yüksekliği 312px. Bant bundan
+          belirgin şekilde yüksek olursa `object-cover` bu kez YATAYDA
+          kırpmaya başlıyor ve kırptığı yer sağ kenar, yani tabelanın
+          durduğu taraf oluyordu (26rem'de "Coast2Coast" yarıya iniyordu).
+          20rem (320px) doğal yüksekliğe neredeyse eşit; yatay kırpma
+          kenar başına ~5px'e düşüyor ve kadraj bütün kalıyor.
+
+          ORAN KISITI YOK: `aspect-*` kaldırıldı çünkü tam genişlikli bir
+          bantta oran, yüksekliği viewport genişliğine bağlar — 21:9 bir
+          ekranda bant absürt kısalır. Sabit min-yükseklik + `object-cover`
+          her genişlikte aynı bandı veriyor.
+        */}
+        <section
+          aria-labelledby="about-heading"
+          className="relative isolate overflow-hidden border-b border-line bg-sea-deep text-shell"
+        >
+          {/*
+            `object-[center_48%]` (lg) — KIRPMA ÖLÇÜLEREK SEÇİLDİ.
+
+            Kadrajda korunması gereken üç şey var: yüz, eldeki anahtarlar ve
+            "Coast2Coast" tabelası. Tabelanın dikey aralığı görselde
+            piksel taramasıyla ölçüldü: turuncu alan %31.3 ile %75.0
+            arasında. Yüzün üstü ~%21'de başlıyor. Yani korunması gereken
+            bant görselin ~%21–%75 aralığı, kabaca %54'ü.
+
+            60vh (540px) bandı 1440px genişlikte görselin yalnızca %47'sini
+            gösteriyordu — %54'lük bir içeriği %47'lik bir pencereye
+            sığdırmak mümkün değil. Hangi konum denenirse denensin ya
+            gözlüğün üstü ya da "PROPERTIES" satırı kesiliyordu (ikisini de
+            ayrı ayrı render edip doğruladık). 65vh de yetmiyor: %51.
+
+            Gereken bant görselin %55'i. Ama bu ORAN, bandın piksel
+            karşılığı değil — ve burada `vh` YANLIŞ birim:
+
+              gerekli yükseklik = genişlik ÷ 1.25 × 0.55 = genişlik × 0.44
+
+            Yani kırpma viewport'un YÜKSEKLİĞİNE değil GENİŞLİĞİNE bağlı;
+            görsel genişliğe göre ölçekleniyor. 70vh 1440×900'de doğru
+            çalışıyordu ama 1440×800'de bant 561px'e düşüp "PROPERTIES"
+            satırını yeniden kesiyordu (render edilip görüldü). Sabit bir
+            piksel değeri de tek bir genişlikte doğru olurdu: 1920px'te
+            gereken bant 845px.
+
+            `44vw` bu ilişkiyi doğrudan ifade ediyor — hangi genişlikte
+            olursak olalım kadraj aynı kalıyor.
+
+            Dikey konum yalnızca `lg`de anlamlı: dar ekranlarda görsel
+            yüksekliğe göre ölçekleniyor ve dikeyde hiç kırpılmıyor
+            (kırpma yatayda oluyor). Mobil kadraj bu yüzden değişmedi.
+
+            Kaynak 2304×1844 (1.25:1). 1440px genişlikte görsel 1152px
+            yüksekliğe ölçekleniyor, bant ise 673px; yani yüksekliğin
+            ~%58'i görünüyor, 479px'i kırpılıyor.
+
+            %30 ilk denemeydi ve tabelanın ALT YARISINI kesiyordu: "FOR
+            SALE" görünüyor ama altındaki "Coast2Coast" kelime işareti
+            kadrajın dışında kalıyordu — yani markanın kendi tabelası
+            kırpılmış oluyordu. %45'te pencere görselin ~%19–%77 aralığına
+            kayıyor: tabela alt kenarıyla birlikte içeride, yüz hâlâ üst
+            üçlükte, saçın tepesinden yalnızca birkaç piksel gidiyor.
+          */}
+          <Image
+            src={ABOUT_BANNER.src}
+            alt={ABOUT_BANNER.alt}
+            fill
+            priority
+            /* Kaynak sıkıştırılmış geldiği için kalite 85 yerine 90:
+               yeniden kodlamanın üstüne ikinci bir kayıp eklememek için. */
+            quality={90}
+            sizes="100vw"
+            className="-z-10 object-cover object-[center_45%] lg:object-[center_48%]"
+          />
+
+          {/*
+            İKİ KATMANLI TÜL — hem estetik hem teknik.
+
+            1) DİKEY DEGRADE: üstte ve altta koyu, ortada açık. Üst koyuluk
+               breadcrumb'ın okunmasını sağlıyor (beyaz metin, `tone="dark"`),
+               alt koyuluk bandı bir sonraki bölüme bağlıyor. Orta bölgenin
+               açık kalması şart: özne ve tabela orada.
+
+            2) DÜZ MARKA TÜLÜ: ince, tek tonluk bir `sea-deep` katmanı.
+               Görevi kontrast değil, GÜRÜLTÜ MASKESİ — kaynaktaki JPEG
+               blok artefaktları düz bir renk katmanının altında gözle
+               görülür biçimde yumuşuyor. `gray-900` yerine marka lacivertî
+               kullanılıyor; nötr gri, sitenin sıcak krem paletinin yanında
+               ölü duruyor.
+
+            İkisi birlikte "sinematik" hissi veren şey: tek ve düz bir
+            karartma yerine, ışığın ortada toplandığı bir kadraj.
+          */}
+          <span
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 bg-gradient-to-b from-ink/70 via-ink/15 to-ink/60"
+          />
+          <span
+            aria-hidden="true"
+            className="absolute inset-0 -z-10 bg-sea-deep/25"
+          />
+
+          {/*
+            ⚠️ <h1> GÖRÜNMEZ AMA VAR. Sayfadaki tek h1 bu; banner metinsiz
+            olduğu için ekranda görünmüyor, belge yapısında ve arama
+            motorunda duruyor.
+          */}
+          <h1 id="about-heading" className="sr-only">
+            {t("about.heroTitle")}
+          </h1>
+
+          <div className="container-page flex min-h-[20rem] flex-col pb-14 pt-10 sm:min-h-[34rem] sm:pb-20 sm:pt-12 lg:min-h-[44vw]">
+            <Breadcrumbs crumbs={CRUMBS} tone="dark" />
+          </div>
+        </section>
 
         <section aria-labelledby="story-heading" className="bg-shell py-section">
-          <div className="container-page grid gap-8 sm:gap-16 lg:grid-cols-12 lg:items-start">
-            <div className="lg:col-span-6">
-              <div className="relative aspect-[4/3] sm:aspect-[4/5] overflow-hidden bg-shell-deep">
-                <Image
-                  src={imagery.about.src}
-                  alt={t("about.imageAlt")}
-                  fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  className="object-cover"
-                />
-              </div>
-            </div>
+          {/*
+            İKİNCİ GÖRSEL KALDIRILDI — ve ızgara da onunla birlikte.
 
-            <div className="lg:col-span-5 lg:col-start-8">
+            Bölüm 12 sütunluk bir ızgaraydı: solda görsel (6 sütun), sağda
+            metin (5 sütun, 8'den başlayarak). Yalnızca görseli silmek
+            metni sayfanın sağ yarısında bırakır, solda altı sütunluk bir
+            boşlukla — "kaldırılmış bir şeyin yeri" gibi duran, kasıtsız
+            bir asimetri.
+
+            Bu yüzden ızgara tamamen çözüldü. Metin artık ölçülü genişlikte
+            (`max-w-2xl`) ve ortalanmış tek bir sütun: uzun paragraflar için
+            zaten doğru olan biçim, çünkü satır uzunluğu okunabilir
+            aralıkta kalıyor. Tam genişliğe yaymak 1440px'te 100+ karakterlik
+            satırlar üretirdi.
+
+            Hero'nun hemen altındaki tek görselin kalkması sayfanın açılışını
+            da hafifletiyor: banner, ardından metin.
+          */}
+          <div className="container-page">
+            <div className="mx-auto max-w-2xl">
               <p className="eyebrow text-sea">{t("about.storyEyebrow")}</p>
               <h2
                 id="story-heading"
@@ -251,7 +418,7 @@ export default async function AboutPage() {
         {/* ------------------------------------------------------------ CTA */}
         <section aria-labelledby="about-cta" className="bg-shell py-section">
           <div className="container-page">
-            <div className="grid gap-8 sm:gap-12 bg-sea px-8 py-10 sm:py-16 text-shell sm:px-14 lg:grid-cols-12 lg:items-center lg:px-20 lg:py-24">
+            <CtaSurface className="grid gap-8 sm:gap-12 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-7">
                 <h2
                   id="about-cta"
@@ -284,7 +451,7 @@ export default async function AboutPage() {
                   {t("about.ctaWhatsapp")}
                 </a>
               </div>
-            </div>
+            </CtaSurface>
           </div>
         </section>
       </main>

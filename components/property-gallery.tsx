@@ -2,7 +2,7 @@
 
 import { useCallback, useRef, useState } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Expand, Images, X } from "lucide-react";
 import { EASE_OUT_EXPO } from "@/components/reveal";
 import { cn } from "@/lib/cn";
@@ -32,7 +32,6 @@ export function PropertyGallery({
 }) {
   const { t } = useT();
   const [activeIndex, setActiveIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
   const dialogRef = useRef<HTMLDialogElement>(null);
   const reduceMotion = useReducedMotion();
 
@@ -46,7 +45,6 @@ export function PropertyGallery({
 
   const step = useCallback(
     (delta: number) => {
-      setDirection(delta);
       setActiveIndex((current) => (current + delta + total) % total);
     },
     [total],
@@ -185,33 +183,70 @@ export function PropertyGallery({
           )}
         >
           {/*
-            `mode="wait"` yerine varsayılan mod: giden ve gelen fotoğraf
-            üst üste binerek geçer, aradaki boş kare olmaz.
+            KOMŞU FOTOĞRAFLAR AĞAÇTA KALIYOR — gri bekleme ekranının çözümü.
+
+            ⚠️ ÖNCEKİ HÂLİN SORUNU: `AnimatePresence` her indeks için YENİ
+            bir `<Image>` monte ediyordu. next/image varsayılan olarak
+            tembel yüklüyor, yani fotoğraf ancak TIKLANDIKTAN SONRA
+            istenmeye başlıyordu. 1920px genişlikte yeniden boyutlanan bir
+            kare gelene kadar ekranda koyu zeminden başka bir şey yoktu —
+            "griye dönüp yavaş yükleniyor" denen şey buydu. Otuz fotoğraflu
+            bir ilanda her ok tıklaması bu bekleme demekti.
+
+            ÇÖZÜM: yalnızca aktif kare değil, BİR ÖNCEKİ ve BİR SONRAKİ de
+            monte kalıyor (`loading="eager"`). Kullanıcı oka bastığında
+            hedef kare çoktan indirilmiş ve çözülmüş oluyor; geçiş ağ
+            beklemiyor.
+
+            NEDEN SADECE ±1: otuz fotoğrafı birden monte etmek, gereksiz
+            yere onlarca megabaytlık istek demek. İleri/geri gezinme için
+            gereken tek şey komşular; pencere bu yüzden üç kare.
+
+            NEDEN KAYDIRMA DEĞİL ÇAPRAZ GEÇİŞ: üç katman da aynı anda
+            duruyor, dolayısıyla "giren" karenin bir yerden kayarak gelmesi
+            için önce görünmez hâlde yana itilmesi gerekirdi — bu da tam
+            olarak kaçındığımız yeniden yerleşimi geri getirirdi. Saf
+            opaklık geçişi 0.22sn'de tamamlanıyor ve hiçbir karede boşluk
+            göstermiyor.
           */}
-          <AnimatePresence initial={false} custom={direction}>
-            <motion.div
-              key={active.src}
-              custom={direction}
-              initial={
-                reduceMotion
-                  ? false
-                  : { opacity: 0, x: direction * 40, scale: 0.99 }
-              }
-              animate={{ opacity: 1, x: 0, scale: 1 }}
-              exit={reduceMotion ? undefined : { opacity: 0 }}
-              transition={{ duration: 0.35, ease: EASE_OUT_EXPO }}
-              className="absolute inset-0"
-            >
-              <Image
-                src={active.src}
-                alt={active.alt}
-                fill
-                quality={85}
-                sizes="100vw"
-                className="object-contain"
-              />
-            </motion.div>
-          </AnimatePresence>
+          {images.map((image, index) => {
+            const isActive = index === activeIndex;
+            const isNeighbour =
+              index === (activeIndex + 1) % total ||
+              index === (activeIndex - 1 + total) % total;
+
+            /* Pencere dışı kareler ağaçta yok — bellek ve ağ için. */
+            if (!isActive && !isNeighbour) return null;
+
+            return (
+              <motion.div
+                key={image.src}
+                initial={false}
+                animate={{ opacity: isActive ? 1 : 0 }}
+                transition={
+                  reduceMotion
+                    ? { duration: 0 }
+                    : { duration: 0.22, ease: EASE_OUT_EXPO }
+                }
+                /* Komşular görünmez ama ağaçta: tıklamayı yakalamamalılar. */
+                className="absolute inset-0 pointer-events-none"
+                aria-hidden={!isActive}
+              >
+                <Image
+                  src={image.src}
+                  /* Yalnızca aktif kare adlandırılıyor; üç görselin birden
+                     duyurulması ekran okuyucuda gürültü olurdu. */
+                  alt={isActive ? image.alt : ""}
+                  fill
+                  quality={85}
+                  sizes="100vw"
+                  /* Tembel yükleme burada tam olarak istemediğimiz şey. */
+                  loading="eager"
+                  className="object-contain"
+                />
+              </motion.div>
+            );
+          })}
 
           {/* ------------------------------------------------------ KAPAT */}
           <button
@@ -256,7 +291,54 @@ export function PropertyGallery({
             kaybolmuyor — `alt` zaten `<Image>` üzerinde.
           */}
           <div className="pointer-events-none absolute inset-x-0 bottom-6 z-10 flex flex-col items-center gap-3 px-6">
-            <p className="rounded-sm bg-ink/45 px-4 py-2 font-display text-sm tabular-nums text-shell backdrop-blur-md">
+            {/*
+              MOBİL GEZİNME — sayacın iki yanında, fotoğrafın ALTINDA.
+
+              Yan taraftaki `LightboxArrow`lar `sm` altında gizli ve öyle
+              kalıyor: telefonda 48px'lik iki daire fotoğrafın üçte birini
+              kapatıyordu. Ama tek gezinme yolunun kaydırma olması da
+              yeterli değildi — dokunmatik olmayan girdilerde (harici klavye,
+              anahtar erişimi) ya da kaydırmayı fark etmeyen kullanıcı için
+              görünür bir kontrol yok demekti.
+
+              Çözüm: okları fotoğrafın üstünden alıp alt şeride, sayacın
+              iki yanına koymak. Görünür ve kolay dokunulur (44px), üstelik
+              görüntüyü hiç kapatmıyor.
+
+              `pointer-events-auto`: kapsayıcı `pointer-events-none` —
+              fotoğrafa yapılan dokunuşlar şeridin altından geçsin diye.
+              Düğmelerin kendisi bunu geri açıyor.
+            */}
+            <div className="pointer-events-auto flex items-center gap-3 sm:hidden">
+              {total > 1 ? (
+                <button
+                  type="button"
+                  onClick={() => step(-1)}
+                  aria-label={t("properties.previousPhoto")}
+                  className="inline-flex size-11 items-center justify-center rounded-full border border-white/25 bg-ink/50 text-shell backdrop-blur-md transition-colors active:bg-ink/80"
+                >
+                  <ChevronLeft className="size-5" strokeWidth={1.5} aria-hidden="true" />
+                </button>
+              ) : null}
+
+              <p className="rounded-sm bg-ink/45 px-4 py-2 font-display text-sm tabular-nums text-shell backdrop-blur-md">
+                {activeIndex + 1} / {total}
+              </p>
+
+              {total > 1 ? (
+                <button
+                  type="button"
+                  onClick={() => step(1)}
+                  aria-label={t("properties.nextPhoto")}
+                  className="inline-flex size-11 items-center justify-center rounded-full border border-white/25 bg-ink/50 text-shell backdrop-blur-md transition-colors active:bg-ink/80"
+                >
+                  <ChevronRight className="size-5" strokeWidth={1.5} aria-hidden="true" />
+                </button>
+              ) : null}
+            </div>
+
+            {/* `sm` ve üstünde sayaç tek başına — oklar yanlarda yüzüyor. */}
+            <p className="hidden rounded-sm bg-ink/45 px-4 py-2 font-display text-sm tabular-nums text-shell backdrop-blur-md sm:block">
               {activeIndex + 1} / {total}
             </p>
             <p className="hidden max-w-xl text-center text-xs leading-relaxed text-shell/70 sm:block">

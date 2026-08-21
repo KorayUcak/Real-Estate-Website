@@ -41,17 +41,18 @@
     "callAria": "Call us on {phone}"
   },
   "footer": {
-    "tagline": "A property consultant in Fethiye",
-    "exploreHeading": "Explore",
-    "guidesHeading": "Guides",
     "areasHeading": "Fethiye & surrounding areas",
-    "footerNavAria": "Footer",
-    "guidesNavAria": "Guides",
     "areasNavAria": "Areas we cover",
-    "rights": "© {year} {company}. All rights reserved.",
+    "credit": "Designed & Developed by {name}",
+    "exploreHeading": "Explore",
+    "footerNavAria": "Footer",
+    "guidesHeading": "Guides",
+    "guidesNavAria": "Guides",
     "privacy": "Privacy",
-    "terms": "Terms",
-    "socialAria": "{company} on {network}"
+    "rights": "© {year} {company}. All rights reserved.",
+    "socialAria": "{company} on {network}",
+    "tagline": "A property consultant in Fethiye",
+    "terms": "Terms"
   },
   "form": {
     "name": "Full name",
@@ -356,9 +357,7 @@
     "faqEyebrow": "Straight answers",
     "faqHeading": "Living in Turkey: the questions we get asked",
     "faqLede": "Residency, winters, healthcare and language — the practical things that decide whether a move works.",
-    "heroEyebrow": "About Türkiye",
-    "heroLede": "Türkiye's turquoise coast offers something Spain and Portugal priced out a decade ago. Here is the honest picture, the climate, the costs, the communities and the areas.",
-    "heroTitle": "The land of beauty, where anything is possible",
+    "heroTitle": "About Turkey",
     "jumpToAreas": "Jump to the area guides",
     "livingHeading": "What living here is actually like",
     "livingLede": "The Fethiye region runs on a rhythm that takes about a year to learn: a long, hot, busy summer, a beautiful and genuinely quiet winter, and two shoulder seasons that most owners end up considering the best months of all.",
@@ -561,11 +560,6 @@
         "amount": "4% of the declared value",
         "note": "Legally split between buyer and seller; in practice usually negotiated."
       },
-      "spk-valuation": {
-        "item": "SPK valuation report",
-        "amount": "£150 – £300",
-        "note": "Mandatory on every sale to a foreign buyer."
-      },
       "legal": {
         "item": "Independent legal representation",
         "amount": "£1,000 – £1,800",
@@ -583,7 +577,7 @@
       },
       "utilities": {
         "item": "Utility subscriptions and connection",
-        "amount": "£150 – £350",
+        "amount": "Less than £150",
         "note": "One-off, payable when accounts move into your name."
       }
     },
@@ -669,18 +663,12 @@
     "faqEyebrow": "Straight answers",
     "faqFooter": "Something not covered here? Ask — you will get a person, not a form response.",
     "faqHeading": "Questions buyers ask us first",
-    "heroEyebrow": "The buying process",
-    "heroLede": "Türkiye's land registry is faster and cleaner than most buyers expect. What catches people out is the sequence — the valuation report, the currency certificate, the insurance that must exist before a deed can move. Here is all of it, in order.",
-    "heroTitle": "Buying a property in Fethiye, one stage at a time",
+    "heroTitle": "Buying Process",
     "metaDescription": "How buying a property in Fethiye actually works, from the first brief to the title deed. Eight stages, four to eight weeks, and the full 6–8% of purchase costs set out before you commit.",
     "metaTitle": "The Buying Process in Fethiye, Step by Step",
     "stagesEyebrow": "Stage by stage",
     "stagesHeading": "From first brief to keys in hand",
-    "stagesLede": "Nothing on this list happens without your written sign-off, and every stage has a named person responsible for it.",
-    "statContact": "Named contact throughout",
-    "statCosts": "Purchase costs on top of the price",
-    "statStages": "Stages, all handled for you",
-    "statWeeks": "Weeks from offer to title deed"
+    "stagesLede": "Nothing on this list happens without your written sign-off, and every stage has a named person responsible for it."
   },
   "sellingProcess": {
     "approachEyebrow": "Our approach",
@@ -694,33 +682,6 @@
     "docsEyebrow": "Before you list",
     "docsHeading": "Six documents to have ready",
     "docsLede": "Gathering these before marketing costs a few days. Discovering a gap after an accepted offer costs you the buyer.",
-    "faqEyebrow": "Straight answers",
-    "faqFooter": "If your question is about your specific property, ask directly — the answer usually depends on when you bought and what you paid.",
-    "faqHeading": "What sellers ask us most",
-    "formMessage": "I'd like a valuation on my property. It is a ___ bedroom ___ in ___ (area), approximately ___ m².",
-    "formSubmit": "Request valuation",
-    "heroCta": "Request a free valuation",
-    "heroEyebrow": "The selling process",
-    "heroLede": "Most properties that sit unsold in Fethiye are not badly located or badly built — they are priced against the neighbours' asking prices and presented with phone photographs. This is how we do it differently, and what we need from you.",
-    "heroTitle": "Selling your property on the Fethiye coast",
-    "metaDescription": "How to sell a villa or apartment in Fethiye, from honest valuation to funds in your account. Eight stages, the paperwork you need in advance, and what it costs to sell in Türkiye.",
-    "metaTitle": "Selling Your Property in Fethiye: The Process",
-    "painEyebrow": "Sound familiar?",
-    "painHeading": "Three things we hear from sellers every week",
-    "soleBody": "No additional fee for the exclusivity. What you get in return is a property that is genuinely worked rather than one sitting in a pile shared between five agencies.",
-    "soleHeading": "Make us your sole agent for six months",
-    "stagesEyebrow": "Stage by stage",
-    "stagesHeading": "From valuation to funds released",
-    "stagesLede": "You can run the entire sale from abroad. We hold keys, manage access, accompany every viewing and complete under power of attorney if you would rather not travel.",
-    "statAppraisal": "From valuation request to written appraisal",
-    "statMonths": "Months to a buyer at the right price",
-    "statStages": "Stages, managed on your behalf",
-    "statTrips": "Trips required — sell from anywhere",
-    "valuationBody": "A written appraisal based on what has actually completed nearby — not on what the villa down the road is asking. No pressure to list with us afterwards.",
-    "valuationEyebrow": "No obligation",
-    "valuationHeading": "Request a free property valuation",
-    "valuationWhatsapp": "Valuation on WhatsApp",
-    "whatsappMessage": "Hello Coast 2 Coast — I'd like a free valuation on my property in Fethiye.",
     "documents": {
       "tapu": {
         "title": "Title deed (TAPU)",
@@ -746,7 +707,28 @@
         "title": "Passport and tax number",
         "body": "Plus a power of attorney if you will not be in Türkiye on completion day. This can be signed at a Turkish consulate or embassy in your own country."
       }
-    }
+    },
+    "faqEyebrow": "Straight answers",
+    "faqFooter": "If your question is about your specific property, ask directly — the answer usually depends on when you bought and what you paid.",
+    "faqHeading": "What sellers ask us most",
+    "formMessage": "I'd like a valuation on my property. It is a ___ bedroom ___ in ___ (area), approximately ___ m².",
+    "formSubmit": "Request valuation",
+    "heroCta": "Request a free valuation",
+    "heroTitle": "Selling Process",
+    "metaDescription": "How to sell a villa or apartment in Fethiye, from honest valuation to funds in your account. Eight stages, the paperwork you need in advance, and what it costs to sell in Türkiye.",
+    "metaTitle": "Selling Your Property in Fethiye: The Process",
+    "painEyebrow": "Sound familiar?",
+    "painHeading": "Three things we hear from sellers every week",
+    "soleBody": "No additional fee for the exclusivity. What you get in return is a property that is genuinely worked rather than one sitting in a pile shared between five agencies.",
+    "soleHeading": "Make us your sole agent for six months",
+    "stagesEyebrow": "Stage by stage",
+    "stagesHeading": "From valuation to funds released",
+    "stagesLede": "You can run the entire sale from abroad. We hold keys, manage access, accompany every viewing and complete under power of attorney if you would rather not travel.",
+    "valuationBody": "A written appraisal based on what has actually completed nearby — not on what the villa down the road is asking. No pressure to list with us afterwards.",
+    "valuationEyebrow": "No obligation",
+    "valuationHeading": "Request a free property valuation",
+    "valuationWhatsapp": "Valuation on WhatsApp",
+    "whatsappMessage": "Hello Coast 2 Coast — I'd like a free valuation on my property in Fethiye."
   },
   "citizenship": {
     "steps": {
@@ -915,19 +897,13 @@
     "faqHeading": "Turkish citizenship questions, answered",
     "formMessage": "I'm interested in Turkish citizenship through property investment. Please could you tell me what my budget would qualify for?",
     "formSubmit": "Request consultation",
-    "heroEyebrow": "Citizenship by investment",
-    "heroLede": "Unlike donation-based programmes, this one leaves you holding the asset. Invest {threshold} or more in Turkish property, hold it for {years} years, and you, your spouse and your children under 18 can become Turkish citizens — with no residence requirement, no language test and no interview.",
-    "heroTitle": "A Turkish passport, through a property you actually keep",
+    "heroTitle": "Turkish Citizenship",
     "importantLabel": "Important:",
     "metaDescription": "Turkish citizenship through property investment from {threshold}. The full process, the {years}-year holding period, the documents required, and who in your family is included — explained by a Fethiye consultancy that handles the purchase end to end.",
     "metaTitle": "Turkish Citizenship by Property Investment",
     "stagesEyebrow": "Stage by stage",
     "stagesHeading": "From shortlist to passport",
-    "stagesLede": "Seven stages, typically five to six months end to end. We handle the property side and coordinate with English-speaking solicitors who handle the application itself.",
-    "statApproval": "Typical approval time",
-    "statFamily": "Spouse and under-18s included",
-    "statHolding": "Holding period on the deed",
-    "statInvestment": "Minimum property investment"
+    "stagesLede": "Seven stages, typically five to six months end to end. We handle the property side and coordinate with English-speaking solicitors who handle the application itself."
   },
   "insurance": {
     "policies": {
@@ -1065,10 +1041,7 @@
     "faqHeading": "Insurance questions owners ask",
     "formMessage": "I'd like a quote for property insurance. My property is approximately ___ m² in ___ (area), built in ___.",
     "formSubmit": "Request a quote",
-    "heroEyebrow": "Insurance in Türkiye",
-    "heroLede": "Every home in Türkiye must carry state-backed earthquake cover, and almost every owner assumes that is the job done. DASK itself is explicit that it insures the bare rebuild cost of the structure and nothing else — no contents, no theft, no water damage. Here is what each policy actually does.",
-    "heroNote": "Arranged with our local Fethiye provider, in English or Russian.",
-    "heroTitle": "DASK is compulsory. It is also nowhere near enough.",
+    "heroTitle": "Property Insurance",
     "metaDescription": "DASK earthquake cover is compulsory in Türkiye but insures only the bare rebuild cost of the structure. What DASK covers, what it does not, and the buildings and contents policies that fill the gap.",
     "metaTitle": "Property Insurance in Türkiye: DASK and Beyond",
     "policiesEyebrow": "The three policies",
@@ -1079,10 +1052,7 @@
     "privateNotCoversLabel": "Usually excluded",
     "quoteBody": "Send us the square metres from your TAPU and roughly what you want covered. We will come back with a comparison in English — DASK, buildings and contents priced separately so you can see what each one costs.",
     "quoteHeading": "Request an insurance quote",
-    "quoteWhatsapp": "Quote on WhatsApp",
-    "typeCar": "Car insurance",
-    "typeHealth": "Health insurance",
-    "typeHome": "Home insurance"
+    "quoteWhatsapp": "Quote on WhatsApp"
   },
   "about": {
     "ctaBody": "Not a call centre, not a lead form that disappears into a CRM. Tell us what you are considering and you will get a considered reply from someone who has stood in the properties concerned.",
@@ -1164,9 +1134,7 @@
     "finalHeading": "Not ready to fly yet?",
     "finalPrimary": "Browse villas for sale",
     "finalSecondary": "Read about the region",
-    "heroEyebrow": "Viewing trips",
-    "heroLede": "A viewing trip with us is not a coach tour. {host1} and {host2} collect you from your accommodation, drive you between properties chosen from a shortlist you agreed before flying, and tell you the truth about every one of them — including the ones we would talk you out of.",
-    "heroTitle": "Two days on the ground beat two months of browsing",
+    "heroTitle": "Viewing Day",
     "included": [
       "Collection from and return to your accommodation, every day of the trip",
       "Private, air-conditioned transport between every property",
@@ -1189,10 +1157,6 @@
     "notDoingHeading": "What we don't do",
     "notDoingLede": "Overseas property viewing trips have earned a reputation. These are the practices we have deliberately built the trip to avoid.",
     "serviceName": "Property viewing trips in Fethiye, Türkiye",
-    "statConsultant": "Named consultant, start to finish",
-    "statCost": "For our time and transport",
-    "statDays": "Days, built around your shortlist",
-    "statProperties": "Properties a day, maximum",
     "whatsappMessage": "Hello Coast 2 Coast — I'd like to arrange a viewing trip to Fethiye."
   },
   "blog": {
@@ -1258,6 +1222,8 @@
   },
   "explorer": {
     "anyArea": "Any area",
+    "anyBedrooms": "Any",
+    "anyPrice": "Any price",
     "anyType": "Any type",
     "areaCount": "{count} areas",
     "bedrooms": "Bedrooms",
@@ -1266,7 +1232,10 @@
     "categoryVilla": "Villa",
     "clearFilters": "Clear all filters",
     "clearSearch": "Clear search",
+    "closeFilters": "Close filters",
     "emptyBody": "A meaningful share of what we sell never reaches this page. Tell us the brief and we will send matches as they arrive.",
+    "filters": "Filters",
+    "filtersTitle": "Filter properties",
     "gridView": "Grid view",
     "layout": "Result layout",
     "listView": "List view",
@@ -1275,6 +1244,7 @@
     "maxPrice": "Maximum price",
     "minPrice": "Minimum price",
     "oneArea": "1 area",
+    "price": "Price",
     "priceNote": "Guide prices. Purchase costs add roughly 6–8% on top.",
     "removeFilter": "Remove filter",
     "reset": "Reset",
@@ -1283,11 +1253,13 @@
     "results": "Property results",
     "searchLabel": "Search properties by keyword",
     "searchPlaceholder": "Search by keyword…",
+    "showResults": "Show results",
     "sort": "Sort",
     "sortNewest": "Newest",
     "sortPriceAsc": "Price: Low to High",
     "sortPriceDesc": "Price: High to Low",
-    "sortRecommended": "Recommended"
+    "sortRecommended": "Recommended",
+    "type": "Type"
   },
   "panel": {
     "detailsBody": "Floor plans, running costs and recent rental figures — sent by a person, usually within the working day.",
@@ -1340,16 +1312,16 @@
       "revealProcess": "Green mountains falling into the bright blue sea on the Fethiye coast",
       "blog": "The bay and the town seen from the hillside road above Fethiye",
       "buyingProcess": "White modern villa with a pool and palm trees on the Turkish coast",
-      "sellingProcess": "Sunlit villa facade with a large blue swimming pool",
+      "sellingProcess": "Contemporary glass-fronted villa glowing from within at dusk beside a floodlit pool",
       "citizenship": "Coastal town rooftops above a turquoise Mediterranean bay",
       "insurance": "Contemporary house with a covered terrace and swimming pool",
       "viewingDay": "Terraced pools framed by cypress trees at a Mediterranean estate",
       "contact": "Sunset over the headlands and open water off the Fethiye coast"
     },
     "slides": [
-      "Luxury villa with a sea view terrace and infinity pool on the Mediterranean coast",
       "Modern coastal architecture with clean white lines and full-height glazing",
-      "Infinity pool at a contemporary luxury villa looking out over the water"
+      "Infinity pool at a contemporary luxury villa looking out over the water",
+      "Luxury villa with a sea view terrace and infinity pool on the Mediterranean coast"
     ]
   }
 }

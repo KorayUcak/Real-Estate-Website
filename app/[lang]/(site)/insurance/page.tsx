@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/locale-link";
+import { CtaSurface } from "@/components/cta-surface";
 import {
   ArrowRight,
-  Car,
   Check,
-  HeartPulse,
-  Home,
   MessageCircle,
   Phone,
   ShieldCheck,
@@ -54,13 +52,6 @@ export async function generateMetadata(): Promise<Metadata> {
   });
 }
 
-/** Partner sağlayıcının kapsadığı diğer branşlar — eski sitedeki üçlü. */
-const OTHER_COVER = [
-  { icon: Home, key: "insurancePage.typeHome" },
-  { icon: Car, key: "insurancePage.typeCar" },
-  { icon: HeartPulse, key: "insurancePage.typeHealth" },
-] as const;
-
 export default async function InsurancePage() {
   const t = await getT();
   const copy = await getInsuranceCopy();
@@ -108,9 +99,7 @@ export default async function InsurancePage() {
 
       <main id="main">
         <PageHero
-          eyebrow={t("insurancePage.heroEyebrow")}
           title={t("insurancePage.heroTitle")}
-          lede={t("insurancePage.heroLede")}
           crumbs={CRUMBS}
           image={{
             ...imagery.insurance,
@@ -118,24 +107,7 @@ export default async function InsurancePage() {
                sinyali sayfanın diliyle aynı olmalı. */
             alt: t("imagery.named.insurance"),
           }}
-        >
-          <div className="flex flex-col gap-8 border-t border-line pt-6 sm:pt-10 sm:flex-row sm:items-center sm:justify-between">
-            <ul className="flex flex-wrap gap-x-8 gap-y-4">
-              {OTHER_COVER.map((item) => (
-                <li
-                  key={item.key}
-                  className="inline-flex items-center gap-2.5 text-sm text-ink-70"
-                >
-                  <item.icon className="size-4 text-sea" aria-hidden="true" />
-                  {t(item.key)}
-                </li>
-              ))}
-            </ul>
-            <p className="text-xs leading-relaxed text-ink-40">
-              {t("insurancePage.heroNote")}
-              </p>
-          </div>
-        </PageHero>
+        />
 
         {/* --------------------------------------------- ÜÇ POLİÇE TÜRÜ */}
         <section
@@ -488,7 +460,7 @@ export default async function InsurancePage() {
               </span>
             </p>
 
-            <div className="grid gap-8 sm:gap-12 bg-sea-deep px-8 py-10 sm:py-16 text-shell sm:px-14 lg:grid-cols-12 lg:items-center lg:px-20 lg:py-24">
+            <CtaSurface className="grid gap-8 sm:gap-12 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-7">
                 <h2
                   id="insurance-cta"
@@ -519,7 +491,7 @@ export default async function InsurancePage() {
                   {t("insurancePage.quoteWhatsapp")}
                 </a>
               </div>
-            </div>
+            </CtaSurface>
           </div>
         </section>
       </main>

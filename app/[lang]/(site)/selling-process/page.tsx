@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/locale-link";
+import { CtaSurface } from "@/components/cta-surface";
 import {
   ArrowRight,
   Check,
@@ -54,14 +55,6 @@ export async function generateMetadata(): Promise<Metadata> {
     type: "article",
   });
 }
-
-/* Rakamlar sabit, etiketler çeviriden — gerekçe /buying-process ile aynı. */
-const AT_A_GLANCE = [
-  { value: "48h", key: "sellingProcess.statAppraisal" },
-  { value: "3–6", key: "sellingProcess.statMonths" },
-  { value: "8", key: "sellingProcess.statStages" },
-  { value: "0", key: "sellingProcess.statTrips" },
-] as const;
 
 /**
  * Satıştan önce hazır olması gereken evraklar. İlan yayına girmeden bunlar
@@ -126,9 +119,7 @@ export default async function SellingProcessPage() {
 
       <main id="main">
         <PageHero
-          eyebrow={t("sellingProcess.heroEyebrow")}
           title={t("sellingProcess.heroTitle")}
-          lede={t("sellingProcess.heroLede")}
           crumbs={CRUMBS}
           image={{
             ...imagery.sellingProcess,
@@ -136,33 +127,7 @@ export default async function SellingProcessPage() {
                sinyali sayfanın diliyle aynı olmalı. */
             alt: t("imagery.named.sellingProcess"),
           }}
-        >
-          <div className="flex flex-col gap-6 sm:gap-10">
-            <dl className="grid grid-cols-2 gap-x-8 gap-y-6 sm:gap-y-10 border-t border-line pt-6 sm:pt-10 sm:grid-cols-4">
-              {AT_A_GLANCE.map((item) => (
-                <div key={item.key}>
-                  <dt className="sr-only">{t(item.key)}</dt>
-                  <dd>
-                    <span className="block font-display text-4xl text-sea-deep">
-                      {item.value}
-                    </span>
-                    <span className="mt-2 block text-xs leading-relaxed text-ink-40">
-                      {t(item.key)}
-                    </span>
-                  </dd>
-                </div>
-              ))}
-            </dl>
-
-            <a
-              href="#valuation"
-              className="inline-flex items-center justify-center gap-2 self-start bg-sea-deep px-8 py-4 text-sm font-medium text-shell transition-colors hover:bg-sea"
-            >
-              {t("sellingProcess.heroCta")}
-              <ArrowRight className="size-4" aria-hidden="true" />
-            </a>
-          </div>
-        </PageHero>
+        />
 
         {/* ------------------------------------------------- SATICI ŞİKÂYETLERİ */}
         <section
@@ -437,7 +402,7 @@ export default async function SellingProcessPage() {
         {/* ------------------------------------------------------------- CTA */}
         <section aria-labelledby="selling-cta" className="bg-shell pb-section">
           <div className="container-page">
-            <div className="grid gap-8 sm:gap-12 bg-sea px-8 py-10 sm:py-16 text-shell sm:px-14 lg:grid-cols-12 lg:items-center lg:px-20 lg:py-24">
+            <CtaSurface className="grid gap-8 sm:gap-12 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-7">
                 <h2
                   id="selling-cta"
@@ -469,7 +434,7 @@ export default async function SellingProcessPage() {
                   .
                 </p>
               </div>
-            </div>
+            </CtaSurface>
           </div>
         </section>
       </main>

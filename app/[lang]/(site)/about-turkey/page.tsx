@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { LocaleLink as Link } from "@/components/locale-link";
+import { CtaSurface } from "@/components/cta-surface";
 import { ArrowRight, Check, MapPin, MessageCircle } from "lucide-react";
 import { FaqAccordion } from "@/components/faq-accordion";
 import { JsonLd } from "@/components/json-ld";
@@ -12,8 +13,6 @@ import { currentLocale } from "@/lib/current-locale";
 import { HOME_CRUMB, pageMetadata, type Crumb } from "@/lib/seo";
 import {
   getAreaCopy,
-  getDictionary,
-  getPlural,
   getT,
   getTurkeyCopy,
 } from "@/lib/i18n/server";
@@ -65,8 +64,6 @@ export default async function AboutTurkeyPage() {
     lib/turkey.ts'te kalıyor; insanın okuduğu metin sözlükten geliyor.
   */
   const t = await getT();
-  const plural = await getPlural();
-  const dict = await getDictionary();
   const copy = await getTurkeyCopy();
   /* `headline` ve `blurb` ana sayfayla ORTAK sözlükten geliyor —
      iki sayfada aynı bölgeyi iki farklı çeviriyle anlatmamak için. */
@@ -106,9 +103,7 @@ export default async function AboutTurkeyPage() {
 
       <main id="main">
         <PageHero
-          eyebrow={t("aboutTurkey.heroEyebrow")}
           title={t("aboutTurkey.heroTitle")}
-          lede={t("aboutTurkey.heroLede")}
           crumbs={CRUMBS}
           image={{
             ...imagery.aboutTurkey,
@@ -325,14 +320,6 @@ export default async function AboutTurkeyPage() {
                             {area.detail?.bestFor ?? "—"}
                           </dd>
                         </div>
-                        <div>
-                          <dt className="eyebrow text-ink-40">{t("aboutTurkey.availableNow")}</dt>
-                          <dd className="mt-2 text-sm text-sea-deep">
-                            {area.count > 0
-                              ? plural(dict.aboutTurkey.propertyCount, area.count)
-                              : "Ask about upcoming listings"}
-                          </dd>
-                        </div>
                       </dl>
                     </div>
                   </div>
@@ -376,7 +363,7 @@ export default async function AboutTurkeyPage() {
         {/* ------------------------------------------------------------- CTA */}
         <section aria-labelledby="turkey-cta" className="bg-shell pb-section">
           <div className="container-page">
-            <div className="grid gap-8 sm:gap-12 bg-sea-deep px-8 py-10 sm:py-16 text-shell sm:px-14 lg:grid-cols-12 lg:items-center lg:px-20 lg:py-24">
+            <CtaSurface className="grid gap-8 sm:gap-12 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-7">
                 <h2
                   id="turkey-cta"
@@ -409,7 +396,7 @@ export default async function AboutTurkeyPage() {
                   {t("aboutTurkey.ctaSecondary")}
                 </a>
               </div>
-            </div>
+            </CtaSurface>
           </div>
         </section>
       </main>

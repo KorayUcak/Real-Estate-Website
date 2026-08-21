@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { LocaleLink as Link } from "@/components/locale-link";
+import { CtaSurface } from "@/components/cta-surface";
 import { ArrowRight, ArrowUpRight, MessageCircle } from "lucide-react";
 import { FeaturedProperties } from "@/components/featured-properties";
 import { HomeHero } from "@/components/home-hero";
@@ -310,18 +311,8 @@ export default async function HomePage() {
         {/* -------------------------------------------------------- KAPANIŞ */}
         <section aria-labelledby="cta-heading" className="relative bg-white pb-16 sm:pb-24 lg:pb-section">
           <div className="container-page">
-            <Reveal className="relative isolate overflow-hidden bg-sea-deep px-8 py-16 text-shell sm:px-14 lg:px-20 lg:py-24">
-              <Image
-                src={imagery.homeCta.src}
-                alt=""
-                fill
-                sizes="(min-width: 1280px) 78rem, 100vw"
-                className="-z-10 object-cover"
-              />
-              <span
-                aria-hidden="true"
-                className="absolute inset-0 -z-10 bg-gradient-to-r from-sea-deep via-sea-deep/90 to-sea-deep/55"
-              />
+            <Reveal>
+              <CtaSurface>
 
               <div className="mx-auto flex max-w-2xl flex-col items-center text-center">
                 <div>
@@ -365,6 +356,7 @@ export default async function HomePage() {
                   </Link>
                 </div>
               </div>
+            </CtaSurface>
             </Reveal>
           </div>
         </section>

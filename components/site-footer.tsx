@@ -158,32 +158,20 @@ export function SiteFooter({ settings }: { settings: SiteSettings }) {
               ))}
             </ul>
           </TranslatedNav>
-        </div>
 
-        <div className="mt-16 flex flex-col gap-6 border-t border-shell/15 pt-8 sm:flex-row sm:items-center sm:justify-between">
-          <p className="text-xs text-shell/50">
-            <T k="footer.rights" vars={{ year, company: companyName }} />
-          </p>
+          {/*
+            HUKUKİ BAĞLANTILAR — çizginin ÜSTÜNDE, sağ uçta.
 
-          {socialLinks.length > 0 ? (
-            <ul className="flex items-center gap-4">
-              {socialLinks.map(({ key, href, label, Icon }) => (
-                <li key={key}>
-                  <a
-                    href={href}
-                    target="_blank"
-                    rel="me noopener noreferrer"
-                    aria-label={`${companyName} on ${label}`}
-                    className="inline-flex size-10 items-center justify-center rounded-sm border border-shell/20 transition-colors hover:border-gold hover:text-gold"
-                  >
-                    <Icon className="size-4" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          ) : null}
+            Eskiden alt şeritteydi ve orada üç ayrı şeyle (telif, sosyal
+            ikonlar, hukuki bağlantılar) yer paylaşıyordu; `justify-between`
+            üçünü de kenarlara itince ortadaki grup rastgele bir yerde
+            duruyordu. Yukarı alınınca alt şerit üç net sütuna kavuşuyor,
+            bağlantılar da üstteki sütunlarla aynı sağ kenara hizalanıyor.
 
-          <ul className="flex gap-6 text-xs text-shell/50">
+            `lg:col-span-12` + `lg:justify-end`: ızgaranın tam genişliğinde
+            kendi satırı, içerik sağa yaslı. Dar ekranda ortalanıyor.
+          */}
+          <ul className="flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-xs lg:col-span-12 lg:justify-end">
             <li>
               <Link href="/privacy-policy" className="text-shell/70 transition-colors hover:text-gold">
                 <T k="footer.privacy" />
@@ -203,6 +191,64 @@ export function SiteFooter({ settings }: { settings: SiteSettings }) {
               <CookieSettingsButton className="text-shell/70 transition-colors hover:text-gold" />
             </li>
           </ul>
+        </div>
+
+        {/*
+          ALT ŞERİT — masaüstünde ÜÇ sütun, mobilde tek kolon.
+
+          `sm:grid-cols-3` + `sm:justify-items-*`: telif solda, geliştirici
+          kredisi TAM ORTADA, sosyal ikonlar sağda. `justify-between` ile
+          yapılsaydı orta öğe gerçek merkezde durmazdı — yan öğelerin
+          genişliği farklı olduğu için merkez kayardı. Izgara üç eşit sütun
+          verdiği için orta sütunun merkezi = şeridin merkezi.
+
+          Mobilde tek sütun, hepsi ortalı ve `gap-6` ile ayrık.
+        */}
+        <div className="mt-16 grid gap-6 border-t border-shell/15 pt-8 text-center sm:grid-cols-3 sm:items-center sm:text-left">
+          <p className="text-xs text-shell/50 sm:justify-self-start">
+            <T k="footer.rights" vars={{ year, company: companyName }} />
+          </p>
+
+          {/*
+            GELİŞTİRİCİ KREDİSİ.
+
+            Bağlantı yalnızca ismi değil satırın tamamını sarıyor: "Koray
+            Higgins" tek başına ~90px'lik bir dokunma hedefi, çevresindeki
+            metinle birlikte ise rahat tıklanır. `rel="noopener noreferrer"`
+            yeni sekmede açılan her dış bağlantıda zorunlu — `noopener`
+            olmadan hedef sayfa `window.opener` üzerinden bu sayfaya
+            erişebilir.
+          */}
+          <a
+            href="https://www.linkedin.com/in/koray-u%C3%A7ak-higgins-b0b2b82b6/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-xs text-shell/60 underline-offset-4 transition-colors hover:text-shell hover:underline sm:justify-self-center"
+          >
+            <T k="footer.credit" vars={{ name: "Koray Higgins" }} />
+          </a>
+
+          {socialLinks.length > 0 ? (
+            <ul className="flex items-center justify-center gap-4 sm:justify-self-end">
+              {socialLinks.map(({ key, href, label, Icon }) => (
+                <li key={key}>
+                  <a
+                    href={href}
+                    target="_blank"
+                    rel="me noopener noreferrer"
+                    aria-label={`${companyName} on ${label}`}
+                    className="inline-flex size-10 items-center justify-center rounded-sm border border-shell/20 transition-colors hover:border-gold hover:text-gold"
+                  >
+                    <Icon className="size-4" />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            /* Sosyal hesap yoksa sütun BOŞ kalmalı — yoksa ortadaki
+               kredi sağa kayar ve merkez bozulur. */
+            <span aria-hidden="true" />
+          )}
         </div>
       </div>
     </footer>

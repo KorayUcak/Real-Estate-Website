@@ -28,7 +28,8 @@ export function PageHero({
   image,
   children,
 }: {
-  eyebrow: string;
+  /** Üst etiket. Başlık zaten sayfanın adıysa VERİLMEZ — bkz. aşağıdaki not. */
+  eyebrow?: string;
   title: string;
   lede?: string;
   crumbs: Crumb[];
@@ -69,25 +70,62 @@ export function PageHero({
         </>
       ) : null}
 
-      <div className="container-page pb-14 pt-10 sm:pb-20 sm:pt-12">
+      {/*
+        DİKEY DENGE — içerik azaldıkça yükseklik kaybolmasın diye.
+
+        Önceden bandın yüksekliğini İÇERİK belirliyordu: eyebrow + h1 +
+        lede + istatistik ızgarası birlikte ~430px veriyordu. Rehber
+        banner'ları sadeleşip geriye yalnızca breadcrumb + başlık kalınca
+        aynı kabuk ~200px'lik ince bir şeride çöküyordu — "sade" değil,
+        "eksik" görünen bir şerit.
+
+        `min-h-*` görselli varyanta bir taban veriyor; `flex-col` + başlık
+        bloğundaki `my-auto` ise onu breadcrumb ile alt boşluk arasında
+        GERÇEKTEN ortalıyor. Sabit bir `mt-*` ile ortalanmış GİBİ yapmak,
+        başlık uzayıp iki satıra çıktığında (ör. "Страхование
+        недвижимости") merkezi kaydırırdı.
+
+        Görselsiz varyantta (hukuki sayfalar) taban yükseklik yok: orada
+        banner zaten sade bir başlık bloğu, uzatmanın anlamı olmaz.
+      */}
+      <div
+        className={cn(
+          "container-page flex flex-col pb-14 pt-10 sm:pb-20 sm:pt-12",
+          hasImage && "min-h-[22rem] sm:min-h-[26rem] lg:min-h-[30rem]",
+        )}
+      >
         <Breadcrumbs crumbs={crumbs} tone={hasImage ? "dark" : "light"} />
 
-        <div className="mx-auto mt-10 max-w-3xl text-center sm:mt-14">
-          <p
-            className={cn(
-              "eyebrow flex items-center justify-center gap-4",
-              hasImage ? "text-gold" : "text-sea",
-            )}
-          >
-            <span aria-hidden="true" className="block h-px w-8 bg-gold" />
-            {eyebrow}
-            <span aria-hidden="true" className="block h-px w-8 bg-gold" />
-          </p>
+        <div className="mx-auto my-auto max-w-3xl pt-10 text-center sm:pt-14">
+          {/*
+            EYEBROW OPSİYONEL.
+
+            Görevi, betimleyici bir başlığın üstüne kategori bilgisi
+            koymaktı ("The buying process" → "Buying a property in Fethiye,
+            one stage at a time"). Rehber sayfalarında başlık artık
+            doğrudan SAYFANIN ADI; eyebrow orada aynı kelimeleri ikinci kez
+            söylerdi ("THE BUYING PROCESS" üstünde "BUYING PROCESS").
+            Tekrarı basmak, sadeleştirmenin tam tersi.
+          */}
+          {eyebrow ? (
+            <p
+              className={cn(
+                "eyebrow flex items-center justify-center gap-4",
+                hasImage ? "text-gold" : "text-sea",
+              )}
+            >
+              <span aria-hidden="true" className="block h-px w-8 bg-gold" />
+              {eyebrow}
+              <span aria-hidden="true" className="block h-px w-8 bg-gold" />
+            </p>
+          ) : null}
 
           <h1
             className={cn(
               /* Büyük harfli serif pozitif aralık ister — bkz. globals.css. */
-              "mt-6 text-[1.6rem] uppercase leading-[1.12] tracking-[0.02em] sm:text-4xl lg:text-5xl",
+              "text-[1.6rem] uppercase leading-[1.12] tracking-[0.02em] sm:text-4xl lg:text-5xl",
+              /* Üstünde eyebrow yoksa kendi üst boşluğuna ihtiyacı yok. */
+              eyebrow && "mt-6",
               hasImage ? "text-shell" : "text-sea-deep",
             )}
           >
@@ -105,8 +143,18 @@ export function PageHero({
             </p>
           ) : null}
 
+          {/*
+            Başlık ile içerik arasındaki boşluk lede'nin varlığına bağlı.
+            Lede varken aradaki nefes zaten paragrafın kendisiydi; o
+            kalkınca aynı `mt-6` başlığı düğmelere yapıştırıyordu.
+          */}
           {children ? (
-            <div className="mt-6 sm:mt-10 flex flex-wrap items-center justify-center gap-4">
+            <div
+              className={cn(
+                "flex flex-wrap items-center justify-center gap-4",
+                lede ? "mt-6 sm:mt-10" : "mt-8 sm:mt-12",
+              )}
+            >
               {children}
             </div>
           ) : null}
