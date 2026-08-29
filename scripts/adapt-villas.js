@@ -52,13 +52,15 @@ const DRY_RUN = has("dry-run");
  * 20 to Fethiye…"), so word-frequency alone picks the wrong one constantly.
  */
 const SERVICE_AREAS = [
-  { slug: "fethiye-centre", area: "Fethiye Merkez", lat: 36.6213, lng: 29.1164, keywords: ["fethiye centre", "fethiye center", "fethiye town", "city apartment", "fethiye merkez", "akarca", "babataşı", "patlangıç", "patlangic", "fethiye promenade", "promenade of fethiye", "fethiye bay", "fethiye city", "heart of fethiye"] },
+  /* "taşyaka" anahtar kelimeleri BURADA: Taşyaka artık ayrı bir bölge değil,
+     Fethiye'nin içinde. Eski ilanlarda geçen adı yine tanıyoruz ki taşıma
+     sırasında o kayıtlar "All areas"a düşmesin — yalnızca Fethiye'ye bağlanıyorlar. */
+  { slug: "fethiye-centre", area: "Fethiye", lat: 36.6213, lng: 29.1164, keywords: ["fethiye centre", "fethiye center", "fethiye town", "city apartment", "fethiye merkez", "akarca", "babataşı", "patlangıç", "patlangic", "fethiye promenade", "promenade of fethiye", "fethiye bay", "fethiye city", "heart of fethiye", "taşyaka", "tasyaka"] },
   { slug: "oludeniz",       area: "Ölüdeniz",        lat: 36.5501, lng: 29.1173, keywords: ["ölüdeniz", "oludeniz", "blue lagoon", "belcekiz", "belçekiz"] },
   { slug: "hisaronu",       area: "Hisarönü",        lat: 36.5747, lng: 29.1225, keywords: ["hisarönü", "hisaronu"] },
   { slug: "ovacik",         area: "Ovacık",          lat: 36.5836, lng: 29.1447, keywords: ["ovacık", "ovacik"] },
   { slug: "calis",          area: "Çalış",           lat: 36.6486, lng: 29.0921, keywords: ["çalış", "calis", "kargı", "kargi", "koca calis", "koca çalış", "günlükbaşı", "gunlukbasi"] },
   { slug: "uzumlu",         area: "Üzümlü",          lat: 36.7179, lng: 29.2677, keywords: ["üzümlü", "uzumlu", "yeşilüzümlü", "yesiluzumlu"] },
-  { slug: "tasyaka",        area: "Taşyaka",         lat: 36.6265, lng: 29.108,  keywords: ["taşyaka", "tasyaka"] },
   { slug: "gocek",          area: "Göcek",           lat: 36.7522, lng: 28.9403, keywords: ["göcek", "gocek"] },
   { slug: "yaniklar",   area: "Yanıklar",       lat: 36.6953, lng: 29.0581, keywords: ["yanıklar", "yaniklar", "oasis"] },
   { slug: "dalaman",    area: "Dalaman",        lat: 36.7573, lng: 28.813,  keywords: ["dalaman", "sarıgerme", "sarigerme"] },

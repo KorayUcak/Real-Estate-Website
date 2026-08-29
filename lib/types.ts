@@ -1,5 +1,7 @@
 /** data/villas.json şemasının tip karşılığı. JSON dosyası bu sözleşmeye uymak zorundadır. */
 
+import type { Localized } from "@/lib/localized";
+
 export type VillaStatus = "for-sale" | "reserved" | "sold" | "off-market";
 
 /** Görsel varlık — hem ilanlar hem blog yazıları aynı sözleşmeyi kullanır. */
@@ -20,7 +22,14 @@ export type Villa = {
   slug: string;
   /** Dahili ilan kodu (ör. C2C-FET-014) — Product schema'da `sku` olarak kullanılır. */
   reference: string;
-  title: string;
+  /**
+   * ⚠️ ARTIK DÜZ DİZE DEĞİL — üç dilli kayıt (bkz. lib/localized.ts).
+   *
+   * `en` zorunlu, `tr`/`ru` opsiyonel. Okurken DOĞRUDAN basılmaz;
+   * `getLocalizedField(villa.title, language)` üzerinden geçer, o da
+   * çeviri boşsa İngilizceye düşer.
+   */
+  title: Localized<string>;
   /** Kart ve hero altında görünen tek cümlelik satış vaadi. */
   headline: string;
   status: VillaStatus;
@@ -57,10 +66,31 @@ export type Villa = {
   citizenshipEligible: boolean;
   /** Kısa özellik rozetleri (Private pool, Sea view, ...) */
   features: string[];
-  /** Kart üzerinde gösterilen en güçlü 3 madde. */
+  /**
+   * Kart üzerinde gösterilen en güçlü 3 madde — TAŞIMADA ÜRETİLMİŞ veri.
+   *
+   * ⚠️ `whyThisOne` ile karıştırmayın. Bu alan `scripts/adapt-villas.js`
+   * tarafından yazılıyor ("4 bedrooms, 4 bathrooms — 245 m² internal") ve
+   * artık yalnızca kart arama metnini besliyor (lib/property-card-data.ts).
+   * İlan sayfasındaki "Why this one" bölümü buradan DEĞİL, aşağıdaki elle
+   * yazılan alandan besleniyor.
+   */
   highlights: string[];
-  /** Her eleman bir <p>. İlk paragraf meta description için de kullanılabilir. */
-  description: string[];
+  /**
+   * "Why this one" — ilan sayfasındaki satış maddeleri, ELLE yazılır.
+   *
+   * OPSİYONEL ve bu bilinçli: alan sonradan eklendi ve `data/villas.json`
+   * dışında bir yerden (eski bir yedek, elle düzenlenmiş bir kayıt) gelen
+   * bir ilan onu taşımayabilir. Zorunlu yapmak, o kaydı okuyan her yerin
+   * derleme hatası vermesi demekti; opsiyonel olması ise tek bir davranış
+   * gerektiriyor — boşsa bölüm hiç basılmaz.
+   */
+  whyThisOne?: Localized<string[]>;
+  /**
+   * Her eleman bir <p>. İlk paragraf meta description için de kullanılabilir.
+   * Üç dilli — `title` ile aynı sözleşme.
+   */
+  description: Localized<string[]>;
   images: VillaImage[];
   seo: {
     title: string;

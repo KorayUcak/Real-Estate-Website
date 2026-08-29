@@ -5,6 +5,7 @@ import { FeaturedCarousel } from "@/components/featured-carousel";
 import { Reveal } from "@/components/reveal";
 import { toPropertyCardList } from "@/lib/property-card-data";
 import { getFeaturedVillas } from "@/lib/villas";
+import { currentLanguage } from "@/lib/current-locale";
 
 /**
  * Ana sayfanın "Featured Properties" bölümü.
@@ -20,9 +21,10 @@ import { getFeaturedVillas } from "@/lib/villas";
 export async function FeaturedProperties() {
   const t = await getT();
   const villas = await getFeaturedVillas(7);
+  const language = await currentLanguage();
 
   /** Dar görünüm modeli: koordinatlar sınırı hiç geçmiyor. */
-  const cards = toPropertyCardList(villas);
+  const cards = toPropertyCardList(villas, language);
 
   if (cards.length === 0) return null;
 

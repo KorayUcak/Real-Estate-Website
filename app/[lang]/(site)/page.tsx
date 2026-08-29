@@ -8,7 +8,7 @@ import { HomeHero } from "@/components/home-hero";
 import { JsonLd } from "@/components/json-ld";
 import { Reveal } from "@/components/reveal";
 import { RevealWindow } from "@/components/reveal-window";
-import { currentLocale } from "@/lib/current-locale";
+import { currentLocale, currentLanguage } from "@/lib/current-locale";
 import {
   getAreaCopy,
   getDictionary,
@@ -20,7 +20,12 @@ import { pageMetadata } from "@/lib/seo";
 import { imagery } from "@/lib/imagery";
 import { getSettings, whatsappHref } from "@/lib/settings";
 import { faqSchema, featuredListSchema } from "@/lib/schema";
-import { serviceAreas, siteConfig } from "@/lib/site";
+import {
+  DISTRICT_AREA_SLUG,
+  FEATURED_AREA_SLUGS,
+  getServiceArea,
+  siteConfig,
+} from "@/lib/site";
 import { getAreaCounts, getFeaturedVillas } from "@/lib/villas";
 
 /**
@@ -95,15 +100,28 @@ export default async function HomePage() {
 
   const FAQS = buildFaqs(t);
 
-  /** Bento ızgarasında ilk bölge büyük gösterilir; sayılar veriden gelir. */
+  /**
+   * Vitrin bölgeleri — `FEATURED_AREA_SLUGS` sırasıyla (bkz. lib/site.ts).
+   *
+   * `flatMap` + boş dizi, `map` + `!` yerine: slug listesinde bir yazım
+   * hatası olursa kart hiç basılmıyor. `map` kullansaydık `undefined` bir
+   * kayıt ızgaraya girer ve sayfa `area.name` okurken çökerdi.
+   */
   const areaCopy = await getAreaCopy();
-  const areas = serviceAreas.slice(0, 5).map((area) => ({
-    ...area,
-    /* İsim ÇEVRİLMİYOR: "Ölüdeniz" her dilde Ölüdeniz. Yalnızca başlık ve
-       tanıtım metni sözlükten geliyor. */
-    ...areaCopy(area.slug, { headline: area.headline, blurb: area.blurb }),
-    count: areaCounts[area.slug] ?? 0,
-  }));
+  const areas = FEATURED_AREA_SLUGS.flatMap((slug) => {
+    const area = getServiceArea(slug);
+    if (!area) return [];
+
+    return [
+      {
+        ...area,
+        /* İsim ÇEVRİLMİYOR: "Ölüdeniz" her dilde Ölüdeniz. Yalnızca başlık
+           ve tanıtım metni sözlükten geliyor. */
+        ...areaCopy(area.slug, { headline: area.headline, blurb: area.blurb }),
+        count: areaCounts[area.slug] ?? 0,
+      },
+    ];
+  });
 
   return (
     <>
@@ -111,7 +129,7 @@ export default async function HomePage() {
         Sayfaya özgü schema. Organization/WebSite kök layout'ta bir kez basıldığı
         için burada tekrarlanmaz — sadece bu sayfaya ait ItemList ve FAQPage eklenir.
       */}
-      <JsonLd schema={[featuredListSchema(featuredVillas), faqSchema(FAQS)]} />
+      <JsonLd schema={[featuredListSchema(featuredVillas, await currentLanguage()), faqSchema(FAQS)]} />
 
       <main id="main">
         <HomeHero />
@@ -156,16 +174,21 @@ export default async function HomePage() {
             </Reveal>
 
             {/*
-              Asimetrik bento: ilk bölge iki sütun iki satır kaplar. Eşit
-              kutulardan oluşan bir ızgaraya kıyasla göz bir hiyerarşi görür
-              ve tıklama ilk karta yönelir.
+              EŞİT KARTLAR — asimetrik "bento" KALDIRILDI.
+
+              ⚠️ Eski ızgarada ilk bölge iki sütun iki satır kaplıyor,
+              yalnızca o kart `blurb` gösteriyor ve başlığı iki kat büyük
+              basılıyordu. Beş kartın dördü aynı, biri bambaşkaydı: göz
+              hiyerarşiyi görüyordu ama diğer dört bölge ikinci sınıf
+              görünüyordu. Vitrin dörde inince o hiyerarşiye gerek kalmadı —
+              dördü de eşit ağırlıkta, tek satırda.
+
+              Mobilde de iki sütun: dört kartı alt alta dizmek bu bölümü
+              telefonda dört ekran boyu uzatıyordu.
             */}
-            <ul className="mt-12 grid auto-rows-[13rem] gap-px border border-line bg-line sm:grid-cols-3 lg:grid-cols-4">
+            <ul className="mt-12 grid auto-rows-[14rem] grid-cols-2 gap-px border border-line bg-line sm:auto-rows-[18rem] lg:grid-cols-4">
               {areas.map((area, index) => (
-                <li
-                  key={area.slug}
-                  className={index === 0 ? "sm:col-span-2 sm:row-span-2" : ""}
-                >
+                <li key={area.slug}>
                   <Reveal
                     className="h-full"
                     delay={index * 0.06}
@@ -174,20 +197,32 @@ export default async function HomePage() {
                   >
                     <Link
                       href={`/about-turkey#area-${area.slug}`}
-                      className="group relative isolate flex h-full flex-col justify-end overflow-hidden bg-sea-deep p-6 text-shell"
+                      className="group relative isolate flex h-full flex-col justify-end overflow-hidden bg-sea-deep p-5 text-shell sm:p-6"
                     >
                       <Image
                         src={area.image}
                         alt={t("home.areaImageAlt", {
-                          area: area.name,
+                          /*
+                            İlçe adı ŞABLONDAN ÇIKARILDI ve buraya taşındı.
+                            Şablonda gömülüyken ("… in {area}, Fethiye …")
+                            Fethiye bölgesinin kartı "in Fethiye, Fethiye"
+                            diyordu — bölge adından "Merkez" düşünce ad ile
+                            ilçe aynılaştı.
+
+                            Karşılaştırma SLUG üzerinden, ad üzerinden değil:
+                            ilçe adı çevriliyor (Rusça'da "Фетхие"), bölge
+                            adı çevrilmiyor. Dize eşitliği o iki dizeyi asla
+                            eşit görmez ve Rusça kart "Fethiye, Фетхие" derdi.
+                          */
+                          area:
+                            area.slug === DISTRICT_AREA_SLUG
+                              ? t("home.areaImageAltDistrict")
+                              : `${area.name}, ${t("home.areaImageAltDistrict")}`,
                           headline: area.headline,
                         })}
                         fill
-                        sizes={
-                          index === 0
-                            ? "(min-width: 640px) 50vw, 100vw"
-                            : "(min-width: 1024px) 25vw, (min-width: 640px) 33vw, 100vw"
-                        }
+                        /* Dört kart eşit: tek bir `sizes` hepsini anlatıyor. */
+                        sizes="(min-width: 1024px) 25vw, 50vw"
                         className="-z-10 object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
                       />
                       <span
@@ -206,19 +241,19 @@ export default async function HomePage() {
                           : t("home.areaGuide")}
                       </span>
 
-                      <span
-                        className={`mt-2 font-display font-semibold uppercase leading-tight tracking-[0.02em] ${
-                          index === 0 ? "text-2xl sm:text-4xl" : "text-lg"
-                        }`}
-                      >
+                      <span className="mt-2 font-display text-lg font-semibold uppercase leading-tight tracking-[0.02em]">
                         {area.name}
                       </span>
 
-                      {index === 0 ? (
-                        <span className="mt-3 max-w-sm text-sm leading-relaxed text-shell/75">
-                          {area.blurb}
-                        </span>
-                      ) : null}
+                      {/*
+                        Başlık artık HER kartta — eskiden yalnızca büyük
+                        kartta vardı. Bir bölge adı tek başına "neden
+                        tıklamalıyım"ı cevaplamıyor; `line-clamp-2` de dar
+                        mobil sütunda kart yüksekliğinin kaymasını önlüyor.
+                      */}
+                      <span className="mt-2 line-clamp-2 text-xs leading-relaxed text-shell/75">
+                        {area.headline}
+                      </span>
 
                       <ArrowUpRight
                         aria-hidden="true"
@@ -229,6 +264,23 @@ export default async function HomePage() {
                 </li>
               ))}
             </ul>
+
+            {/*
+              Vitrinden TAM LİSTEYE geçiş. Dört kart bilinçli bir kırpma
+              olduğu için, geri kalanına giden görünür bir yol şart:
+              olmadığında bölüm "sadece dört bölgede çalışıyorlar" diye
+              okunuyordu. Hedef /about-turkey#areas — harita ve on iki
+              bölgenin tamamı orada.
+
+              Biçim `featured-properties.tsx`teki bölüm CTA'sıyla birebir
+              aynı: aynı işi yapan iki bağlantı aynı görünmeli.
+            */}
+            <Reveal className="mt-10 flex justify-center sm:mt-12" y={16}>
+              <Link href="/about-turkey#areas" className="btn btn-solid">
+                {t("home.areasCta")}
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </Link>
+            </Reveal>
           </div>
         </section>
 
@@ -333,9 +385,9 @@ export default async function HomePage() {
                   >
                     {t("home.ctaHeading")}
                   </h2>
-                  <p className="mx-auto mt-6 max-w-xl leading-relaxed text-shell/85">
-                    {t("home.ctaBody")}
-                  </p>
+                  {/* CTA açıklama paragrafı KALDIRILDI — bu blokta artık yalnızca
+                    başlık ve eylem düğmeleri var (dokuz sayfada birden).
+                    Sözlükteki karşılığı da silindi. */}
                 </div>
 
                 <div className="mt-9 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row">

@@ -100,15 +100,16 @@
     "featuredCta": "Tüm ilanları görün",
     "areasEyebrow": "Bölge bilgisi",
     "areasHeading": "Fethiye sahilinde nereden alınır",
+    "areasCta": "Tüm bölgeleri keşfedin",
     "areaGuide": "Bölge rehberi",
-    "areaImageAlt": "{area}, Fethiye'de satılık gayrimenkul — {headline}",
+    "areaImageAlt": "{area}'de satılık gayrimenkul — {headline}",
+    "areaImageAltDistrict": "Fethiye",
     "faqEyebrow": "Net cevaplar",
     "faqHeading": "Alıcıların gerçekten sorduğu sorular",
     "faqWhatsapp": "WhatsApp'tan sorun",
     "faqWhatsappMessage": "Merhaba Coast 2 Coast — Fethiye'de gayrimenkul alımı hakkında bir sorum var.",
     "ctaEyebrow": "Sonraki adım",
     "ctaHeading": "Broşürle değil, sohbetle başlayın",
-    "ctaBody": "Bize bütçenizi ve zaman planınızı söyleyin. Size kısa bir liste hazırlayalım — almanızı önermeyeceğimiz ilanlar da dâhil.",
     "ctaWhatsappMessage": "Merhaba Coast 2 Coast — Fethiye'de villa almak üzerine konuşmak istiyorum.",
     "ctaBookCall": "Görüşme ayarlayın",
     "listingCount": {
@@ -154,10 +155,6 @@
     "uzumlu": {
       "headline": "Babadağ'ın eteğinde köy hayatı",
       "blurb": "Üzümlü, Fethiye'nin yayla köyü: bağlar, serin yazlar ve metrekare başına belirgin biçimde daha uygun müstakil villalar."
-    },
-    "tasyaka": {
-      "headline": "Marinaya yürüme mesafesi",
-      "blurb": "Taşyaka, Fethiye'nin yerleşim kenarı — marinaya ve sahil bandına yürünebilir, panoramik körfez manzarasıyla değerli."
     },
     "gocek": {
       "headline": "Altı marina, birinci sınıf adresler",
@@ -246,16 +243,6 @@
         ],
         "bestFor": "Alan, fiyat/değer ve gerçekten Türk bir yaşam"
       },
-      "tasyaka": {
-        "intro": "Taşyaka, Fethiye şehrinin yamacın körfeze döndüğü yerdeki yerleşim omzudur. Bu listede gerçek bir panoramik deniz manzarasının marinaya yürüme mesafesiyle birlikte geldiği tek bölgedir.",
-        "points": [
-          "Yüksek parsellerden Fethiye körfezi ve On İki Adalar üzerine panoramik manzara.",
-          "Marina sahil bandına, pazara ve hastaneye yürüme mesafesi.",
-          "Arz gerçekten kısıtlı — yüksek parseller büyük ölçüde yapılaşmış durumda, dolayısıyla iyi mülkler hızla el değiştiriyor.",
-          "Kapsadığımız bölgelerin metrekare başına en pahalısı ve ikinci elde en dirençlisi."
-        ],
-        "bestFor": "Şehrin kolaylığından vazgeçmeden deniz manzarası"
-      },
       "gocek": {
         "intro": "Göcek körfezin yatçılık başkentidir: altı marina, beş yıldızlı oteller ve yüksek katlı yapılaşmayı bilinçli olarak dışarıda tutmuş düşük yoğunluklu bir imar rejimi. Fethiye'ye otuz, Dalaman havalimanına yirmi dakika.",
         "points": [
@@ -265,6 +252,16 @@
           "Kapsadığımız en pahalı pazar ve daralma dönemlerinde en dirençlisi."
         ],
         "bestFor": "İkinci elde birinci sınıf değer ve yatçı çevresi"
+      },
+      "yaniklar": {
+        "intro": "Sığla ormanları, narenciye bahçeleri ve el değmemiş plajlarla çevrili dingin bir sığınak. Merkeze kısa bir sürüş mesafesinde, doğayla iç içe ve daha yavaş bir yaşam sunuyor.",
+        "points": [],
+        "bestFor": "Doğaseverler, doğayla uyumlu yaşam ve huzurlu bir inziva"
+      },
+      "kalkan": {
+        "intro": "Üst segment lüks villaları, sonsuzluk havuzları ve nefes kesen Akdeniz manzaralarıyla tanınan sofistike bir sahil kasabası. Dünya standartlarında mutfağı ve seçkin atmosferiyle biliniyor.",
+        "points": [],
+        "bestFor": "Lüks yaşam, birinci sınıf yatırım ve etkileyici deniz manzarası"
       }
     },
     "lifestyle": {
@@ -337,7 +334,7 @@
       "q1": "Gayrimenkul sahibi olarak Türkiye'de ne kadar kalabilirim?",
       "a1": "Mülk sahipliği tek başına sınırsız kalış hakkı vermez. Vizesiz kalış süresi uyruğunuza bağlıdır ve pek çok pasaport için sınır 180 günde 90 gündür. Daha uzun kalmak isteyen mülk sahipleri kısa dönem oturum iznine başvurur; bu, gayrimenkul sahipleri için oturmuş bir yoldur ve satış sonrası hizmetimizin parçası olarak destekliyoruz.",
       "q2": "Fethiye'de kışın hava nasıl olur?",
-      "a2": "Gündüz sıcaklıkları aralıktan şubata kadar çoğunlukla 15°C civarındadır; yağış sürekli çiselemek yerine yoğun dönemler hâlinde gelir. Ölüdeniz ve Hisarönü'ndeki tatil işletmelerinin çoğu sezon dışında kapanırken Fethiye merkez, Çalış ve Taşyaka yıl boyu açık kalır.",
+      "a2": "Gündüz sıcaklıkları aralıktan şubata kadar çoğunlukla 15°C civarındadır; yağış sürekli çiselemek yerine yoğun dönemler hâlinde gelir. Ölüdeniz ve Hisarönü'ndeki tatil işletmelerinin çoğu sezon dışında kapanırken Fethiye ve Çalış yıl boyu açık kalır.",
       "q3": "Fethiye emeklilik için iyi bir yer mi?",
       "a3": "Türkiye sahilindeki en oturmuş emeklilik destinasyonlarından biri: büyük ve yerleşik uluslararası topluluklar / yabancı sakinler, düz ve yürünebilir sokaklar, hem devlet hem özel sağlık hizmetine iyi erişim. Sorulmaya değer pratik sorular sağlık teminatı, kışın sosyal hayat ve ailenin ne kolaylıkla ziyaret edebileceğidir.",
       "q4": "Fethiye'de yaşamak için Türkçe bilmem gerekir mi?",
@@ -350,7 +347,6 @@
     "areasHeading": "Bölgeler",
     "availableNow": "Şu an satışta",
     "bestForLabel": "Şunun için ideal",
-    "ctaBody": "Sahada geçirilen iki gün, iki ay ilan taramaktan fazlasını anlatır. Programı sizin kısa listenize göre kuruyor, sizi bölgeler arasında gezdiriyoruz — üstelik harcadığımız zaman için hiçbir ücret almıyoruz.",
     "ctaHeading": "Okumak sizi ancak bir yere kadar götürür",
     "ctaPrimary": "Görme turu planlayın",
     "ctaSecondary": "Aklınıza takılanı sorun",
@@ -359,9 +355,14 @@
     "faqLede": "Oturum, kışlar, sağlık ve dil — taşınmanın yürüyüp yürümeyeceğini belirleyen pratik başlıklar.",
     "heroTitle": "Türkiye Hakkında",
     "jumpToAreas": "Bölge rehberlerine geç",
+    "livingEyebrow": "Günlük yaşam",
     "livingHeading": "Burada yaşamak gerçekte nasıl",
-    "livingLede": "Fethiye bölgesi öğrenmesi yaklaşık bir yıl süren bir ritimle işler: uzun, sıcak ve hareketli bir yaz; güzel ve gerçekten sakin bir kış; ve mülk sahiplerinin çoğunun sonunda yılın en iyi ayları saydığı iki geçiş mevsimi.",
-    "metaDescription": "Yaşam tarzı, iklim, sağlık, geçim maliyeti ve Türkiye'nin turkuaz kıyısına yatırımın gerekçesi — ayrıca Fethiye, Ölüdeniz, Hisarönü, Çalış, Göcek, Üzümlü, Ovacık ve Taşyaka için dürüst bölge rehberleri.",
+    "mapHint": "Bir pime dokunun, o bölge Google Haritalar'da açılsın — gerçek fotoğraflar, Street View ve yol tarifi.",
+    "mapLabel": "Fethiye ve çevresinde hizmet verdiğimiz bölgelerin etkileşimli haritası",
+    "mapLede": "Hizmet verdiğimiz bütün bölgeler tek bir haritada. Bizim yorumumuzu okumadan önce bir pimi açın ve yeri kendi gözünüzle görün.",
+    "mapOpenLink": "Google Haritalar'da aç",
+    "mapPinLabel": "{area} bölgesini Google Haritalar'da aç (yeni sekmede açılır)",
+    "metaDescription": "Yaşam tarzı, iklim, sağlık, geçim maliyeti ve Türkiye'nin turkuaz kıyısına yatırımın gerekçesi — ayrıca Fethiye, Ölüdeniz, Hisarönü, Çalış, Göcek, Üzümlü ve Ovacık için dürüst bölge rehberleri.",
     "metaTitle": "Fethiye'de Yaşamak: Türkiye'nin Turkuaz Kıyısı Rehberi",
     "propertyCount": {
       "one": "{count} ilan",
@@ -655,7 +656,6 @@
     "costsHeading": "Fiyatın üzerine eklenen alım maliyeti",
     "costsLede": "Satış bedelinin %6–8'ini ayırın. Aşağıdaki yüzdeler kanunla belirlenir; nakit tutarlar ise Fethiye bölgesinde gördüğümüz piyasa aralığıdır ve işlem başına verilmiştir.",
     "costsTableCaption": "Fethiye'de gayrimenkul alırken satış bedeline ek olarak ortaya çıkan tipik masraflar",
-    "ctaBody": "Bize bütçenizi ve zaman planınızı iletin; size uygun ilanlarla birlikte alımın size toplamda neye mal olacağının yazılı dökümünü de gönderelim.",
     "ctaBrowse": "Satılık villaları inceleyin",
     "ctaHeading": "Kısa listeyi görmeye hazır mısınız?",
     "ctaSelling": "Fethiye'de nasıl satış yaptığımızı görün",
@@ -674,7 +674,6 @@
     "approachEyebrow": "Yaklaşımımız",
     "approachHeading": "Kitlesel değil, hedefli pazarlama",
     "approachLede": "Bir mülkü her yere listelemek strateji değildir. Fethiye'de aktif olarak alım planlayan az sayıdaki alıcıya ulaşmak stratejidir.",
-    "ctaBody": "Yandaki villanın istediği fiyata değil, çevrede tamamlanmış satışlara dayanan yazılı bir rapor. Hiçbir yükümlülük yok ve sonrasında bizimle ilan verme baskısı yok.",
     "ctaHeading": "Mülkünüzün gerçek değerini öğrenin",
     "ctaPrimary": "Değerleme isteyin",
     "ctaSecondary": "Alım sürecini okuyun",
@@ -885,7 +884,6 @@
     "consultHeading": "Vatandaşlık danışması alın",
     "consultNote": "Bizim değil, sizin görevlendirdiğiniz İngilizce konuşan göçmenlik avukatlarıyla birlikte çalışıyoruz.",
     "consultWhatsapp": "WhatsApp'tan sorun",
-    "ctaBody": "İyimser bir istenen fiyata göre değil, gerçek bir değerlemede eşiği aşan mülkleri kısa listeye alacağız — bütçeniz henüz yetmiyorsa bunu da açıkça söyleyeceğiz.",
     "ctaHeading": "Bütçenizin neye yettiğini öğrenin",
     "ctaPrimary": "Uygun ilanları görün",
     "ctaSecondary": "Alım nasıl işliyor",
@@ -1028,7 +1026,6 @@
     "coverEyebrow": "Kapsamda olan ve olmayan",
     "coverHeading": "Kapsandığınızı varsaymadan önce bunu okuyun",
     "coverLede": "Aşağıdaki iki liste ekran görüntüsü almaya değer olanlar. Hasar sonrasındaki tatsız sürprizlerin neredeyse tamamı sağdaki sütunda duruyor.",
-    "ctaBody": "Mevcut poliçenizi bize gönderin; neyi kapsayıp neyi kapsamadığını açıkça söyleyelim — İngilizce ve satış baskısı olmadan.",
     "ctaHeading": "Doğru şekilde sigortalı olduğunuzdan emin değil misiniz?",
     "ctaPrimary": "Bize ulaşın",
     "daskBuyingNote": "Yenileme değil de yeni bir alım yapıyorsanız DASK, alımın bir parçası olarak düzenlenir — bkz. ",
@@ -1055,7 +1052,6 @@
     "quoteWhatsapp": "WhatsApp'tan teklif"
   },
   "about": {
-    "ctaBody": "Çağrı merkezi değil, bir CRM'in içinde kaybolan form hiç değil. Neyi düşündüğünüzü anlatın; söz konusu mülklerin içinde bizzat durmuş birinden düşünülmüş bir yanıt alın.",
     "ctaHeading": "Alımınızı yürütecek kişiyle doğrudan konuşun",
     "ctaPrimary": "Bize ulaşın",
     "ctaWhatsapp": "WhatsApp'tan yazın",
@@ -1072,20 +1068,65 @@
     "notDoingLede": "Yurt dışı gayrimenkul sektörü kötü ününün bir kısmını hak etti. Aşağıdakiler, şirketi bilinçli olarak uzak tutacak şekilde kurduğumuz uygulamalar.",
     "principlesEyebrow": "Nasıl çalışıyoruz",
     "principlesHeading": "Yazılı olarak vereceğimiz dört taahhüt",
-    "storyCta": "Bir alımın nasıl işlediğini tam olarak görün",
-    "storyEyebrow": "Hikâyemiz",
-    "storyHeading": "Sattığımız sahilin üzerine kurulduk",
-    "storyP1": "Merkezimiz Fethiye'de; başka bir yerdeki çağrı merkezinde değil. Bu şu demek: bu sitedeki her mülkü kendi ayağımızla gezdik, hangi yamacın kasımda güneşi kaybettiğini biliyoruz ve hangi projelerde iskân sorunu olduğunu evraklar bize söylemeden önce biliyoruz.",
-    "storyP2": "Şirket, birbirine nadiren kendini anlatan iki sistemi birbirine bağlamak için kuruldu. Alıcılar kendi ülkelerinin tapu alışkanlıklarını bekleyerek geliyor. Türkiye, çoğu kişinin beklediğinden daha hızlı ve daha düzenli bir tapu sistemi sunuyor — ama kendine özgü gereklilikleriyle: SPK değerleme raporu, DASK, DAB döviz belgesi. Bunları da kimse, bir işlem takılana kadar dile getirmiyor.",
-    "storyP3": "Bizim işimiz bu boşluğu tamamen kapatmak: Fethiye'deki bir alımı, iki sürecin aynı olduğunu iddia etmeden, ülkenizdeki kadar okunabilir hâle getirmek.",
     "visionBody": "Türkiye sahilinde ev almanın, ailelerin cesaretini toplayarak değil güvenle yaptığı bir şey hâline gelmesi — çünkü süreç anlatılmış, riskler açıkça adlandırılmış ve yol gösteren kişinin saklayacak hiçbir şeyi olmamıştır.",
     "visionEyebrow": "Vizyonumuz ve misyonumuz",
     "visionLabel": "Vizyonumuz",
     "whatsappMessage": "Merhaba Coast 2 Coast — nasıl çalıştığınız hakkında daha fazla bilgi almak istiyorum.",
+    "story": {
+      "eyebrow": "Deneyim. Güven. Kişisel hizmet.",
+      "heading": "Coast2Coast Properties Turkey",
+      "lede": "Coast2Coast Properties Turkey'e hoş geldiniz. 15 yılı aşkın deneyimimizle, dünyanın dört bir yanından gelen müşterilerimizin Türkiye'de kendilerine en uygun mülkü bulmasına yardımcı olan, köklü ve güvenilir bir gayrimenkul şirketiyiz.",
+      "intro": [
+        "Merkezimiz, eşsiz güzellikteki Fethiye'de bulunuyor. Fethiye ve çevresindeki bölgelerde — Çalış, Hisarönü, Ovacık, Ölüdeniz, Seydikemer, Yeşilüzümlü ve yakın yerleşimlerde — gayrimenkul alanında uzmanlaşıyoruz.",
+        "Bizim için gayrimenkul, alıp satmaktan çok daha fazlasıdır. Mesele insanlar, kurulan ilişkiler ve hayatın en büyük kararlarından birini olabildiğince anlaşılır, keyifli ve kaygısız hâle getirmektir."
+      ],
+      "foundersHeading": "Ronnie ve Nilay ile tanışın",
+      "founders": [
+        "Coast2Coast Properties Turkey bir aile şirketidir. Ronnie yurt dışından gelen müşterilerimizle, eşi Nilay ise Türk müşterilerimizle ilgilenir.",
+        "Ronnie İskoçyalı ve 26 yıldır Türkiye'de yaşıyor. Bu süre içinde bölgeyi, gayrimenkul piyasasını, hukuki ve idari süreçleri derinlemesine tanıdı; yöre genelinde güvenilir isimlerden oluşan geniş bir bağlantı ağı kurdu.",
+        "Türkiye'ye yerleşmeden önce Ronnie, İngiltere'de uzun yıllar satış yöneticiliği yaptı; bu dönemde Sears Group bünyesinde de görev aldı. Bu geçmiş ona güçlü bir satış, iletişim ve müzakere becerisi kazandırdı; daha da önemlisi, müşterileri ve onların kendine özgü ihtiyaçlarını gerçekten anlama yetisi verdi.",
+        "Ronnie, her müşteri için bir adım fazlasını atmaya inanır. Hangi bölgenin size uygun olabileceğine dair ilk sohbetten mülk arayışına, görüntülemelere, pazarlığa ve satış sürecine kadar amacımız her zaman dürüst, profesyonel ve kişiye özel bir hizmet sunmaktır."
+      ],
+      "foundersQuote": "Her müşterimizin kendini güvende, tam bilgilendirilmiş ve deneyiminden %100 memnun hissetmesini isteriz.",
+      "nilay": "Mülk üzerinde anlaşma sağlandıktan sonra satışa ilişkin önemli evrak ve resmî işlemleri Nilay üstlenir; sürecin eksiksiz ve doğru biçimde yürütülmesini sağlar.",
+      "rangeHeading": "Uygun fiyatlı dairelerden lüks konutlara",
+      "range": [
+        "Yıllar içinde müşterilerimize, Türkiye gayrimenkul piyasasının çok geniş bir yelpazesinde mülk edinmelerinde eşlik ettik.",
+        "Tek yatak odalı dairelerden ve uygun fiyatlı yazlıklardan 1 milyon £ ve üzeri değerdeki lüks konutlara kadar; her müşterinin farklı, her gayrimenkul yolculuğunun kendine özgü olduğunu biliyoruz.",
+        "Tam olarak ne aradığınızı anlamak için zaman ayırırız — ister yazlık, ister kalıcı bir yaşam alanı, ister yatırım fırsatı, kira getirisi sağlayacak bir mülk ya da güneşin altındaki kendi lüks eviniz olsun.",
+        "Coast2Coast Properties'i İngiltere'deki gayrimenkul fuarlarında temsil etmekten de gurur duyduk; uluslararası alıcıların Türkiye'deki fırsatları keşfetmesine katkıda bulunduk."
+      ],
+      "clientsHeading": "Dünyanın dört bir yanından müşteriler",
+      "clients": [
+        "Müşterilerimiz; Avustralya, ABD, Avrupa ve Asya başta olmak üzere dünyanın her köşesinden geldi.",
+        "Ama bizi asıl gururlandıran, geçmişte birlikte çalıştığımız müşterilerimizin pek çoğunun bugün hâlâ dostumuz olması.",
+        "Bu, bizim için başarıyla tamamlanmış bir gayrimenkul işleminden çok daha fazlasını ifade ediyor.",
+        "Yurt dışında mülk almak büyük bir karardır; müşterilerin süreç boyunca güvenebilecekleri, yaslanabilecekleri ve açık yüreklilikle konuşabilecekleri birine ihtiyaç duyduğunu biliyoruz.",
+        "Eski müşterilerimizin birçoğu bizimle iletişimini sürdürüyor, yeniden alım yapmak istediklerinde bize dönüyor ya da Coast2Coast'u dostlarına ve ailelerine tavsiye ediyor.",
+        "Bu, son derece gurur duyduğumuz bir şey."
+      ],
+      "clientsQuote": "Coast2Coast olarak inanıyoruz ki müşterimizle ilişkimiz, anahtarları teslim aldığı gün bitmez.",
+      "whyHeading": "Neden Coast2Coast Properties Turkey?",
+      "whyLede": "İtibarımız üç yalın ilke üzerine kuruludur:",
+      "pillars": [
+        "Dürüstlük",
+        "Deneyim",
+        "Kişisel hizmet"
+      ],
+      "whyBody": "Müşteriye yalnızca mülk gösterip satışın kendiliğinden olmasını ummak bizim anlayışımız değildir.",
+      "creed": [
+        "Dinleriz.",
+        "Anlarız.",
+        "Yol gösteririz."
+      ],
+      "creedClose": "Ve mülkün de konumun da o müşteri için gerçekten doğru olduğundan emin oluruz.",
+      "whyClose": "Türkiye'de geçen 26 yıl, gayrimenkul sektöründe 15 yılı aşkın deneyim, derin yerel bilgi ve güçlü bir bağlantı ağıyla müşterilerimize standart bir emlak ofisinin sunabileceğinden çok daha fazlasını sunuyoruz.",
+      "cta": "Bir alımın nasıl işlediğini tam olarak görün"
+    },
     "principles": {
       "represent": {
-        "title": "Satıcıyı değil, sizi temsil ediyoruz",
-        "body": "Avukatınız sizin tarafınızdan görevlendirilir ve bizden bağımsızdır. Satıcının avukatını asla önermeyiz ve bir işlem yapmaya değmiyorsa bunu size söyleriz — mülk bizim portföyümüzde olsa bile."
+        "title": "Hem sizi hem satıcıyı temsil ediyoruz",
+        "body": "Avukatınız sizin tarafınızdan görevlendirilir ve bizden bağımsızdır. Türkiye'de avukat tutmak zorunlu değildir; ancak yabancı uyrukluysanız bir avukatla çalışmanızı tavsiye ederiz."
       },
       "language": {
         "title": "Okuyamadığınız bir dilde hiçbir şey imzalanmaz",
@@ -1130,7 +1171,6 @@
     "faqEyebrow": "Net cevaplar",
     "faqHeading": "Görme turu soruları",
     "faqLede": "Maliyetler, süreler, kaç mülk görüleceği ve almamaya karar verirseniz ne olacağı — ki bu son derece normal bir sonuçtur.",
-    "finalBody": "Portföyle başlayın ya da bir alımın tekliften tapuya kadar gerçekte nasıl işlediğini okuyun. Hazır olduğunuzda tur burada olacak.",
     "finalHeading": "Henüz uçmaya hazır değil misiniz?",
     "finalPrimary": "Satılık villaları inceleyin",
     "finalSecondary": "Bölge hakkında okuyun",
@@ -1206,7 +1246,6 @@
     "noPhotos": "Fotoğraflar yakında",
     "notFoundBody": "Bu ilan artık yayında değil. Fethiye, Ölüdeniz ve Göcek'teki güncel satılık villalarımıza göz atın.",
     "notFoundTitle": "Mülk bulunamadı",
-    "offMarketBody": "Sattıklarımızın kayda değer bir bölümü hiç ilan edilmeden kayıtlı bir alıcıya gidiyor. Bize ne aradığınızı söyleyin; uygun olanları geldikçe gönderelim.",
     "offMarketHeading": "En iyi mülkler bu sayfaya nadiren ulaşır",
     "plot": "arsa",
     "previousPhoto": "Önceki fotoğraf",
@@ -1308,6 +1347,7 @@
       "propertiesCta": "Sabah pusunun ardından görünen Fethiye Körfezi'ndeki adalar ve burunlar",
       "about": "Coast 2 Coast Properties Turkey'in merkezi olduğu Fethiye körfezi ve çevresindeki sahil şeridi",
       "aboutTurkey": "Yamaç terasında, Akdeniz'e bakan yüzme havuzu",
+      "aboutTurkeyDailyLife": "Gün doğumunda Fethiye limanına demirlemiş yatlar ve kasabanın ardında yükselen çam kaplı tepeler",
       "revealAreas": "Ormanlık dağlarla çevrili Ölüdeniz'deki Mavi Lagün",
       "revealProcess": "Akdeniz'in üzerinde, uçurum tepesinde yüzme havuzu",
       "blog": "Fethiye sahilinde korunaklı bir koyda demirlemiş yatlar",

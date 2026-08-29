@@ -1,6 +1,8 @@
 import { normalizeSearch } from "@/lib/property-filters";
-import { getServiceArea } from "@/lib/site";
+import { formatAreaLabel, getServiceArea } from "@/lib/site";
 import type { Villa, VillaImage } from "@/lib/types";
+import { getLocalizedField } from "@/lib/localized";
+import type { LanguageCode } from "@/lib/locale";
 
 /**
  * İstemci bileşenlerine geçen DAR görünüm modeli.
@@ -69,17 +71,33 @@ export type PropertyCardData = {
  */
 export const CARD_IMAGE_LIMIT = 6;
 
+/**
+ * ⚠️ ÇEVİRİ BURADA ÇÖZÜLÜYOR — istemcide DEĞİL.
+ *
+ * `PropertyCard` bir istemci bileşeni. Başlığı orada çözmek, `Localized`
+ * nesnesini RSC payload'ına koymayı ve aktif dili istemciye taşımayı
+ * gerektirirdi; ikisi de gereksiz ve ikincisi HİDRASYON RİSKİ — sunucunun
+ * bastığı dil ile istemcinin ilk render'da okuduğu dil ayrışırsa React
+ * uyuşmazlık verir.
+ *
+ * Bu projeksiyon zaten sunucuda çalışıyor ve zaten düz `string` üretiyor.
+ * Dili burada uygulamak hem sınırı korumuş oluyor hem de payload'ı üç
+ * dilden bire indiriyor.
+ */
 export function toPropertyCardData(
   villa: Villa,
+  language: LanguageCode,
   imageLimit = CARD_IMAGE_LIMIT,
 ): PropertyCardData {
+  const title = getLocalizedField(villa.title, language);
+
   const area = getServiceArea(villa.location.areaSlug);
   const name = area?.name ?? villa.location.area;
 
   return {
     id: villa.id,
     slug: villa.slug,
-    title: villa.title,
+    title,
     headline: villa.headline,
     status: villa.status,
     price: villa.price.gbp,
@@ -88,9 +106,7 @@ export function toPropertyCardData(
     buildSizeSqm: villa.buildSizeSqm,
     propertyType: villa.propertyType,
     areaSlug: villa.location.areaSlug,
-    areaLabel: name
-      ? `${name}, ${villa.location.district}`
-      : villa.location.district,
+    areaLabel: formatAreaLabel(name, villa.location.district),
     images: villa.images.slice(0, imageLimit),
     publishedAt: villa.publishedAt,
     featured: villa.featured,
@@ -101,7 +117,10 @@ export function toPropertyCardData(
     */
     searchText: normalizeSearch(
       [
-        villa.title,
+        /* Arama metni de aktif dilden: Türkçe sayfada Türkçe başlıkla
+           aranabilmeli. İngilizce yedeği zaten `getLocalizedField`ten
+           geliyor, yani çevrilmemiş ilan da bulunabilir durumda kalıyor. */
+        title,
         villa.headline,
         villa.propertyType,
         name,
@@ -115,7 +134,8 @@ export function toPropertyCardData(
 
 export function toPropertyCardList(
   villas: Villa[],
+  language: LanguageCode,
   imageLimit = CARD_IMAGE_LIMIT,
 ): PropertyCardData[] {
-  return villas.map((villa) => toPropertyCardData(villa, imageLimit));
+  return villas.map((villa) => toPropertyCardData(villa, language, imageLimit));
 }

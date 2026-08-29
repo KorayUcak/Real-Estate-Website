@@ -16,10 +16,18 @@ import type {
   WebSite,
   WithContext,
 } from "schema-dts";
-import { contact, getServiceArea, siteConfig, SITE_URL } from "@/lib/site";
+import {
+  contact,
+  formatAreaLabel,
+  getServiceArea,
+  siteConfig,
+  SITE_URL,
+} from "@/lib/site";
 import { socialProfileList, type SiteSettings } from "@/lib/settings";
 import { safeMapCoordinates } from "@/lib/villa-format";
 import type { Post, Villa } from "@/lib/types";
+import { getLocalizedField } from "@/lib/localized";
+import type { LanguageCode } from "@/lib/locale";
 
 /**
  * Kalıcı @id'ler: aynı varlığa farklı sayfalardan atıf yapabilmek için.
@@ -67,7 +75,10 @@ function coreAreasServed() {
       {
         "@type": "Place" as const,
         "@id": `${SITE_URL}/about-turkey#area-${slug}`,
-        name: `${area.name}, Fethiye, Muğla, Türkiye`,
+        /* "Fethiye, Fethiye, Muğla" DEĞİL — bkz. lib/site.ts `formatAreaLabel`.
+           Yapılandırılmış veride bu tür bir tekrar yalnızca çirkin değil,
+           varlık eşleştirmesini de bulandırıyor. */
+        name: `${formatAreaLabel(area.name, "Fethiye")}, Muğla, Türkiye`,
       },
     ];
   });
@@ -198,7 +209,10 @@ export function websiteSchema(): WithContext<WebSite> {
  * sıralı bir liste vermek, Google'ın hangi ilanın öne çıktığını anlamasını sağlar;
  * fiyat/stok detayı ilanın kendi sayfasındaki Product schema'sına bırakılır.
  */
-export function featuredListSchema(villas: Villa[]): WithContext<ItemList> {
+export function featuredListSchema(
+  villas: Villa[],
+  language: LanguageCode,
+): WithContext<ItemList> {
   return {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -208,7 +222,8 @@ export function featuredListSchema(villas: Villa[]): WithContext<ItemList> {
       "@type": "ListItem",
       position: index + 1,
       url: `${SITE_URL}/properties/${villa.slug}`,
-      name: villa.title,
+      /* Görünen kart hangi dildeyse liste de o dilde. */
+      name: getLocalizedField(villa.title, language),
     })),
   };
 }
@@ -289,14 +304,23 @@ function availabilityFor(status: Villa["status"]) {
  * schema.org sözleşmesini ihlal eder, ikisi birlikte ise hem doğrulanır
  * hem de arama motoruna eksiksiz bilgi verir.
  */
-export function villaProductSchema(villa: Villa): WithContext<Product> {
+/*
+  ⚠️ ŞEMA DA ÇEVRİLİYOR. Yapılandırılmış veri, sayfanın GÖRÜNEN içeriğiyle
+  eşleşmek zorunda: Türkçe bir sayfada İngilizce bir `name` basmak,
+  Google'ın "structured data does not match visible content" başlığı
+  altında işaretlediği durumun ta kendisi.
+*/
+export function villaProductSchema(
+  villa: Villa,
+  language: LanguageCode,
+): WithContext<Product> {
   const url = `${SITE_URL}/properties/${villa.slug}`;
 
   return {
     "@context": "https://schema.org",
     "@type": "Product",
     "@id": `${url}#product`,
-    name: villa.title,
+    name: getLocalizedField(villa.title, language),
     description: villa.seo.description,
     sku: villa.reference,
     category: villa.propertyType,
@@ -334,6 +358,7 @@ export function villaProductSchema(villa: Villa): WithContext<Product> {
 
 export function villaListingSchema(
   villa: Villa,
+  language: LanguageCode,
 ): WithContext<RealEstateListing> {
   const url = `${SITE_URL}/properties/${villa.slug}`;
 
@@ -351,7 +376,7 @@ export function villaListingSchema(
     provider: { "@id": ORG_ID } as Organization,
     mainEntity: {
       "@type": "SingleFamilyResidence",
-      name: villa.title,
+      name: getLocalizedField(villa.title, language),
       numberOfRooms: villa.bedrooms,
       numberOfBedrooms: villa.bedrooms,
       numberOfBathroomsTotal: villa.bathrooms,
@@ -423,7 +448,9 @@ export function areaPlaceSchema(area: {
     "@context": "https://schema.org",
     "@type": "Place",
     "@id": `${SITE_URL}/about-turkey#area-${area.slug}`,
-    name: `${area.name}, Fethiye`,
+    /* Yukarıdaki `coreAreasServed` ile AYNI biçim: iki düğüm aynı `@id`yi
+       paylaşıyor, dolayısıyla adları da ayrışmamalı. */
+    name: formatAreaLabel(area.name, "Fethiye"),
     description: area.blurb,
     /** Yerel aramanın okuduğu sinyal: bölgeyi haritada bir noktaya bağlar. */
     ...(area.coordinates

@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# veri göçü yedekleri
+# `scripts/migrate-villas-i18n.mjs` her çalıştığında data/ içine zaman damgalı
+# bir yedek bırakıyor (villas.pre-i18n-<ISO>.json, ~550KB). Bunlar üretilebilir
+# ara çıktılar; sürüm geçmişine girerlerse her göçte depo yarım MB büyür.
+data/*.pre-i18n-*.json

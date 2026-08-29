@@ -9,6 +9,7 @@ import { ChevronDown, Menu, Phone, X } from "lucide-react";
 import { LocaleSwitcher } from "@/components/locale-switcher";
 import { Logo } from "@/components/logo";
 import { cn } from "@/lib/cn";
+import { stripLocale } from "@/lib/locale";
 import {
   headerNav,
   siteConfig,
@@ -74,6 +75,29 @@ export function SiteHeader() {
 
   const isActive = (href: string) =>
     pathname === href || pathname.startsWith(`${href}/`);
+
+  /**
+   * ANA SAYFA MI — üç dilde birden.
+   *
+   * `stripLocale` dil önekini söküyor, yani /tr ve /ru da "/" olarak
+   * geliyor. Elle `["/", "/tr", "/ru"].includes(pathname)` yazmak aynı
+   * bilgiyi ikinci bir yerde tutmak olurdu: dördüncü bir dil eklendiği gün
+   * `ROUTE_LOCALES` güncellenir, burası sessizce eskir ve o dilin ana
+   * sayfasında başlık yanlış varyantı gösterir.
+   *
+   * `/en` ayrıca kontrol ediliyor: vekil onu "/"a 308 ile yönlendirdiği için
+   * tarayıcı normalde orada durmuyor, ama `stripLocale` varsayılan dilin
+   * önekini KASITLI olarak sökmüyor (kanonik yol öneksizdir). Yönlendirme
+   * bir gün kalkarsa bu satır olmadan ana sayfa kendini tanıyamazdı.
+   *
+   * ⚠️ HİDRASYON: burada `useEffect`/`isClient` gerekmiyor ve eklenmesi
+   * ZARARLI olurdu. `usePathname()` App Router'da sunucu render'ında da
+   * doğru yolu döndürüyor, yani iki taraf aynı ağacı üretiyor. İstemciye
+   * ertelenmiş bir kontrol, ilk karede telefon düğmesini gösterip sonra
+   * seçiciyle değiştirirdi — görünür bir sıçrama.
+   */
+  const canonicalPath = stripLocale(pathname);
+  const isHome = canonicalPath === "/" || canonicalPath === "/en";
 
   const triggerRef = useRef<HTMLButtonElement>(null);
   const panelRef = useRef<HTMLElement>(null);
@@ -389,27 +413,55 @@ export function SiteHeader() {
             kırılma noktasında ulaşılamaz kalmıyor — çekmece `xl` altında her
             yerde açılabiliyor.
           */}
+          {/*
+            ANA SAYFADA TELEFONUN YERİNİ DİL SEÇİCİ ALIYOR.
+
+            Seçici zaten bu kümede ve zaten telefonun SOLUNDA duruyordu;
+            ana sayfada telefon basılmayınca kendiliğinden o yuvaya —
+            hamburgerin hemen soluna — geçiyor. Yeni bir örnek eklemek
+            gerekmedi: aynı düğümün görünürlüğü değişiyor, yani açık liste,
+            klavye odağı ve seçili değer rota değişiminde korunuyor.
+
+            ⚠️ `hidden sm:block` KOŞULA BAĞLANDI. Diğer sayfalarda olduğu
+            gibi kalsaydı, ana sayfada 640px altında sağ kümede telefonun
+            bıraktığı boşluğu dolduran hiçbir şey olmazdı: logo ile
+            hamburger arasında kasıtsız bir aralık. Ana sayfada seçici her
+            genişlikte görünür — 375px'te logo (~120px), seçici (~100px) ve
+            hamburger (44px) aralıklarla birlikte sığıyor.
+          */}
           <LocaleSwitcher
             tone={glass ? "dark" : "light"}
-            className="hidden sm:block"
+            className={isHome ? "block" : "hidden sm:block"}
           />
 
-          <a
-            href={`tel:${contact.phoneE164}`}
-            aria-label={t("header.callAria", { phone: contact.phoneDisplay })}
-            title={contact.phoneDisplay}
-            className={cn(
-              "inline-flex size-11 items-center justify-center rounded-sm border transition-colors md:h-auto md:w-auto md:gap-2 md:px-4 md:py-2.5 md:font-sans md:text-[0.6875rem] md:font-semibold md:uppercase md:tracking-[0.14em] xl:px-3.5",
-              glass
-                ? "border-shell/40 text-shell hover:border-gold hover:text-gold"
-                : "border-sea-deep bg-sea-deep text-shell hover:border-gold hover:bg-gold hover:text-ink",
-            )}
-          >
-            <Phone className="size-4 shrink-0" aria-hidden="true" />
-            <span className="hidden whitespace-nowrap md:inline xl:hidden">
-              {contact.phoneDisplay}
-            </span>
-          </a>
+          {/*
+            Telefon CTA'sı ana sayfada HİÇ BASILMIYOR — `hidden` ile
+            gizlenmiyor. Gizlenmiş bir bağlantı ekran okuyucuda ve sekme
+            sırasında var olmaya devam ederdi (`display:none` çoğu durumda
+            kaldırır ama bunu bir sınıfın doğru yazılmasına bağlamak
+            gereksiz bir risk); koşullu render'da böyle bir belirsizlik yok.
+
+            Numara kaybolmuyor: çekmecenin alt bloğunda iki hat da duruyor
+            ve çekmece her kırılma noktasında açılabiliyor.
+          */}
+          {isHome ? null : (
+            <a
+              href={`tel:${contact.phoneE164}`}
+              aria-label={t("header.callAria", { phone: contact.phoneDisplay })}
+              title={contact.phoneDisplay}
+              className={cn(
+                "inline-flex size-11 items-center justify-center rounded-sm border transition-colors md:h-auto md:w-auto md:gap-2 md:px-4 md:py-2.5 md:font-sans md:text-[0.6875rem] md:font-semibold md:uppercase md:tracking-[0.14em] xl:px-3.5",
+                glass
+                  ? "border-shell/40 text-shell hover:border-gold hover:text-gold"
+                  : "border-sea-deep bg-sea-deep text-shell hover:border-gold hover:bg-gold hover:text-ink",
+              )}
+            >
+              <Phone className="size-4 shrink-0" aria-hidden="true" />
+              <span className="hidden whitespace-nowrap md:inline xl:hidden">
+                {contact.phoneDisplay}
+              </span>
+            </a>
+          )}
 
           {/* Sağ kümenin EN SAĞI: üst-sağ köşe. */}
           <button

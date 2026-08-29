@@ -2,6 +2,7 @@ import "server-only";
 
 import { safeSlugSegment } from "@/lib/admin/json-store";
 import type { Villa, VillaImage, VillaStatus } from "@/lib/types";
+import type { Localized } from "@/lib/localized";
 
 /**
  * İLAN FORMUNUN SUNUCU TARAFI SÖZLEŞMESİ.
@@ -29,7 +30,8 @@ export const PROPERTY_STATUSES: VillaStatus[] = [
 ];
 
 export type PropertyInput = {
-  title: string;
+  /** Üç dilli — `en` zorunlu, diğerleri boşsa `null` (bkz. lib/localized.ts). */
+  title: Localized<string>;
   headline: string;
   propertyType: string;
   areaSlug: string;
@@ -41,8 +43,11 @@ export type PropertyInput = {
   buildSizeSqm: number;
   plotSizeSqm: number;
   slug: string;
-  description: string[];
+  description: Localized<string[]>;
+  /** Rozetler ÇEVRİLMİYOR — tek dilde kalıyor. */
   features: string[];
+  /** "Why this one" maddeleri — sıra yöneticinin verdiği sıradır. */
+  whyThisOne: Localized<string[]>;
   images: VillaImage[];
   seoTitle: string;
   seoDescription: string;
@@ -118,6 +123,57 @@ function asStringArray(value: unknown, max: number, maxLen = 400): string[] {
     .slice(0, max);
 }
 
+/* ------------------------------------------------------------------ i18n */
+
+/**
+ * ⚠️ ÜÇ DİLLİ ALANLARIN SUNUCU TARAFI SÖZLEŞMESİ.
+ *
+ * Form `{ en, tr, ru }` gönderiyor ama formu atlayıp doğrudan `fetch` atan
+ * biri her şeyi gönderebilir — düz bir dize, dizi, `null`, iç içe nesne.
+ * Bu yüzden her dil TEK TEK aynı `asString`/`asStringArray` süzgecinden
+ * geçiyor; sınırlar (uzunluk, madde sayısı) diller arasında ortak.
+ *
+ * ESKİ BİÇİM DE KABUL EDİLİYOR: gövde düz bir dize/dizi taşıyorsa
+ * İngilizce sayılıyor. Sebep, geriye dönük uyumluluk değil DAYANIKLILIK —
+ * eski bir sekmede açık kalmış bir form ya da kayıtlı bir istek, kaydı
+ * sessizce boşaltmak yerine İngilizceye yazsın.
+ */
+function asLocalizedString(value: unknown, max: number): Localized<string> {
+  if (typeof value === "string") return { en: asString(value, max), tr: null, ru: null };
+
+  const raw = (value ?? {}) as Record<string, unknown>;
+  const tr = asString(raw.tr, max);
+  const ru = asString(raw.ru, max);
+
+  return {
+    en: asString(raw.en, max),
+    /* Boş çeviri `null` olarak saklanıyor: "henüz çevrilmedi" ile
+       "boş kaydedildi" ayrımı DeepL kuyruğunun tarayacağı iz. */
+    tr: tr || null,
+    ru: ru || null,
+  };
+}
+
+function asLocalizedStringArray(
+  value: unknown,
+  max: number,
+  maxLen = 400,
+): Localized<string[]> {
+  if (Array.isArray(value)) {
+    return { en: asStringArray(value, max, maxLen), tr: null, ru: null };
+  }
+
+  const raw = (value ?? {}) as Record<string, unknown>;
+  const tr = asStringArray(raw.tr, max, maxLen);
+  const ru = asStringArray(raw.ru, max, maxLen);
+
+  return {
+    en: asStringArray(raw.en, max, maxLen),
+    tr: tr.length ? tr : null,
+    ru: ru.length ? ru : null,
+  };
+}
+
 /**
  * Görsel kayıtları. Bunlar upload uç noktasından dönüyor ama form onları
  * istemcide tutup geri gönderiyor — yani yine DOĞRULANMALARI gerekiyor.
@@ -156,7 +212,7 @@ export function parsePropertyInput(body: unknown): {
 } {
   const raw = (body ?? {}) as Record<string, unknown>;
 
-  const title = asString(raw.title, 160);
+  const title = asLocalizedString(raw.title, 160);
   const priceGbp = asNonNegativeInt(raw.priceGbp);
   const areaSlug = safeSlugSegment(asString(raw.areaSlug, 80));
 
@@ -179,9 +235,21 @@ export function parsePropertyInput(body: unknown): {
     bathrooms: asNonNegativeInt(raw.bathrooms),
     buildSizeSqm: asNonNegativeInt(raw.buildSizeSqm),
     plotSizeSqm: asNonNegativeInt(raw.plotSizeSqm),
-    slug: safeSlugSegment(asString(raw.slug, 120) || title),
-    description: asStringArray(raw.description, 60, 4000),
+    /* Slug KAYNAK (İngilizce) başlıktan — bkz. property-form.tsx. */
+    slug: safeSlugSegment(asString(raw.slug, 120) || title.en),
+    description: asLocalizedStringArray(raw.description, 60, 4000),
     features: asStringArray(raw.features, 40, 80),
+    /*
+      Madde başına 200 karakter, en çok 12 madde. Sınırlar `features`ten
+      (80/40) gevşek çünkü bunlar rozet değil CÜMLE ("Walking distance to
+      the marina and Tuesday market"); ama açıklamadan (4000/60) çok daha
+      sıkı, çünkü iki sütunluk kart ızgarasında uzun bir madde kutuları
+      farklı yüksekliklere itip ızgarayı bozuyor.
+
+      `asStringArray` boş dizeleri zaten eliyor: formdaki boş satır sunucuya
+      ulaşsa bile kayda geçmiyor.
+    */
+    whyThisOne: asLocalizedStringArray(raw.whyThisOne, 12, 200),
     images: asImages(raw.images),
     seoTitle: asString(raw.seoTitle, 70),
     seoDescription: asString(raw.seoDescription, 180),
@@ -196,7 +264,9 @@ export function parsePropertyInput(body: unknown): {
   };
 
   const errors: FieldErrors = {};
-  if (!input.title) errors.title = "Title is required.";
+  /* YALNIZCA İNGİLİZCE ZORUNLU. TR/RU boş kalabilir; site onları
+     `getLocalizedField` ile İngilizceye düşürerek gösteriyor. */
+  if (!input.title.en) errors.title = "English title is required.";
   if (input.priceGbp <= 0) errors.priceGbp = "Price must be greater than zero.";
   if (!input.areaSlug) errors.areaSlug = "Area is required.";
   if (!input.slug) errors.slug = "Slug could not be derived from the title.";
@@ -308,6 +378,7 @@ export function applyInput(
     citizenshipEligible: base?.citizenshipEligible ?? false,
     features: input.features,
     highlights: base?.highlights ?? [],
+    whyThisOne: input.whyThisOne,
     description: input.description,
     images: input.images,
     seo: {

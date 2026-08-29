@@ -8,9 +8,10 @@ import { JsonLd } from "@/components/json-ld";
 import { PropertyExplorer } from "@/components/property-explorer";
 import { Reveal } from "@/components/reveal";
 import { toPropertyCardList } from "@/lib/property-card-data";
+import { getLocalizedField } from "@/lib/localized";
 import { getSettings, whatsappHref } from "@/lib/settings";
 import { breadcrumbSchema, itemListSchema } from "@/lib/schema";
-import { currentLocale } from "@/lib/current-locale";
+import { currentLocale, currentLanguage } from "@/lib/current-locale";
 import { getT } from "@/lib/i18n/server";
 import { HOME_CRUMB, pageMetadata, type Crumb } from "@/lib/seo";
 import { isAreaVisibleInGuide } from "@/lib/turkey";
@@ -44,6 +45,9 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function PropertiesPage() {
   const t = await getT();
+  /* İlan metinlerinin dili — kart projeksiyonu ve ItemList şeması bunu
+     kullanıyor (bkz. lib/localized.ts). */
+  const language = await currentLanguage();
   const settings = await getSettings();
   /**
    * Bütün ilanlar tek seferde istemciye geçer ve filtreleme orada yapılır
@@ -82,7 +86,7 @@ export default async function PropertiesPage() {
             "Luxury villas for sale in Fethiye and the surrounding coast",
             villas.map((villa) => ({
               url: `/properties/${villa.slug}`,
-              name: villa.title,
+              name: getLocalizedField(villa.title, language),
             })),
           ),
           breadcrumbSchema(CRUMBS),
@@ -127,7 +131,7 @@ export default async function PropertiesPage() {
         </section>
 
         {/* ------------------------------------------- FİLTRELER + IZGARA */}
-        <PropertyExplorer villas={toPropertyCardList(villas)} />
+        <PropertyExplorer villas={toPropertyCardList(villas, language)} />
 
         {/* ---------------------------------------------------------- BÖLGELER */}
         <section
@@ -205,9 +209,9 @@ export default async function PropertiesPage() {
                   >
                     {t("properties.offMarketHeading")}
                   </h2>
-                  <p className="mt-6 max-w-xl leading-relaxed text-shell/75">
-                    {t("properties.offMarketBody")}
-                  </p>
+                  {/* CTA açıklama paragrafı KALDIRILDI — bu blokta artık yalnızca
+                    başlık ve eylem düğmeleri var (dokuz sayfada birden).
+                    Sözlükteki karşılığı da silindi. */}
                 </div>
 
                 <div className="flex flex-col gap-3 lg:col-span-4 lg:col-start-9">

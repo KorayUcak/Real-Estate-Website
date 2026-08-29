@@ -206,12 +206,32 @@
     (hero paneli, filtre çubuğu). Kartlar, butonlar ve bölüm kutuları kare
     kalır — yumuşaklık kontrollere ait, içeriğe değil.
 
-    `:not([class*="rounded"])` özgüllüğü (0,1,0); `!important` ile birlikte
-    Tailwind utility'lerini ezmeye devam eder.
+    İKİNCİ İSTİSNA: `.keep-radius`.
+
+    ⚠️ NEDEN AYRI BİR KAPI GEREKTİ. Yukarıdaki `rounded-*` kapısı Tailwind
+    yazabildiğimiz yerler için. Ama HARİTA İŞARETÇİLERİ öyle değil: Leaflet
+    kendi HTML'ini kendi üretiyor, sınıfları biz vermiyoruz ve şekil
+    işaretçinin KÖKÜNDE duramıyor — Leaflet o elemanın `transform`unu
+    konumlandırma için sürekli yeniden yazıyor, dolayısıyla damla biçimi
+    içerideki bir çocuğa yazılmak zorunda.
+
+    Bu yüzden yönetici panelindeki damla pin SESSİZCE düz bir eşkenar
+    dörtgene dönüşmüştü: `location-map.tsx` satır içi `border-radius`
+    veriyordu, bu kural `!important` ile onu eziyordu. Satır içi stil,
+    stil sayfasındaki bir `!important`i yenemez.
+
+    ⚠️ `.leaflet-marker-icon *` DİYE DIŞLAMADIK, ve bu bilinçli: `:not()`
+    içine torun seçici yazmak Selectors-4 "complex :not()" desteği
+    istiyor (Safari 16.4+). Desteklemeyen bir tarayıcıda kural TAMAMEN
+    düşer — yani tek bir pin için sitenin BÜTÜN keskin köşe kuralını
+    riske atardık. Adlandırılmış bir kapı her yerde çalışıyor.
+
+    `:not([class*="rounded"]):not(.keep-radius)` özgüllüğü (0,2,0);
+    `!important` ile birlikte Tailwind utility'lerini ezmeye devam eder.
   */
-  *:not([class*="rounded"]),
-  *:not([class*="rounded"])::before,
-  *:not([class*="rounded"])::after {
+  *:not([class*="rounded"]):not(.keep-radius),
+  *:not([class*="rounded"]):not(.keep-radius)::before,
+  *:not([class*="rounded"]):not(.keep-radius)::after {
     border-radius: 0 !important;
   }
 
@@ -608,3 +628,246 @@
   }
 }
 
+
+/* ==========================================================================
+   BÖLGE HARİTASI (components/area-map-canvas.tsx)
+
+   Leaflet kendi stillerini `leaflet/dist/leaflet.css` ile getiriyor ve
+   sınıfları (`.leaflet-*`) global. Bu yüzden marka uyarlaması Tailwind
+   yardımcılarıyla değil, burada, aynı global katmanda yapılıyor.
+   ========================================================================== */
+
+/*
+  ⚠️ KARO FİLTRESİ KALDIRILDI — ve yerine yenisi KONULMADI.
+
+  Positron döneminde burada `sepia(.1) saturate(.9)` vardı: gri bir tabanı
+  sayfanın kabuk tonuna yaklaştırmak içindi. Taban tam renkli OSM'e
+  geçince aynı filtre tam ters işi yapmaya başladı — denizin mavisini ve
+  ormanın yeşilini soldurup, değişikliğin bütün amacını siliyordu.
+
+  Harita artık sayfadan renkçe ayrışıyor ve bu KABUL EDİLEN bir karar:
+  bölüm zaten kendi çerçevesi ve gölgesiyle bir "pencere" olarak duruyor.
+*/
+
+/* Leaflet kabı kendi yazı tipini dayatır; sayfanın tipografisine dönsün. */
+.area-map .leaflet-container {
+  font-family: inherit;
+}
+
+/* --------------------------------------------------------------- PİNLER */
+
+/*
+  Pin kökü SIFIR BOYUTLU bir bağlantı (bkz. `pinIcon`, iconSize [0,0]).
+  Konumlandırmayı Leaflet yapıyor; içerideki iki parça oradan
+  `position: absolute` ile dağılıyor. Taşan çocuklar da tıklanabilir —
+  kökte `overflow` kısıtlaması YOK, olmamalı.
+*/
+.area-pin {
+  display: block;
+  width: 0;
+  height: 0;
+  /* Leaflet işaretçilerin altına kendi `outline`unu koymuyor; odak
+     halkasının pin üstünde kalması için yığın bağlamı gerekiyor. */
+  isolation: isolate;
+}
+
+/*
+  İŞARETÇİ BİR EŞKENAR DÖRTGEN — daire DEĞİL.
+
+  ⚠️ İLK HÂLİ DAİREYDİ VE SESSİZCE KARE ÇİZİLİYORDU. Bu dosyanın başındaki
+  "keskin köşe kuralı" (`*:not([class*="rounded"])`) `border-radius`ı
+  `!important` ile sıfırlıyor; `rounded-*` sınıfı taşımayan hiçbir eleman
+  yuvarlanamıyor. Yani `border-radius: 9999px` yazmak ölü koddu.
+
+  Kuralı delmek yerine tasarım diline uyuldu: 45° döndürülmüş bir kare hem
+  tamamen keskin köşeli — yani sitenin geri kalanıyla aynı dilde — hem de
+  klasik bir harita sembolü. Düz bir kare "rastgele bir kutu" gibi
+  okunuyordu; eşkenar dörtgen "burası bir yer" diyor.
+*/
+.area-pin__dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Şeklin MERKEZİ koordinatın üstüne otursun (kenarlık dahil 18px). */
+  margin: -9px 0 0 -9px;
+  height: 14px;
+  width: 14px;
+  transform: rotate(45deg);
+  background-color: var(--color-gold);
+  /*
+    ⚠️ KOYU KENARLIK + AÇIK HALE — gri tabandan renkli tabana geçişin
+    bedeli. Positron'da altın eşkenar dörtgenin krem kenarlığı yetiyordu;
+    tam renkli OSM'de kara bej, orman koyu yeşil ve yollar turuncu, yani
+    altın artık zeminden kendiliğinden ayrılmıyordu.
+
+    Kartografik standart çözüm: koyu çekirdek kenarı + açık dış hale. Pin
+    böylece HEM açık bej karada HEM koyu yeşil ormanda HEM mavi denizde
+    aynı netlikte duruyor.
+  */
+  border: 2px solid var(--color-sea-deep);
+  box-shadow:
+    0 0 0 1.5px color-mix(in srgb, var(--color-shell) 85%, transparent),
+    0 4px 10px -2px rgb(35 41 43 / 0.45);
+  transition:
+    transform 0.18s ease,
+    background-color 0.18s ease;
+}
+
+.area-pin__label {
+  position: absolute;
+  top: 0;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  /* Keskin köşe kuralı burada da geçerli: yuvarlak bir "pill" çizilemezdi.
+     Dikdörtgen levha zaten kartografik etiketin doğru biçimi. */
+  /* Karoların kendi yer adları da bu levhaların altından geçiyor; %96 ve
+     biraz daha koyu bir kenarlık levhayı zeminden kesin olarak ayırıyor. */
+  border: 1px solid color-mix(in srgb, var(--color-sea-deep) 25%, transparent);
+  background-color: color-mix(in srgb, var(--color-shell) 96%, transparent);
+  padding: 0.1875rem 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  color: var(--color-sea-deep);
+  box-shadow: 0 2px 8px -2px rgb(35 41 43 / 0.2);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+
+  /*
+    ETİKETLER VARSAYILAN OLARAK GİZLİ, `.area-map--labelled` gelince açılıyor
+    (yakınlaştırma eşiği için bkz. `LABEL_MIN_ZOOM`).
+
+    ⚠️ `display: none` DEĞİL, `opacity` + `visibility`. Sebep geçiş: gizleme
+    `display` ile yapılsaydı yakınlaştırma sırasında etiketler bir anda
+    "patlayarak" belirirdi. Bu hâliyle karolarla birlikte yumuşakça geliyor.
+    `visibility: hidden` ayrıca onları tıklama ve ekran okuyucu dışında
+    bırakıyor — görünmeyen bir etiket sekme sırasında da olmamalı.
+  */
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.2s ease,
+    visibility 0.2s ease,
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
+}
+
+/* Etiket, noktanın hangi yanına yazılacak — çakışma önleme, lib/turkey.ts. */
+.area-pin--right .area-pin__label {
+  left: 1.125rem;
+}
+
+.area-pin--left .area-pin__label {
+  right: 1.125rem;
+}
+
+.area-map--labelled .area-pin__label {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Etiket gizliyken de pinin ne olduğu ANLAŞILSIN: nokta biraz büyüsün. */
+.area-pin:hover .area-pin__dot,
+.area-pin:focus-visible .area-pin__dot {
+  /* ⚠️ `rotate` TEKRAR YAZILMALI: `transform` tek bir özellik, yalnızca
+     `scale` yazmak dönüşü siler ve işaretçi hover'da kareye dönerdi. */
+  transform: rotate(45deg) scale(1.25);
+  background-color: var(--color-gold-deep);
+}
+
+.area-pin:hover .area-pin__label,
+.area-pin:focus-visible .area-pin__label {
+  background-color: var(--color-sea-deep);
+  border-color: var(--color-sea-deep);
+  color: var(--color-shell);
+  /* İmleç üstündeyken etiket, yakınlaştırmadan bağımsız olarak okunur. */
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Odak halkası pinin kendi geometrisine değil, noktaya oturuyor. */
+.area-pin:focus-visible {
+  outline: none;
+}
+
+.area-pin:focus-visible .area-pin__dot {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* --------------------------------------------------- LEAFLET KONTROLLERİ */
+
+.area-map .leaflet-bar,
+.area-map .leaflet-bar a {
+  border-color: var(--color-line);
+  color: var(--color-sea-deep);
+  background-color: var(--color-shell);
+}
+
+.area-map .leaflet-bar a:hover {
+  background-color: var(--color-sea-tint);
+  color: var(--color-sea-deep);
+}
+
+.area-map .leaflet-bar {
+  box-shadow: 0 2px 10px -3px rgb(35 41 43 / 0.25);
+}
+
+/*
+  ATRİBÜSYON KALIYOR — küçültüldü, kaldırılmadı. OpenStreetMap (ODbL) ve
+  CARTO'nun kullanım koşulları görünür bir atıf ŞART koşuyor; onu gizlemek
+  karoları lisanssız kullanmak olurdu.
+*/
+.area-map .leaflet-control-attribution {
+  background-color: color-mix(in srgb, var(--color-shell) 85%, transparent);
+  color: var(--color-ink-40);
+  font-size: 0.625rem;
+}
+
+.area-map .leaflet-control-attribution a {
+  color: var(--color-sea);
+}
+
+/* Hareket kısıtlaması istendiğinde pin animasyonları düşer. */
+@media (prefers-reduced-motion: reduce) {
+  .area-pin__dot,
+  .area-pin__label {
+    transition: none;
+  }
+
+  .area-pin:hover .area-pin__dot,
+  .area-pin:focus-visible .area-pin__dot {
+    /* `none` DEĞİL: dönüş şeklin kendisi, animasyon değil. */
+    transform: rotate(45deg);
+  }
+}
+
+/* ==========================================================================
+   YÖNETİCİ HARİTASI PİNİ (components/admin/location-map.tsx)
+
+   Biçim satır içi `style` yerine BURADA, çünkü satır içi `border-radius`
+   yukarıdaki keskin köşe kuralının `!important`ine yeniliyordu. `.keep-radius`
+   o kuralın dışına çıkarıyor, `.admin-pin` de biçimi veriyor.
+
+   ⚠️ `transform` İŞARETÇİNİN KÖKÜNDE OLAMAZ. Leaflet marker kökünün
+   `transform`unu her hareket/yakınlaştırmada `translate3d(...)` ile yeniden
+   yazıyor; oraya bir `rotate` koymak ilk kaydırmada siliniyor. Bu yüzden
+   pin, kökün İÇİNDEKİ bir `<span>`.
+   ========================================================================== */
+
+.admin-pin {
+  display: block;
+  height: 26px;
+  width: 26px;
+  /*
+    Üç köşe yuvarlak, biri (sol alt) neredeyse sivri. 45° döndürülünce o
+    sivri köşe aşağıyı gösteriyor: klasik harita damlası. `iconAnchor`
+    da tam o uca ayarlı (bkz. location-map.tsx).
+  */
+  border-radius: 9999px 9999px 9999px 2px;
+  transform: rotate(-45deg);
+  background-color: var(--color-sea-deep);
+  border: 3px solid var(--color-gold);
+  box-shadow: 0 6px 14px -4px rgb(35 41 43 / 0.55);
+}

@@ -4,6 +4,7 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 import { cache } from "react";
 import type { Villa } from "@/lib/types";
+import { coerceLocalized } from "@/lib/localized";
 
 /**
  * ⚠️ STATİK `import` → ÇALIŞMA ZAMANI OKUMASI. Bu dosyanın tamamı bu yüzden değişti.
@@ -45,8 +46,35 @@ const readVillasFile = cache(async (): Promise<Villa[]> => {
     return [];
   }
 
-  return parsed as Villa[];
+  return (parsed as Villa[]).map(normalizeLocalizedFields);
 });
+
+/**
+ * ⚠️ OKUMA SINIRINDA TEK SAVUNMA NOKTASI.
+ *
+ * `title`/`description`/`whyThisOne` artık üç dilli nesneler (bkz.
+ * lib/localized.ts) ve `data/villas.json` `scripts/migrate-villas-i18n.mjs`
+ * ile dönüştürüldü. Ama dosya elle de düzenlenebiliyor ve bir yedekten geri
+ * yüklenebiliyor: eski biçimde (`title: "Villa Mavi"`) tek bir kayıt bile
+ * gelirse `getLocalizedField` onda `.en` arar, `undefined` bulur ve ekranda
+ * SESSİZ bir boşluk kalır — tipler bunu yakalayamaz çünkü JSON `unknown`.
+ *
+ * Burada bir kez normalize etmek, o kaydı okuyan onlarca yerin tek tek
+ * savunma yazmasından iyi.
+ */
+function normalizeLocalizedFields(villa: Villa): Villa {
+  return {
+    ...villa,
+    title: coerceLocalized<string>(villa.title),
+    description: coerceLocalized<string[]>(villa.description),
+    /* Opsiyonel alan: YOKSA yok kalsın — boş bir kayıt uydurmak,
+       ilan sayfasında olmayan bir bölümü var göstermek olurdu. */
+    whyThisOne:
+      villa.whyThisOne === undefined
+        ? undefined
+        : coerceLocalized<string[]>(villa.whyThisOne),
+  };
+}
 
 /**
  * HAM liste — `off-market` kayıtlar DÂHİL.
@@ -106,4 +134,48 @@ export async function getAreaCounts(): Promise<Record<string, number>> {
     counts[slug] = (counts[slug] ?? 0) + 1;
     return counts;
   }, {});
+}
+
+/**
+ * PORTFÖYDE GEÇEN TÜM ÖZELLİKLER — panel formundaki açılır listeyi besler.
+ *
+ * ─────────────────────────────────────────────────────────────────────────
+ * NEDEN SABİT BİR DİZİ DEĞİL. Listeyi koda gömmek onu ilk özel özellik
+ * eklendiği anda eskitirdi: yönetici "Wine cellar" yazar, kayda girer, ama
+ * bir sonraki ilanda açılır listede yine yoktur ve yeniden yazması gerekir —
+ * bu sefer "Wine Cellar" diye. İki hafta sonra veride üç varyant olur ve
+ * hiçbiri filtrelenemez. Listeyi veriden türetmek bu döngüyü kırıyor:
+ * bir kez yazılan özellik ertesi ilanda seçilebilir hâle geliyor.
+ *
+ * `getAllVillasForAdmin` kullanılıyor, `getAllVillas` değil: yayından
+ * kaldırılmış bir ilandaki özellik de meşru bir seçenek. Panelde
+ * çağrıldığı için görünürlük filtresi burada yanlış olurdu.
+ * ─────────────────────────────────────────────────────────────────────────
+ *
+ * Sıralama ALFABETİK, sıklığa göre değil. Sıklık sırası listeyi her kayıtta
+ * yeniden diziyor; yönetici "Sea view"in nerede olduğunu kas hafızasıyla
+ * öğrenemiyor. Sabit bir sıra, otuz maddelik bir listede aramaktan hızlı.
+ */
+export async function getKnownFeatures(): Promise<string[]> {
+  const villas = await getAllVillasForAdmin();
+
+  /*
+    Tekilleştirme KÜÇÜK HARFE göre, ama ekrana ilk görülen yazım çıkıyor.
+    Veride "Sea view" ve "Sea View" birlikte bulunabilir; ikisini de listeye
+    koymak yöneticiye aynı şeyi iki kez sunmak olurdu.
+  */
+  const seen = new Map<string, string>();
+
+  for (const villa of villas) {
+    for (const feature of villa.features) {
+      const key = feature.trim().toLowerCase();
+      if (key && !seen.has(key)) seen.set(key, feature.trim());
+    }
+  }
+
+  return [...seen.values()].sort((a, b) =>
+    /* `localeCompare` düz `<` yerine: "Çift cam" gibi Türkçe karakterli bir
+       özellik ASCII sıralamasında listenin sonuna düşerdi. */
+    a.localeCompare(b, "en"),
+  );
 }

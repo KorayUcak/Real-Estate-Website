@@ -133,6 +133,30 @@ export const imagery = {
     alt: "Ölüdeniz beach and the resort behind it seen from the hillside road",
   },
 
+  /**
+   * "Daily life" bölümünün TAM GENİŞLİKTE zemini — /about-turkey.
+   *
+   * ⚠️ SİTEDEKİ İLK YEREL SAYFA GÖRSELİ. Bu dosyanın başındaki TODO
+   * "gerçek çekimler geldiğinde /public altına taşıyın" diyor; bu kayıt o
+   * geçişin ilk adımı. Bu yüzden `unsplash()` yardımcısından GEÇMİYOR —
+   * yardımcı Unsplash'in dönüştürme parametrelerini kuruyor, yerel bir
+   * dosyada karşılığı yok.
+   *
+   * KAYNAK: Pexels — fotoğraf Nurefşan Koşar. Pexels lisansı atıf
+   * ZORUNLU tutmuyor ama kaynağı burada tutmak, bir sonraki geliştiricinin
+   * görselin nereden geldiğini sormasını engelliyor. Özgün dosya adı
+   * (pexels-nurefsankosar-16797119.jpg) okunabilir bir ada çevrildi;
+   * sağlayıcı bilgisi bu yorumda yaşıyor.
+   *
+   * 6240×4160 olan asıl dosya 2400×1600'e indirildi (mozjpeg, q82): tam
+   * genişlikte bir zemin için 2400px yeterli ve `next/image` üstüne AVIF
+   * üretiyor. Ham hâlini depoya koymak 3.9MB'lık bir kaynak dosya demekti.
+   */
+  aboutTurkeyDailyLife: {
+    src: "/images/about-turkey/daily-life-fethiye-harbour.jpg",
+    alt: "Yachts moored in Fethiye harbour at sunrise, with the pine-covered hills rising behind the town",
+  },
+
   /* ------------------------------------------------------ PENCERE BANTLARI */
 
   /**

@@ -100,15 +100,16 @@
     "featuredCta": "View all properties",
     "areasEyebrow": "Area intelligence",
     "areasHeading": "Where to buy on the Fethiye coast",
+    "areasCta": "Explore all regions",
     "areaGuide": "Area guide",
-    "areaImageAlt": "Property for sale in {area}, Fethiye — {headline}",
+    "areaImageAlt": "Property for sale in {area} — {headline}",
+    "areaImageAltDistrict": "Fethiye",
     "faqEyebrow": "Straight answers",
     "faqHeading": "Questions buyers actually ask",
     "faqWhatsapp": "Ask us on WhatsApp",
     "faqWhatsappMessage": "Hello Coast 2 Coast — I have a question about buying property in Fethiye.",
     "ctaEyebrow": "Next step",
     "ctaHeading": "Start with a conversation, not a brochure",
-    "ctaBody": "Tell us the budget and the timeline. We will come back with a shortlist — including the properties we would talk you out of.",
     "ctaWhatsappMessage": "Hello Coast 2 Coast — I'd like to talk about buying a villa in Fethiye.",
     "ctaBookCall": "Book a call",
     "listingCount": {
@@ -154,10 +155,6 @@
     "uzumlu": {
       "headline": "Village life beneath Babadağ",
       "blurb": "Üzümlü is Fethiye's highland village: vineyards, cooler summers and detached villas at noticeably lower price per square metre."
-    },
-    "tasyaka": {
-      "headline": "Walk to the marina",
-      "blurb": "Taşyaka is the residential edge of Fethiye town — walkable to the marina and promenade, prized for panoramic bay views."
     },
     "gocek": {
       "headline": "Six marinas, blue-chip addresses",
@@ -246,16 +243,6 @@
         ],
         "bestFor": "Space, value and a genuinely Turkish setting"
       },
-      "tasyaka": {
-        "intro": "Taşyaka is the residential shoulder of Fethiye town where the hillside turns to face the bay. It is the only area on this list where a genuine panoramic sea view comes with a walk to the marina.",
-        "points": [
-          "Panoramic views over Fethiye bay and the Twelve Islands from elevated plots.",
-          "Walking distance to the marina promenade, the market and the hospital.",
-          "Supply is genuinely constrained — elevated plots are largely built out, so good properties move quickly.",
-          "The highest price per square metre of the areas we cover, and the most defensive on resale."
-        ],
-        "bestFor": "A sea view without giving up town convenience"
-      },
       "gocek": {
         "intro": "Göcek is the yachting capital of the gulf: six marinas, five-star hotels, and a low-density planning regime that has deliberately kept high-rise development out. It is thirty minutes from Fethiye and twenty from Dalaman airport.",
         "points": [
@@ -265,6 +252,16 @@
           "The most expensive market we cover, and the most resilient in a downturn."
         ],
         "bestFor": "Blue-chip resale and the yachting set"
+      },
+      "yaniklar": {
+        "intro": "A tranquil haven surrounded by sweetgum forests, citrus groves, and unspoiled beaches. It offers a slower, nature-focused lifestyle just a short drive from the centre.",
+        "points": [],
+        "bestFor": "Nature lovers, eco-friendly living, and peaceful retreats"
+      },
+      "kalkan": {
+        "intro": "A sophisticated coastal town famous for its high-end luxury villas, infinity pools, and breathtaking Mediterranean views. Known for its world-class dining and exclusive atmosphere.",
+        "points": [],
+        "bestFor": "Luxury lifestyle, premium investments, and spectacular sea views"
       }
     },
     "lifestyle": {
@@ -337,7 +334,7 @@
       "q1": "How long can I stay in Turkey as a property owner?",
       "a1": "Property ownership does not by itself grant unlimited stay. Visa-free allowances depend on your nationality, and for many passports the limit is 90 days in any 180-day period. Owners who want to stay longer apply for a short-term residence permit, which is a well-established route for property owners and one we help with as part of aftercare.",
       "q2": "What is the weather like in Fethiye in winter?",
-      "a2": "Daytime temperatures commonly sit in the mid-teens Celsius from December to February, with concentrated periods of rain rather than persistent drizzle. Many resort businesses in Ölüdeniz and Hisarönü close for the season, while Fethiye centre, Çalış and Taşyaka stay open all year.",
+      "a2": "Daytime temperatures commonly sit in the mid-teens Celsius from December to February, with concentrated periods of rain rather than persistent drizzle. Many resort businesses in Ölüdeniz and Hisarönü close for the season, while Fethiye and Çalış stay open all year.",
       "q3": "Is Fethiye a good place to retire?",
       "a3": "It is one of the most established retirement destinations on the Turkish coast, with large settled international communities / expats, flat walkable streets and good access to both state and private healthcare. The practical questions worth asking are healthcare cover, winter sociability and how easily family can visit.",
       "q4": "Do I need to speak Turkish to live in Fethiye?",
@@ -350,7 +347,6 @@
     "areasHeading": "The areas",
     "availableNow": "Available now",
     "bestForLabel": "Best for",
-    "ctaBody": "Two days on the ground will tell you more than two months of browsing. We build the itinerary around your shortlist, drive you between the areas, and there is no charge for our time.",
     "ctaHeading": "Reading about it only gets you so far",
     "ctaPrimary": "Plan a viewing trip",
     "ctaSecondary": "Ask us anything",
@@ -359,9 +355,14 @@
     "faqLede": "Residency, winters, healthcare and language — the practical things that decide whether a move works.",
     "heroTitle": "About Turkey",
     "jumpToAreas": "Jump to the area guides",
+    "livingEyebrow": "Daily life",
     "livingHeading": "What living here is actually like",
-    "livingLede": "The Fethiye region runs on a rhythm that takes about a year to learn: a long, hot, busy summer, a beautiful and genuinely quiet winter, and two shoulder seasons that most owners end up considering the best months of all.",
-    "metaDescription": "Lifestyle, climate, healthcare, cost of living and the case for investing on Turkey's turquoise coast — plus honest guides to Fethiye, Ölüdeniz, Hisarönü, Çalış, Göcek, Üzümlü, Ovacık and Taşyaka.",
+    "mapHint": "Tap a pin to open that area in Google Maps — real photos, Street View and directions.",
+    "mapLabel": "Interactive map of the areas we cover around Fethiye",
+    "mapLede": "Every area we cover, on one map. Open a pin and see the place for yourself before you read our take on it.",
+    "mapOpenLink": "View on Google Maps",
+    "mapPinLabel": "Open {area} in Google Maps (opens in a new tab)",
+    "metaDescription": "Lifestyle, climate, healthcare, cost of living and the case for investing on Turkey's turquoise coast — plus honest guides to Fethiye, Ölüdeniz, Hisarönü, Çalış, Göcek, Üzümlü and Ovacık.",
     "metaTitle": "Living in Fethiye: A Guide to Turkey's Turquoise Coast",
     "propertyCount": {
       "one": "{count} property",
@@ -655,7 +656,6 @@
     "costsHeading": "What a purchase costs on top of the price",
     "costsLede": "Budget 6–8% of the purchase price. Percentages below are set by statute; cash figures are the market range we see in the Fethiye area and are quoted per transaction.",
     "costsTableCaption": "Typical costs of buying a property in Fethiye, in addition to the purchase price",
-    "ctaBody": "Send us your budget and timeline and we will come back with properties that fit — plus a written breakdown of what the purchase would cost you all in.",
     "ctaBrowse": "Browse villas for sale",
     "ctaHeading": "Ready to see the shortlist?",
     "ctaSelling": "See how we sell property in Fethiye",
@@ -674,7 +674,6 @@
     "approachEyebrow": "Our approach",
     "approachHeading": "Targeted marketing, not mass marketing",
     "approachLede": "Listing a property everywhere is not a strategy. Reaching the small number of buyers actively planning a purchase in Fethiye is.",
-    "ctaBody": "A written appraisal based on completed sales nearby, not on what the villa down the road is asking. No obligation, and no pressure to list with us afterwards.",
     "ctaHeading": "Find out what your property is really worth",
     "ctaPrimary": "Request a valuation",
     "ctaSecondary": "Read the buying process",
@@ -885,7 +884,6 @@
     "consultHeading": "Get a citizenship consultation",
     "consultNote": "We work alongside English-speaking immigration solicitors who are instructed by you, not by us.",
     "consultWhatsapp": "Ask on WhatsApp",
-    "ctaBody": "We will shortlist properties that clear the threshold on a real valuation, not on an optimistic asking price — and tell you plainly if your budget does not reach it yet.",
     "ctaHeading": "Find out what your budget qualifies for",
     "ctaPrimary": "See qualifying properties",
     "ctaSecondary": "How the purchase works",
@@ -1028,7 +1026,6 @@
     "coverEyebrow": "Covered vs not covered",
     "coverHeading": "Read this before you assume you are covered",
     "coverLede": "The two lists below are the ones worth screenshotting. Almost every unpleasant surprise after a claim sits in the right-hand column.",
-    "ctaBody": "Send us your current policy and we will tell you plainly what it does and does not cover — in English, without a sales pitch attached.",
     "ctaHeading": "Not sure whether you are properly covered?",
     "ctaPrimary": "Get in touch",
     "daskBuyingNote": "If you are buying rather than renewing, DASK is arranged as part of the purchase — see ",
@@ -1055,7 +1052,6 @@
     "quoteWhatsapp": "Quote on WhatsApp"
   },
   "about": {
-    "ctaBody": "Not a call centre, not a lead form that disappears into a CRM. Tell us what you are considering and you will get a considered reply from someone who has stood in the properties concerned.",
     "ctaHeading": "Talk to the person who will handle your purchase",
     "ctaPrimary": "Get in touch",
     "ctaWhatsapp": "Message us on WhatsApp",
@@ -1072,20 +1068,65 @@
     "notDoingLede": "Overseas property has earned a share of its reputation. These are the practices we have deliberately built the firm to avoid.",
     "principlesEyebrow": "How we work",
     "principlesHeading": "Four commitments we will put in writing",
-    "storyCta": "See exactly how a purchase runs",
-    "storyEyebrow": "Our story",
-    "storyHeading": "Built on the coast we sell",
-    "storyP1": "We are based in Fethiye, not in a call centre elsewhere. That means we have walked every property on this site, we know which hillside loses the sun in November, and we know which developments have unresolved habitation certificates before the paperwork tells us.",
-    "storyP2": "The firm was founded to bridge two systems that rarely explain themselves to each other. Buyers arrive expecting the conveyancing habits of their own country. Türkiye offers a land registry that is faster and cleaner than most people expect, but with its own requirements — the SPK valuation report, DASK, the DAB currency certificate — that nobody mentions until they hold something up.",
-    "storyP3": "Our job is to remove that gap entirely: to make a purchase in Fethiye feel as legible as one at home, without pretending the two processes are the same.",
     "visionBody": "That buying a home on the Turkish coast becomes something families do with confidence rather than nerve — because the process was explained, the risks were named out loud, and the person guiding them had nothing to hide.",
     "visionEyebrow": "Our vision and mission",
     "visionLabel": "Our vision",
     "whatsappMessage": "Hello Coast 2 Coast — I'd like to know more about how you work.",
+    "story": {
+      "eyebrow": "Experience. Trust. Personal Service.",
+      "heading": "Coast2Coast Properties Turkey",
+      "lede": "Welcome to Coast2Coast Properties Turkey, an established and trusted property company with more than 15 years of experience helping clients from around the world find their perfect property in Türkiye.",
+      "intro": [
+        "Based in the beautiful town of Fethiye, we specialise in property throughout Fethiye and the surrounding areas, including Çalış, Hisarönü, Ovacık, Ölüdeniz, Seydikemer, Yeşilüzümlü and the surrounding regions.",
+        "For us, property is about much more than buying and selling. It is about people, relationships and making what can be a major life decision as straightforward, enjoyable and stress-free as possible."
+      ],
+      "foundersHeading": "Meet Ronnie & Nilay",
+      "founders": [
+        "Coast2Coast Properties Turkey is a family-run business. Ronnie looks after our international clients, while his wife Nilay looks after our Turkish clients.",
+        "Ronnie is Scottish and has lived in Türkiye for 26 years. During that time, he has developed an extensive knowledge of the local area, property market, legal and administrative systems, and has built a strong network of trusted contacts throughout the region.",
+        "Before moving to Türkiye, Ronnie spent many years working in sales management in the UK, including experience with the Sears Group. His background has provided him with excellent sales, communication and negotiation skills, but more importantly, a genuine understanding of customers and their individual needs.",
+        "Ronnie believes strongly in going that extra step for every client. From the very first conversation about which area may be right for you, through property searches and viewings, negotiations and the sales process, our goal is always to provide an honest, professional and personal service."
+      ],
+      "foundersQuote": "We want every client to feel confident, informed and 100% satisfied with their experience.",
+      "nilay": "Once a property has been agreed, Nilay takes care of the important paperwork and procedures relating to the sale, helping ensure the process is handled efficiently and correctly.",
+      "rangeHeading": "From Affordable Apartments to Luxury Properties",
+      "range": [
+        "Over the years, we have helped clients purchase properties across a wide range of the Turkish property market.",
+        "From one-bedroom apartments and affordable holiday homes to luxury properties valued at £1 million or more, we understand that every client is different and every property journey is unique.",
+        "We take the time to understand exactly what you are looking for — whether that is a holiday home, permanent residence, investment opportunity, buy-to-let property or your own luxury home in the sun.",
+        "We have also proudly represented Coast2Coast Properties at property exhibitions in the UK, helping international buyers discover the opportunities available in Türkiye."
+      ],
+      "clientsHeading": "Clients From Around the World",
+      "clients": [
+        "Our clients have come from all corners of the globe, including Australia, the USA, Europe and Asia.",
+        "But what makes us particularly proud is that many of our previous clients are still our friends today.",
+        "For us, that means far more than simply completing a successful property transaction.",
+        "Buying a property overseas is a major decision, and we understand that clients need someone they can trust, rely on and speak to honestly throughout the process.",
+        "Many of our previous clients continue to keep in touch, return to us when they are looking to purchase again, or recommend Coast2Coast to their friends and family.",
+        "That is something we are incredibly proud of."
+      ],
+      "clientsQuote": "At Coast2Coast, we believe that our relationship with a client doesn't end when they receive the keys.",
+      "whyHeading": "Why Coast2Coast Properties Turkey?",
+      "whyLede": "Our reputation has been built on three simple principles:",
+      "pillars": [
+        "Honesty",
+        "Experience",
+        "Personal Service"
+      ],
+      "whyBody": "We don't believe in simply showing clients properties and hoping for a sale.",
+      "creed": [
+        "We listen.",
+        "We understand.",
+        "We advise."
+      ],
+      "creedClose": "And we make sure that the property and location are right for the individual client.",
+      "whyClose": "With 26 years of living in Türkiye, more than 15 years in the property business, extensive local knowledge and a strong network of contacts, we are able to offer our clients much more than a standard estate agency.",
+      "cta": "See exactly how a purchase runs"
+    },
     "principles": {
       "represent": {
-        "title": "We represent you, not the seller",
-        "body": "Your solicitor is instructed by you and is independent of us. We will never recommend the seller's lawyer, and we will tell you when a deal is not worth doing — including when the property is one of ours."
+        "title": "We represent you and the seller",
+        "body": "Your solicitor is instructed by you and is independent of us. Solicitors are not mandatory in Türkiye, but we recommend you use one if you are a foreign national."
       },
       "language": {
         "title": "Nothing is signed in a language you cannot read",
@@ -1130,7 +1171,6 @@
     "faqEyebrow": "Straight answers",
     "faqHeading": "Viewing trip questions",
     "faqLede": "Costs, timings, how many properties and what happens if you decide not to buy — which is a completely normal outcome.",
-    "finalBody": "Start with the portfolio, or read how a purchase actually runs from offer to title deed. When you are ready, the trip will be here.",
     "finalHeading": "Not ready to fly yet?",
     "finalPrimary": "Browse villas for sale",
     "finalSecondary": "Read about the region",
@@ -1206,7 +1246,6 @@
     "noPhotos": "Photography coming soon",
     "notFoundBody": "This property is no longer listed. Browse our current villas for sale in Fethiye, Ölüdeniz and Göcek.",
     "notFoundTitle": "Property not found",
-    "offMarketBody": "A meaningful share of what we sell goes to a registered buyer before it is ever advertised. Tell us the brief and we will send matches as they arrive.",
     "offMarketHeading": "The best properties rarely reach this page",
     "plot": "plot",
     "previousPhoto": "Previous photo",
@@ -1308,6 +1347,7 @@
       "propertiesCta": "Clifftop swimming pool above the Mediterranean sea",
       "about": "Yachts at anchor in a sheltered bay on the Fethiye coast",
       "aboutTurkey": "Ölüdeniz beach and the resort behind it seen from the hillside road",
+      "aboutTurkeyDailyLife": "Yachts moored in Fethiye harbour at sunrise, with the pine-covered hills rising behind the town",
       "revealAreas": "Contemporary architectural interior opening onto the coast",
       "revealProcess": "Green mountains falling into the bright blue sea on the Fethiye coast",
       "blog": "The bay and the town seen from the hillside road above Fethiye",

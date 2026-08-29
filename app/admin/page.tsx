@@ -164,7 +164,8 @@ export default async function AdminDashboardPage() {
                       href={`/admin/properties/${villa.slug}`}
                       className="font-display text-sm font-semibold text-sea-deep underline-offset-4 hover:underline"
                     >
-                      {villa.title}
+                      {/* Panelde kaynak (İngilizce) başlık — bkz. admin/properties/page.tsx */}
+                      {villa.title.en}
                     </Link>
                     <span className="mt-0.5 block font-mono text-[0.6875rem] text-ink-40">
                       {villa.reference}

@@ -71,6 +71,18 @@ export async function POST(request: NextRequest) {
     return [applyInput(input, undefined, slug), ...villas];
   });
 
+  // TODO: Trigger DeepL translation queue for empty TR/RU fields here in the future
+  /*
+    KANCA NOKTASI BURASI — istemcideki gönderim değil.
+    Kayıt diske YAZILDIKTAN sonra çalışmalı ki kuyruk gerçekten var olan
+    bir slug'a iş açsın. Eksik dilleri `missingLocales(villa.title)` ile
+    (lib/localized.ts) tespit edip yalnızca onları çevirmek yeterli;
+    dolu bir çeviriyi yeniden çevirmek hem ücretli hem de yöneticinin
+    elle yazdığı metni ezmek demek.
+
+    Aynı çağrı PATCH tarafında da gerekecek (bkz. [slug]/route.ts).
+  */
+
   revalidateProperties(createdSlug);
 
   return Response.json({ slug: createdSlug }, { status: 201 });

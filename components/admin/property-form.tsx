@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { ArrowLeft, Loader2, Save, Trash2, TriangleAlert } from "lucide-react";
 import {
   CheckboxField,
@@ -12,7 +12,10 @@ import {
   TextField,
 } from "@/components/admin/form-fields";
 import { ImageManager } from "@/components/admin/image-manager";
-import { cn } from "@/lib/cn";
+import { FeaturePicker } from "@/components/admin/feature-picker";
+import { LocationPicker } from "@/components/admin/location-picker";
+import { StringListField } from "@/components/admin/string-list-field";
+import { LocaleTabs, type AdminLocale } from "@/components/admin/locale-tabs";
 import { serviceAreas } from "@/lib/site";
 import { slugify } from "@/lib/slugify";
 import type { Villa, VillaImage, VillaStatus } from "@/lib/types";
@@ -63,11 +66,23 @@ const STATUSES: { value: VillaStatus; label: string }[] = [
 
 type Errors = Record<string, string>;
 
-export function PropertyForm({ existing }: { existing?: Villa }) {
+export function PropertyForm({
+  existing,
+  /*
+    Portföyde geçen özellikler — açılır listeyi besliyor.
+
+    Varsayılan boş dizi: prop opsiyonel kalsın ki bileşen liste olmadan da
+    çalışsın. O durumda seçici serbest girişe düşüyor, yani ESKİ davranış —
+    bozulan bir şey yok, yalnızca hızlandırma devre dışı.
+  */
+  knownFeatures = [],
+}: {
+  existing?: Villa;
+  knownFeatures?: string[];
+}) {
   const router = useRouter();
   const isEdit = Boolean(existing);
 
-  const [title, setTitle] = useState(existing?.title ?? "");
   const [headline, setHeadline] = useState(existing?.headline ?? "");
   const [propertyType, setPropertyType] = useState(
     existing?.propertyType ?? PROPERTY_TYPES[0],
@@ -83,14 +98,60 @@ export function PropertyForm({ existing }: { existing?: Villa }) {
   const [plotSize, setPlotSize] = useState(String(existing?.plotSizeSqm ?? ""));
 
   /*
+    ─────────────────────────── ÜÇ DİLLİ METİN ALANLARI ───────────────────
+    `title`, `description` ve `whyThisOne` artık dil başına bir değer
+    tutuyor (bkz. lib/localized.ts). Form durumu bu yüzden düz bir dize
+    değil, `Record<AdminLocale, …>`.
+
+    ⚠️ BOŞ DİZE = ÇEVİRİ YOK. Veride `null` yazıyoruz ama formda `""`
+    tutuyoruz: `<input value={null}>` React'te kontrolsüz bileşen uyarısı
+    üretir. Dönüşüm gönderim anında, tek yerde yapılıyor (`toLocalized*`).
+  */
+  const [activeLocale, setActiveLocale] = useState<AdminLocale>("en");
+
+  const [title, setTitle] = useState<Record<AdminLocale, string>>({
+    en: existing?.title.en ?? "",
+    tr: existing?.title.tr ?? "",
+    ru: existing?.title.ru ?? "",
+  });
+
+  /*
     Açıklama ekranda TEK bir metin alanı, veride ise paragraf DİZİSİ
     (her eleman bir <p>). Boş satırla ayırmak, yöneticiye markdown veya
     HTML öğretmeden paragraf kurmanın en doğal yolu.
   */
-  const [description, setDescription] = useState(
-    (existing?.description ?? []).join("\n\n"),
-  );
-  const [features, setFeatures] = useState((existing?.features ?? []).join(", "));
+  const [description, setDescription] = useState<Record<AdminLocale, string>>({
+    en: (existing?.description.en ?? []).join("\n\n"),
+    tr: (existing?.description.tr ?? []).join("\n\n"),
+    ru: (existing?.description.ru ?? []).join("\n\n"),
+  });
+  /*
+    Özellikler artık DİZİ, virgülle ayrılmış dize değil.
+
+    Eski hâlinde durum bir metin alanıydı ve her gönderimde `split(",")`
+    ile parçalanıyordu. Rozet arayüzü bunu sürdüremezdi: bir rozeti
+    kaldırmak, dizenin içinden doğru virgül aralığını kesip çıkarmak
+    demekti — ve içinde virgül geçen bir özellik ("Kitchen, fully fitted")
+    o işlemi sessizce bozardı.
+  */
+  const [features, setFeatures] = useState<string[]>(existing?.features ?? []);
+
+  /*
+    "Why this one" maddeleri — DİZİ olarak tutuluyor, `features` gibi tek bir
+    dize olarak değil.
+
+    Fark kasıtlı: `features` rozet ("Sea view"), bunlar cümle ("Walking
+    distance to the marina and the Tuesday market"). Virgülle ayrılmış tek
+    bir alanda, içinde virgül geçen ilk cümle sessizce ikiye bölünürdü.
+
+    `?? []` gerekli: alan sonradan eklendi ve `Villa.whyThisOne` opsiyonel,
+    yani daha önce kaydedilmiş bir ilan onu taşımayabilir.
+  */
+  const [whyThisOne, setWhyThisOne] = useState<Record<AdminLocale, string[]>>({
+    en: existing?.whyThisOne?.en ?? [],
+    tr: existing?.whyThisOne?.tr ?? [],
+    ru: existing?.whyThisOne?.ru ?? [],
+  });
 
   /* Slug düzenlemede DOKUNULMAZ varsayılan: değiştirmek canlı bir URL'i
      kırar ve gelen bağlantıları 404'e düşürür. Yine de elle değiştirilebilir. */
@@ -128,6 +189,24 @@ export function PropertyForm({ existing }: { existing?: Villa }) {
   );
 
   /**
+   * HARİTANIN FORMA YAZDIĞI TEK KAPI — enlem ve boylam BİRLİKTE.
+   *
+   * İki ayrı setter'ı haritadan çağırmak, aralarında bir render'ın
+   * sıkışabileceği bir aralık bırakıyordu: o an durum "enlem yeni, boylam
+   * eski", yani var olmayan bir konum. Pin o karede görünür biçimde
+   * zıplıyordu. Tek çağrı ikisini aynı toplu güncellemeye koyuyor.
+   *
+   * `useCallback` süs değil: `LocationPicker` bu referansı Leaflet
+   * işaretçisinin olay yöneticilerine bağlıyor. Her render'da yeni bir
+   * fonksiyon vermek, sürükleme sırasında dinleyicileri sökmek ve yeniden
+   * bağlamak demekti.
+   */
+  const setCoordinates = useCallback((lat: string, lng: string) => {
+    setLatitude(lat);
+    setLongitude(lng);
+  }, []);
+
+  /**
    * HATA DURUMU — iki kaynak, biri TÜRETİLMİŞ.
    *
    * ⚠️ Bu başta `useState` ile tutuluyordu ve gözle görülür bir hataya yol
@@ -148,11 +227,18 @@ export function PropertyForm({ existing }: { existing?: Villa }) {
   const [deleting, setDeleting] = useState(false);
 
   /** Başlık yazılırken slug canlı türetilir — yönetici elle değiştirene kadar. */
-  const effectiveSlug = slugTouched ? slugify(slug) : slugify(title);
+  /*
+    ⚠️ SLUG DAİMA İNGİLİZCE BAŞLIKTAN. Türkçe sekmesinde yazarken URL'in
+    değişmesi, canlı bir ilanın adresini sessizce kırardı — üstelik dil
+    başına farklı bir slug üretmek üç ayrı kayıt izlenimi verirdi.
+  */
+  const effectiveSlug = slugTouched ? slugify(slug) : slugify(title.en);
 
   const validate = (): Errors => {
     const next: Errors = {};
-    if (!title.trim()) next.title = "Title is required.";
+    /* Yalnızca İNGİLİZCE zorunlu: TR/RU boş bırakılabilir, site onları
+       İngilizceye düşürerek gösterir (bkz. getLocalizedField). */
+    if (!title.en.trim()) next.title = "English title is required.";
     if (!(Number(price) > 0)) next.priceGbp = "Enter a price greater than zero.";
     if (!areaSlug) next.areaSlug = "Choose an area.";
     if (!effectiveSlug) next.slug = "Could not build a URL from this title.";
@@ -203,8 +289,14 @@ export function PropertyForm({ existing }: { existing?: Villa }) {
 
     setSaving(true);
 
+    /*
+      TODO: Trigger DeepL translation queue for empty TR/RU fields here in the future
+      (boş dilleri `missingLocales()` ile tespit edip kuyruğa yollayın —
+      lib/localized.ts).
+    */
+
     const payload = {
-      title: title.trim(),
+      title: toLocalizedText(title),
       headline: headline.trim(),
       propertyType,
       areaSlug,
@@ -216,15 +308,11 @@ export function PropertyForm({ existing }: { existing?: Villa }) {
       buildSizeSqm: Number(buildSize) || 0,
       plotSizeSqm: Number(plotSize) || 0,
       slug: effectiveSlug,
-      /* Boş satırla bölünmüş paragraflar → dizi. */
-      description: description
-        .split(/\n\s*\n/)
-        .map((paragraph) => paragraph.trim())
-        .filter(Boolean),
-      features: features
-        .split(",")
-        .map((feature) => feature.trim())
-        .filter(Boolean),
+      /* Boş satırla bölünmüş paragraflar → dizi, dil başına. */
+      description: toLocalizedList(description, splitParagraphs),
+      /* `features` ÇEVRİLMİYOR — rozetler tek dilde kalıyor (bkz. özet). */
+      features,
+      whyThisOne: toLocalizedList(whyThisOne, (value) => value),
       images,
       seoTitle: seoTitle.trim(),
       seoDescription: seoDescription.trim(),
@@ -320,7 +408,7 @@ export function PropertyForm({ existing }: { existing?: Villa }) {
             All properties
           </Link>
           <h1 className="mt-2 truncate font-display text-3xl text-sea-deep sm:text-4xl">
-            {isEdit ? existing!.title : "New property"}
+            {isEdit ? existing!.title.en : "New property"}
           </h1>
           {effectiveSlug ? (
             <p className="mt-1.5 font-mono text-xs text-ink-40">
@@ -383,13 +471,34 @@ export function PropertyForm({ existing }: { existing?: Villa }) {
           description="Title and price are required. Everything else can be filled in later."
           columns={2}
         >
+          {/*
+            ÜÇ DİLLİ BAŞLIK. Sekme yalnızca hangi dilin DÜZENLENDİĞİNİ
+            değiştiriyor; üç değer de durumda duruyor, sekme değiştirmek
+            yazılanı kaybetmiyor.
+          */}
           <div className="sm:col-span-2">
+            <div className="mb-2 flex items-center justify-between gap-3">
+              <LocaleTabs
+                idPrefix="Title"
+                active={activeLocale}
+                onChange={setActiveLocale}
+                filled={localeFilled(title)}
+              />
+              {activeLocale !== "en" ? (
+                <span className="text-[0.6875rem] text-ink-40">
+                  Leave empty to show the English title
+                </span>
+              ) : null}
+            </div>
             <TextField
-              label="Title"
-              required
-              value={title}
-              onChange={setTitle}
-              error={errors.title}
+              label={`Title (${activeLocale.toUpperCase()})`}
+              required={activeLocale === "en"}
+              value={title[activeLocale]}
+              onChange={(value) =>
+                setTitle((current) => ({ ...current, [activeLocale]: value }))
+              }
+              /* Hata yalnızca İngilizce sekmesinde: zorunluluk orada. */
+              error={activeLocale === "en" ? errors.title : undefined}
               placeholder="Villa Meltem"
             />
           </div>
@@ -500,37 +609,128 @@ export function PropertyForm({ existing }: { existing?: Villa }) {
           description="Separate paragraphs with a blank line. Features become the badges shown on the listing."
           columns={1}
         >
-          <TextArea
-            label="Description"
-            value={description}
-            onChange={setDescription}
-            rows={10}
-            hint="Blank line = new paragraph"
-            placeholder={"First paragraph.\n\nSecond paragraph."}
-          />
-          <TextArea
+          <div>
+            <div className="mb-2 flex items-center justify-between gap-3">
+              <LocaleTabs
+                idPrefix="Description"
+                active={activeLocale}
+                onChange={setActiveLocale}
+                filled={localeFilled(description)}
+              />
+              {activeLocale !== "en" ? (
+                <span className="text-[0.6875rem] text-ink-40">
+                  Leave empty to show the English description
+                </span>
+              ) : null}
+            </div>
+            <TextArea
+              label={`Description (${activeLocale.toUpperCase()})`}
+              value={description[activeLocale]}
+              onChange={(value) =>
+                setDescription((current) => ({
+                  ...current,
+                  [activeLocale]: value,
+                }))
+              }
+              rows={10}
+              hint="Blank line = new paragraph"
+              placeholder={"First paragraph.\n\nSecond paragraph."}
+            />
+          </div>
+          <FeaturePicker
             label="Features"
-            value={features}
+            selected={features}
+            known={knownFeatures}
             onChange={setFeatures}
-            rows={3}
-            hint="Comma separated"
-            placeholder="Private pool, Sea view, Underfloor heating"
+            /* Sunucudaki `asStringArray(raw.features, 40, 80)` ile AYNI
+               sınırlar — ayrışırlarsa form sunucunun atacağı bir değeri
+               kabul etmiş olur. */
+            maxItems={40}
+            maxLength={80}
+            placeholder="Type a new feature…"
+          />
+        </Section>
+
+        {/* ------------------------------------------------ WHY THIS ONE */}
+        <Section
+          title="Why this one"
+          description="The selling points shown in a two-column grid near the top of the listing page. Leave it empty and the section does not appear at all."
+          columns={1}
+        >
+          <div className="mb-2 flex items-center justify-between gap-3">
+            <LocaleTabs
+              idPrefix="Selling points"
+              active={activeLocale}
+              onChange={setActiveLocale}
+              filled={localeFilled(whyThisOne)}
+            />
+            {activeLocale !== "en" ? (
+              <span className="text-[0.6875rem] text-ink-40">
+                Leave empty to show the English points
+              </span>
+            ) : null}
+          </div>
+          <StringListField
+            label={`Selling points (${activeLocale.toUpperCase()})`}
+            items={whyThisOne[activeLocale]}
+            onChange={(items) =>
+              setWhyThisOne((current) => ({
+                ...current,
+                [activeLocale]: items,
+              }))
+            }
+            addLabel="Add"
+            /* Sunucudaki `asStringArray(raw.whyThisOne, 12, 200)` ile AYNI
+               sınırlar. Ayrışırlarsa form 13. maddeyi kabul eder, sunucu
+               sessizce atar ve yönetici kaybı ancak sayfada fark eder. */
+            maxItems={12}
+            maxLength={200}
+            placeholder="Walking distance to the marina and the Tuesday market"
           />
         </Section>
 
         {/* -------------------------------------------- KONUM & TAPU */}
         <Section
           title="Location and title deed"
-          description="Coordinates place the exact pin on the listing map. Leave them blank and the map falls back to the centre of the chosen area."
+          description="Click the map to place the property's pin, or drag it to fine-tune. Leave the map untouched and the listing falls back to the centre of the chosen area."
           columns={2}
         >
+          <div className="sm:col-span-2">
+            <LocationPicker
+              latitude={latitude}
+              longitude={longitude}
+              onChange={setCoordinates}
+              areaSlug={areaSlug}
+              /*
+                İki alanın hatası TEK bir mesajda toplanıyor: harita da tek
+                bir denetim. "Enlem geçersiz" ile "boylam geçersiz"i ayrı
+                ayrı göstermenin, altında sayı kutusu olmayan bir haritada
+                karşılığı yok.
+              */
+              error={errors.latitude ?? errors.longitude}
+            />
+          </div>
+
+          {/*
+            SAYI ALANLARI DURUYOR — ama artık İKİNCİL.
+
+            Kaldırılmadılar çünkü iki gerçek iş görüyorlar: (1) elde hazır
+            bir koordinat varsa yapıştırmak sürüklemekten hızlı, (2)
+            kaydedilecek değeri tam hâliyle GÖSTERİYORLAR — harita yalnızca
+            bir pin çiziyor, sayıyı okutmuyor.
+
+            Bağlantı çift yönlü: buraya yazılan değer haritadaki pini
+            oynatıyor, haritada oynatılan pin buradaki sayıyı yazıyor.
+            İkisi de aynı state'i okuyup yazdığı için ayrışmaları mümkün
+            değil.
+          */}
           <TextField
             label="Latitude"
             type="text"
             value={latitude}
             onChange={setLatitude}
             error={errors.latitude}
-            hint="e.g. 36.7522"
+            hint="Set by the map — or paste"
             placeholder="36.7522"
           />
           <TextField
@@ -539,30 +739,9 @@ export function PropertyForm({ existing }: { existing?: Villa }) {
             value={longitude}
             onChange={setLongitude}
             error={errors.longitude}
-            hint="e.g. 28.9403"
+            hint="Set by the map — or paste"
             placeholder="28.9403"
           />
-
-          <div className="sm:col-span-2">
-            {/*
-              Yöneticiye pinin şu an ne göstereceğini AÇIKÇA söylüyoruz.
-              Bu bilgi olmadan "koordinat girmezsem ne olur" sorusunun
-              cevabı görünmüyor ve 21 taşınmış ilan sessizce yaklaşık
-              konumda kalmaya devam ederdi.
-            */}
-            <p
-              className={cn(
-                "rounded-sm border px-4 py-3 text-sm",
-                latitude.trim() && longitude.trim()
-                  ? "border-line bg-sea-tint text-sea-deep"
-                  : "border-line bg-shell-deep text-ink-40",
-              )}
-            >
-              {latitude.trim() && longitude.trim()
-                ? "Exact pin — the map will show this position."
-                : "Approximate — the map will show the centre of the selected area instead."}
-            </p>
-          </div>
 
           <SelectField
             label="Title deed status"
@@ -584,7 +763,9 @@ export function PropertyForm({ existing }: { existing?: Villa }) {
         <section className="border border-line bg-shell p-6 sm:p-8">
           <ImageManager
             slug={effectiveSlug}
-            altBase={title || "Property"}
+            /* Alt metin tabanı kaynak dilden: görsel dosyaları dile göre
+               değişmiyor, tek bir kayda ait. */
+            altBase={title.en || "Property"}
             images={images}
             onChange={setImages}
           />
@@ -629,4 +810,56 @@ export function PropertyForm({ existing }: { existing?: Villa }) {
       </div>
     </form>
   );
+}
+
+/* ------------------------------------------------------------------ i18n */
+
+/** Boş satırla ayrılmış metni paragraf dizisine böler. */
+function splitParagraphs(value: string): string[] {
+  return value
+    .split(/\n\s*\n/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean);
+}
+
+/**
+ * ⚠️ BOŞ ÇEVİRİ `null` OLARAK GİDER, `""` OLARAK DEĞİL.
+ *
+ * İkisi veride farklı şey söylüyor: `""` "yönetici boş bir çeviri kaydetti",
+ * `null` ise "bu dil henüz çevrilmedi". Ayrım DeepL kuyruğu için kritik —
+ * kuyruk `null` olanları arayacak. Ayrıca `getLocalizedField` boş dizeyi
+ * zaten yedeğe düşürüyor, yani ekranda fark yok; fark yalnızca NİYETTE.
+ */
+function toLocalizedText(value: Record<AdminLocale, string>) {
+  return {
+    en: value.en.trim(),
+    tr: value.tr.trim() || null,
+    ru: value.ru.trim() || null,
+  };
+}
+
+/** Aynı kural liste alanları için (`description`, `whyThisOne`). */
+function toLocalizedList<T>(
+  value: Record<AdminLocale, T>,
+  toList: (value: T) => string[],
+) {
+  const en = toList(value.en);
+  const tr = toList(value.tr);
+  const ru = toList(value.ru);
+
+  return {
+    en,
+    tr: tr.length ? tr : null,
+    ru: ru.length ? ru : null,
+  };
+}
+
+/** Sekme rozetleri için: bu dilde içerik var mı? */
+export function localeFilled(
+  value: Record<AdminLocale, string | string[]>,
+): Record<AdminLocale, boolean> {
+  const has = (v: string | string[]) =>
+    Array.isArray(v) ? v.length > 0 : v.trim().length > 0;
+
+  return { en: has(value.en), tr: has(value.tr), ru: has(value.ru) };
 }

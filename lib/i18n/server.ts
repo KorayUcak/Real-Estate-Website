@@ -285,7 +285,18 @@ export async function getInsuranceCopy() {
   };
 }
 
-/** /about — ilkeler ve "yapmadıklarımız" listesi. */
+/**
+ * /about — hikâye paragrafları, ilkeler ve "yapmadıklarımız" listesi.
+ *
+ * ⚠️ HİKÂYE PARAGRAFLARI NEDEN `t()` İLE OKUNMUYOR: `TranslationKey`
+ * birleşimi dizileri dışarıda bırakıyor (bkz. lib/i18n/index.ts `Leaves`),
+ * çünkü dizi anahtarları tamamlamayı "length", "flatMap" gibi üyelerle
+ * doldururdu. Metin dizi olarak duruyor ki paragraf sayısı dilden dile
+ * değişebilsin — `storyP1..P3` gibi numaralı anahtarlar bunu yapamıyordu:
+ * bir dilde bir paragraf eklemek üç sözlüğü birden yeniden numaralamak
+ * demekti. Başlık ve tek paragraflık alanlar `t()` ile okunmaya devam
+ * ediyor; yalnızca ÇOKLU paragraf blokları buradan geçiyor.
+ */
 export async function getAboutCopy() {
   const dictionary = await getDictionary();
   const a = dictionary.about;
@@ -295,6 +306,14 @@ export async function getAboutCopy() {
       (a.principles as Record<string, typeof fallback | undefined>)[key] ??
       fallback,
     notDoing: a.notDoing as string[],
+    story: {
+      intro: a.story.intro as string[],
+      founders: a.story.founders as string[],
+      range: a.story.range as string[],
+      clients: a.story.clients as string[],
+      pillars: a.story.pillars as string[],
+      creed: a.story.creed as string[],
+    },
   };
 }
 

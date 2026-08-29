@@ -90,17 +90,6 @@ export const AREA_DETAIL: Record<
     ],
     bestFor: "Space, value and a genuinely Turkish setting",
   },
-  tasyaka: {
-    intro:
-      "Taşyaka is the residential shoulder of Fethiye town where the hillside turns to face the bay. It is the only area on this list where a genuine panoramic sea view comes with a walk to the marina.",
-    points: [
-      "Panoramic views over Fethiye bay and the Twelve Islands from elevated plots.",
-      "Walking distance to the marina promenade, the market and the hospital.",
-      "Supply is genuinely constrained — elevated plots are largely built out, so good properties move quickly.",
-      "The highest price per square metre of the areas we cover, and the most defensive on resale.",
-    ],
-    bestFor: "A sea view without giving up town convenience",
-  },
   gocek: {
     intro:
       "Göcek is the yachting capital of the gulf: six marinas, five-star hotels, and a low-density planning regime that has deliberately kept high-rise development out. It is thirty minutes from Fethiye and twenty from Dalaman airport.",
@@ -111,6 +100,29 @@ export const AREA_DETAIL: Record<
       "The most expensive market we cover, and the most resilient in a downturn.",
     ],
     bestFor: "Blue-chip resale and the yachting set",
+  },
+  /* ------------------------------------------------------------------
+     ⚠️ AŞAĞIDAKİ İKİSİNİN `points` DİZİSİ BİLİNÇLİ OLARAK BOŞ.
+
+     Diğer yedi bölgenin dört maddelik listesi var; bu ikisi için henüz
+     yazılmadı. Boş dizi, uydurma madde yazmaktan iyi: kart giriş metni ve
+     "şunun için ideal" satırıyla eksiksiz görünüyor, liste yazıldığı anda
+     da kendiliğinden beliriyor (sayfa boş listeyi hiç basmıyor).
+
+     Bu iki bölge WordPress taşımasıyla gelmişti ve uzun süre `AREA_DETAIL`
+     dışında kaldıkları için kartlarında "Best for: —" yazıyordu.
+     ------------------------------------------------------------------ */
+  yaniklar: {
+    intro:
+      "A tranquil haven surrounded by sweetgum forests, citrus groves, and unspoiled beaches. It offers a slower, nature-focused lifestyle just a short drive from the centre.",
+    points: [],
+    bestFor: "Nature lovers, eco-friendly living, and peaceful retreats",
+  },
+  kalkan: {
+    intro:
+      "A sophisticated coastal town famous for its high-end luxury villas, infinity pools, and breathtaking Mediterranean views. Known for its world-class dining and exclusive atmosphere.",
+    points: [],
+    bestFor: "Luxury lifestyle, premium investments, and spectacular sea views",
   },
 };
 
@@ -139,7 +151,6 @@ export const AREA_DETAIL: Record<
  */
 export const HIDDEN_AREA_SLUGS = new Set([
   "bekciler",
-  "tasyaka",
   "seydikemer",
   "dalaman",
 ]);
@@ -147,6 +158,84 @@ export const HIDDEN_AREA_SLUGS = new Set([
 /** Rehberde gösterilecek mi — sayfa ve footer aynı yerden soruyor. */
 export function isAreaVisibleInGuide(slug: string): boolean {
   return !HIDDEN_AREA_SLUGS.has(slug);
+}
+
+/* ------------------------------------------------------------------------
+   BÖLGE HARİTASI — /about-turkey#areas
+
+   Bölge kartlarındaki stok fotoğrafların yerini bu harita aldı. Gerekçe iki
+   katmanlı:
+
+     1. TELİF. Kartlardaki görseller Unsplash'ten geliyordu ve HİÇBİRİ
+        gerçekten o bölgeyi göstermiyordu — "Akdeniz'de bir kıyı" fotoğrafına
+        "Üzümlü" yazmak, en iyi ihtimalle yer tutucu, en kötüsünde yanıltıcı.
+        Gerçek fotoğrafı olmayan bir yeri temsil etmenin lisanslı tek yolu
+        kendi fotoğrafımız; o gelene kadar hiç göstermemek daha dürüst.
+
+     2. KULLANICI. Alıcının fotoğraftan istediği şey zaten Google Haritalar'da
+        var: mekân kartı, kullanıcı fotoğrafları, Street View. Pini oraya
+        bağlamak, bizim ekleyemeyeceğimiz bir derinliği tek tıkla açıyor.
+
+   ⚠️ PIN TIKLAMASI POPUP AÇMAZ. Bölge anlatısı zaten haritanın hemen altında
+   yazılı; pine basınca üstüne bir de balon açmak aynı metni ikinci kez, daha
+   dar bir kutuda göstermek olurdu. Pin doğrudan Google Haritalar'a gider.
+   ------------------------------------------------------------------------ */
+
+/**
+ * GOOGLE HARİTALAR SORGUSU — koordinat DEĞİL, tam nitelenmiş AD.
+ *
+ * ⚠️ İKİSİ AYNI ŞEYİ VERMİYOR. `?api=1&query=36.55,29.11` haritayı doğru
+ * noktaya götürür ama açtığı şey "bırakılmış bir iğne": fotoğraf yok, mekân
+ * kartı yok, Street View girişi yok. Bu haritanın VAR OLMA SEBEBİ tam olarak
+ * o kart olduğu için koordinat sorgusu işe yaramaz.
+ *
+ * Ad sorgusu mekân kartını açar — ama çıplak ad TEHLİKELİ: Türkiye'de birden
+ * fazla Ovacık (Tunceli), Üzümlü (Erzincan) ve Yanıklar var; Google pekâlâ
+ * yanlış ilçeyi seçebilir. Bu yüzden her sorgu ilçe + il ile nitelendi.
+ *
+ * NOT: Kalkan Fethiye'de DEĞİL — Kaş/Antalya. Diğer sekizi Muğla'da.
+ */
+export const AREA_MAPS_QUERY: Record<string, string> = {
+  "fethiye-centre": "Fethiye, Muğla, Türkiye",
+  oludeniz: "Ölüdeniz, Fethiye, Muğla, Türkiye",
+  hisaronu: "Hisarönü, Fethiye, Muğla, Türkiye",
+  ovacik: "Ovacık, Fethiye, Muğla, Türkiye",
+  calis: "Çalış Plajı, Fethiye, Muğla, Türkiye",
+  uzumlu: "Yeşil Üzümlü, Fethiye, Muğla, Türkiye",
+  gocek: "Göcek, Fethiye, Muğla, Türkiye",
+  yaniklar: "Yanıklar, Fethiye, Muğla, Türkiye",
+  kalkan: "Kalkan, Kaş, Antalya, Türkiye",
+};
+
+/**
+ * ETİKET HANGİ YANDA — elle, çünkü çakışmayı hesaplayan bir motor yok.
+ *
+ * Varsayılan görünümde (masaüstünde zoom 10) Ovacık ile Hisarönü arasında
+ * yalnızca ~8px dikey mesafe var: ikisi de aynı yana yazılırsa etiketler
+ * üst üste biner. Değerler o görünümdeki gerçek piksel konumlarına göre
+ * seçildi; bir koordinat değişirse buraya da bakın.
+ */
+export const AREA_MAP_LABEL_SIDE: Record<string, "left" | "right"> = {
+  gocek: "right",
+  uzumlu: "right",
+  yaniklar: "left",
+  calis: "left",
+  "fethiye-centre": "right",
+  ovacik: "right",
+  hisaronu: "left",
+  oludeniz: "right",
+  kalkan: "right",
+};
+
+/**
+ * Google Haritalar arama bağlantısı — resmî "Maps URLs" biçimi.
+ * API anahtarı gerektirmez ve `?api=1` sözleşmesi Google tarafından
+ * kararlı tutulur (elle kurulmuş /maps/place/... yollarının aksine).
+ */
+export function areaMapsUrl(slug: string, fallbackName: string): string {
+  const query = AREA_MAPS_QUERY[slug] ?? `${fallbackName}, Türkiye`;
+
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
 }
 
 export const NEARBY_PLACES = [
@@ -270,7 +359,7 @@ export const TURKEY_FAQS = [
   {
     question: "What is the weather like in Fethiye in winter?",
     answer:
-      "Daytime temperatures commonly sit in the mid-teens Celsius from December to February, with concentrated periods of rain rather than persistent drizzle. Many resort businesses in Ölüdeniz and Hisarönü close for the season, while Fethiye centre, Çalış and Taşyaka stay open all year.",
+      "Daytime temperatures commonly sit in the mid-teens Celsius from December to February, with concentrated periods of rain rather than persistent drizzle. Many resort businesses in Ölüdeniz and Hisarönü close for the season, while Fethiye and Çalış stay open all year.",
   },
   {
     question: "Is Fethiye a good place to retire?",

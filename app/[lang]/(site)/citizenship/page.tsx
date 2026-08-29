@@ -398,9 +398,9 @@ export default async function CitizenshipPage() {
                 >
                   {t("citizenshipPage.ctaHeading")}
                 </h2>
-                <p className="mt-4 sm:mt-6 max-w-xl leading-relaxed text-shell/85">
-                  {t("citizenshipPage.ctaBody")}
-              </p>
+                {/* CTA açıklama paragrafı KALDIRILDI — bu blokta artık yalnızca
+                    başlık ve eylem düğmeleri var (dokuz sayfada birden).
+                    Sözlükteki karşılığı da silindi. */}
               </div>
 
               <div className="flex flex-col gap-4 lg:col-span-4 lg:col-start-9">

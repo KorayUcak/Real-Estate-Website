@@ -174,7 +174,19 @@ export type ServiceArea = {
 export const serviceAreas: ServiceArea[] = [
   {
     slug: "fethiye-centre",
-    name: "Fethiye Merkez",
+    /*
+      ⚠️ SLUG "fethiye-centre" KALIYOR, AD "Fethiye" OLDU.
+
+      Etiketten "Merkez" düştü çünkü artık Taşyaka da bu bölgenin içinde;
+      "merkez" demek, kapsadığı alandan dar bir söz vermek olurdu.
+
+      Slug'a dokunulmadı ve bu bilinçli: `?area=fethiye-centre` filtre
+      bağlantıları dizinde, ilan kayıtlarının `location.areaSlug` alanı
+      buna bağlı, /about-turkey#area-fethiye-centre çapası da öyle.
+      Görünen adı değiştirmek bunların hiçbirini kırmıyor; slug'ı
+      değiştirmek üçünü birden kırardı.
+    */
+    name: "Fethiye",
     headline: "Marina living, year-round town",
     blurb:
       "Fethiye's town centre pairs a working marina, the Tuesday market and full-time amenities with sea-view apartments and hillside villas.",
@@ -225,15 +237,6 @@ export const serviceAreas: ServiceArea[] = [
       "Üzümlü is Fethiye's highland village: vineyards, cooler summers and detached villas at noticeably lower price per square metre.",
     image: "https://images.unsplash.com/photo-1587996735085-1eba19480192?auto=format&fit=crop&w=1600&h=1200&q=80",
     coordinates: { lat: 36.7179, lng: 29.2677 },
-  },
-  {
-    slug: "tasyaka",
-    name: "Taşyaka",
-    headline: "Walk to the marina",
-    blurb:
-      "Taşyaka is the residential edge of Fethiye town — walkable to the marina and promenade, prized for panoramic bay views.",
-    image: "https://images.unsplash.com/photo-1779816882089-351a9b53eb4a?auto=format&fit=crop&w=1600&h=1200&q=80",
-    coordinates: { lat: 36.6265, lng: 29.108 },
   },
   {
     slug: "gocek",
@@ -301,6 +304,31 @@ export const serviceAreas: ServiceArea[] = [
     coordinates: { lat: 36.8992, lng: 29.7073 },
   },
 ];
+
+/**
+ * ANA SAYFADA GÖSTERİLEN BÖLGELER — dört tane, elle seçilmiş.
+ *
+ * ⚠️ ÖNCEDEN `serviceAreas.slice(0, 5)` İDİ. Dilim almak "seçim" değil
+ * kazaydı: listenin başına yeni bir bölge eklendiği gün ana sayfa
+ * sessizce başka bir şey tanıtmaya başlıyordu. Vitrin, veri sırasının
+ * yan etkisi olmamalı.
+ *
+ * NEDEN DÖRT: ana sayfa bir fihrist değil, bir fragman. On iki bölgenin
+ * tamamı zaten /about-turkey'de haritasıyla ve tam anlatısıyla duruyor;
+ * ziyaretçiyi ana sayfada aynı listeyle karşılamak kararı kolaylaştırmıyor,
+ * erteletiyor. Dört kart tek satıra sığıyor (lg:grid-cols-4) ve altındaki
+ * "tümünü keşfet" bağlantısı akışı doğru yere taşıyor.
+ *
+ * SIRA ÖNEMLİ: kartlar bu dizinin sırasıyla basılıyor, `serviceAreas`in
+ * sırasıyla değil. En bilinen iki ad önde, Kalkan lüks segmentin vitrini,
+ * Hisarönü getiri odaklı alıcı için.
+ */
+export const FEATURED_AREA_SLUGS = [
+  "fethiye-centre",
+  "oludeniz",
+  "kalkan",
+  "hisaronu",
+] as const;
 
 /**
  * Header ve Footer'ın ORTAK kaynağı — ikisi de bu diziyi map'ler.
@@ -407,4 +435,40 @@ export const guidesNav = [
  */
 export function getServiceArea(slug: string): ServiceArea | undefined {
   return serviceAreas.find((area) => area.slug === slug);
+}
+
+/**
+ * "Ovacık, Fethiye" — ama ASLA "Fethiye, Fethiye".
+ *
+ * ⚠️ BU FONKSİYON "Fethiye Merkez" → "Fethiye" ADLANDIRMASIYLA BİRLİKTE
+ * DOĞDU. Önceden bölge adı ilçe adından her zaman farklıydı, dolayısıyla
+ * `${area}, ${district}` şablonu her kayıtta doğru sonuç veriyordu.
+ * "Merkez" düşünce fethiye-centre bölgesinin adı ilçe adıyla aynı hâle
+ * geldi ve o şablon on bir ilanda birden "Fethiye, Fethiye" yazmaya
+ * başladı — kart etiketinde, ilan başlığının üstünde ve harita
+ * açıklamasında.
+ *
+ * Kontrolü tek bir yere koymanın sebebi: aynı birleştirme üç ayrı dosyada
+ * yapılıyordu. Üçünü ayrı ayrı düzeltmek, dördüncüsü eklendiğinde hatanın
+ * geri gelmesi demekti.
+ */
+/**
+ * İLÇENİN KENDİSİ OLAN BÖLGE.
+ *
+ * `serviceAreas` içindeki bölgelerin hepsi Fethiye ilçesinin BİR PARÇASI;
+ * biri ise ilçenin kendisi. Ad karşılaştırmasıyla ("Fethiye" === "Fethiye")
+ * bulmak Rusça'da çalışmıyor: bölge adları çevrilmiyor ama arayüzdeki ilçe
+ * adı çevriliyor ("Фетхие"). Slug alfabeden bağımsız olduğu için doğru
+ * karşılaştırma noktası o.
+ */
+export const DISTRICT_AREA_SLUG = "fethiye-centre";
+
+export function formatAreaLabel(
+  areaName: string | undefined,
+  district: string,
+): string {
+  const name = areaName?.trim();
+
+  if (!name) return district;
+  return name === district ? name : `${name}, ${district}`;
 }

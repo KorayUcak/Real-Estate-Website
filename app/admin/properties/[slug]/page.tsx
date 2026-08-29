@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { PropertyForm } from "@/components/admin/property-form";
 import { requireAdmin } from "@/lib/admin/auth";
-import { getAllVillasForAdmin } from "@/lib/villas";
+import { getAllVillasForAdmin, getKnownFeatures } from "@/lib/villas";
 
 export const dynamic = "force-dynamic";
 
@@ -22,5 +22,8 @@ export default async function EditPropertyPage(
 
   if (!villa) notFound();
 
-  return <PropertyForm existing={villa} />;
+  /* Bkz. /admin/properties/new — liste sunucuda toplanıyor. */
+  const knownFeatures = await getKnownFeatures();
+
+  return <PropertyForm existing={villa} knownFeatures={knownFeatures} />;
 }

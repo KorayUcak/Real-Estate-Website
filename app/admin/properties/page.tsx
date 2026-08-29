@@ -43,7 +43,15 @@ export default async function AdminPropertiesPage() {
     .map((villa) => ({
       id: villa.id,
       slug: villa.slug,
-      title: villa.title,
+/*
+        ⚠️ PANELDE HER ZAMAN İNGİLİZCE BAŞLIK.
+
+        `getLocalizedField` ile aktif dile düşmüyoruz ve bu bilinçli: panel
+        KAYNAK kaydı yönetiyor, çevirisini değil. Yönetici listede aradığı
+        ilanı `en` başlığıyla tanıyor; satırın diline göre değişen bir ad,
+        "hangi kaydı düzenliyorum" sorusunu bulanıklaştırırdı.
+      */
+      title: villa.title.en,
       reference: villa.reference,
       areaName:
         getServiceArea(villa.location.areaSlug)?.name ??

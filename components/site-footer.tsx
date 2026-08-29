@@ -41,8 +41,18 @@ export function SiteFooter({ settings }: { settings: SiteSettings }) {
   return (
     <TranslatedRegion>
     <footer className="mt-auto bg-sea-deep text-shell/80">
-      <div className="container-page py-16 sm:py-20 lg:py-24">
-        <div className="grid gap-12 sm:gap-14 lg:grid-cols-12">
+      {/*
+        MOBİL DİKEY BOŞLUK YARIYA İNDİ — ve eşik `sm:` DEĞİL `md:`.
+
+        ⚠️ FARK ÖNEMLİ. Eski değer `py-16 sm:py-20` idi, yani 640px'te
+        ZATEN büyüyordu; oysa 640–767px hâlâ telefon. Eşiği `md:`ye almak
+        o aralığı da kompakt tarafta bırakıyor ve 768px ÜSTÜNDE hiçbir şey
+        değişmiyor: orada eskiden `sm:py-20` geçerliydi, şimdi `md:py-20`
+        — aynı değer. Aynı `sm:` → `md:` kaydırması bu bölümdeki tüm
+        boşluklara uygulandı.
+      */}
+      <div className="container-page py-10 md:py-20 lg:py-24">
+        <div className="grid gap-8 md:gap-14 lg:grid-cols-12">
           <div className="lg:col-span-4">
             {/*
               Footer'da yığılmış dizilim: burada yer kısıtı yok ve marka
@@ -50,14 +60,14 @@ export function SiteFooter({ settings }: { settings: SiteSettings }) {
               `text-shell` ile logo metni açık renge döner — çatı rengi
               sabit, yazı `currentColor` üzerinden gelir.
             */}
-            <Logo variant="stacked" className="h-28 w-auto text-shell" />
+            <Logo variant="stacked" className="h-20 w-auto text-shell md:h-28" />
 
             
-            <p className="mt-6 max-w-sm text-sm leading-relaxed">
+            <p className="mt-4 max-w-sm text-sm leading-relaxed md:mt-6">
               <T k="footer.tagline" />
             </p>
 
-            <ul className="mt-8 space-y-3 text-sm not-italic">
+            <ul className="mt-5 space-y-2.5 text-sm not-italic md:mt-8 md:space-y-3">
               <li>
                 <a
                   href={`tel:${contact.phoneE164}`}
@@ -103,11 +113,30 @@ export function SiteFooter({ settings }: { settings: SiteSettings }) {
             </ul>
           </div>
 
+          {/*
+            İKİ BAĞLANTI SÜTUNU MOBİLDE YAN YANA.
+
+            ⚠️ SARMALAYICI `md:contents` TAŞIYOR — ve bütün numara bu.
+            `display: contents` elemanı yerleşimden tamamen kaldırıyor,
+            yani 768px üstünde iki `<nav>` yeniden DIŞ ızgaranın doğrudan
+            çocuğu oluyor ve `lg:col-span-2` sınıfları eskisi gibi çalışıyor.
+            Masaüstü düzeni bit bit aynı kalıyor; sarmalayıcı yalnızca
+            mobilde var.
+
+            Alternatif (dış ızgarayı `grid-cols-2` yapmak) marka sütununu
+            ve bölge listesini de yarıya bölerdi — ikisi de tam genişlik
+            istiyor.
+
+            Not: sarmalayıcı anlamsız bir `<div>`; `display: contents`in
+            eski tarayıcılardaki erişilebilirlik hatası semantik
+            elemanlarda görülüyordu, burada risk yok.
+          */}
+          <div className="grid grid-cols-2 gap-8 md:contents">
           <TranslatedNav labelKey="footer.footerNavAria" className="lg:col-span-2">
             <h2 className="eyebrow text-gold">
               <T k="footer.exploreHeading" />
             </h2>
-            <ul className="mt-7 space-y-3.5 text-sm">
+            <ul className="mt-4 space-y-2.5 text-sm md:mt-7 md:space-y-3.5">
               {primaryNav.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-shell/70 transition-colors hover:text-gold">
@@ -123,7 +152,7 @@ export function SiteFooter({ settings }: { settings: SiteSettings }) {
             <h2 className="eyebrow text-gold">
               <T k="footer.guidesHeading" />
             </h2>
-            <ul className="mt-7 space-y-3.5 text-sm">
+            <ul className="mt-4 space-y-2.5 text-sm md:mt-7 md:space-y-3.5">
               {guidesNav.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-shell/70 transition-colors hover:text-gold">
@@ -133,12 +162,13 @@ export function SiteFooter({ settings }: { settings: SiteSettings }) {
               ))}
             </ul>
           </TranslatedNav>
+          </div>
 
           <TranslatedNav labelKey="footer.areasNavAria" className="lg:col-span-4">
             <h2 className="eyebrow text-gold">
               <T k="footer.areasHeading" />
             </h2>
-            <ul className="mt-7 grid grid-cols-2 gap-x-6 gap-y-3.5 text-sm">
+            <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2.5 text-sm md:mt-7 md:gap-y-3.5">
               {/*
                 Süzgeç ÖLÜ ÇAPA içindir, içeriği kısıtlamak için değil.
                 Bu bağlantılar /about-turkey#area-<slug> adresine gidiyor;
@@ -204,7 +234,12 @@ export function SiteFooter({ settings }: { settings: SiteSettings }) {
 
           Mobilde tek sütun, hepsi ortalı ve `gap-6` ile ayrık.
         */}
-        <div className="mt-16 grid gap-6 border-t border-shell/15 pt-8 text-center sm:grid-cols-3 sm:items-center sm:text-left">
+        {/*
+          Alt şeridin `sm:grid-cols-3`ü KORUNDU: üç sütun zaten kompakt
+          biçim, onu `md:`ye itmek 640–767px aralığını UZATIRDI. Yalnızca
+          üstteki boşluk ve iç dolgu mobilde kısaldı.
+        */}
+        <div className="mt-10 grid gap-5 border-t border-shell/15 pt-6 text-center sm:grid-cols-3 sm:items-center sm:text-left md:mt-16 md:gap-6 md:pt-8">
           <p className="text-xs text-shell/50 sm:justify-self-start">
             <T k="footer.rights" vars={{ year, company: companyName }} />
           </p>

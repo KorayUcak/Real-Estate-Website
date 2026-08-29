@@ -523,10 +523,19 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
       seçim yokken bile ETKİN görünüyordu. Metne dayalı durum tespiti bu
       yüzden her zaman kırılgan — durumu durumdan okuyoruz.
     */
-    { key: "location", label: t("explorer.location"), value: areaLabel, active: filters.areas.length > 0, node: locationPanel },
-    { key: "price", label: t("explorer.price"), value: priceLabel, active: priceTouched, node: pricePanel },
-    { key: "bedrooms", label: t("explorer.bedrooms"), value: bedroomsLabel, active: filters.minBedrooms > 0, node: bedroomsPanel },
-    { key: "type", label: t("explorer.type"), value: typeLabel, active: filters.categories.length > 0, node: typePanel },
+    /*
+      `scrollable` YALNIZCA ÇEKMECEYİ İLGİLENDİRİR (bkz. aşağıdaki mobil
+      panel). Masaüstündeki açılır kutu bu bayrağı okumuyor: orada liste
+      zaten yüzen bir kutuda ve kısıtlanması gereksiz.
+
+      Dört bölümün DÖRDÜNDE de tanımlı, üçünde `false`. Bir birleşim
+      (union) tipinde alanın yalnızca bir üyede bulunması, `section.scrollable`
+      erişimini derleme hatasına çevirirdi.
+    */
+    { key: "location", label: t("explorer.location"), value: areaLabel, active: filters.areas.length > 0, node: locationPanel, scrollable: true },
+    { key: "price", label: t("explorer.price"), value: priceLabel, active: priceTouched, node: pricePanel, scrollable: false },
+    { key: "bedrooms", label: t("explorer.bedrooms"), value: bedroomsLabel, active: filters.minBedrooms > 0, node: bedroomsPanel, scrollable: false },
+    { key: "type", label: t("explorer.type"), value: typeLabel, active: filters.categories.length > 0, node: typePanel, scrollable: false },
   ] as const;
 
   return (
@@ -689,7 +698,16 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
             <div
               role="group"
               aria-label={t("explorer.layout")}
-              className="ml-auto flex shrink-0 items-center rounded-sm border border-line bg-white p-0.5 sm:ml-0"
+              /*
+                MOBİLDE GİZLİ. Telefonda iki görünüm de zaten tek sütun
+                (`grid-cols-1`), yani anahtar iki neredeyse aynı düzen
+                arasında seçim yaptırıyor ve "Sırala"nın yanında yer kaplıyor.
+                Gizlenince `view` varsayılanı olan "grid"de kalıyor — yani
+                standart dikey kart yığını.
+
+                `hidden md:flex`: 768px altında hiç çizilmiyor.
+              */
+              className="ml-auto hidden shrink-0 items-center rounded-sm border border-line bg-white p-0.5 sm:ml-0 md:flex"
             >
               {(
                 [
@@ -793,7 +811,7 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
               animate={{ y: 0 }}
               exit={reduceMotion ? undefined : { y: "100%" }}
               transition={{ duration: 0.32, ease: EASE_OUT_EXPO }}
-              className="absolute inset-x-0 bottom-0 flex max-h-[88%] flex-col border-t border-line bg-shell"
+              className="absolute inset-x-0 bottom-0 flex max-h-[92%] flex-col border-t border-line bg-shell"
             >
               <header className="flex shrink-0 items-center justify-between border-b border-line px-5 py-4">
                 <p className="font-display text-lg text-sea-deep">
@@ -812,9 +830,37 @@ export function PropertyExplorer({ villas }: { villas: PropertyCardData[] }) {
               {/* Kaydırılan gövde: dört bölüm açık hâlde, üst üste. */}
               <div className="flex-1 overflow-y-auto overscroll-contain px-5 py-5">
                 {FILTER_SECTIONS.map((section) => (
-                  <section key={section.key} className="border-b border-line/70 pb-6 pt-6 first:pt-0 last:border-0">
+                  <section key={section.key} className="border-b border-line/70 pb-3.5 pt-3.5 first:pt-0 last:border-0">
                     <p className="eyebrow text-ink-40">{section.label}</p>
-                    <div className="mt-4">{section.node}</div>
+                    {/*
+                      ⚠️ KONUM LİSTESİ KENDİ İÇİNDE KAYAR — çekmecenin en
+                      önemli hatası buydu.
+
+                      On iki bölge yan yana ~500px ediyor; çekmece gövdesi
+                      ise bir telefonda ~610px. Yani panel açıldığında
+                      ekranda pratikte YALNIZCA "Konum" görünüyordu ve
+                      kullanıcı diğer üç filtrenin var olduğunu bilmiyordu —
+                      aşağı kaydırmayı denemek için önce orada bir şey
+                      olduğunu tahmin etmesi gerekiyordu.
+
+                      `max-h-40` listeyi 160px'e sabitliyor: dört başlık
+                      (Konum, Fiyat, Oda, Tip) ilk ekrana birlikte giriyor.
+                      Kenarlık burada süs değil AFFORDANCE — kesilmiş bir
+                      listenin kaydırılabildiğini gösteren tek görsel ipucu.
+
+                      `overscroll-contain` YOK ve bu bilinçli: liste sonuna
+                      gelince kaydırma çekmece gövdesine ZİNCİRLENMELİ,
+                      yoksa parmak listenin üstündeyken panel kilitleniyor.
+                    */}
+                    <div
+                      className={cn(
+                        "mt-3",
+                        section.scrollable &&
+                          "max-h-28 overflow-y-auto border border-line",
+                      )}
+                    >
+                      {section.node}
+                    </div>
                   </section>
                 ))}
               </div>
