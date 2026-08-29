@@ -31,7 +31,7 @@ export type Villa = {
    */
   title: Localized<string>;
   /** Kart ve hero altında görünen tek cümlelik satış vaadi. */
-  headline: string;
+  headline: Localized<string>;
   status: VillaStatus;
   featured: boolean;
   propertyType: string;
@@ -64,8 +64,19 @@ export type Villa = {
   deedStatus: string;
   /** Vatandaşlık programı eşiğini karşılıyor mu? */
   citizenshipEligible: boolean;
-  /** Kısa özellik rozetleri (Private pool, Sea view, ...) */
-  features: string[];
+  /**
+   * Kısa özellik rozetleri (Private pool, Sea view, ...)
+   *
+   * ⚠️ ÜÇ DİLLİ HÂLE GETİRİLDİ. Önceki not "rozetler tek dilde kalıyor"
+   * diyordu; o karar geri alındı. Sebep tutarlılık: aynı ilan sayfasında
+   * başlık ve açıklama Türkçe basılırken "Sea view" rozetinin İngilizce
+   * kalması, sayfanın yarım çevrilmiş görünmesine yol açıyordu.
+   *
+   * ⚠️ YÖNETİCİ SEÇİCİSİ HÂLÂ İNGİLİZCE ÇALIŞIR. `getKnownFeatures`
+   * listeyi `en` üzerinden kuruyor — rozetler kanonik olarak İngilizce
+   * yazılıp diğer diller ondan türetiliyor (bkz. lib/villas.ts).
+   */
+  features: Localized<string[]>;
   /**
    * Kart üzerinde gösterilen en güçlü 3 madde — TAŞIMADA ÜRETİLMİŞ veri.
    *
@@ -93,8 +104,16 @@ export type Villa = {
   description: Localized<string[]>;
   images: VillaImage[];
   seo: {
-    title: string;
-    description: string;
+    title: Localized<string>;
+    description: Localized<string>;
+    /**
+     * ⚠️ ANAHTAR KELİMELER ÇEVRİLMİYOR — bilinçli.
+     *
+     * `keywords` meta etiketi Google tarafından on yıldan uzun süredir
+     * sıralama sinyali olarak kullanılmıyor; alan `pageMetadata` üzerinden
+     * hâlâ basılıyor ama okunan bir metin değil. Üç dile çıkarmak DeepL
+     * kotasından karakter yerken ekranda hiçbir şeyi değiştirmezdi.
+     */
     keywords: string[];
   };
   publishedAt: string;

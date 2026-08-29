@@ -27,7 +27,7 @@ import { socialProfileList, type SiteSettings } from "@/lib/settings";
 import { safeMapCoordinates } from "@/lib/villa-format";
 import type { Post, Villa } from "@/lib/types";
 import { getLocalizedField } from "@/lib/localized";
-import type { LanguageCode } from "@/lib/locale";
+import { LANGUAGE_META, type LanguageCode } from "@/lib/locale";
 
 /**
  * Kalıcı @id'ler: aynı varlığa farklı sayfalardan atıf yapabilmek için.
@@ -321,7 +321,7 @@ export function villaProductSchema(
     "@type": "Product",
     "@id": `${url}#product`,
     name: getLocalizedField(villa.title, language),
-    description: villa.seo.description,
+    description: getLocalizedField(villa.seo.description, language),
     sku: villa.reference,
     category: villa.propertyType,
     image: villa.images.map((image) => `${SITE_URL}${image.src}`),
@@ -367,11 +367,17 @@ export function villaListingSchema(
     "@type": "RealEstateListing",
     "@id": `${url}#listing`,
     url,
-    name: villa.seo.title,
-    description: villa.seo.description,
+    name: getLocalizedField(villa.seo.title, language),
+    description: getLocalizedField(villa.seo.description, language),
     datePosted: villa.publishedAt,
     dateModified: villa.updatedAt,
-    inLanguage: "en-GB",
+    /*
+      ⚠️ SABİT "en-GB" KALDIRILDI. Bu blok artık aktif dilde basılıyor;
+      dili İngilizce diye ilan etmek, Google'a Türkçe bir gövdeyi İngilizce
+      olarak tanıtmak olurdu — bu dosyanın kendi notunun ("şema da
+      çevriliyor") tersi.
+    */
+    inLanguage: LANGUAGE_META[language].tag,
     isPartOf: { "@id": WEBSITE_ID } as WebSite,
     provider: { "@id": ORG_ID } as Organization,
     mainEntity: {
@@ -424,7 +430,7 @@ export function villaListingSchema(
             }
           : {};
       })(),
-      amenityFeature: villa.features.map((feature) => ({
+      amenityFeature: getLocalizedField(villa.features, language).map((feature) => ({
         "@type": "LocationFeatureSpecification",
         name: feature,
         value: true,

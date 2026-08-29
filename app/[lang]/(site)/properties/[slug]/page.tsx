@@ -77,10 +77,18 @@ export async function generateMetadata(
     });
   }
 
+  /*
+    SEO METNİ DE AKTİF DİLDEN. `<title>` ve meta açıklaması sayfanın
+    GÖRÜNEN içeriğiyle aynı dilde olmalı; /tr sayfasında İngilizce bir
+    başlık, arama sonucunda kullanıcıya yanlış dili vaat eder.
+  */
+  const language = await currentLanguage();
+
   return pageMetadata({
-    title: villa.seo.title,
-    description: villa.seo.description,
+    title: getLocalizedField(villa.seo.title, language),
+    description: getLocalizedField(villa.seo.description, language),
     path: `/properties/${villa.slug}`,
+    /* Anahtar kelimeler tek dilde — bkz. lib/types.ts'teki not. */
     keywords: villa.seo.keywords,
     images: villa.images.map((image) => ({
       url: image.src,
@@ -480,7 +488,7 @@ export default async function PropertyPage(
                 </h2>
                 {/* Rozet biçimi: taranabilir, kısa ve metin duvarı üretmez. */}
                 <ul className="mt-8 flex flex-wrap gap-2">
-                  {villa.features.map((feature, index) => (
+                  {getLocalizedField(villa.features, language).map((feature, index) => (
                     <li
                       key={`${feature}-${index}`}
                       className="inline-flex items-center gap-2 border border-line bg-shell px-4 py-2 text-sm text-ink-70"

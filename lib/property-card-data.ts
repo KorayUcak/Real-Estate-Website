@@ -90,6 +90,10 @@ export function toPropertyCardData(
   imageLimit = CARD_IMAGE_LIMIT,
 ): PropertyCardData {
   const title = getLocalizedField(villa.title, language);
+  /* Kart düz METİN taşır, üç dilli kayıt değil: dil sunucuda bir kez
+     çözülüyor ve istemciye yalnızca gösterilecek dize iniyor. */
+  const headline = getLocalizedField(villa.headline, language);
+  const features = getLocalizedField(villa.features, language);
 
   const area = getServiceArea(villa.location.areaSlug);
   const name = area?.name ?? villa.location.area;
@@ -98,7 +102,7 @@ export function toPropertyCardData(
     id: villa.id,
     slug: villa.slug,
     title,
-    headline: villa.headline,
+    headline,
     status: villa.status,
     price: villa.price.gbp,
     bedrooms: villa.bedrooms,
@@ -121,11 +125,11 @@ export function toPropertyCardData(
            aranabilmeli. İngilizce yedeği zaten `getLocalizedField`ten
            geliyor, yani çevrilmemiş ilan da bulunabilir durumda kalıyor. */
         title,
-        villa.headline,
+        headline,
         villa.propertyType,
         name,
         villa.location.district,
-        ...villa.features,
+        ...features,
         ...villa.highlights,
       ].join(" "),
     ),

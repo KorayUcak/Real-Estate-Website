@@ -39,7 +39,13 @@ export default async function AdminDashboardPage() {
     kısmının alanlarının boş olduğunu biliyoruz.
   */
   const missingImages = villas.filter((v) => v.images.length === 0);
-  const missingSeo = villas.filter((v) => !v.seo?.title || !v.seo?.description);
+  /*
+    ⚠️ `.en` ÜZERİNDEN. `seo.title` artık bir NESNE ({en,tr,ru}); nesnenin
+    kendisi her zaman truthy olduğu için eski kontrol hiçbir kaydı "eksik"
+    saymaz, yani rozet sessizce hep sıfır gösterirdi. Eksiklik ölçütü
+    kaynak dilin dolu olması: çeviriler zaten İngilizceye düşüyor.
+  */
+  const missingSeo = villas.filter((v) => !v.seo?.title?.en || !v.seo?.description?.en);
   const placeholderPins = villas.filter((v) => v.location.isPlaceholder);
 
   const totalValue = live.reduce((sum, v) => sum + v.price.gbp, 0);

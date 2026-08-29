@@ -32,7 +32,7 @@ export const PROPERTY_STATUSES: VillaStatus[] = [
 export type PropertyInput = {
   /** Üç dilli — `en` zorunlu, diğerleri boşsa `null` (bkz. lib/localized.ts). */
   title: Localized<string>;
-  headline: string;
+  headline: Localized<string>;
   propertyType: string;
   areaSlug: string;
   status: VillaStatus;
@@ -44,13 +44,16 @@ export type PropertyInput = {
   plotSizeSqm: number;
   slug: string;
   description: Localized<string[]>;
-  /** Rozetler ÇEVRİLMİYOR — tek dilde kalıyor. */
-  features: string[];
+  /**
+   * Rozetler ARTIK ÇEVRİLİYOR — `en` kanonik, diğerleri ondan türüyor.
+   * (Önceki not "tek dilde kalıyor" diyordu; bkz. lib/types.ts.)
+   */
+  features: Localized<string[]>;
   /** "Why this one" maddeleri — sıra yöneticinin verdiği sıradır. */
   whyThisOne: Localized<string[]>;
   images: VillaImage[];
-  seoTitle: string;
-  seoDescription: string;
+  seoTitle: Localized<string>;
+  seoDescription: Localized<string>;
   /** Dahili ilan kodu. Boş bırakılırsa bölge + id'den türetilir. */
   reference: string;
   /** Tapu durumu — serbest metin değil, beyaz listeden (bkz. DEED_STATUSES). */
@@ -221,7 +224,7 @@ export function parsePropertyInput(body: unknown): {
 
   const input: PropertyInput = {
     title,
-    headline: asString(raw.headline, 220),
+    headline: asLocalizedString(raw.headline, 220),
     /* Beyaz liste: listede yoksa varsayılana düş, serbest metin kabul etme —
        aksi hâlde /properties filtresi zamanla çöp değerlerle dolar. */
     propertyType: (PROPERTY_TYPES as readonly string[]).includes(propertyTypeRaw)
@@ -238,7 +241,7 @@ export function parsePropertyInput(body: unknown): {
     /* Slug KAYNAK (İngilizce) başlıktan — bkz. property-form.tsx. */
     slug: safeSlugSegment(asString(raw.slug, 120) || title.en),
     description: asLocalizedStringArray(raw.description, 60, 4000),
-    features: asStringArray(raw.features, 40, 80),
+    features: asLocalizedStringArray(raw.features, 40, 80),
     /*
       Madde başına 200 karakter, en çok 12 madde. Sınırlar `features`ten
       (80/40) gevşek çünkü bunlar rozet değil CÜMLE ("Walking distance to
@@ -251,8 +254,8 @@ export function parsePropertyInput(body: unknown): {
     */
     whyThisOne: asLocalizedStringArray(raw.whyThisOne, 12, 200),
     images: asImages(raw.images),
-    seoTitle: asString(raw.seoTitle, 70),
-    seoDescription: asString(raw.seoDescription, 180),
+    seoTitle: asLocalizedString(raw.seoTitle, 70),
+    seoDescription: asLocalizedString(raw.seoDescription, 180),
     reference: asString(raw.reference, 40),
     deedStatus: (DEED_STATUSES as readonly string[]).includes(
       asString(raw.deedStatus, 60),
@@ -334,6 +337,8 @@ export function applyInput(
       `C2C-${input.areaSlug.slice(0, 3).toUpperCase()}-${id.slice(-5)}`,
     title: input.title,
     headline: input.headline,
+    /* Aşağıdaki alanlar da üç dilli; şekil `PropertyInput`ten olduğu gibi
+       geçiyor, dönüşüm `parsePropertyInput` içinde bir kez yapılıyor. */
     status: input.status,
     featured: input.featured,
     propertyType: input.propertyType,

@@ -83,7 +83,7 @@ export function PropertyForm({
   const router = useRouter();
   const isEdit = Boolean(existing);
 
-  const [headline, setHeadline] = useState(existing?.headline ?? "");
+  /* `headline` de üç dilli — durum aşağıdaki dil bloğunda kuruluyor. */
   const [propertyType, setPropertyType] = useState(
     existing?.propertyType ?? PROPERTY_TYPES[0],
   );
@@ -115,6 +115,12 @@ export function PropertyForm({
     ru: existing?.title.ru ?? "",
   });
 
+  const [headline, setHeadline] = useState<Record<AdminLocale, string>>({
+    en: existing?.headline.en ?? "",
+    tr: existing?.headline.tr ?? "",
+    ru: existing?.headline.ru ?? "",
+  });
+
   /*
     Açıklama ekranda TEK bir metin alanı, veride ise paragraf DİZİSİ
     (her eleman bir <p>). Boş satırla ayırmak, yöneticiye markdown veya
@@ -134,7 +140,20 @@ export function PropertyForm({
     demekti — ve içinde virgül geçen bir özellik ("Kitchen, fully fitted")
     o işlemi sessizce bozardı.
   */
-  const [features, setFeatures] = useState<string[]>(existing?.features ?? []);
+  /*
+    ⚠️ ROZETLER ARTIK DİL BAŞINA. Önceki not "features çevrilmiyor" diyordu;
+    o karar geri alındı (gerekçe lib/types.ts).
+
+    İngilizce liste KANONİK: `knownFeatures` seçicisi ondan besleniyor ve
+    diğer diller onun çevirisi. Bu yüzden seçici yalnızca `en` sekmesinde
+    öneri gösteriyor — Türkçe sekmede İngilizce öneri sunmak, yöneticiyi
+    kanonik değeri Türkçe alana yazmaya davet ederdi.
+  */
+  const [features, setFeatures] = useState<Record<AdminLocale, string[]>>({
+    en: existing?.features.en ?? [],
+    tr: existing?.features.tr ?? [],
+    ru: existing?.features.ru ?? [],
+  });
 
   /*
     "Why this one" maddeleri — DİZİ olarak tutuluyor, `features` gibi tek bir
@@ -158,10 +177,16 @@ export function PropertyForm({
   const [slug, setSlug] = useState(existing?.slug ?? "");
   const [slugTouched, setSlugTouched] = useState(isEdit);
 
-  const [seoTitle, setSeoTitle] = useState(existing?.seo.title ?? "");
-  const [seoDescription, setSeoDescription] = useState(
-    existing?.seo.description ?? "",
-  );
+  const [seoTitle, setSeoTitle] = useState<Record<AdminLocale, string>>({
+    en: existing?.seo.title.en ?? "",
+    tr: existing?.seo.title.tr ?? "",
+    ru: existing?.seo.title.ru ?? "",
+  });
+  const [seoDescription, setSeoDescription] = useState<Record<AdminLocale, string>>({
+    en: existing?.seo.description.en ?? "",
+    tr: existing?.seo.description.tr ?? "",
+    ru: existing?.seo.description.ru ?? "",
+  });
 
   const [images, setImages] = useState<VillaImage[]>(existing?.images ?? []);
 
@@ -297,7 +322,7 @@ export function PropertyForm({
 
     const payload = {
       title: toLocalizedText(title),
-      headline: headline.trim(),
+      headline: toLocalizedText(headline),
       propertyType,
       areaSlug,
       status,
@@ -310,12 +335,11 @@ export function PropertyForm({
       slug: effectiveSlug,
       /* Boş satırla bölünmüş paragraflar → dizi, dil başına. */
       description: toLocalizedList(description, splitParagraphs),
-      /* `features` ÇEVRİLMİYOR — rozetler tek dilde kalıyor (bkz. özet). */
-      features,
+      features: toLocalizedList(features, (value) => value),
       whyThisOne: toLocalizedList(whyThisOne, (value) => value),
       images,
-      seoTitle: seoTitle.trim(),
-      seoDescription: seoDescription.trim(),
+      seoTitle: toLocalizedText(seoTitle),
+      seoDescription: toLocalizedText(seoDescription),
       reference: reference.trim(),
       deedStatus,
       /* Boş dize gönderiliyor, 0 değil: sunucu boşu "girilmedi" sayıyor. */
@@ -504,11 +528,26 @@ export function PropertyForm({
           </div>
 
           <div className="sm:col-span-2">
+            <div className="mb-2 flex items-center justify-between gap-3">
+              <LocaleTabs
+                idPrefix="Headline"
+                active={activeLocale}
+                onChange={setActiveLocale}
+                filled={localeFilled(headline)}
+              />
+              {activeLocale !== "en" ? (
+                <span className="text-[0.6875rem] text-ink-40">
+                  Leave empty to show the English headline
+                </span>
+              ) : null}
+            </div>
             <TextField
-              label="Headline"
+              label={`Headline (${activeLocale.toUpperCase()})`}
               hint="One sentence, shown under the title"
-              value={headline}
-              onChange={setHeadline}
+              value={headline[activeLocale]}
+              onChange={(value) =>
+                setHeadline((current) => ({ ...current, [activeLocale]: value }))
+              }
               placeholder="A five-bedroom villa above Göcek marina with an infinity pool."
             />
           </div>
@@ -637,18 +676,41 @@ export function PropertyForm({
               placeholder={"First paragraph.\n\nSecond paragraph."}
             />
           </div>
-          <FeaturePicker
-            label="Features"
-            selected={features}
-            known={knownFeatures}
-            onChange={setFeatures}
-            /* Sunucudaki `asStringArray(raw.features, 40, 80)` ile AYNI
-               sınırlar — ayrışırlarsa form sunucunun atacağı bir değeri
-               kabul etmiş olur. */
-            maxItems={40}
-            maxLength={80}
-            placeholder="Type a new feature…"
-          />
+          <div>
+            <div className="mb-2 flex items-center justify-between gap-3">
+              <LocaleTabs
+                idPrefix="Features"
+                active={activeLocale}
+                onChange={setActiveLocale}
+                filled={localeFilled(features)}
+              />
+              {activeLocale !== "en" ? (
+                <span className="text-[0.6875rem] text-ink-40">
+                  Leave empty to show the English badges
+                </span>
+              ) : null}
+            </div>
+            <FeaturePicker
+              label={`Features (${activeLocale.toUpperCase()})`}
+              selected={features[activeLocale]}
+              /*
+                ÖNERİ LİSTESİ YALNIZCA İNGİLİZCE SEKMESİNDE. `knownFeatures`
+                portföyün KANONİK (`en`) rozetlerinden derleniyor
+                (lib/villas.ts); Türkçe sekmede sunmak, yöneticiyi İngilizce
+                bir değeri Türkçe alana yazmaya davet ederdi.
+              */
+              known={activeLocale === "en" ? knownFeatures : []}
+              onChange={(items) =>
+                setFeatures((current) => ({ ...current, [activeLocale]: items }))
+              }
+              /* Sunucudaki `asLocalizedStringArray(raw.features, 40, 80)` ile
+                 AYNI sınırlar — ayrışırlarsa form sunucunun atacağı bir
+                 değeri kabul etmiş olur. */
+              maxItems={40}
+              maxLength={80}
+              placeholder="Type a new feature…"
+            />
+          </div>
         </Section>
 
         {/* ------------------------------------------------ WHY THIS ONE */}
@@ -791,19 +853,51 @@ export function PropertyForm({
                 : "Derived from the title"
             }
           />
+          {/*
+            ⚠️ SEKMELER İKİ ALAN İÇİN ORTAK. Meta başlık ve meta açıklama
+            aynı arama sonucunun iki satırı; ayrı sekme çiftleri, yöneticiyi
+            birini TR birini EN sekmesinde bırakıp yarım çevrilmiş bir
+            snippet kaydetmeye açık hâle getirirdi.
+
+            Sayaçlar (70/180) AKTİF DİLİN uzunluğunu sayıyor: Türkçe bir
+            başlık İngilizcesinden uzun olabilir ve sınırı aşan dil hangisiyse
+            onu görmek gerekiyor.
+          */}
+          <div className="sm:col-span-2">
+            <div className="mb-2 flex items-center justify-between gap-3">
+              <LocaleTabs
+                idPrefix="Search snippet"
+                active={activeLocale}
+                onChange={setActiveLocale}
+                filled={localeFilled(seoTitle)}
+              />
+              {activeLocale !== "en" ? (
+                <span className="text-[0.6875rem] text-ink-40">
+                  Leave empty to show the English snippet
+                </span>
+              ) : null}
+            </div>
+          </div>
           <TextField
-            label="Meta title"
-            value={seoTitle}
-            onChange={setSeoTitle}
-            hint={`${seoTitle.length}/70`}
+            label={`Meta title (${activeLocale.toUpperCase()})`}
+            value={seoTitle[activeLocale]}
+            onChange={(value) =>
+              setSeoTitle((current) => ({ ...current, [activeLocale]: value }))
+            }
+            hint={`${seoTitle[activeLocale].length}/70`}
             placeholder="Detached villa for sale in Göcek | 5 Beds"
           />
           <TextArea
-            label="Meta description"
-            value={seoDescription}
-            onChange={setSeoDescription}
+            label={`Meta description (${activeLocale.toUpperCase()})`}
+            value={seoDescription[activeLocale]}
+            onChange={(value) =>
+              setSeoDescription((current) => ({
+                ...current,
+                [activeLocale]: value,
+              }))
+            }
             rows={3}
-            hint={`${seoDescription.length}/180`}
+            hint={`${seoDescription[activeLocale].length}/180`}
             placeholder="5-bedroom detached villa for sale in Göcek, Fethiye. £845,000."
           />
         </Section>

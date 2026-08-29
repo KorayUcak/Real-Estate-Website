@@ -8,7 +8,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "This new project Galaxy 3 is set in Kargi next to the resort of Calis beach.",
+    "headline": {
+      "en": "This new project Galaxy 3 is set in Kargi next to the resort of Calis beach.",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Detached villa",
@@ -36,9 +40,13 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Sea view"
-    ],
+    "features": {
+      "en": [
+        "Sea view"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Çalış, Fethiye",
       "4 bedrooms, 4 bathrooms — 245 m² internal",
@@ -74,8 +82,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Çalış | 4 Beds",
-      "description": "4-bedroom detached villa for sale in Çalış, Fethiye. £575,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Çalış | 4 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "4-bedroom detached villa for sale in Çalış, Fethiye. £575,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Çalış property for sale",
         "detached villa for sale Çalış",
@@ -96,7 +112,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The High Tree Villa is completed and ready to move in to.",
+    "headline": {
+      "en": "The High Tree Villa is completed and ready to move in to.",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Detached villa",
@@ -124,13 +144,17 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Private pool",
-      "Air conditioning",
-      "En-suite bathrooms",
-      "Parking",
-      "Solar hot water"
-    ],
+    "features": {
+      "en": [
+        "Private pool",
+        "Air conditioning",
+        "En-suite bathrooms",
+        "Parking",
+        "Solar hot water"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Üzümlü, Fethiye",
       "5 bedrooms, 4 bathrooms — 222 m² internal",
@@ -367,8 +391,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Üzümlü | 5 Beds",
-      "description": "5-bedroom detached villa for sale in Üzümlü, Fethiye. Private pool. £320,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Üzümlü | 5 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "5-bedroom detached villa for sale in Üzümlü, Fethiye. Private pool. £320,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Üzümlü property for sale",
         "detached villa for sale Üzümlü",
@@ -389,7 +421,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The Daisy villa sits in a quiet ovacik location.",
+    "headline": {
+      "en": "The Daisy villa sits in a quiet ovacik location.",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": false,
     "propertyType": "Detached villa",
@@ -417,11 +453,15 @@
     "floors": 3,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Furnished",
-      "Outdoor BBQ",
-      "Fireplace"
-    ],
+    "features": {
+      "en": [
+        "Furnished",
+        "Outdoor BBQ",
+        "Fireplace"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Ölüdeniz, Fethiye",
       "6 bedrooms, 4 bathrooms — 180 m² internal",
@@ -529,8 +569,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Ölüdeniz | 6 Beds",
-      "description": "6-bedroom detached villa for sale in Ölüdeniz, Fethiye. £325,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Ölüdeniz | 6 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "6-bedroom detached villa for sale in Ölüdeniz, Fethiye. £325,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ölüdeniz property for sale",
         "detached villa for sale Ölüdeniz",
@@ -551,7 +599,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The beautiful stone villa is situated in a fantastic location set in Fethiye and close to the resort of Calis beach also.",
+    "headline": {
+      "en": "The beautiful stone villa is situated in a fantastic location set in Fethiye and close to the resort of Calis beach also.",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Detached villa",
@@ -579,10 +631,14 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Private pool",
-      "Private garden"
-    ],
+    "features": {
+      "en": [
+        "Private pool",
+        "Private garden"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Fethiye",
       "3 bedrooms, 3 bathrooms — 155 m² internal",
@@ -751,8 +807,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Fethiye | 3 Beds",
-      "description": "3-bedroom detached villa for sale in Fethiye. Private pool. £469,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Fethiye | 3 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "3-bedroom detached villa for sale in Fethiye. Private pool. £469,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Fethiye property for sale",
         "detached villa for sale Fethiye",
@@ -772,7 +836,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Located on the edge of the world famous Babadag, our seden villas offer panoramic views of the countryside and the surrounding relaxing pine forests.",
+    "headline": {
+      "en": "Located on the edge of the world famous Babadag, our seden villas offer panoramic views of the countryside and the surrounding relaxing pine forests.",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Detached villa",
@@ -800,14 +868,18 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Private pool",
-      "Air conditioning",
-      "Central heating",
-      "En-suite bathrooms",
-      "Private garden",
-      "Solar hot water"
-    ],
+    "features": {
+      "en": [
+        "Private pool",
+        "Air conditioning",
+        "Central heating",
+        "En-suite bathrooms",
+        "Private garden",
+        "Solar hot water"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Ovacık, Fethiye",
       "5 bedrooms, 6 bathrooms — 550 m² internal",
@@ -932,8 +1004,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Ovacık | 5 Beds",
-      "description": "5-bedroom detached villa for sale in Ovacık, Fethiye. Private pool. £550,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Ovacık | 5 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "5-bedroom detached villa for sale in Ovacık, Fethiye. Private pool. £550,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ovacık property for sale",
         "detached villa for sale Ovacık",
@@ -954,7 +1034,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The Seden Villas properties in Ovacik are located on the edge of the world famous Babadag, our Seden villas offer panoramic views of the countryside and the surrounding relaxing pine fore…",
+    "headline": {
+      "en": "The Seden Villas properties in Ovacik are located on the edge of the world famous Babadag, our Seden villas offer panoramic views of the countryside and the surrounding relaxing pine fore…",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Detached villa",
@@ -982,14 +1066,18 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Private pool",
-      "Air conditioning",
-      "Central heating",
-      "En-suite bathrooms",
-      "Private garden",
-      "Solar hot water"
-    ],
+    "features": {
+      "en": [
+        "Private pool",
+        "Air conditioning",
+        "Central heating",
+        "En-suite bathrooms",
+        "Private garden",
+        "Solar hot water"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Ovacık, Fethiye",
       "4 bedrooms, 5 bathrooms — 202 m² internal",
@@ -1035,8 +1123,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Ovacık | 4 Beds",
-      "description": "4-bedroom detached villa for sale in Ovacık, Fethiye. Private pool. £495,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Ovacık | 4 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "4-bedroom detached villa for sale in Ovacık, Fethiye. Private pool. £495,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ovacık property for sale",
         "detached villa for sale Ovacık",
@@ -1057,7 +1153,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The Terrace Apart is an apartment for sale in Hisaronu situated in a fantastic location.",
+    "headline": {
+      "en": "The Terrace Apart is an apartment for sale in Hisaronu situated in a fantastic location.",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": false,
     "propertyType": "Apartment",
@@ -1085,11 +1185,15 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Communal pool",
-      "Mountain view",
-      "Furnished"
-    ],
+    "features": {
+      "en": [
+        "Communal pool",
+        "Mountain view",
+        "Furnished"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Ovacık, Fethiye",
       "2 bedrooms, 2 bathrooms — 90 m² internal",
@@ -1307,8 +1411,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Ovacık | 2 Beds",
-      "description": "2-bedroom apartment for sale in Ovacık, Fethiye. £118,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Ovacık | 2 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "2-bedroom apartment for sale in Ovacık, Fethiye. £118,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ovacık property for sale",
         "apartment for sale Ovacık",
@@ -1329,7 +1441,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The Olive Grove complex , a 2 bedroom apartment for sale in the location of Ovacik Turkey.",
+    "headline": {
+      "en": "The Olive Grove complex , a 2 bedroom apartment for sale in the location of Ovacik Turkey.",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": false,
     "propertyType": "Apartment",
@@ -1357,13 +1473,17 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Furnished",
-      "Air conditioning",
-      "Mosquito nets",
-      "Double glazing",
-      "Tennis court"
-    ],
+    "features": {
+      "en": [
+        "Furnished",
+        "Air conditioning",
+        "Mosquito nets",
+        "Double glazing",
+        "Tennis court"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Ovacık, Fethiye",
       "2 bedrooms, 1 bathrooms — 80 m² internal",
@@ -1580,8 +1700,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Ovacık | 2 Beds",
-      "description": "2-bedroom apartment for sale in Ovacık, Fethiye. £139,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Ovacık | 2 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "2-bedroom apartment for sale in Ovacık, Fethiye. £139,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ovacık property for sale",
         "apartment for sale Ovacık",
@@ -1602,7 +1730,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "These villas are high end and will be built to the highest standard.",
+    "headline": {
+      "en": "These villas are high end and will be built to the highest standard.",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Detached villa",
@@ -1630,11 +1762,15 @@
     "floors": 3,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Private pool",
-      "Private garden",
-      "Tennis court"
-    ],
+    "features": {
+      "en": [
+        "Private pool",
+        "Private garden",
+        "Tennis court"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Çalış, Fethiye",
       "4 bedrooms, 4 bathrooms — 190 m² internal",
@@ -1683,8 +1819,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Çalış | 4 Beds",
-      "description": "4-bedroom detached villa for sale in Çalış, Fethiye. Private pool. £730,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Çalış | 4 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "4-bedroom detached villa for sale in Çalış, Fethiye. Private pool. £730,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Çalış property for sale",
         "detached villa for sale Çalış",
@@ -1705,7 +1849,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "These villas are high end and will be built to the highest standard.",
+    "headline": {
+      "en": "These villas are high end and will be built to the highest standard.",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Detached villa",
@@ -1733,11 +1881,15 @@
     "floors": 3,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Private pool",
-      "Private garden",
-      "Tennis court"
-    ],
+    "features": {
+      "en": [
+        "Private pool",
+        "Private garden",
+        "Tennis court"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Çalış, Fethiye",
       "4 bedrooms, 4 bathrooms — 240 m² internal",
@@ -1774,8 +1926,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Çalış | 4 Beds",
-      "description": "4-bedroom detached villa for sale in Çalış, Fethiye. Private pool. £850,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Çalış | 4 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "4-bedroom detached villa for sale in Çalış, Fethiye. Private pool. £850,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Çalış property for sale",
         "detached villa for sale Çalış",
@@ -1796,7 +1956,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The Doga Villa is a villa for sale in Turkey",
+    "headline": {
+      "en": "The Doga Villa is a villa for sale in Turkey",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Detached villa",
@@ -1824,14 +1988,18 @@
     "floors": 3,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Sea view",
-      "Mountain view",
-      "Furnished",
-      "En-suite bathrooms",
-      "Private garden",
-      "Sauna"
-    ],
+    "features": {
+      "en": [
+        "Sea view",
+        "Mountain view",
+        "Furnished",
+        "En-suite bathrooms",
+        "Private garden",
+        "Sauna"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Ölüdeniz, Fethiye",
       "4 bedrooms, 4 bathrooms — 220 m² internal",
@@ -2013,8 +2181,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Ölüdeniz | 4 Beds",
-      "description": "4-bedroom detached villa for sale in Ölüdeniz, Fethiye. £650,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Ölüdeniz | 4 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "4-bedroom detached villa for sale in Ölüdeniz, Fethiye. £650,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ölüdeniz property for sale",
         "detached villa for sale Ölüdeniz",
@@ -2035,7 +2211,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The Spring apartment is a Hisaronu apartment for sale in one of the best locations in the area.",
+    "headline": {
+      "en": "The Spring apartment is a Hisaronu apartment for sale in one of the best locations in the area.",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": false,
     "propertyType": "Apartment",
@@ -2063,13 +2243,17 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Mountain view",
-      "Air conditioning",
-      "Roof terrace",
-      "Mosquito nets",
-      "Solar hot water"
-    ],
+    "features": {
+      "en": [
+        "Mountain view",
+        "Air conditioning",
+        "Roof terrace",
+        "Mosquito nets",
+        "Solar hot water"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Ovacık, Fethiye",
       "2 bedrooms, 2 bathrooms — 85 m² internal",
@@ -2287,8 +2471,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Ovacık | 2 Beds",
-      "description": "2-bedroom apartment for sale in Ovacık, Fethiye. £130,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Ovacık | 2 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "2-bedroom apartment for sale in Ovacık, Fethiye. £130,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ovacık property for sale",
         "apartment for sale Ovacık",
@@ -2309,7 +2501,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The Sunset apartment is a property in Turkey that must be seen to appreciate.",
+    "headline": {
+      "en": "The Sunset apartment is a property in Turkey that must be seen to appreciate.",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": false,
     "propertyType": "Apartment",
@@ -2337,13 +2533,17 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Sea view",
-      "Furnished",
-      "En-suite bathrooms",
-      "Roof terrace",
-      "Gym"
-    ],
+    "features": {
+      "en": [
+        "Sea view",
+        "Furnished",
+        "En-suite bathrooms",
+        "Roof terrace",
+        "Gym"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Hisarönü, Fethiye",
       "3 bedrooms, 2 bathrooms — 120 m² internal",
@@ -2566,8 +2766,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Hisarönü | 3 Beds",
-      "description": "3-bedroom apartment for sale in Hisarönü, Fethiye. £169,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Hisarönü | 3 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "3-bedroom apartment for sale in Hisarönü, Fethiye. £169,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Hisarönü property for sale",
         "apartment for sale Hisarönü",
@@ -2588,7 +2796,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Oludeniz apartment is a property in Ovacik that is a must to view",
+    "headline": {
+      "en": "Oludeniz apartment is a property in Ovacik that is a must to view",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Apartment",
@@ -2616,11 +2828,15 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Communal pool",
-      "Furnished",
-      "En-suite bathrooms"
-    ],
+    "features": {
+      "en": [
+        "Communal pool",
+        "Furnished",
+        "En-suite bathrooms"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Ovacık, Fethiye",
       "3 bedrooms, 4 bathrooms — 120 m² internal",
@@ -2839,8 +3055,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Ovacık | 3 Beds",
-      "description": "3-bedroom apartment for sale in Ovacık, Fethiye. £137,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Ovacık | 3 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "3-bedroom apartment for sale in Ovacık, Fethiye. £137,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ovacık property for sale",
         "apartment for sale Ovacık",
@@ -2861,7 +3085,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The Sundial apartment is a new build property in calis now ready for ownership.",
+    "headline": {
+      "en": "The Sundial apartment is a new build property in calis now ready for ownership.",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": false,
     "propertyType": "Apartment",
@@ -2889,9 +3117,13 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Communal pool"
-    ],
+    "features": {
+      "en": [
+        "Communal pool"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Çalış, Fethiye",
       "1 bedrooms, 1 bathrooms — 50 m² internal",
@@ -2955,8 +3187,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Çalış | 1 Bed",
-      "description": "1-bedroom apartment for sale in Çalış, Fethiye. £110,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Çalış | 1 Bed",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "1-bedroom apartment for sale in Çalış, Fethiye. £110,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Çalış property for sale",
         "apartment for sale Çalış",
@@ -2977,7 +3217,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Apartments for sale in ovacik on a stunning complex do not get much better than this.",
+    "headline": {
+      "en": "Apartments for sale in ovacik on a stunning complex do not get much better than this.",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": false,
     "propertyType": "Apartment",
@@ -3005,9 +3249,13 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Furnished"
-    ],
+    "features": {
+      "en": [
+        "Furnished"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Ovacık, Fethiye",
       "3 bedrooms, 2 bathrooms — 120 m² internal",
@@ -3228,8 +3476,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Ovacık | 3 Beds",
-      "description": "3-bedroom apartment for sale in Ovacık, Fethiye. £170,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Ovacık | 3 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "3-bedroom apartment for sale in Ovacık, Fethiye. £170,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ovacık property for sale",
         "apartment for sale Ovacık",
@@ -3250,7 +3506,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Platinum Apartment is an Apartment for sale in ovacik SHOWROOM STYLE!",
+    "headline": {
+      "en": "Platinum Apartment is an Apartment for sale in ovacik SHOWROOM STYLE!",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": false,
     "propertyType": "Apartment",
@@ -3278,11 +3538,15 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Mountain view",
-      "Roof terrace",
-      "Solar hot water"
-    ],
+    "features": {
+      "en": [
+        "Mountain view",
+        "Roof terrace",
+        "Solar hot water"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Ovacık, Fethiye",
       "2 bedrooms, 2 bathrooms",
@@ -3503,8 +3767,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Ovacık | 2 Beds",
-      "description": "2-bedroom apartment for sale in Ovacık, Fethiye. £129,950. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Ovacık | 2 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "2-bedroom apartment for sale in Ovacık, Fethiye. £129,950. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ovacık property for sale",
         "apartment for sale Ovacık",
@@ -3525,7 +3797,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "This Show House Apartment is a stunning property in Ovacik Türkiye.",
+    "headline": {
+      "en": "This Show House Apartment is a stunning property in Ovacik Türkiye.",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Apartment",
@@ -3553,14 +3829,18 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Mountain view",
-      "Furnished",
-      "Air conditioning",
-      "Mosquito nets",
-      "Double glazing",
-      "Tennis court"
-    ],
+    "features": {
+      "en": [
+        "Mountain view",
+        "Furnished",
+        "Air conditioning",
+        "Mosquito nets",
+        "Double glazing",
+        "Tennis court"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Ovacık, Fethiye",
       "2 bedrooms, 1 bathrooms — 79 m² internal",
@@ -3780,8 +4060,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Ovacık | 2 Beds",
-      "description": "2-bedroom apartment for sale in Ovacık, Fethiye. £110,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Ovacık | 2 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "2-bedroom apartment for sale in Ovacık, Fethiye. £110,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ovacık property for sale",
         "apartment for sale Ovacık",
@@ -3802,7 +4090,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "New Super Reduction!",
+    "headline": {
+      "en": "New Super Reduction!",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Apartment",
@@ -3830,12 +4122,16 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Communal pool",
-      "Furnished",
-      "Private garden",
-      "Tennis court"
-    ],
+    "features": {
+      "en": [
+        "Communal pool",
+        "Furnished",
+        "Private garden",
+        "Tennis court"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Ovacık, Fethiye",
       "2 bedrooms, 1 bathrooms — 80 m² internal",
@@ -4065,8 +4361,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Ovacık | 2 Beds",
-      "description": "2-bedroom apartment for sale in Ovacık, Fethiye. £102,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Ovacık | 2 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "2-bedroom apartment for sale in Ovacık, Fethiye. £102,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ovacık property for sale",
         "apartment for sale Ovacık",
@@ -4087,7 +4391,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Forest villa is a villa for sale in Uzumlu Türkiye and boasts a separate self contained 1 bedroom apartment.",
+    "headline": {
+      "en": "Forest villa is a villa for sale in Uzumlu Türkiye and boasts a separate self contained 1 bedroom apartment.",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Apartment",
@@ -4115,14 +4423,18 @@
     "floors": 3,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Private pool",
-      "Furnished",
-      "Air conditioning",
-      "En-suite bathrooms",
-      "Roof terrace",
-      "Outdoor BBQ"
-    ],
+    "features": {
+      "en": [
+        "Private pool",
+        "Furnished",
+        "Air conditioning",
+        "En-suite bathrooms",
+        "Roof terrace",
+        "Outdoor BBQ"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Üzümlü, Fethiye",
       "7 bedrooms, 5 bathrooms — 200 m² internal",
@@ -4345,8 +4657,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Üzümlü | 7 Beds",
-      "description": "7-bedroom apartment for sale in Üzümlü, Fethiye. Private pool. £339,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Üzümlü | 7 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "7-bedroom apartment for sale in Üzümlü, Fethiye. Private pool. £339,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Üzümlü property for sale",
         "apartment for sale Üzümlü",
@@ -4367,7 +4687,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The Oasis Platinum Apart is a property for sale in Turkey situated on a stunning complex which boasts many swimming pools and a Tennis courtThe apartment is on the first floor and is a du…",
+    "headline": {
+      "en": "The Oasis Platinum Apart is a property for sale in Turkey situated on a stunning complex which boasts many swimming pools and a Tennis courtThe apartment is on the first floor and is a du…",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Apartment",
@@ -4395,15 +4719,19 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Mountain view",
-      "En-suite bathrooms",
-      "Roof terrace",
-      "Outdoor BBQ",
-      "Parking",
-      "Gym",
-      "Tennis court"
-    ],
+    "features": {
+      "en": [
+        "Mountain view",
+        "En-suite bathrooms",
+        "Roof terrace",
+        "Outdoor BBQ",
+        "Parking",
+        "Gym",
+        "Tennis court"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Yanıklar, Fethiye",
       "3 bedrooms, 2 bathrooms — 120 m² internal",
@@ -4620,8 +4948,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Yanıklar | 3 Beds",
-      "description": "3-bedroom apartment for sale in Yanıklar, Fethiye. £145,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Yanıklar | 3 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "3-bedroom apartment for sale in Yanıklar, Fethiye. £145,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Yanıklar property for sale",
         "apartment for sale Yanıklar",
@@ -4642,7 +4978,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The Stone Villa is a villa for sale in Fethiye that is most unusual.",
+    "headline": {
+      "en": "The Stone Villa is a villa for sale in Fethiye that is most unusual.",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Detached villa",
@@ -4670,10 +5010,14 @@
     "floors": 3,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "En-suite bathrooms",
-      "Fireplace"
-    ],
+    "features": {
+      "en": [
+        "En-suite bathrooms",
+        "Fireplace"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Fethiye",
       "4 bedrooms, 3 bathrooms — 200 m² internal",
@@ -4847,8 +5191,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Fethiye | 4 Beds",
-      "description": "4-bedroom detached villa for sale in Fethiye. £405,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Fethiye | 4 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "4-bedroom detached villa for sale in Fethiye. £405,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Fethiye property for sale",
         "detached villa for sale Fethiye",
@@ -4868,7 +5220,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Great new price!",
+    "headline": {
+      "en": "Great new price!",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Apartment",
@@ -4896,14 +5252,18 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Furnished",
-      "Air conditioning",
-      "Mosquito nets",
-      "Double glazing",
-      "Solar hot water",
-      "Tennis court"
-    ],
+    "features": {
+      "en": [
+        "Furnished",
+        "Air conditioning",
+        "Mosquito nets",
+        "Double glazing",
+        "Solar hot water",
+        "Tennis court"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Ovacık, Fethiye",
       "2 bedrooms, 1 bathrooms — 80 m² internal",
@@ -5118,8 +5478,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Ovacık | 2 Beds",
-      "description": "2-bedroom apartment for sale in Ovacık, Fethiye. £107,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Ovacık | 2 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "2-bedroom apartment for sale in Ovacık, Fethiye. £107,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ovacık property for sale",
         "apartment for sale Ovacık",
@@ -5140,7 +5508,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The Foca Villa is a villa for sale in calis in a fantastic local location.",
+    "headline": {
+      "en": "The Foca Villa is a villa for sale in calis in a fantastic local location.",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Detached villa",
@@ -5168,13 +5540,17 @@
     "floors": 3,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Furnished",
-      "Air conditioning",
-      "En-suite bathrooms",
-      "Private garden",
-      "Tennis court"
-    ],
+    "features": {
+      "en": [
+        "Furnished",
+        "Air conditioning",
+        "En-suite bathrooms",
+        "Private garden",
+        "Tennis court"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Çalış, Fethiye",
       "4 bedrooms, 3 bathrooms — 150 m² internal",
@@ -5392,8 +5768,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Çalış | 4 Beds",
-      "description": "4-bedroom detached villa for sale in Çalış, Fethiye. £240,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Çalış | 4 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "4-bedroom detached villa for sale in Çalış, Fethiye. £240,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Çalış property for sale",
         "detached villa for sale Çalış",
@@ -5414,7 +5798,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The stone House in YeşilÜzümlü is a stunning property that we are excited to have on our portfolio.",
+    "headline": {
+      "en": "The stone House in YeşilÜzümlü is a stunning property that we are excited to have on our portfolio.",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Detached villa",
@@ -5442,12 +5830,16 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Mountain view",
-      "Central heating",
-      "En-suite bathrooms",
-      "Outdoor BBQ"
-    ],
+    "features": {
+      "en": [
+        "Mountain view",
+        "Central heating",
+        "En-suite bathrooms",
+        "Outdoor BBQ"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Üzümlü, Fethiye",
       "3 bedrooms, 3 bathrooms — 150 m² internal",
@@ -5671,8 +6063,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Üzümlü | 3 Beds",
-      "description": "3-bedroom detached villa for sale in Üzümlü, Fethiye. £270,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Üzümlü | 3 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "3-bedroom detached villa for sale in Üzümlü, Fethiye. £270,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Üzümlü property for sale",
         "detached villa for sale Üzümlü",
@@ -5693,7 +6093,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Courtside villa is a town house property set on what must be said one of the most beautiful complex's in the area.",
+    "headline": {
+      "en": "Courtside villa is a town house property set on what must be said one of the most beautiful complex's in the area.",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Townhouse",
@@ -5721,14 +6125,18 @@
     "floors": 3,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Furnished",
-      "Air conditioning",
-      "En-suite bathrooms",
-      "Roof terrace",
-      "Outdoor BBQ",
-      "Tennis court"
-    ],
+    "features": {
+      "en": [
+        "Furnished",
+        "Air conditioning",
+        "En-suite bathrooms",
+        "Roof terrace",
+        "Outdoor BBQ",
+        "Tennis court"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Townhouse in Yanıklar, Fethiye",
       "3 bedrooms, 3 bathrooms — 149 m² internal",
@@ -5948,8 +6356,16 @@
       }
     ],
     "seo": {
-      "title": "Townhouse for Sale in Yanıklar | 3 Beds",
-      "description": "3-bedroom townhouse for sale in Yanıklar, Fethiye. £185,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Townhouse for Sale in Yanıklar | 3 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "3-bedroom townhouse for sale in Yanıklar, Fethiye. £185,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Yanıklar property for sale",
         "townhouse for sale Yanıklar",
@@ -5970,7 +6386,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "This property is set in a fantastic city location only 5 minutes walk to the beautiful Fethiye promenade.",
+    "headline": {
+      "en": "This property is set in a fantastic city location only 5 minutes walk to the beautiful Fethiye promenade.",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": false,
     "propertyType": "Apartment",
@@ -5998,9 +6418,13 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Furnished"
-    ],
+    "features": {
+      "en": [
+        "Furnished"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Fethiye",
       "2 bedrooms, 1 bathrooms — 80 m² internal",
@@ -6145,8 +6569,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Fethiye | 2 Beds",
-      "description": "2-bedroom apartment for sale in Fethiye. £115,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Fethiye | 2 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "2-bedroom apartment for sale in Fethiye. £115,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Fethiye property for sale",
         "apartment for sale Fethiye",
@@ -6166,7 +6598,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The Fethiye Bay Apartment is in what we would class no1 location in town!",
+    "headline": {
+      "en": "The Fethiye Bay Apartment is in what we would class no1 location in town!",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": false,
     "propertyType": "Apartment",
@@ -6194,12 +6630,16 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Sea view",
-      "Furnished",
-      "En-suite bathrooms",
-      "Lift"
-    ],
+    "features": {
+      "en": [
+        "Sea view",
+        "Furnished",
+        "En-suite bathrooms",
+        "Lift"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Fethiye",
       "3 bedrooms, 2 bathrooms — 125 m² internal",
@@ -6418,8 +6858,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Fethiye | 3 Beds",
-      "description": "3-bedroom apartment for sale in Fethiye. £199,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Fethiye | 3 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "3-bedroom apartment for sale in Fethiye. £199,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Fethiye property for sale",
         "apartment for sale Fethiye",
@@ -6439,7 +6887,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "If you know the beautiful town of Fethiye and know the Erasta shopping mall then this property is about 10 minutes walk from there.",
+    "headline": {
+      "en": "If you know the beautiful town of Fethiye and know the Erasta shopping mall then this property is about 10 minutes walk from there.",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": false,
     "propertyType": "Apartment",
@@ -6467,7 +6919,11 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [],
+    "features": {
+      "en": [],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Fethiye",
       "3 bedrooms, 1 bathrooms — 110 m² internal",
@@ -6679,8 +7135,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Fethiye | 3 Beds",
-      "description": "3-bedroom apartment for sale in Fethiye. £108,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Fethiye | 3 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "3-bedroom apartment for sale in Fethiye. £108,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Fethiye property for sale",
         "apartment for sale Fethiye",
@@ -6700,7 +7164,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "We offer you today this stunning TURN KEY property in Fethiye.",
+    "headline": {
+      "en": "We offer you today this stunning TURN KEY property in Fethiye.",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Apartment",
@@ -6728,13 +7196,17 @@
     "floors": 3,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Communal pool",
-      "Sea view",
-      "Furnished",
-      "En-suite bathrooms",
-      "Roof terrace"
-    ],
+    "features": {
+      "en": [
+        "Communal pool",
+        "Sea view",
+        "Furnished",
+        "En-suite bathrooms",
+        "Roof terrace"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Fethiye",
       "2 bedrooms, 2 bathrooms — 125 m² internal",
@@ -6955,8 +7427,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Fethiye | 2 Beds",
-      "description": "2-bedroom apartment for sale in Fethiye. £115,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Fethiye | 2 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "2-bedroom apartment for sale in Fethiye. £115,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Fethiye property for sale",
         "apartment for sale Fethiye",
@@ -6976,7 +7456,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "We have a unique opportunity here as we have 2 properties owned by the same owners in the same block!",
+    "headline": {
+      "en": "We have a unique opportunity here as we have 2 properties owned by the same owners in the same block!",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Apartment",
@@ -7004,10 +7488,14 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Communal pool",
-      "Furnished"
-    ],
+    "features": {
+      "en": [
+        "Communal pool",
+        "Furnished"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Fethiye",
       "2 bedrooms, 2 bathrooms — 90 m² internal",
@@ -7224,8 +7712,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Fethiye | 2 Beds",
-      "description": "2-bedroom apartment for sale in Fethiye. £105,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Fethiye | 2 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "2-bedroom apartment for sale in Fethiye. £105,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Fethiye property for sale",
         "apartment for sale Fethiye",
@@ -7245,7 +7741,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The yellow apartment is a property in Calis set in a real quiet location but only 10 to 15 minutes from the beach and main Calis resort!",
+    "headline": {
+      "en": "The yellow apartment is a property in Calis set in a real quiet location but only 10 to 15 minutes from the beach and main Calis resort!",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": false,
     "propertyType": "Apartment",
@@ -7273,9 +7773,13 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Furnished"
-    ],
+    "features": {
+      "en": [
+        "Furnished"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Çalış, Fethiye",
       "2 bedrooms, 2 bathrooms — 100 m² internal",
@@ -7491,8 +7995,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Çalış | 2 Beds",
-      "description": "2-bedroom apartment for sale in Çalış, Fethiye. £90,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Çalış | 2 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "2-bedroom apartment for sale in Çalış, Fethiye. £90,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Çalış property for sale",
         "apartment for sale Çalış",
@@ -7513,7 +8025,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "We are excited to bring you the Orchard Villa!",
+    "headline": {
+      "en": "We are excited to bring you the Orchard Villa!",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": true,
     "propertyType": "Apartment",
@@ -7541,12 +8057,16 @@
     "floors": 3,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Mountain view",
-      "Furnished",
-      "En-suite bathrooms",
-      "Fireplace"
-    ],
+    "features": {
+      "en": [
+        "Mountain view",
+        "Furnished",
+        "En-suite bathrooms",
+        "Fireplace"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Ovacık, Fethiye",
       "6 bedrooms, 4 bathrooms — 210 m² internal",
@@ -7767,8 +8287,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Ovacık | 6 Beds",
-      "description": "6-bedroom apartment for sale in Ovacık, Fethiye. £390,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Ovacık | 6 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "6-bedroom apartment for sale in Ovacık, Fethiye. £390,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ovacık property for sale",
         "apartment for sale Ovacık",
@@ -7789,7 +8317,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The Rainbow apartment is 4 bedroomed 4 en suite property in a quiet location in the area of Ovacik.",
+    "headline": {
+      "en": "The Rainbow apartment is 4 bedroomed 4 en suite property in a quiet location in the area of Ovacik.",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Apartment",
@@ -7817,11 +8349,15 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Communal pool",
-      "Furnished",
-      "En-suite bathrooms"
-    ],
+    "features": {
+      "en": [
+        "Communal pool",
+        "Furnished",
+        "En-suite bathrooms"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Ovacık, Fethiye",
       "4 bedrooms, 5 bathrooms — 125 m² internal",
@@ -8038,8 +8574,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Ovacık | 4 Beds",
-      "description": "4-bedroom apartment for sale in Ovacık, Fethiye. £135,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Ovacık | 4 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "4-bedroom apartment for sale in Ovacık, Fethiye. £135,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ovacık property for sale",
         "apartment for sale Ovacık",
@@ -8060,7 +8604,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The Valley View apartment is a property for sale in Ovacik that is worthy of viewing based on not just the low price but the views alone!",
+    "headline": {
+      "en": "The Valley View apartment is a property for sale in Ovacik that is worthy of viewing based on not just the low price but the views alone!",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": false,
     "propertyType": "Apartment",
@@ -8088,10 +8636,14 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Furnished",
-      "Roof terrace"
-    ],
+    "features": {
+      "en": [
+        "Furnished",
+        "Roof terrace"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Ölüdeniz, Fethiye",
       "2 bedrooms, 2 bathrooms — 90 m² internal",
@@ -8309,8 +8861,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Ölüdeniz | 2 Beds",
-      "description": "2-bedroom apartment for sale in Ölüdeniz, Fethiye. £88,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Ölüdeniz | 2 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "2-bedroom apartment for sale in Ölüdeniz, Fethiye. £88,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ölüdeniz property for sale",
         "apartment for sale Ölüdeniz",
@@ -8331,7 +8891,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "If ever there was a villa for sale in Hisaronu that was in the perfect location then Villa Majestic is it!",
+    "headline": {
+      "en": "If ever there was a villa for sale in Hisaronu that was in the perfect location then Villa Majestic is it!",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": true,
     "propertyType": "Detached villa",
@@ -8359,9 +8923,13 @@
     "floors": 3,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "En-suite bathrooms"
-    ],
+    "features": {
+      "en": [
+        "En-suite bathrooms"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Hisarönü, Fethiye",
       "4 bedrooms, 3 bathrooms — 120 m² internal",
@@ -8578,8 +9146,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Hisarönü | 4 Beds",
-      "description": "4-bedroom detached villa for sale in Hisarönü, Fethiye. £360,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Hisarönü | 4 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "4-bedroom detached villa for sale in Hisarönü, Fethiye. £360,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Hisarönü property for sale",
         "detached villa for sale Hisarönü",
@@ -8600,7 +9176,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Seaside Apartment is a property for sale in Calis as you might have guessed is 200 meters only to the beach.",
+    "headline": {
+      "en": "Seaside Apartment is a property for sale in Calis as you might have guessed is 200 meters only to the beach.",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": false,
     "propertyType": "Apartment",
@@ -8628,12 +9208,16 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Furnished",
-      "En-suite bathrooms",
-      "Roof terrace",
-      "Outdoor BBQ"
-    ],
+    "features": {
+      "en": [
+        "Furnished",
+        "En-suite bathrooms",
+        "Roof terrace",
+        "Outdoor BBQ"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Çalış, Fethiye",
       "2 bedrooms, 2 bathrooms — 90 m² internal",
@@ -8849,8 +9433,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Çalış | 2 Beds",
-      "description": "2-bedroom apartment for sale in Çalış, Fethiye. £156,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Çalış | 2 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "2-bedroom apartment for sale in Çalış, Fethiye. £156,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Çalış property for sale",
         "apartment for sale Çalış",
@@ -8871,7 +9463,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Are you looking for space in your new property and the perfect location?",
+    "headline": {
+      "en": "Are you looking for space in your new property and the perfect location?",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Apartment",
@@ -8899,11 +9495,15 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Furnished",
-      "En-suite bathrooms",
-      "Roof terrace"
-    ],
+    "features": {
+      "en": [
+        "Furnished",
+        "En-suite bathrooms",
+        "Roof terrace"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Çalış, Fethiye",
       "3 bedrooms, 2 bathrooms — 125 m² internal",
@@ -9125,8 +9725,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Çalış | 3 Beds",
-      "description": "3-bedroom apartment for sale in Çalış, Fethiye. £220,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Çalış | 3 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "3-bedroom apartment for sale in Çalış, Fethiye. £220,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Çalış property for sale",
         "apartment for sale Çalış",
@@ -9147,7 +9755,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "The Dalaman apartment is a property for sale in Dalaman that offers great value.",
+    "headline": {
+      "en": "The Dalaman apartment is a property for sale in Dalaman that offers great value.",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Apartment",
@@ -9175,9 +9787,13 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "En-suite bathrooms"
-    ],
+    "features": {
+      "en": [
+        "En-suite bathrooms"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Dalaman, Fethiye",
       "3 bedrooms, 2 bathrooms — 120 m² internal",
@@ -9391,8 +10007,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Dalaman | 3 Beds",
-      "description": "3-bedroom apartment for sale in Dalaman, Fethiye. £92,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Dalaman | 3 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "3-bedroom apartment for sale in Dalaman, Fethiye. £92,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Dalaman property for sale",
         "apartment for sale Dalaman",
@@ -9413,7 +10037,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Stunning Beachside Duplex Apartment for Sale",
+    "headline": {
+      "en": "Stunning Beachside Duplex Apartment for Sale",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Apartment",
@@ -9441,15 +10069,19 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Communal pool",
-      "Sea view",
-      "Furnished",
-      "En-suite bathrooms",
-      "Roof terrace",
-      "Outdoor BBQ",
-      "Jacuzzi"
-    ],
+    "features": {
+      "en": [
+        "Communal pool",
+        "Sea view",
+        "Furnished",
+        "En-suite bathrooms",
+        "Roof terrace",
+        "Outdoor BBQ",
+        "Jacuzzi"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Çalış, Fethiye",
       "3 bedrooms, 2 bathrooms — 120 m² internal",
@@ -9671,8 +10303,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Çalış | 3 Beds",
-      "description": "3-bedroom apartment for sale in Çalış, Fethiye. £235,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Çalış | 3 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "3-bedroom apartment for sale in Çalış, Fethiye. £235,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Çalış property for sale",
         "apartment for sale Çalış",
@@ -9693,7 +10333,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Edgewater Villa is a striking contemporary triplex villa offering refined living across three beautifully designed floors.",
+    "headline": {
+      "en": "Edgewater Villa is a striking contemporary triplex villa offering refined living across three beautifully designed floors.",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": true,
     "propertyType": "Detached villa",
@@ -9721,14 +10365,18 @@
     "floors": 3,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Private pool",
-      "Mountain view",
-      "En-suite bathrooms",
-      "Roof terrace",
-      "Private garden",
-      "Outdoor BBQ"
-    ],
+    "features": {
+      "en": [
+        "Private pool",
+        "Mountain view",
+        "En-suite bathrooms",
+        "Roof terrace",
+        "Private garden",
+        "Outdoor BBQ"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Ovacık, Fethiye",
       "4 bedrooms, 5 bathrooms — 156 m² internal",
@@ -9960,8 +10608,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Ovacık | 4 Beds",
-      "description": "4-bedroom detached villa for sale in Ovacık, Fethiye. Private pool. £350,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Ovacık | 4 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "4-bedroom detached villa for sale in Ovacık, Fethiye. Private pool. £350,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ovacık property for sale",
         "detached villa for sale Ovacık",
@@ -9982,7 +10638,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "🏡 Exceptional Turn-Key Living in the Heart of Fethiye.",
+    "headline": {
+      "en": "🏡 Exceptional Turn-Key Living in the Heart of Fethiye.",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": false,
     "propertyType": "Apartment",
@@ -10010,12 +10670,16 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Communal pool",
-      "Furnished",
-      "Private garden",
-      "Outdoor BBQ"
-    ],
+    "features": {
+      "en": [
+        "Communal pool",
+        "Furnished",
+        "Private garden",
+        "Outdoor BBQ"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Fethiye",
       "2 bedrooms, 2 bathrooms — 90 m² internal",
@@ -10237,8 +10901,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Fethiye | 2 Beds",
-      "description": "2-bedroom apartment for sale in Fethiye. £130,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Fethiye | 2 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "2-bedroom apartment for sale in Fethiye. £130,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Fethiye property for sale",
         "apartment for sale Fethiye",
@@ -10258,7 +10930,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Stunning Triplex Villa in Çalış Beach – Private Pool, Gardens & Exceptional Outdoor Living",
+    "headline": {
+      "en": "Stunning Triplex Villa in Çalış Beach – Private Pool, Gardens & Exceptional Outdoor Living",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Detached villa",
@@ -10286,18 +10962,22 @@
     "floors": 3,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Private pool",
-      "Furnished",
-      "Central heating",
-      "En-suite bathrooms",
-      "Roof terrace",
-      "Private garden",
-      "Outdoor BBQ",
-      "Parking",
-      "Gym",
-      "Fireplace"
-    ],
+    "features": {
+      "en": [
+        "Private pool",
+        "Furnished",
+        "Central heating",
+        "En-suite bathrooms",
+        "Roof terrace",
+        "Private garden",
+        "Outdoor BBQ",
+        "Parking",
+        "Gym",
+        "Fireplace"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Çalış, Fethiye",
       "4 bedrooms, 3 bathrooms — 180 m² internal",
@@ -10518,8 +11198,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Çalış | 4 Beds",
-      "description": "4-bedroom detached villa for sale in Çalış, Fethiye. Private pool. £425,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Çalış | 4 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "4-bedroom detached villa for sale in Çalış, Fethiye. Private pool. £425,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Çalış property for sale",
         "detached villa for sale Çalış",
@@ -10540,7 +11228,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "An Exceptional Coastal Residence in One of the Mediterranean’s Most Exclusive Enclaves",
+    "headline": {
+      "en": "An Exceptional Coastal Residence in One of the Mediterranean’s Most Exclusive Enclaves",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": true,
     "propertyType": "Detached villa",
@@ -10568,18 +11260,22 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Infinity pool",
-      "Sea view",
-      "Furnished",
-      "Underfloor heating",
-      "En-suite bathrooms",
-      "Roof terrace",
-      "Private garden",
-      "Outdoor BBQ",
-      "Gym",
-      "Fireplace"
-    ],
+    "features": {
+      "en": [
+        "Infinity pool",
+        "Sea view",
+        "Furnished",
+        "Underfloor heating",
+        "En-suite bathrooms",
+        "Roof terrace",
+        "Private garden",
+        "Outdoor BBQ",
+        "Gym",
+        "Fireplace"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Kalkan, Fethiye",
       "6 bedrooms, 6 bathrooms — 335 m² internal",
@@ -10830,8 +11526,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Kalkan | 6 Beds",
-      "description": "6-bedroom detached villa for sale in Kalkan, Fethiye. £1,250,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Kalkan | 6 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "6-bedroom detached villa for sale in Kalkan, Fethiye. £1,250,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Kalkan property for sale",
         "detached villa for sale Kalkan",
@@ -10852,7 +11556,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "ROZAVILLA – EXCEPTIONAL 3 BEDROOM CONTEMPORARY TRIPLEX VILLA IN KOCA ÇALIŞ",
+    "headline": {
+      "en": "ROZAVILLA – EXCEPTIONAL 3 BEDROOM CONTEMPORARY TRIPLEX VILLA IN KOCA ÇALIŞ",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": true,
     "propertyType": "Detached villa",
@@ -10880,14 +11588,18 @@
     "floors": 3,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Private pool",
-      "Mountain view",
-      "Furnished",
-      "Air conditioning",
-      "En-suite bathrooms",
-      "Private garden"
-    ],
+    "features": {
+      "en": [
+        "Private pool",
+        "Mountain view",
+        "Furnished",
+        "Air conditioning",
+        "En-suite bathrooms",
+        "Private garden"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Çalış, Fethiye",
       "3 bedrooms, 3 bathrooms — 180 m² internal",
@@ -11152,8 +11864,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Çalış | 3 Beds",
-      "description": "3-bedroom detached villa for sale in Çalış, Fethiye. Private pool. £535,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Çalış | 3 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "3-bedroom detached villa for sale in Çalış, Fethiye. Private pool. £535,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Çalış property for sale",
         "detached villa for sale Çalış",
@@ -11174,7 +11894,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Introducing Mountain View Villa, a beautifully designed new-build triplex villa located in the peaceful and highly desirable Patlangıç area of Fethiye .",
+    "headline": {
+      "en": "Introducing Mountain View Villa, a beautifully designed new-build triplex villa located in the peaceful and highly desirable Patlangıç area of Fethiye .",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Detached villa",
@@ -11202,12 +11926,16 @@
     "floors": 3,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Private pool",
-      "Mountain view",
-      "En-suite bathrooms",
-      "Private garden"
-    ],
+    "features": {
+      "en": [
+        "Private pool",
+        "Mountain view",
+        "En-suite bathrooms",
+        "Private garden"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Fethiye",
       "4 bedrooms, 3 bathrooms — 150 m² internal",
@@ -11352,8 +12080,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Fethiye | 4 Beds",
-      "description": "4-bedroom detached villa for sale in Fethiye. Private pool. £280,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Fethiye | 4 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "4-bedroom detached villa for sale in Fethiye. Private pool. £280,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Fethiye property for sale",
         "detached villa for sale Fethiye",
@@ -11373,7 +12109,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Violet Villa – Private 3 Bedroom Villa with Pool",
+    "headline": {
+      "en": "Violet Villa – Private 3 Bedroom Villa with Pool",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Land",
@@ -11401,13 +12141,17 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Private pool",
-      "Furnished",
-      "Air conditioning",
-      "En-suite bathrooms",
-      "Fireplace"
-    ],
+    "features": {
+      "en": [
+        "Private pool",
+        "Furnished",
+        "Air conditioning",
+        "En-suite bathrooms",
+        "Fireplace"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Land in Çalış, Fethiye",
       "3 bedrooms, 3 bathrooms — 149 m² internal",
@@ -11632,8 +12376,16 @@
       }
     ],
     "seo": {
-      "title": "Land for Sale in Çalış | 3 Beds",
-      "description": "3-bedroom land for sale in Çalış, Fethiye. Private pool. £305,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Land for Sale in Çalış | 3 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "3-bedroom land for sale in Çalış, Fethiye. Private pool. £305,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Çalış property for sale",
         "land for sale Çalış",
@@ -11654,7 +12406,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Villa Lux, Spacious 4 Bedroom Private Villa with Pool – Seydikemer, Near Fethiye.",
+    "headline": {
+      "en": "Villa Lux, Spacious 4 Bedroom Private Villa with Pool – Seydikemer, Near Fethiye.",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Detached villa",
@@ -11682,13 +12438,17 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Private pool",
-      "Furnished",
-      "Air conditioning",
-      "Central heating",
-      "En-suite bathrooms"
-    ],
+    "features": {
+      "en": [
+        "Private pool",
+        "Furnished",
+        "Air conditioning",
+        "Central heating",
+        "En-suite bathrooms"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Seydikemer, Fethiye",
       "4 bedrooms, 3 bathrooms — 200 m² internal",
@@ -11921,8 +12681,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Seydikemer | 4 Beds",
-      "description": "4-bedroom detached villa for sale in Seydikemer, Fethiye. Private pool. £249,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Seydikemer | 4 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "4-bedroom detached villa for sale in Seydikemer, Fethiye. Private pool. £249,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Seydikemer property for sale",
         "detached villa for sale Seydikemer",
@@ -11943,7 +12711,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Villa Purple – Ovacık, TürkiyePrice: £305,000 – Priced to Sell",
+    "headline": {
+      "en": "Villa Purple – Ovacık, TürkiyePrice: £305,000 – Priced to Sell",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Detached villa",
@@ -11971,16 +12743,20 @@
     "floors": 3,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Private pool",
-      "Air conditioning",
-      "Underfloor heating",
-      "Private garden",
-      "Outdoor BBQ",
-      "Parking",
-      "Solar hot water",
-      "Fireplace"
-    ],
+    "features": {
+      "en": [
+        "Private pool",
+        "Air conditioning",
+        "Underfloor heating",
+        "Private garden",
+        "Outdoor BBQ",
+        "Parking",
+        "Solar hot water",
+        "Fireplace"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Ovacık, Fethiye",
       "4 bedrooms, 3 bathrooms — 180 m² internal",
@@ -12197,8 +12973,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Ovacık | 4 Beds",
-      "description": "4-bedroom detached villa for sale in Ovacık, Fethiye. Private pool. £305,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Ovacık | 4 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "4-bedroom detached villa for sale in Ovacık, Fethiye. Private pool. £305,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ovacık property for sale",
         "detached villa for sale Ovacık",
@@ -12219,7 +13003,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Luxury Duplex Apartment | Prime Fethiye Location | £160,000",
+    "headline": {
+      "en": "Luxury Duplex Apartment | Prime Fethiye Location | £160,000",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": false,
     "propertyType": "Apartment",
@@ -12247,14 +13035,18 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Mountain view",
-      "Furnished",
-      "Air conditioning",
-      "En-suite bathrooms",
-      "Roof terrace",
-      "Double glazing"
-    ],
+    "features": {
+      "en": [
+        "Mountain view",
+        "Furnished",
+        "Air conditioning",
+        "En-suite bathrooms",
+        "Roof terrace",
+        "Double glazing"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Fethiye",
       "3 bedrooms, 3 bathrooms — 120 m² internal",
@@ -12515,8 +13307,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Fethiye | 3 Beds",
-      "description": "3-bedroom apartment for sale in Fethiye. £160,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Fethiye | 3 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "3-bedroom apartment for sale in Fethiye. £160,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Fethiye property for sale",
         "apartment for sale Fethiye",
@@ -12536,7 +13336,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Escape the Summer Heat – Discover an Exclusive Highland Villa in Beçlicer- Project near completion!",
+    "headline": {
+      "en": "Escape the Summer Heat – Discover an Exclusive Highland Villa in Beçlicer- Project near completion!",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Detached villa",
@@ -12564,11 +13368,15 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Underfloor heating",
-      "En-suite bathrooms",
-      "Private garden"
-    ],
+    "features": {
+      "en": [
+        "Underfloor heating",
+        "En-suite bathrooms",
+        "Private garden"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Detached villa in Bekçiler, Fethiye",
       "2 bedrooms, 3 bathrooms",
@@ -12654,8 +13462,16 @@
       }
     ],
     "seo": {
-      "title": "Detached villa for Sale in Bekçiler | 2 Beds",
-      "description": "2-bedroom detached villa for sale in Bekçiler, Fethiye. £125,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Detached villa for Sale in Bekçiler | 2 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "2-bedroom detached villa for sale in Bekçiler, Fethiye. £125,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Bekçiler property for sale",
         "detached villa for sale Bekçiler",
@@ -12676,7 +13492,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "CHEAP FETHIYE FIND – PRIME LOCATION!",
+    "headline": {
+      "en": "CHEAP FETHIYE FIND – PRIME LOCATION!",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": false,
     "propertyType": "Apartment",
@@ -12704,9 +13524,13 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Sea view"
-    ],
+    "features": {
+      "en": [
+        "Sea view"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Fethiye",
       "1 bedrooms, 2 bathrooms — 65 m² internal",
@@ -12931,8 +13755,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Fethiye | 1 Bed",
-      "description": "1-bedroom apartment for sale in Fethiye. £77,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Fethiye | 1 Bed",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "1-bedroom apartment for sale in Fethiye. £77,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Fethiye property for sale",
         "apartment for sale Fethiye",
@@ -12952,7 +13784,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Foça Duplex Apartment – Elegant 3-Bedroom Residence Near Çalış Beach",
+    "headline": {
+      "en": "Foça Duplex Apartment – Elegant 3-Bedroom Residence Near Çalış Beach",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Apartment",
@@ -12980,14 +13816,18 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Communal pool",
-      "En-suite bathrooms",
-      "Roof terrace",
-      "Private garden",
-      "Parking",
-      "Gym"
-    ],
+    "features": {
+      "en": [
+        "Communal pool",
+        "En-suite bathrooms",
+        "Roof terrace",
+        "Private garden",
+        "Parking",
+        "Gym"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Çalış, Fethiye",
       "3 bedrooms, 3 bathrooms — 130 m² internal",
@@ -13157,8 +13997,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Çalış | 3 Beds",
-      "description": "3-bedroom apartment for sale in Çalış, Fethiye. £230,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Çalış | 3 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "3-bedroom apartment for sale in Çalış, Fethiye. £230,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Çalış property for sale",
         "apartment for sale Çalış",
@@ -13179,7 +14027,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "3-Bedroom Duplex Apartment in Prime Fethiye location",
+    "headline": {
+      "en": "3-Bedroom Duplex Apartment in Prime Fethiye location",
+      "tr": null,
+      "ru": null
+    },
     "status": "sold",
     "featured": false,
     "propertyType": "Apartment",
@@ -13207,15 +14059,19 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Communal pool",
-      "Mountain view",
-      "Furnished",
-      "Air conditioning",
-      "En-suite bathrooms",
-      "Roof terrace",
-      "Private garden"
-    ],
+    "features": {
+      "en": [
+        "Communal pool",
+        "Mountain view",
+        "Furnished",
+        "Air conditioning",
+        "En-suite bathrooms",
+        "Roof terrace",
+        "Private garden"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Çalış, Fethiye",
       "3 bedrooms, 2 bathrooms — 135 m² internal",
@@ -13467,8 +14323,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Çalış | 3 Beds",
-      "description": "3-bedroom apartment for sale in Çalış, Fethiye. £190,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Çalış | 3 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "3-bedroom apartment for sale in Çalış, Fethiye. £190,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Çalış property for sale",
         "apartment for sale Çalış",
@@ -13489,7 +14353,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Property in Hisaronu.",
+    "headline": {
+      "en": "Property in Hisaronu.",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Apartment",
@@ -13517,12 +14385,16 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Communal pool",
-      "Furnished",
-      "En-suite bathrooms",
-      "Private garden"
-    ],
+    "features": {
+      "en": [
+        "Communal pool",
+        "Furnished",
+        "En-suite bathrooms",
+        "Private garden"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Hisarönü, Fethiye",
       "4 bedrooms, 3 bathrooms — 110 m² internal",
@@ -13685,8 +14557,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Hisarönü | 4 Beds",
-      "description": "4-bedroom apartment for sale in Hisarönü, Fethiye. £155,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Hisarönü | 4 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "4-bedroom apartment for sale in Hisarönü, Fethiye. £155,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Hisarönü property for sale",
         "apartment for sale Hisarönü",
@@ -13707,7 +14587,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Stylish 2-Bedroom Duplex Apartment for Sale in Ovacık – Prime Location, Fully Furnished",
+    "headline": {
+      "en": "Stylish 2-Bedroom Duplex Apartment for Sale in Ovacık – Prime Location, Fully Furnished",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": false,
     "propertyType": "Apartment",
@@ -13735,14 +14619,18 @@
     "floors": 2,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Communal pool",
-      "Mountain view",
-      "Furnished",
-      "Air conditioning",
-      "En-suite bathrooms",
-      "Private garden"
-    ],
+    "features": {
+      "en": [
+        "Communal pool",
+        "Mountain view",
+        "Furnished",
+        "Air conditioning",
+        "En-suite bathrooms",
+        "Private garden"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Apartment in Ovacık, Fethiye",
       "2 bedrooms, 2 bathrooms — 100 m² internal",
@@ -14004,8 +14892,16 @@
       }
     ],
     "seo": {
-      "title": "Apartment for Sale in Ovacık | 2 Beds",
-      "description": "2-bedroom apartment for sale in Ovacık, Fethiye. £146,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Apartment for Sale in Ovacık | 2 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "2-bedroom apartment for sale in Ovacık, Fethiye. £146,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ovacık property for sale",
         "apartment for sale Ovacık",
@@ -14026,7 +14922,11 @@
       "tr": null,
       "ru": null
     },
-    "headline": "Exceptional Contemporary Forest Residence |",
+    "headline": {
+      "en": "Exceptional Contemporary Forest Residence |",
+      "tr": null,
+      "ru": null
+    },
     "status": "for-sale",
     "featured": true,
     "propertyType": "Land",
@@ -14054,14 +14954,18 @@
     "floors": 0,
     "deedStatus": "",
     "citizenshipEligible": false,
-    "features": [
-      "Private pool",
-      "Furnished",
-      "Underfloor heating",
-      "En-suite bathrooms",
-      "Private garden",
-      "Parking"
-    ],
+    "features": {
+      "en": [
+        "Private pool",
+        "Furnished",
+        "Underfloor heating",
+        "En-suite bathrooms",
+        "Private garden",
+        "Parking"
+      ],
+      "tr": null,
+      "ru": null
+    },
     "highlights": [
       "Land in Ovacık, Fethiye",
       "6 bedrooms, 5 bathrooms",
@@ -14310,8 +15214,16 @@
       }
     ],
     "seo": {
-      "title": "Land for Sale in Ovacık | 6 Beds",
-      "description": "6-bedroom land for sale in Ovacık, Fethiye. Private pool. £650,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+      "title": {
+        "en": "Land for Sale in Ovacık | 6 Beds",
+        "tr": null,
+        "ru": null
+      },
+      "description": {
+        "en": "6-bedroom land for sale in Ovacık, Fethiye. Private pool. £650,000. Arrange a viewing with Coast 2 Coast Properties Turkey.",
+        "tr": null,
+        "ru": null
+      },
       "keywords": [
         "Ovacık property for sale",
         "land for sale Ovacık",

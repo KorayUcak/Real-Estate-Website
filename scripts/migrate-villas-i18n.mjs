@@ -46,8 +46,27 @@ function toLocalized(value) {
 
 const stats = { records: 0, converted: 0, alreadyDone: 0, skippedMissing: 0 };
 
-function migrateField(villa, field) {
-  const value = villa[field];
+/**
+ * İÇ İÇE YOL DESTEĞİ — "seo.title" gibi alanlar için.
+ *
+ * İlk sürümde yalnızca üst düzey alanlar taşınıyordu. İkinci dalgada
+ * `seo.title` ve `seo.description` da üç dilli hâle geldi ve bunlar bir
+ * alt nesnenin içinde duruyor; `villa["seo.title"]` diye bir alan yok.
+ */
+function migrateField(villa, path) {
+  const trail = path.split(".");
+  const leaf = trail.pop();
+
+  let node = villa;
+  for (const step of trail) {
+    if (node?.[step] === undefined) {
+      stats.skippedMissing += 1;
+      return;
+    }
+    node = node[step];
+  }
+
+  const value = node[leaf];
 
   if (value === undefined) {
     // `whyThisOne` opsiyonel — taşımayan kayıt taşımamaya devam etsin.
@@ -59,7 +78,7 @@ function migrateField(villa, field) {
     return;
   }
 
-  villa[field] = toLocalized(value);
+  node[leaf] = toLocalized(value);
   stats.converted += 1;
 }
 
@@ -76,6 +95,11 @@ for (const villa of villas) {
   migrateField(villa, "title");
   migrateField(villa, "description");
   migrateField(villa, "whyThisOne");
+  /* İkinci dalga — bkz. lib/types.ts'teki `features` notu. */
+  migrateField(villa, "headline");
+  migrateField(villa, "features");
+  migrateField(villa, "seo.title");
+  migrateField(villa, "seo.description");
 }
 
 if (DRY) {

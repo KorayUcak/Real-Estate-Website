@@ -67,6 +67,16 @@ function normalizeLocalizedFields(villa: Villa): Villa {
     ...villa,
     title: coerceLocalized<string>(villa.title),
     description: coerceLocalized<string[]>(villa.description),
+    /* İkinci dalga: bunlar da düz değerden üç dilliye geçti. Göç edilmemiş
+       bir dosya (ya da `adapt-villas.js` çıktısı) hâlâ düz gelebilir. */
+    headline: coerceLocalized<string>(villa.headline),
+    features: coerceLocalized<string[]>(villa.features),
+    seo: {
+      ...villa.seo,
+      title: coerceLocalized<string>(villa.seo?.title),
+      description: coerceLocalized<string>(villa.seo?.description),
+      keywords: villa.seo?.keywords ?? [],
+    },
     /* Opsiyonel alan: YOKSA yok kalsın — boş bir kayıt uydurmak,
        ilan sayfasında olmayan bir bölümü var göstermek olurdu. */
     whyThisOne:
@@ -167,7 +177,16 @@ export async function getKnownFeatures(): Promise<string[]> {
   const seen = new Map<string, string>();
 
   for (const villa of villas) {
-    for (const feature of villa.features) {
+    /*
+      ⚠️ LİSTE `en` ÜZERİNDEN KURULUYOR, aktif dilden değil.
+
+      Bu seçici yönetici formunda duruyor ve rozetlerin KANONİK yazımını
+      öneriyor. Aktif dilden beslenseydi, Türkçe çevirisi girilmiş bir
+      rozet ("Deniz manzarası") listeye ayrı bir madde olarak düşer,
+      yönetici onu seçtiğinde `en` alanına Türkçe bir değer yazılırdı —
+      yani kanonik dil sessizce bozulurdu.
+    */
+    for (const feature of villa.features.en) {
       const key = feature.trim().toLowerCase();
       if (key && !seen.has(key)) seen.set(key, feature.trim());
     }

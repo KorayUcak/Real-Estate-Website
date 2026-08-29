@@ -45,3 +45,8 @@ next-env.d.ts
 # bir yedek bırakıyor (villas.pre-i18n-<ISO>.json, ~550KB). Bunlar üretilebilir
 # ara çıktılar; sürüm geçmişine girerlerse her göçte depo yarım MB büyür.
 data/*.pre-i18n-*.json
+
+# DeepL çeviri önbelleği
+# Türev çıktı: kaynak metnin SHA-1'i → çeviri. Kotayı korumak için var
+# (bkz. scripts/lib/deepl.mjs), makineler arası taşınması gerekmiyor.
+scripts/.deepl-cache.json
