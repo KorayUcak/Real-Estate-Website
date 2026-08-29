@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import { LocaleLink as Link } from "@/components/locale-link";
-import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CtaSurface } from "@/components/cta-surface";
 import {
   ArrowRight,
@@ -22,15 +21,26 @@ import { HOME_CRUMB, pageMetadata, type Crumb } from "@/lib/seo";
 
 
 /**
- * Hakkımızda banner görseli.
+ * Hakkımızda banner görseli — KURUCULAR.
  *
  * `lib/imagery.ts` içindeki Unsplash havuzunda DEĞİL: bu marka fotoğrafı,
  * stok görsel değil. Havuza koymak onu diğer sayfaların da çekebileceği
  * genel bir görsel gibi gösterirdi.
+ *
+ * Dosya kaynaktan BAYT BAYT kopyalandı, yeniden kodlanmadı. Kaynak
+ * WhatsApp üzerinden geldiği için zaten sıkıştırılmış (1528×1028, 163 KB,
+ * progressive, EXIF/ICC yok); mozjpeg ile q88–92 arası her deneme dosyayı
+ * 233–262 KB'a BÜYÜTÜYOR ve üstüne ikinci bir kayıp katmanı ekliyordu.
+ * Yani yeniden kodlamak burada hem daha büyük hem daha bozuk demekti.
+ * Boyut optimizasyonunu `next/image` zaten yapıyor: WebP/AVIF türevlerini
+ * `sizes` ile birlikte kendisi üretiyor.
+ *
+ * ALT METNİ İSİM İÇERİYOR: "Coast 2 Coast Properties Turkey" jenerikti ve
+ * karede ne olduğunu söylemiyordu. Görsel artık iki kurucunun portresi.
  */
 const ABOUT_BANNER = {
-  src: "/images/about/about-hero.jpeg",
-  alt: "Coast 2 Coast Properties Turkey",
+  src: "/images/about/founders-ronnie-nilay.jpg",
+  alt: "Ronnie and Nilay, founders of Coast2Coast Properties Turkey, on the seafront in Fethiye",
 } as const;
 
 const CRUMBS: Crumb[] = [HOME_CRUMB, { name: "About", path: "/about" }];
@@ -70,6 +80,49 @@ const PRINCIPLES = [
 
 
 
+/**
+ * HİKÂYE ALT BÖLÜMÜ — başlık + altın kural + paragraf yığını.
+ *
+ * Dört kez tekrar eden bir kalıp: aynı başlık ölçüsü, aynı üst boşluk,
+ * aynı paragraf aralığı. Elle dört kez yazılsaydı biri diğerlerinden
+ * sessizce ayrılırdı — uzun bir sayfada gözden kaçan, ama okuma ritmini
+ * bozan türden bir kayma.
+ *
+ * `aria-labelledby` başlığa bağlanıyor: adı olan bir `<section>` erişilebilirlik
+ * ağacında `region` olarak görünür, yani ekran okuyucu kullanıcısı bölümler
+ * arasında doğrudan gezinebilir. 1.500 kelimelik bir metinde bu, "sayfayı
+ * baştan dinle"nin tek alternatifi.
+ *
+ * ⚠️ `space-y-6` KAPSAYICIDA, çocuklarda değil: alt bölümlerin içeriği
+ * paragraf, alıntı ve liste karışımı. Her birine ayrı boşluk sınıfı vermek
+ * yerine tek kural, hepsi arasında AYNI aralığı garanti ediyor.
+ */
+function StoryBlock({
+  id,
+  heading,
+  children,
+}: {
+  id: string;
+  heading: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <section aria-labelledby={id} className="mt-14 sm:mt-20">
+      <h3
+        id={id}
+        className="font-display text-2xl leading-snug text-sea-deep sm:text-3xl"
+      >
+        {heading}
+      </h3>
+      <span aria-hidden="true" className="mt-4 block h-px w-12 bg-gold" />
+
+      <div className="mt-6 space-y-6 leading-relaxed text-ink-70 sm:mt-8">
+        {children}
+      </div>
+    </section>
+  );
+}
+
 export default async function AboutPage() {
   const t = await getT();
   const copy = await getAboutCopy();
@@ -83,223 +136,294 @@ export default async function AboutPage() {
 
       <main id="main">
         {/*
-          HAKKIMIZDA BANNER'I — GÖRSEL, METİN YOK.
+          KURUCULAR BANNER'I — TAM KANAMA (FULL-BLEED), METİNSİZ, TÜLSÜZ.
 
-          `PageHero` yerine bu sayfaya özel bir blok kullanılıyor: brief
-          banner'ın üstündeki tüm metnin kalkmasını istiyor, PageHero ise
+          `PageHero` yerine bu sayfaya özel bir blok: brief banner'ın
+          üstündeki tüm metnin kalkmasını istiyor, `PageHero` ise
           eyebrow + h1 + lede üçlüsünü basmak için var. Ona bir "metni gizle"
           anahtarı eklemek, dokuz sayfanın paylaştığı bileşeni tek sayfanın
           istisnası için dallandırmak olurdu.
 
-          ⚠️ <h1> SİLİNMEDİ, GÖRÜNMEZ HÂLE GETİRİLDİ. Sayfadaki tek h1 buydu;
-          tamamen kaldırmak sayfayı başlıksız bırakır — ekran okuyucu
-          kullanıcısı için belge yapısı, arama motoru için ise sayfanın ne
-          hakkında olduğunu söyleyen ana sinyal kaybolurdu. `sr-only` ikisini
-          de korurken görsel isteği birebir karşılıyor: ekranda yalnızca
-          fotoğraf var.
+          ⚠️ ÜSTÜNDE HİÇBİR KATMAN, ÖNÜNDE HİÇBİR BANT YOK.
 
-          Breadcrumb görselin ÜSTÜNDE değil, ÜZERİNDE değil — bandın önünde,
-          krem zeminde duruyor. Böylece fotoğrafın önünde hiçbir şey yok ama
-          gezinme de kaybolmuyor.
+          İki şey arka arkaya kaldırıldı ve ikisi de aynı amaca hizmet ediyor:
+
+          1) TÜLLER. Önceki banner (bir tabela fotoğrafı) `ink/70 → ink/15 →
+             ink/60` degradesi ve düz bir `sea-deep/25` ile kaplıydı. İkisinin
+             de tek gerekçesi üstünde duran BEYAZ breadcrumb'ın okunmasıydı.
+             Bu kare bir tabela değil, iki İNSAN YÜZÜ; aynı tüller Ronnie ve
+             Nilay'ı gri bir perdenin arkasına alıyordu.
+
+          2) BREADCRUMB ŞERİDİ. Tül kalkınca breadcrumb krem bir banda taşındı,
+             ama o bant da başlıkla görsel arasına ~60px'lik yatay bir çizgi
+             sokup tam kanama etkisini kesiyordu. Şerit tamamen kaldırıldı:
+             görsel artık doğrudan navbar'ın altından başlıyor.
+
+          ⚠️ `breadcrumbSchema(CRUMBS)` YUKARIDA DURUYOR ve `CRUMBS` bu yüzden
+          silinmedi. Google'ın kendi rehberi görünür breadcrumb'ı ZORUNLU
+          tutmuyor (yalnızca öneriyor), yani yapısal veri geçerli kalır —
+          fakat components/breadcrumbs.tsx'teki not tersini söylüyordu.
+          Sayfa hiyerarşideki yerini bildirmeye devam etsin diye şema
+          bilinçli olarak bırakıldı; görsel iz yalnızca ekrandan kalktı.
         */}
         {/*
-          HAKKIMIZDA BANNER'I — TAM GENİŞLİK, METİNSİZ.
+          ⚠️ <h1> SİLİNMEDİ, GÖRÜNMEZ HÂLE GETİRİLDİ. Sayfadaki tek h1 buydu;
+          banner metinsiz olduğu için ekranda görünmüyor, belge yapısında ve
+          arama motorunda duruyor. Tamamen kaldırmak sayfayı başlıksız
+          bırakırdı — ekran okuyucu kullanıcısı için belge yapısı, arama
+          motoru için sayfanın ne hakkında olduğunu söyleyen ana sinyal.
 
-          Diğer iç sayfalarla AYNI aile: `PageHero`nun görselli varyantıyla
-          birebir aynı kabuk (tam genişlik, `object-cover`, üstünde tül,
-          altında `border-line`). Tek fark, üzerinde metin olmaması.
+          ⚠️ YÜKSEKLİK ARTTIKÇA KADRAJ "UZAKLAŞIR" — AMA YALNIZCA GENİŞ
+          EKRANDA. Bu sayfadaki en ters sezgili nokta bu, o yüzden açıkça:
 
-          ⚠️ YÜKSEKLİK NEDEN ELLE VERİLİYOR: `PageHero` bandın yüksekliğini
-          İÇERİKTEN alıyor — eyebrow + h1 + lede bloğu onu ~680px'e itiyor.
-          Bu banner'da metin yok, dolayısıyla aynı kabuk kullanılsaydı bant
-          yalnızca breadcrumb yüksekliğinde, ~60px'lik bir şeride çökerdi.
-          `min-h-*` değerleri o yüzden ölçülerek seçildi: /buying-process
-          ve /insurance hero'ları masaüstünde 681–712px arasında oturuyor,
-          buradaki 42rem (672px) o aralığa denk geliyor.
+          `object-cover` ölçeği max(kap_genişliği/görsel_genişliği,
+          kap_yüksekliği/görsel_yüksekliği) ile seçer. Hangi terimin
+          kazandığı kırpmanın YÖNÜNÜ belirliyor:
 
-          MASAÜSTÜNDE 70vh. Önce 42rem'den 60vh'ye indirildi (metin ilk
-          ekranda görünsün diye), sonra 70vh'ye çıkıldı: 60vh kadrajın
-          üçte birini kesiyordu — gerekçe aşağıdaki `object-position`
-          notunda, ölçümle birlikte. 70vh hâlâ 42rem'in altında, yani
-          metin ilk ekranda görünmeye devam ediyor.
+          • GENİŞ EKRANDA (≥ ~740px) genişlik kazanıyor. Görsel viewport
+            genişliğine ölçekleniyor, artan yükseklik yalnızca kadrajdan DAHA
+            FAZLASINI açıyor. 1440×900'de 60vh (540px) görselin boyunun
+            %56'sını gösteriyordu — göğse kadar, "vesikalık" hissi buradan
+            geliyordu. 75vh (675px) %70'ini gösteriyor: takımlar, kollar ve
+            arkadaki çiçek kemeri kadraja giriyor.
 
-          Sabit 672px, 900px'lik bir ekranda
-          başlıkla birlikte 770px ediyordu: altındaki metinden yalnızca
-          ~130px görünüyor, 800px'lik bir dizüstünde ise hiç görünmüyordu.
-          Banner'ın işi sayfayı tanıtmak, sayfanın yerine geçmek değil.
-          `vh` tercih edildi çünkü sorun ekran yüksekliğine bağlı: sabit bir
-          piksel değeri kısa ekranlarda yine kaplardı.
+          • MOBİLDE İLİŞKİ TERSİNE DÖNÜYOR. 390px genişlikte görselin doğal
+            yüksekliği yalnızca 262px; bant bundan yüksek olduğu anda YÜKSEKLİK
+            kazanıyor ve kırpma YATAYA geçiyor. Yani mobilde bandı uzatmak
+            kadrajı açmaz, KENARLARDAN KIRPAR — çiçek kemerinin durduğu sağ
+            kenardan. Bu yüzden mobil değer ölçülü artırıldı (20rem → 22rem):
+            352px'te görsel 523px genişliğe ölçekleniyor, kenar başına ~66px
+            gidiyor ve özneler (%27–%83) rahatça içeride kalıyor. Daha fazlası
+            kemeri kadrajdan atmaya başlıyordu.
 
-          MOBİLDE 20rem — ve bu da hesaplanmış bir değer. Kaynak 1.25:1;
-          390px genişlikte görselin doğal yüksekliği 312px. Bant bundan
-          belirgin şekilde yüksek olursa `object-cover` bu kez YATAYDA
-          kırpmaya başlıyor ve kırptığı yer sağ kenar, yani tabelanın
-          durduğu taraf oluyordu (26rem'de "Coast2Coast" yarıya iniyordu).
-          20rem (320px) doğal yüksekliğe neredeyse eşit; yatay kırpma
-          kenar başına ~5px'e düşüyor ve kadraj bütün kalıyor.
+          • `sm:h-[30rem]` (480px) ARADAKİ EN GENİŞ KADRAJ: 640px'te görselin
+            doğal yüksekliği 430px, yani bant hâlâ yükseklik-baskın ve kırpma
+            kenar başına yalnızca ~36px. Kare neredeyse bütün görünüyor.
 
-          ORAN KISITI YOK: `aspect-*` kaldırıldı çünkü tam genişlikli bir
-          bantta oran, yüksekliği viewport genişliğine bağlar — 21:9 bir
-          ekranda bant absürt kısalır. Sabit min-yükseklik + `object-cover`
-          her genişlikte aynı bandı veriyor.
+          `lg:min-h-[28vw]` YALNIZCA ULTRA GENİŞTE DEVREYE GİRİYOR: kırpma
+          oranı viewport'un YÜKSEKLİĞİNE değil GENİŞLİĞİNE bağlı olduğu için
+          2560×900 gibi geniş-ve-alçak bir ekranda 75vh (675px) yetmiyor;
+          28vw orada 717px veriyor. 1440 ve 1920'de 75vh zaten daha büyük,
+          yani kural oralarda hiç uygulanmıyor.
+
+          `max-h-[54rem]` (864px) uzun ekranlar için: 2560×1440'ta 75vh 1080px
+          ederdi ve bant tek başına tüm ilk ekranı yerdi.
         */}
         <section
           aria-labelledby="about-heading"
-          className="relative isolate overflow-hidden border-b border-line bg-sea-deep text-shell"
+          className="relative isolate h-[22rem] overflow-hidden border-b border-line bg-shell-deep sm:h-[30rem] lg:h-[75vh] lg:min-h-[28vw] lg:max-h-[54rem]"
         >
+          <h1 id="about-heading" className="sr-only">
+            {t("about.heroTitle")}
+          </h1>
+
           {/*
-            `object-[center_48%]` (lg) — KIRPMA ÖLÇÜLEREK SEÇİLDİ.
+            `object-[center_10%]` — TEK DEĞER, TÜM KIRILMA NOKTALARINDA.
 
-            Kadrajda korunması gereken üç şey var: yüz, eldeki anahtarlar ve
-            "Coast2Coast" tabelası. Tabelanın dikey aralığı görselde
-            piksel taramasıyla ölçüldü: turuncu alan %31.3 ile %75.0
-            arasında. Yüzün üstü ~%21'de başlıyor. Yani korunması gereken
-            bant görselin ~%21–%75 aralığı, kabaca %54'ü.
+            Korunması gereken bant, karede Ronnie'nin saç tepesinden
+            (yüksekliğin ~%5'i) Nilay'ın çenesine (~%46) uzanıyor.
 
-            60vh (540px) bandı 1440px genişlikte görselin yalnızca %47'sini
-            gösteriyordu — %54'lük bir içeriği %47'lik bir pencereye
-            sığdırmak mümkün değil. Hangi konum denenirse denensin ya
-            gözlüğün üstü ya da "PROPERTIES" satırı kesiliyordu (ikisini de
-            ayrı ayrı render edip doğruladık). 65vh de yetmiyor: %51.
+            Değer %12'den %10'a indirildi çünkü bant uzayınca pencere de
+            uzadı: 1440×900'de kadraj artık görselin %3–%73 aralığı (önce
+            %5–%61 idi). Alt kenarın aşağı inmesi bedava değil — pencere
+            aynı oranda yukarıdan da açılıyor ve %12'de saç tepesi kadrajın
+            üst kenarına fazla yaklaşıyordu. %10 hem tepede birkaç piksel pay
+            bırakıyor hem de alt kenarı belin altına indiriyor.
 
-            Gereken bant görselin %55'i. Ama bu ORAN, bandın piksel
-            karşılığı değil — ve burada `vh` YANLIŞ birim:
+            NEDEN `lg:` ÖNEKİ YOK: dikey konum yalnızca genişlik-baskın
+            kırpmada iş yapar. Mobil ve `sm`de kırpma yatayda olduğu için bu
+            değerin oralarda ÖLÇÜLEBİLİR HİÇBİR ETKİSİ YOK — tek bir sınıf
+            hem daha okunur hem de 640–1024 arası "genişlik baskın olmaya
+            başladığı" ara bölgeyi kapsıyor. Önceki `object-center` tabanı
+            tam orada, 1023px'te, pencereyi %15'ten başlatıp Ronnie'nin saç
+            tepesini kesiyordu.
 
-              gerekli yükseklik = genişlik ÷ 1.25 × 0.55 = genişlik × 0.44
-
-            Yani kırpma viewport'un YÜKSEKLİĞİNE değil GENİŞLİĞİNE bağlı;
-            görsel genişliğe göre ölçekleniyor. 70vh 1440×900'de doğru
-            çalışıyordu ama 1440×800'de bant 561px'e düşüp "PROPERTIES"
-            satırını yeniden kesiyordu (render edilip görüldü). Sabit bir
-            piksel değeri de tek bir genişlikte doğru olurdu: 1920px'te
-            gereken bant 845px.
-
-            `44vw` bu ilişkiyi doğrudan ifade ediyor — hangi genişlikte
-            olursak olalım kadraj aynı kalıyor.
-
-            Dikey konum yalnızca `lg`de anlamlı: dar ekranlarda görsel
-            yüksekliğe göre ölçekleniyor ve dikeyde hiç kırpılmıyor
-            (kırpma yatayda oluyor). Mobil kadraj bu yüzden değişmedi.
-
-            Kaynak 2304×1844 (1.25:1). 1440px genişlikte görsel 1152px
-            yüksekliğe ölçekleniyor, bant ise 673px; yani yüksekliğin
-            ~%58'i görünüyor, 479px'i kırpılıyor.
-
-            %30 ilk denemeydi ve tabelanın ALT YARISINI kesiyordu: "FOR
-            SALE" görünüyor ama altındaki "Coast2Coast" kelime işareti
-            kadrajın dışında kalıyordu — yani markanın kendi tabelası
-            kırpılmış oluyordu. %45'te pencere görselin ~%19–%77 aralığına
-            kayıyor: tabela alt kenarıyla birlikte içeride, yüz hâlâ üst
-            üçlükte, saçın tepesinden yalnızca birkaç piksel gidiyor.
+            quality={95}: kaynak WhatsApp üzerinden geldiği için zaten bir kez
+            sıkıştırılmış. Yeniden kodlamada varsayılan 75'e düşmek, ikinci bir
+            kayıp katmanını yüzlerin üstüne bindirirdi.
           */}
           <Image
             src={ABOUT_BANNER.src}
             alt={ABOUT_BANNER.alt}
             fill
             priority
-            /* Kaynak sıkıştırılmış geldiği için kalite 85 yerine 90:
-               yeniden kodlamanın üstüne ikinci bir kayıp eklememek için. */
-            quality={90}
+            quality={95}
             sizes="100vw"
-            className="-z-10 object-cover object-[center_45%] lg:object-[center_48%]"
+            className="object-cover object-[center_10%]"
           />
-
-          {/*
-            İKİ KATMANLI TÜL — hem estetik hem teknik.
-
-            1) DİKEY DEGRADE: üstte ve altta koyu, ortada açık. Üst koyuluk
-               breadcrumb'ın okunmasını sağlıyor (beyaz metin, `tone="dark"`),
-               alt koyuluk bandı bir sonraki bölüme bağlıyor. Orta bölgenin
-               açık kalması şart: özne ve tabela orada.
-
-            2) DÜZ MARKA TÜLÜ: ince, tek tonluk bir `sea-deep` katmanı.
-               Görevi kontrast değil, GÜRÜLTÜ MASKESİ — kaynaktaki JPEG
-               blok artefaktları düz bir renk katmanının altında gözle
-               görülür biçimde yumuşuyor. `gray-900` yerine marka lacivertî
-               kullanılıyor; nötr gri, sitenin sıcak krem paletinin yanında
-               ölü duruyor.
-
-            İkisi birlikte "sinematik" hissi veren şey: tek ve düz bir
-            karartma yerine, ışığın ortada toplandığı bir kadraj.
-          */}
-          <span
-            aria-hidden="true"
-            className="absolute inset-0 -z-10 bg-gradient-to-b from-ink/70 via-ink/15 to-ink/60"
-          />
-          <span
-            aria-hidden="true"
-            className="absolute inset-0 -z-10 bg-sea-deep/25"
-          />
-
-          {/*
-            ⚠️ <h1> GÖRÜNMEZ AMA VAR. Sayfadaki tek h1 bu; banner metinsiz
-            olduğu için ekranda görünmüyor, belge yapısında ve arama
-            motorunda duruyor.
-          */}
-          <h1 id="about-heading" className="sr-only">
-            {t("about.heroTitle")}
-          </h1>
-
-          <div className="container-page flex min-h-[20rem] flex-col pb-14 pt-10 sm:min-h-[34rem] sm:pb-20 sm:pt-12 lg:min-h-[44vw]">
-            <Breadcrumbs crumbs={CRUMBS} tone="dark" />
-          </div>
         </section>
 
+        {/* ------------------------------------------------------ HİKÂYEMİZ */}
+        {/*
+          EDİTORYAL TEK SÜTUN — dergi sayfası, pazarlama bloğu değil.
+
+          Bölüm 1.500 kelimeye yakın kurucu hikâyesi taşıyor; bu uzunlukta
+          bir metni kart ızgarasına bölmek okumayı bitirir. Onun yerine tek
+          bir okuma sütunu var ve bütün karar o sütunun etrafında dönüyor:
+
+          `max-w-3xl` (48rem) — satır uzunluğu masaüstünde ~75 karaktere
+          oturuyor, tipografinin okunabilirlik aralığı olan 60–80'in tam
+          içinde. Önceki `max-w-2xl` (42rem) üç paragraf için doğruydu ama
+          bu hacimde sayfayı gereksiz uzatıyordu; tam genişlik ise 1440px'te
+          110+ karakterlik satır üretir, göz satır başını kaybeder.
+
+          RİTİM ÜÇ KADEMEDE: giriş paragrafı `text-lg` (lede), gövde temel
+          punto, ara başlıklar `font-display`. Uzun metinde okuyucuyu
+          taşıyan şey bu hiyerarşi — sayfada tutunacak yer bırakıyor.
+
+          ALTIN YALNIZCA YAPISAL İŞARETLERDE: başlık altı çizgileri, alıntı
+          kenarı, sütun üstü kuralları. Metnin kendisi `ink-70`de kalıyor;
+          altın metin krem zeminde AA'yı geçmiyor (bkz. globals.css
+          `--color-gold-deep` notu), o yüzden okunan hiçbir cümle o renkte
+          değil — `gold-deep` yalnızca eyebrow'un küçük büyük harfinde.
+        */}
         <section aria-labelledby="story-heading" className="bg-shell py-section">
-          {/*
-            İKİNCİ GÖRSEL KALDIRILDI — ve ızgara da onunla birlikte.
-
-            Bölüm 12 sütunluk bir ızgaraydı: solda görsel (6 sütun), sağda
-            metin (5 sütun, 8'den başlayarak). Yalnızca görseli silmek
-            metni sayfanın sağ yarısında bırakır, solda altı sütunluk bir
-            boşlukla — "kaldırılmış bir şeyin yeri" gibi duran, kasıtsız
-            bir asimetri.
-
-            Bu yüzden ızgara tamamen çözüldü. Metin artık ölçülü genişlikte
-            (`max-w-2xl`) ve ortalanmış tek bir sütun: uzun paragraflar için
-            zaten doğru olan biçim, çünkü satır uzunluğu okunabilir
-            aralıkta kalıyor. Tam genişliğe yaymak 1440px'te 100+ karakterlik
-            satırlar üretirdi.
-
-            Hero'nun hemen altındaki tek görselin kalkması sayfanın açılışını
-            da hafifletiyor: banner, ardından metin.
-          */}
           <div className="container-page">
-            <div className="mx-auto max-w-2xl">
-              <p className="eyebrow text-sea">{t("about.storyEyebrow")}</p>
-              <h2
-                id="story-heading"
-                className="mt-4 sm:mt-6 font-display text-3xl leading-tight text-sea-deep sm:text-4xl"
-              >
-                {t("about.storyHeading")}
-              </h2>
+            <article className="mx-auto max-w-3xl">
+              <header className="text-center">
+                <p className="eyebrow text-gold-deep">
+                  {t("about.story.eyebrow")}
+                </p>
+                <h2
+                  id="story-heading"
+                  className="mt-4 font-display text-3xl leading-tight text-sea-deep sm:mt-6 sm:text-4xl"
+                >
+                  {t("about.story.heading")}
+                </h2>
+                {/* Başlığı metinden ayıran ince altın kural — bölüm
+                    başlıklarındaki çizgilerle aynı aile, ortalanmış hâli. */}
+                <span
+                  aria-hidden="true"
+                  className="mx-auto mt-6 block h-px w-16 bg-gold sm:mt-8"
+                />
+              </header>
 
-              <div className="mt-5 sm:mt-8 space-y-5 sm:space-y-6 leading-relaxed text-ink-70">
-                <p>
-                  {t("about.storyP1")}
+              {/*
+                GİRİŞ PARAGRAFI GÖVDEDEN BÜYÜK VE KOYU.
+
+                `text-lg` + `text-ink`: bu cümle sayfanın ilk sözü ve tek
+                başına okunduğunda bile şirketin ne olduğunu söylüyor.
+                Gövdeyle aynı puntoda olsaydı metin, girişi olmayan düz bir
+                blok gibi başlardı.
+              */}
+              <p className="mt-8 text-lg leading-relaxed text-ink sm:mt-10 sm:text-xl sm:leading-relaxed">
+                {t("about.story.lede")}
               </p>
-                <p>
-                  {t("about.storyP2")}
-              </p>
-                <p>
-                  {t("about.storyP3")}
-              </p>
+
+              <div className="mt-6 space-y-6 leading-relaxed text-ink-70 sm:mt-8">
+                {copy.story.intro.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
               </div>
+
+              {/* ------------------------------------- RONNIE & NILAY */}
+              <StoryBlock id="story-founders" heading={t("about.story.foundersHeading")}>
+                {copy.story.founders.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+
+                {/*
+                  ALINTI, PARAGRAF DEĞİL.
+
+                  "…%100 memnun" cümlesi metnin içinde bir söz veriyor;
+                  gövde puntosunda kalsaydı dört paragrafın arasında
+                  kaybolurdu. `blockquote` hem görsel duraklama hem doğru
+                  semantik.
+
+                  ⚠️ DİKEY BOŞLUK `py-*` İLE, `my-*` İLE DEĞİL: kapsayıcı
+                  `space-y-6` kullanıyor ve o kural (`> * + *`) kardeşlerin
+                  üst kenar boşluğunu kendisi yazıyor. Buraya `my-8`
+                  koymak iki tek-sınıflı yardımcıyı aynı özgüllükte
+                  çarpıştırır; sonucu stil sayfasındaki sıra belirler,
+                  yani kırılgan. Padding o çatışmanın tamamen dışında.
+                */}
+                <blockquote className="border-l-2 border-gold py-1 pl-6 font-display text-xl leading-relaxed text-sea-deep sm:pl-8 sm:text-2xl">
+                  {t("about.story.foundersQuote")}
+                </blockquote>
+
+                <p>{t("about.story.nilay")}</p>
+              </StoryBlock>
+
+              {/* --------------------- UYGUN FİYATLIDAN LÜKSE */}
+              <StoryBlock id="story-range" heading={t("about.story.rangeHeading")}>
+                {copy.story.range.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </StoryBlock>
+
+              {/* ------------------------ DÜNYADAN MÜŞTERİLER */}
+              <StoryBlock id="story-clients" heading={t("about.story.clientsHeading")}>
+                {copy.story.clients.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+
+                <blockquote className="border-l-2 border-gold py-1 pl-6 font-display text-xl leading-relaxed text-sea-deep sm:pl-8 sm:text-2xl">
+                  {t("about.story.clientsQuote")}
+                </blockquote>
+              </StoryBlock>
+
+              {/* ------------------------------ NEDEN COAST2COAST */}
+              <StoryBlock id="story-why" heading={t("about.story.whyHeading")}>
+                <p>{t("about.story.whyLede")}</p>
+
+                {/*
+                  ÜÇ İLKE — üstünde altın kuralla üç sütun.
+
+                  Kaynak metinde tek satırdı ("Honesty. Experience. Personal
+                  Service."). Öyle bırakılsaydı sayfanın en çok alıntılanan
+                  cümlesi bir paragraf gibi görünürdü. Üç sütun, üç sözcüğü
+                  ekranda eşit ağırlıkta duran bir işarete çeviriyor.
+
+                  Mobilde alt alta: 375px'te üç sütun, "Kişisel hizmet"i iki
+                  satıra bölüp hizayı bozuyordu.
+                */}
+                <ul className="grid gap-6 sm:grid-cols-3 sm:gap-8">
+                  {copy.story.pillars.map((pillar) => (
+                    <li
+                      key={pillar}
+                      className="border-t-2 border-gold pt-4 font-display text-xl leading-snug text-sea-deep sm:text-2xl"
+                    >
+                      {pillar}
+                    </li>
+                  ))}
+                </ul>
+
+                <p>{t("about.story.whyBody")}</p>
+
+                {/*
+                  "Dinleriz. Anlarız. Yol gösteririz." — üç ayrı satır.
+
+                  Kaynak metinde de üç ayrı satırdı ve bu bilinçli bir ritim:
+                  tek paragrafa birleştirmek vurguyu düzleştirirdi. Liste
+                  olmasının sebebi görsel değil semantik — ekran okuyucu
+                  bunu üç öğelik bir liste olarak duyuruyor.
+                */}
+                <ul className="space-y-2 font-display text-xl leading-snug text-sea-deep sm:text-2xl">
+                  {copy.story.creed.map((line) => (
+                    <li key={line}>{line}</li>
+                  ))}
+                </ul>
+
+                <p>{t("about.story.creedClose")}</p>
+
+                {/* Kapanış cümlesi gövdeden bir tık koyu: bölümün tezini
+                    özetliyor ve okuyucunun ayrıldığı yer burası. */}
+                <p className="text-ink">{t("about.story.whyClose")}</p>
+              </StoryBlock>
 
               <Link
                 href="/buying-process"
-                className="group mt-6 sm:mt-10 inline-flex items-center gap-2 text-sm text-sea-deep underline-offset-4 hover:underline"
+                className="group mt-10 inline-flex items-center gap-2 text-sm text-sea-deep underline-offset-4 hover:underline sm:mt-14"
               >
-                {t("about.storyCta")}
+                {t("about.story.cta")}
                 <ArrowRight
                   className="size-4 transition-transform group-hover:translate-x-1"
                   aria-hidden="true"
                 />
               </Link>
-            </div>
+            </article>
           </div>
         </section>
-
         {/* ------------------------------------------------- VİZYON & MİSYON */}
         <section
           aria-labelledby="vision-heading"
@@ -426,9 +550,9 @@ export default async function AboutPage() {
                 >
                   {t("about.ctaHeading")}
                 </h2>
-                <p className="mt-4 sm:mt-6 max-w-xl leading-relaxed text-shell/85">
-                  {t("about.ctaBody")}
-              </p>
+                {/* CTA açıklama paragrafı KALDIRILDI — bu blokta artık yalnızca
+                    başlık ve eylem düğmeleri var (dokuz sayfada birden).
+                    Sözlükteki karşılığı da silindi. */}
               </div>
 
               <div className="flex flex-col gap-4 lg:col-span-4 lg:col-start-9">

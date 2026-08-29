@@ -25,10 +25,12 @@ import {
   villaListingSchema,
   villaProductSchema,
 } from "@/lib/schema";
-import { currentLocale } from "@/lib/current-locale";
+import { currentLocale, currentLanguage } from "@/lib/current-locale";
+import { getLocalizedField } from "@/lib/localized";
 import { getT } from "@/lib/i18n/server";
 import { HOME_CRUMB, pageMetadata, type Crumb } from "@/lib/seo";
 import type { Villa } from "@/lib/types";
+import { formatAreaLabel, getServiceArea } from "@/lib/site";
 import { safeMapCoordinates, villaSummaryLine } from "@/lib/villa-format";
 import {
   getAllVillaSlugs,
@@ -101,12 +103,26 @@ export default async function PropertyPage(
 
   if (!villa) notFound();
 
+  /*
+    ⚠️ ÜÇ ALAN BURADA, BİR KEZ ÇÖZÜLÜYOR.
+
+    `getLocalizedField` aktif dili dener, çeviri boşsa İngilizceye düşer —
+    yani /tr ve /ru sayfaları çevrilmemiş bir ilanda da DOLU görünür.
+    Her kullanım yerinde ayrı ayrı çağırmak yerine tepede çözmek, başlığın
+    H1'de, galeri etiketinde, breadcrumb'da ve harita alt metninde
+    birbirinden ayrışmasını yapısal olarak imkânsız kılıyor.
+  */
+  const language = await currentLanguage();
+  const title = getLocalizedField(villa.title, language);
+  const description = getLocalizedField(villa.description, language);
+  const whyThisOne = getLocalizedField(villa.whyThisOne, language);
+
   /** Haritaya verilebilecek koordinat — ya da null. Miami asla dönmez. */
   const mapPoint = safeMapCoordinates(villa);
 
   /** Panele giden dar model — koordinat ve açıklama sınırı geçmiyor. */
   const enquiryVilla = {
-    title: villa.title,
+    title,
     reference: villa.reference,
     status: villa.status,
     price: villa.price.gbp,
@@ -118,8 +134,23 @@ export default async function PropertyPage(
   const crumbs: Crumb[] = [
     HOME_CRUMB,
     { name: "Properties", path: "/properties" },
-    { name: villa.title, path: `/properties/${villa.slug}` },
+    { name: title, path: `/properties/${villa.slug}` },
   ];
+
+  /**
+   * BÖLGE ADI KAYITTAN DEĞİL, TAKSONOMİDEN OKUNUYOR.
+   *
+   * `villa.location.area` kaydın kendi kopyası ve taşımadan geldiği gibi
+   * kalabiliyor; `serviceAreas` ise tek kaynak. Bölge bir kez yeniden
+   * adlandırıldığında ("Fethiye Merkez" → "Fethiye") kayıtlar
+   * güncellenmiş olsa bile bu sıra doğru olanı garanti ediyor. Kartlar
+   * (lib/property-card-data.ts) zaten aynı sırayı izliyordu; bu sayfa
+   * izlemiyordu ve iki yüzey aynı ilan için farklı ad gösterebiliyordu.
+   */
+  const areaName =
+    getServiceArea(villa.location.areaSlug)?.name ?? villa.location.area;
+  /* "Fethiye, Fethiye" olmaz — bkz. lib/site.ts `formatAreaLabel`. */
+  const areaLabel = formatAreaLabel(areaName, villa.location.district);
 
   /**
    * ALAN TEK HÜCREDE — "Internal" ve "Plot" birleştirildi.
@@ -183,66 +214,102 @@ export default async function PropertyPage(
     <>
       <JsonLd
         schema={[
-          villaProductSchema(villa),
-          villaListingSchema(villa),
+          villaProductSchema(villa, language),
+          villaListingSchema(villa, language),
           breadcrumbSchema(crumbs),
         ]}
       />
 
       {/* pb-28: mobil aksiyon çubuğu sayfanın son satırını örtmesin. */}
       <main id="main" className="pb-28 lg:pb-0">
-        <div className="container-page pt-10">
+        {/*
+          İLK EKRAN GALERİNİN — ÜST BOŞLUK VE ÜST BLOKLAR BİLİNÇLİ OLARAK KISILDI.
+
+          Önceki dizilim, fotoğraflardan ÖNCE dört ayrı blok basıyordu:
+          `pt-10` breadcrumb + `pt-8` konum satırı + `mt-5` H1 + `mt-10`
+          galeri, artı `lg` altında fiyat bloğu. 390px'lik bir ekranda bu,
+          galerinin ilk pikselini katlamanın ~330px altına itiyordu — yani
+          ilan sayfasının tek gerçek satış aracı ilk ekranda hiç görünmüyordu.
+
+          Yeni kural: GALERİNİN ÜSTÜNDE YALNIZCA H1 VAR. Konum satırı, fiyat
+          ve özet satırı galerinin ALTINDAKİ künye şeridine taşındı; hiçbiri
+          silinmedi, yalnızca sırası değişti.
+
+          Breadcrumb yukarıda kaldı ama boşluğu kısıldı: hem `BreadcrumbList`
+          schema'sıyla aynı diziden besleniyor (bkz. components/breadcrumbs.tsx)
+          hem de 12px'lik tek satır — taşımanın kazandıracağı yer, kaybettireceği
+          gezinmeye değmiyor.
+        */}
+        <div className="container-page pt-4 sm:pt-5">
           <Breadcrumbs crumbs={crumbs} />
         </div>
 
         {/* --------------------------------------------------------- BAŞLIK */}
-        <header className="container-page pt-8">
-          <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-3xl">
-              <p className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-sea">
-                <MapPin className="size-3.5" aria-hidden="true" />
-                {villa.location.area}, {villa.location.district} —{" "}
-                {villa.location.region}
-              </p>
+        <header className="container-page mt-3 sm:mt-4">
+          {/*
+            Sayfadaki tek H1 — ve galerinin üstündeki TEK öğe.
 
-              {/* Sayfadaki tek H1: ilan başlığı. */}
-              <h1 className="mt-5 font-display text-3xl leading-[1.08] tracking-tight text-sea-deep sm:text-5xl">
-                {villa.title}
-              </h1>
+            ⚠️ ÖLÇEK ÜÇ KADEMEYE ÇIKARILDI: `sm:text-5xl` idi, araya
+            `sm:text-4xl` girip 5xl `lg`ye alındı. 640px'lik bir ekranda 48px
+            punto, "Detached Villa with Private Pool and Sea Views" gibi
+            tipik bir başlığı üç satıra bölüyor ve tek başına ~170px yer
+            kaplıyordu — yani boşluğu kısarak kazandığımız yeri başlık geri
+            alıyordu. `lg`de kadraj zaten geniş, orada 5xl duruyor.
 
-              {/*
-                Başlık altındaki tanıtım cümlesi ("We are excited to bring you
-                the Orchard Villa!") kaldırıldı — satıcı ağzıyla yazılmış,
-                bilgi taşımayan bir satırdı ve H1 ile galerinin arasına
-                giriyordu. Açıklamanın kendisi aşağıdaki metin bloğunda
-                duruyor; `headline` alanı da veride kalmaya devam ediyor.
-              */}
-            </div>
+            `max-w-4xl`: tam genişlikte bir H1 1440px'te satır başına 60+
+            karaktere çıkıyor; display fontunda bu, başlığı bir paragraf
+            gibi okutur.
+          */}
+          <h1 className="max-w-4xl font-display text-3xl leading-[1.08] tracking-tight text-sea-deep sm:text-4xl lg:text-5xl">
+            {title}
+          </h1>
+        </header>
 
-            {/*
-              Masaüstünde fiyat yapışkan panelde duruyor; burada ikinci kez
-              göstermek yerine yalnızca lg altında görünen bir blok veriyoruz —
-              mobilde fiyatın sayfanın dibinde kalması dönüşümü öldürür.
-            */}
+        {/* --------------------------------------------------------- GALERİ */}
+        <div className="container-page mt-4 sm:mt-5">
+          <PropertyGallery images={villa.images} title={title} />
+        </div>
+
+        {/* ------------------------------------------- KÜNYE ŞERİDİ (GALERİ ALTI) */}
+        {/*
+          GALERİDEN HEMEN SONRA: NEREDE, NE KADAR, NE BÜYÜKLÜKTE.
+
+          Fotoğrafları gören ziyaretçinin sırayla sorduğu üç soru bu; bu
+          yüzden şerit galerinin hemen altında ve içerik ızgarasının ÜSTÜNDE
+          duruyor — ızgaraya girseydi `lg`de sol sütuna sıkışıp sağdaki
+          yapışkan panelin yanında ikinci bir dar kolon gibi okunurdu.
+
+          FİYAT HÂLÂ `lg:hidden` — taşınırken davranış değişmedi.
+          Masaüstünde fiyat sağdaki yapışkan panelde duruyor
+          (components/enquiry-panel.tsx) ve aynı sayfada iki kez basmak
+          gereksiz. `lg` altında ise o panel DOM sırasında sayfanın dibinde
+          kalıyor; fiyatı orada bırakmak mobilde dönüşümü öldürür.
+
+          `sm:items-end`: konum satırı küçük punto, fiyat 4xl. Üstten
+          hizalandıklarında fiyatın rakamları konum satırının çok altında
+          kalıyor; alt hizada iki blok aynı taban çizgisine oturuyor.
+        */}
+        <div className="container-page mt-6 sm:mt-8">
+          <div className="flex flex-col gap-5 border-b border-line pb-8 sm:flex-row sm:items-end sm:justify-between">
+            <p className="inline-flex items-center gap-2 text-xs uppercase tracking-widest text-sea">
+              <MapPin className="size-3.5" aria-hidden="true" />
+              {areaLabel} — {villa.location.region}
+            </p>
+
             <div className="shrink-0 lg:hidden">
               <Price
                 gbp={villa.price.gbp}
-                className="block font-display text-4xl leading-none text-sea-deep"
+                className="block font-display text-4xl leading-none text-sea-deep sm:text-right"
               />
-              <p className="mt-3 text-sm text-ink-70">
+              <p className="mt-3 text-sm text-ink-70 sm:text-right">
                 {villaSummaryLine(villa)}
               </p>
             </div>
           </div>
-        </header>
-
-        {/* --------------------------------------------------------- GALERİ */}
-        <div className="container-page mt-10">
-          <PropertyGallery images={villa.images} title={villa.title} />
         </div>
 
         {/* --------------------------------------- İÇERİK + YAPIŞKAN PANEL */}
-        <div className="container-page grid gap-16 pb-section pt-16 lg:grid-cols-12">
+        <div className="container-page grid gap-16 pb-section pt-10 sm:pt-12 lg:grid-cols-12">
           <div className="lg:col-span-7">
             {/* ------------------------------------------------ KÜNYE KUTULARI */}
             <section aria-labelledby="facts-heading">
@@ -311,51 +378,69 @@ export default async function PropertyPage(
               </dl>
             </section>
 
-            {/* ------------------------------------------------- ÖNE ÇIKANLAR */}
-            <Reveal className="mt-16" y={20}>
-              <section aria-labelledby="highlights-heading">
-                <h2
-                  id="highlights-heading"
-                  className="font-display text-2xl text-sea-deep sm:text-3xl"
-                >
-                  {t("properties.whyThisOne")}
-                </h2>
-                {/*
-                  ANAHTARLARDA İNDEKS — ve neden burada doğru olduğu.
+            {/* ------------------------------------------------- WHY THIS ONE */}
+            {/*
+              BÖLÜM KOŞULLU — veri yoksa HİÇ BASILMIYOR.
 
-                  Bu üç liste (highlights, description, features) doğrudan
-                  `data/villas.json`den geliyor ve METİN TEKRARLARI İÇERİYOR:
-                  forest-villa-25325 açıklamasında "- Freehold title deed"
-                  iki kez, edgewater-villa'da tek başına "•" satırı DOKUZ
-                  kez geçiyor. Dizgenin kendisini anahtar yapmak, React'in
-                  aynı anahtarla iki kardeş görmesi demekti — konsoldaki
-                  uyarının kaynağı tam olarak bu.
+              Boş bir başlık ve altında boş bir ızgara, "içerik eksik" gibi
+              değil "site bozuk" gibi görünür. `?.length` kontrolü hem
+              tanımsız (alan sonradan eklendi, eski kayıtlarda olmayabilir)
+              hem de boş dizi durumunu tek seferde kapsıyor.
 
-                  İndeks eklemek normalde sakıncalıdır (liste sıralanır ya
-                  da araya eleman girerse React yanlış düğümü korur). Burada
-                  değil: listeler sunucuda, sabit veriden, tek seferde
-                  basılıyor; sıralama, filtreleme veya ekleme/çıkarma yok.
-                  Dizge + indeks bileşimi hem kararlı hem benzersiz.
+              ⚠️ VERİ KAYNAĞI DEĞİŞTİ: bu bölüm eskiden `villa.highlights`ten
+              basılıyordu. O alan `scripts/adapt-villas.js` tarafından
+              ÜRETİLİYOR ("4 bedrooms, 4 bathrooms — 245 m² internal") ve
+              yönetici panelinde görünmüyordu — yani ekranda duran metnin
+              düzenlenebileceği bir yer yoktu. `whyThisOne` elle yazılıyor.
+              `highlights` silinmedi: kart arama metnini beslemeye devam
+              ediyor (lib/property-card-data.ts).
+            */}
+            {whyThisOne?.length ? (
+              <Reveal className="mt-16" y={20}>
+                <section aria-labelledby="why-heading">
+                  <h2
+                    id="why-heading"
+                    className="font-display text-2xl text-sea-deep sm:text-3xl"
+                  >
+                    {t("properties.whyThisOne")}
+                  </h2>
 
-                  Kalıcı çözüm veriyi temizlemek olurdu ama bu, istendiği
-                  gibi, veri katmanına dokunmuyor.
-                */}
-                <ul className="mt-8 grid gap-4 sm:grid-cols-2">
-                  {villa.highlights.map((highlight, index) => (
-                    <li
-                      key={`${highlight}-${index}`}
-                      className="flex gap-3 border-l-2 border-sea/40 bg-shell-deep/60 p-5 text-sm leading-relaxed text-ink-70"
-                    >
-                      <Check
-                        className="mt-0.5 size-4 shrink-0 text-gold-deep"
-                        aria-hidden="true"
-                      />
-                      {highlight}
-                    </li>
-                  ))}
-                </ul>
-              </section>
-            </Reveal>
+                  {/*
+                    IZGARA: mobilde tek sütun, `md`den itibaren iki.
+
+                    Kırılma noktası `sm` değil `md` — maddeler cümle ve
+                    640px'lik bir ekranda iki sütun, satır başına ~28
+                    karaktere düşüyor; her kart dört-beş satıra bölünüyor
+                    ve ızgara tarak gibi görünüyordu.
+                  */}
+                  <ul className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
+                    {whyThisOne.map((point: string, index: number) => (
+                      /*
+                        ANAHTARDA İNDEKS: liste sunucuda, sabit veriden, tek
+                        seferde basılıyor — sıralama ya da ekleme/çıkarma
+                        yok. Metnin kendisi anahtar olamaz çünkü iki ilanda
+                        aynı maddenin tekrarı serbest.
+                      */
+                      <li
+                        key={`${point}-${index}`}
+                        /*
+                          `items-start`: ikon metnin İLK SATIRIYLA hizalı
+                          kalmalı. Ortalanmış hizada, iki satıra taşan bir
+                          maddede ikon satırların arasına düşüyor.
+                        */
+                        className="flex items-start gap-3 border-l-4 border-sea-deep bg-shell-deep p-5 text-sm leading-relaxed text-ink-70"
+                      >
+                        <Check
+                          className="mt-0.5 size-4 shrink-0 text-sea-deep"
+                          aria-hidden="true"
+                        />
+                        {point}
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              </Reveal>
+            ) : null}
 
             {/* ---------------------------------------------------- AÇIKLAMA */}
             <Reveal className="mt-16" y={20}>
@@ -367,7 +452,7 @@ export default async function PropertyPage(
                   {t("properties.aboutProperty")}
                 </h2>
                 <div className="mt-8 space-y-6">
-                  {villa.description.map((paragraph, index) => (
+                  {description.map((paragraph: string, index: number) => (
                     <p
                       /*
                         `paragraph.slice(0, 40)` iki kat kırılgandı: yalnızca
@@ -492,15 +577,15 @@ export default async function PropertyPage(
                   </h2>
                   <p className="mt-4 max-w-prose text-sm leading-relaxed text-ink-70">
                     {mapPoint.approximate
-                      ? `This pin shows the centre of ${villa.location.area}, not the property itself — we hold an approximate location for this listing. Exact addresses are shared with viewers.`
+                      ? `This pin shows the centre of ${areaName}, not the property itself — we hold an approximate location for this listing. Exact addresses are shared with viewers.`
                       : "This pin shows the property's recorded position. Exact addresses are shared with viewers."}
                   </p>
                   <div className="mt-8 aspect-[16/10] overflow-hidden border border-line bg-shell-deep">
                     <iframe
                       title={
                         mapPoint.approximate
-                          ? `Map showing the ${villa.location.area} area of Fethiye`
-                          : `Map showing the location of ${villa.title} in ${villa.location.area}, Fethiye`
+                          ? `Map showing the ${areaName} area`
+                          : `Map showing the location of ${title} in ${areaLabel}`
                       }
                       src={`https://www.google.com/maps?q=${mapPoint.lat},${mapPoint.lng}&hl=en&z=${mapPoint.approximate ? 12 : 14}&output=embed`}
                       loading="lazy"
@@ -561,7 +646,7 @@ export default async function PropertyPage(
                 {otherVillas.map((item, index) => (
                   <li key={item.id} className="flex">
                     <Reveal className="flex w-full" delay={index * 0.08} y={24}>
-                      <PropertyCard villa={toPropertyCardData(item)} />
+                      <PropertyCard villa={toPropertyCardData(item, language)} />
                     </Reveal>
                   </li>
                 ))}
