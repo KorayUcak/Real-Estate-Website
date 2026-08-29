@@ -13,6 +13,7 @@ import {
   Ruler,
 } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { CardScroller } from "@/components/card-scroller";
 import { EnquiryPanel, MobileEnquiryBar } from "@/components/enquiry-panel";
 import { JsonLd } from "@/components/json-ld";
 import { toPropertyCardData } from "@/lib/property-card-data";
@@ -37,6 +38,21 @@ import {
   getVillaBySlug,
   getVillasByArea,
 } from "@/lib/villas";
+
+/**
+ * ÇAPRAZ SATIŞ SIRALAMASI — küçük olan önce gelir.
+ *
+ * `off-market` burada geçmiyor: `getVillasByArea` onu zaten eliyor.
+ * Yine de haritada duruyor, çünkü eksik bir anahtar `undefined` döndürüp
+ * karşılaştırmayı `NaN`e çevirirdi — o durumda sıralama sessizce
+ * rastgeleleşir.
+ */
+const STOCK_ORDER: Record<Villa["status"], number> = {
+  "for-sale": 0,
+  reserved: 1,
+  sold: 2,
+  "off-market": 3,
+};
 
 /** Tüm ilan sayfaları build anında üretilir — çalışma zamanında veri okuması yok. */
 export async function generateStaticParams() {
@@ -239,6 +255,30 @@ export default async function PropertyPage(
    */
   const otherVillas = (await getVillasByArea(villa.location.areaSlug))
     .filter((item) => item.slug !== villa.slug)
+    /*
+      SATILANLAR EN SONA — ve sıralama DİLİMLEMEDEN ÖNCE.
+
+      Aynı bölgeden altı kart göstermek, o bölgenin satılmış stoğunu da
+      öne çıkarma riski taşıyor: veride 57 ilanın 19'u `sold` ve bölgeye
+      göre süzülünce bu oran bir satırda yoğunlaşabiliyor (Ovacık'ta ilk
+      altının dördü satılmıştı). Ziyaretçiye satın alamayacağı dört ev
+      göstermek, çapraz satış bloğunu vitrin olmaktan çıkarıp arşive
+      çeviriyor.
+
+      ⚠️ `.sort()` `.slice()`TEN ÖNCE olmak zorunda. Sonra gelseydi altılık
+      pencere hâlâ satılmışlarla dolar, sıralama yalnızca o altısını kendi
+      içinde dizerdi.
+
+      SIRALAMA ANAHTARI ÜÇ KADEMELİ, iki değil. Brief "satılanlar en sona"
+      diyor; `reserved` ikisinin arasında duruyor — hâlâ ilgi çekici ama
+      artık müsait değil. Mevcut veride `reserved` kaydı yok, yani bugün
+      hiçbir şeyi değiştirmiyor; durum sonradan kullanıldığında doğru
+      davranmasi için yazıldı.
+
+      `sort` ES2019'dan beri KARARLI: aynı kademedeki ilanlar
+      `getVillasByArea`ten geldikleri sırayı koruyor.
+    */
+    .sort((a, b) => STOCK_ORDER[a.status] - STOCK_ORDER[b.status])
     .slice(0, 6);
 
   return (
@@ -704,16 +744,16 @@ export default async function PropertyPage(
                 bitiyor.
               */}
               <Reveal className="mt-12" y={24}>
-                <ul className="no-scrollbar flex snap-x snap-mandatory items-stretch gap-6 overflow-x-auto pb-1 sm:grid sm:grid-cols-2 sm:overflow-visible sm:pb-0 lg:grid-cols-3">
+                <CardScroller>
                   {otherVillas.map((item) => (
                     <li
                       key={item.id}
-                      className="flex w-[86%] shrink-0 snap-start sm:w-auto"
+                      className="flex w-[86%] shrink-0 snap-start sm:w-[52%] lg:w-auto"
                     >
                       <PropertyCard villa={toPropertyCardData(item, language)} />
                     </li>
                   ))}
-                </ul>
+                </CardScroller>
               </Reveal>
             </div>
           </section>
