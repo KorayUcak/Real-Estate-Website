@@ -1,117 +1,117 @@
 {
   "common": {
-    "aboutTurkeyImageAlt": "Marinanın üzerindeki yamaçtan görünen, Türkiye'nin turkuaz kıyısındaki Fethiye körfezi",
-    "approxNote": "yaklaşık — liste fiyatı {gbp}",
+    "aboutTurkeyImageAlt": "Türkiye’nin Turkuaz Kıyısı’ndaki Fethiye Koyu, yat limanının yukarısındaki yamaçtan görüldüğü haliyle",
+    "approxNote": "yaklaşık — fiyatlar {gbp} adresinde belirtilmiştir",
     "languageAndCurrency": "Dil ve Para Birimi",
     "languageAndCurrencyAria": "Dil ve para birimi: {value}",
-    "privacyFull": "Gizlilik politikasının tamamı",
+    "privacyFull": "Gizlilik politikasının tam metni",
     "skipToContent": "İçeriğe geç",
-    "termsFull": "Kullanım koşullarının tamamı"
+    "termsFull": "Kullanım Koşullarının Tam Metni"
   },
   "nav": {
-    "Properties": "İlanlar",
+    "Properties": "Özellikler",
     "About Turkey": "Türkiye Hakkında",
-    "Viewing Day": "Görme Turu",
-    "Viewing Trips": "Görme Turları",
-    "Buying": "Alım",
+    "Viewing Day": "Görüntüleme Günü",
+    "Viewing Trips": "Gezileri Görüntüleme",
+    "Buying": "Satın alma",
     "Selling": "Satış",
-    "Buying Process": "Alım Süreci",
+    "Buying Process": "Satın Alma Süreci",
     "Selling Process": "Satış Süreci",
     "Citizenship": "Vatandaşlık",
     "Turkish Citizenship": "Türk Vatandaşlığı",
     "Insurance": "Sigorta",
-    "Property Insurance": "Konut Sigortası",
-    "Insights & Guides": "Yazılar ve Rehberler",
-    "About": "Hakkımızda",
+    "Property Insurance": "Mülk Sigortası",
+    "Insights & Guides": "Bilgiler ve Kılavuzlar",
+    "About": "Hakkında",
     "Contact": "İletişim",
-    "Guides": "Rehberler"
+    "Guides": "Kılavuzlar"
   },
   "navDescriptions": {
-    "/about-turkey": "Sahil, bölgeler ve burada yaşamak nasıl bir şey",
-    "/buying-process": "Tekliften tapuya kadar her aşama",
-    "/selling-process": "Fiyatlama, pazarlama ve satışın tamamlanması",
-    "/citizenship": "Yatırım yoluyla oturum ve vatandaşlık",
-    "/insurance": "DASK ve tapu devrinin gerektirdiği teminat"
+    "/about-turkey": "Kıyı şeridi, bölgeler ve burada yaşamak nasıl bir şey?",
+    "/buying-process": "Teklif aşamasından tapu belgesine kadar her aşama",
+    "/selling-process": "Fiyatlandırma, pazarlama ve satışın tamamlanma süreci",
+    "/citizenship": "Yatırım yoluyla ikamet ve vatandaşlık",
+    "/insurance": "DASK ve tapu devri için gerekli olan teminat"
   },
   "header": {
-    "primaryNavAria": "Ana menü",
-    "mobileNavAria": "Mobil menü",
+    "primaryNavAria": "İlkokul",
+    "mobileNavAria": "Mobil",
     "openMenu": "Menüyü aç",
     "closeMenu": "Menüyü kapat",
-    "callAria": "Bizi {phone} numarasından arayın"
+    "callAria": "{phone} numaralı telefondan bizi arayın"
   },
   "footer": {
     "areasHeading": "Fethiye ve çevresi",
-    "areasNavAria": "Hizmet verdiğimiz bölgeler",
-    "credit": "Tasarım ve geliştirme: {name}",
+    "areasNavAria": "Hizmet verdiğimiz alanlar",
+    "credit": "Tasarım ve Geliştirme: {name}",
     "exploreHeading": "Keşfet",
-    "footerNavAria": "Alt menü",
-    "guidesHeading": "Rehberler",
-    "guidesNavAria": "Rehberler",
+    "footerNavAria": "Altbilgi",
+    "guidesHeading": "Kılavuzlar",
+    "guidesNavAria": "Kılavuzlar",
     "privacy": "Gizlilik",
     "rights": "© {year} {company}. Tüm hakları saklıdır.",
-    "socialAria": "{company} — {network}",
-    "tagline": "Fethiye'de gayrimenkul danışmanınız",
-    "terms": "Koşullar"
+    "socialAria": "{company} {network} adresinde",
+    "tagline": "Fethiye’de bir emlak danışmanı",
+    "terms": "Şartlar"
   },
   "form": {
-    "name": "Ad soyad",
+    "name": "Tam adı",
     "email": "E-posta",
     "phone": "Telefon (isteğe bağlı)",
     "budget": "Bütçe (isteğe bağlı)",
     "budgetPlaceholder": "Bir aralık seçin",
-    "message": "Size nasıl yardımcı olabiliriz?",
+    "message": "Nasıl yardımcı olabiliriz?",
     "honeypot": "Şirket (boş bırakın)",
-    "submitPage": "Talebi gönder",
-    "submitPanel": "Bilgi isteyin",
+    "submitPage": "Talep gönder",
+    "submitPanel": "Ayrıntıları isteyin",
     "sending": "Gönderiliyor…",
-    "privacyNote": "Her mesaja bizzat yanıt veriyoruz, bilgilerinizi asla paylaşmıyoruz ve izniniz olmadan e-posta listesine eklemiyoruz.",
-    "successTitle": "Mesajınız bize ulaştı",
-    "successWhatsapp": "Daha hızlı yanıt mı gerekiyor? WhatsApp'tan yazın"
+    "privacyNote": "Mesajlarınıza bizzat yanıt veriyoruz, bilgilerinizi asla paylaşmıyoruz ve izniniz olmadan sizi hiçbir e-posta listesine eklemiyoruz.",
+    "successTitle": "Mesaj alındı",
+    "successWhatsapp": "Daha çabuk bir yanıt mı istiyorsunuz? WhatsApp üzerinden bize mesaj gönderin"
   },
   "contact": {
-    "heading": "Bize yazın",
+    "heading": "Talep gönderin",
     "officeLabel": "Türkiye ofisi",
-    "officeNote": "En hızlı yanıt 09:00–19:00 arası (Türkiye saati).",
+    "officeNote": "Türkiye saatiyle 09:00 ile 19:00 arası en hızlı.",
     "whatsappLabel": "WhatsApp",
-    "whatsappNote": "Bize ulaşmanın en hızlı yolu — genellikle bir saat içinde yanıtlıyoruz.",
+    "whatsappNote": "Bize ulaşmanın en hızlı yolu — genellikle bir saat içinde yanıtlanır.",
     "emailLabel": "E-posta",
-    "emailNote": "Başka yerde bulduğunuz ilanları da ekleyin, sizin için değerlendirelim.",
+    "emailNote": "Başka bir yerde bulduğunuz her şeyi ekleyin, biz de değerlendirelim.",
     "addressLabel": "Ofis",
     "mapEyebrow": "Bizi bulun",
-    "mapHeading": "Fethiye'deki ofisimiz",
-    "mapBody": "Sahildeyken uğrayın — kahve bizden, üstelik aynı öğleden sonra görmeye değer bir ilan genellikle hazırdır."
+    "mapHeading": "Fethiye’deki ofisimiz",
+    "mapBody": "Kıyıya geldiğinizde bize uğrayın — kahve bizden, ayrıca genellikle o öğleden sonra görülmeye değer bir mülk olur."
   },
   "consent": {
-    "heading": "Bu sitede çerezler",
-    "body": "Dil ve para birimi tercihinizi hatırlamak için zorunlu depolama kullanıyoruz. İzin verirseniz, ziyaretçilerin siteyi nasıl kullandığını görmek için cihazınıza çerez yerleştiren Microsoft Clarity'yi de kullanıyoruz. Siz onaylamadan yüklemeyeceğiz.",
-    "acceptAll": "Tümünü kabul et",
-    "essentialOnly": "Yalnızca zorunlu",
+    "heading": "Bu sitedeki çerezler",
+    "body": "Dil ve para biriminizi hatırlamak için temel depolama özelliğini kullanıyoruz. İzniniz olması durumunda, ziyaretçilerin siteyi nasıl kullandığını görmek için Microsoft Clarity’yi de kullanıyoruz; bu hizmet, cihazınıza çerezler yerleştirir. Siz onay vermedikçe bu hizmeti yüklemeyeceğiz.",
+    "acceptAll": "Hepsini kabul et",
+    "essentialOnly": "Sadece zorunlu olanlar",
     "privacyLink": "Gizlilik Politikamızı okuyun",
     "settingsLink": "Çerez ayarları",
-    "regionLabel": "Çerez izni"
+    "regionLabel": "Çerez onayı"
   },
   "home": {
-    "heroTitle": "Hayalinizdeki evi bulun",
-    "heroCta": "İlanları görün",
-    "heroPrevImage": "Önceki görsel",
-    "heroNextImage": "Sonraki görsel",
-    "featuredHeading": "Öne çıkan ilanlar",
-    "featuredCta": "Tüm ilanları görün",
-    "areasEyebrow": "Bölge bilgisi",
-    "areasHeading": "Fethiye sahilinde nereden alınır",
+    "heroTitle": "Hayalinizdeki gayrimenkulü bulun",
+    "heroCta": "Emlakları görüntüle",
+    "heroPrevImage": "Önceki resim",
+    "heroNextImage": "Sonraki resim",
+    "featuredHeading": "Öne çıkan mülkler",
+    "featuredCta": "Tüm gayrimenkulleri görüntüle",
+    "areasEyebrow": "Bölge istihbaratı",
+    "areasHeading": "Fethiye sahilinde nereden satın alınır?",
     "areasCta": "Tüm bölgeleri keşfedin",
     "areaGuide": "Bölge rehberi",
-    "areaImageAlt": "{area}'de satılık gayrimenkul — {headline}",
+    "areaImageAlt": "{area}'da satılık gayrimenkul — {headline}",
     "areaImageAltDistrict": "Fethiye",
     "faqEyebrow": "Net cevaplar",
     "faqHeading": "Alıcıların gerçekten sorduğu sorular",
-    "faqWhatsapp": "WhatsApp'tan sorun",
-    "faqWhatsappMessage": "Merhaba Coast 2 Coast — Fethiye'de gayrimenkul alımı hakkında bir sorum var.",
-    "ctaEyebrow": "Sonraki adım",
-    "ctaHeading": "Broşürle değil, sohbetle başlayın",
-    "ctaWhatsappMessage": "Merhaba Coast 2 Coast — Fethiye'de villa almak üzerine konuşmak istiyorum.",
-    "ctaBookCall": "Görüşme ayarlayın",
+    "faqWhatsapp": "WhatsApp üzerinden bize sorun",
+    "faqWhatsappMessage": "Merhaba Coast 2 Coast — Fethiye’de gayrimenkul satın almakla ilgili bir sorum var.",
+    "ctaEyebrow": "Bir sonraki adım",
+    "ctaHeading": "Broşürle değil, bir sohbetle başlayın",
+    "ctaWhatsappMessage": "Merhaba Coast 2 Coast — Fethiye’de bir villa satın almayı düşünmek istiyorum.",
+    "ctaBookCall": "Görüşme randevusu alın",
     "listingCount": {
       "one": "{count} ilan",
       "few": "{count} ilan",
@@ -120,690 +120,690 @@
     }
   },
   "faq": {
-    "q1": "Yabancı uyruklular Fethiye'de gayrimenkul alabilir mi?",
-    "a1": "Evet. Yabancı uyruklular Türkiye'de kendi adlarına mülkiyet hakkıyla gayrimenkul satın alabilir. Fethiye, Ölüdeniz, Hisarönü, Ovacık, Çalış, Üzümlü ve Göcek'teki alımlar askerî yasak bölgelerin dışında kalır ve tapu doğrudan sizin adınıza tescil edilir.",
-    "q2": "Villa fiyatının üzerine eklenen toplam alım masrafı nedir?",
-    "a2": "Satış bedelinin yaklaşık %6–8'ini ayırın. Bu genellikle %4 tapu harcını, zorunlu değerleme raporunu, noter ve tercüme masraflarını, DASK zorunlu deprem sigortasını ve bağımsız hukuki danışmanlığı kapsar.",
-    "q3": "Türkiye'de villa almak ne kadar sürer?",
-    "a3": "Teklifin kabulünden tapu devrine kadar, Fethiye bölgesindeki alımların çoğu aynı hafta içinde tamamlanır — bedelin hazır olması koşuluyla.",
-    "q4": "Fethiye'de villa almak beni Türk vatandaşlığına uygun hâle getirir mi?",
-    "a4": "Yürürlükteki yatırım eşiğine ulaşan veya onu aşan alımlar, gayrimenkulün üç yıl elde tutulması koşuluyla Türk vatandaşlığı için uygun olabilir. Eşiği karşılayan ilanları ayrıca işaretliyor ve siz taahhüt altına girmeden önce sizi bu alanda uzman bir göçmenlik avukatına yönlendiriyoruz.",
-    "q5": "Kullanmadığımız dönemlerde villayı kiraya verebilir misiniz?",
-    "a5": "Evet. Ölüdeniz ve Hisarönü'nde kısa dönem kiralama talebi mayıs–ekim arasında güçlüdür. Sizi önceden değerlendirdiğimiz yerel yönetim şirketleriyle tanıştırıyor, satın almadan önce her ilan için gerçekçi doluluk ve getiri rakamlarını paylaşıyoruz."
+    "q1": "Yabancı uyruklular Fethiye’de gayrimenkul satın alabilir mi?",
+    "a1": "Evet. Yabancı uyruklular, Türkiye’de kendi adlarına mülkiyet hakkı bulunan gayrimenkul satın alabilirler. Satın alınan gayrimenkuller, Fethiye, Ölüdeniz, Hisarönü, Ovacık, Çalış, Üzümlü ve Göcek’teki askeri kısıtlama bölgeleri dışında yer alır ve tapu doğrudan sizin adınıza tescil edilir.",
+    "q2": "Villa fiyatına ek olarak toplam satın alma maliyetleri nelerdir?",
+    "a2": "Satın alma fiyatının yaklaşık %6–8’ini bütçeye ayırın. Bu tutar genellikle %4’lük tapu devir vergisini, zorunlu değerleme raporunu, noter ve çeviri ücretlerini, DASK deprem sigortasını ve bağımsız hukuki temsil masraflarını karşılar.",
+    "q3": "Türkiye'de bir villa satın almak ne kadar sürer?",
+    "a3": "Kabul edilen tekliften tapu devrine kadar, Fethiye bölgesindeki satın alma işlemlerinin çoğu, gerekli fonların mevcut olması koşuluyla aynı hafta içinde tamamlanır.",
+    "q4": "Fethiye’de bir villa satın almak, bana Türk vatandaşlığı hakkı kazandırır mı?",
+    "a4": "Mevcut devlet yatırım eşiği düzeyinde veya bunun üzerinde gerçekleştirilen gayrimenkul alımları, söz konusu gayrimenkulün üç yıl boyunca elinizde tutulması şartıyla Türk vatandaşlığı almaya hak kazandırabilir. Uygun gayrimenkul ilanlarını size bildirir ve kararınızı vermeden önce sizi uzman bir göçmenlik avukatına yönlendiririz.",
+    "q5": "Biz kullanmadığımız zamanlarda villayı kiraya verebilir misiniz?",
+    "a5": "Evet. Ölüdeniz ve Hisarönü’nde mayıs ayından ekim ayına kadar kısa süreli kiralama talebi oldukça yüksektir. Sizin adınıza titizlikle seçilmiş yerel yönetim şirketlerini size tanıtıyoruz ve satın almadan önce her bir gayrimenkul için gerçekçi doluluk ve getiri rakamlarını paylaşabiliriz."
   },
   "areas": {
     "fethiye-centre": {
-      "headline": "Marina hayatı, dört mevsim yaşayan bir şehir",
-      "blurb": "Fethiye'nin merkezinde çalışan bir marina, salı pazarı ve yıl boyu açık esnaf; deniz manzaralı daireler ve yamaç villaları bir arada."
+      "headline": "Marina yaşamı, yıl boyunca hareketli bir kasaba",
+      "blurb": "Fethiye'nin şehir merkezi, faal bir yat limanı, Salı pazarı ve her türlü olanak ile deniz manzaralı daireleri ve yamaç villalarını bir arada barındırmaktadır."
     },
     "oludeniz": {
-      "headline": "Ölüdeniz kartpostalı",
-      "blurb": "Türkiye'nin en çok fotoğraflanan koyu. Ölüdeniz villaları lagün manzarası, yamaç paraşütü gökyüzü ve bölgenin en güçlü kısa dönem kira talebi üzerine kuruludur."
+      "headline": "Mavi Lagün kartpostalı",
+      "blurb": "Türkiye'nin en çok fotoğrafı çekilen koyu. Ölüdeniz'deki villalar, lagün manzaraları, yamaç paraşütü için ideal gökyüzü ve bölgedeki en yüksek kısa süreli kiralama talebiyle öne çıkıyor."
     },
     "hisaronu": {
-      "headline": "Hareketli merkez, yüksek getiri",
-      "blurb": "Ölüdeniz plajına dakikalar uzaklıkta, yürünebilir bir tatil merkezi — yaz doluluğu peşindeki alıcıların ilk durağı."
+      "headline": "Gece hayatı ve kira getirisi",
+      "blurb": "Ölüdeniz plajına sadece birkaç dakika uzaklıkta bulunan kompakt bir tatil merkezi — yaz aylarında kiralama doluluk oranı peşinde olan alıcılar için ideal bir yer."
     },
     "ovacik": {
-      "headline": "Sakin vadi, dağ havası",
-      "blurb": "Ovacık sahilin üzerinde yeşil bir vadide: daha büyük parseller, serin akşamlar ve aileye öncelik veren sakin bir tempo."
+      "headline": "Sessiz vadi, dağ havası",
+      "blurb": "Ovacık, sahilin yukarısında, yemyeşil bir vadide yer alır: daha geniş arsalar, daha serin akşamlar ve daha sakin, aileye öncelik veren bir yaşam temposu."
     },
     "calis": {
-      "headline": "Uzun ve düz bir sahilde gün batımı",
-      "blurb": "Çalış Plajı düz bir sahil bandı, meşhur gün batımları ve kolay ulaşılan konutlar sunar — emekliler ve uzun süreli kalanlar arasında popüler."
+      "headline": "Uzun ve düz bir kumsalda gün batımları",
+      "blurb": "Çalış Plajı, düz bir sahil şeridi, ünlü gün batımları ve ulaşımı kolay konaklama seçenekleri sunuyor; bu özellikleriyle emekliler ve uzun süreli konaklama yapan mülk sahipleri arasında oldukça popüler."
     },
     "uzumlu": {
-      "headline": "Babadağ'ın eteğinde köy hayatı",
-      "blurb": "Üzümlü, Fethiye'nin yayla köyü: bağlar, serin yazlar ve metrekare başına belirgin biçimde daha uygun müstakil villalar."
+      "headline": "Babadağ'ın eteklerindeki köy hayatı",
+      "blurb": "Üzümlü, Fethiye’nin yüksek rakımlı köyüdür: üzüm bağları, daha serin yazlar ve metrekare başına belirgin şekilde daha düşük fiyatlı müstakil villalar."
     },
     "gocek": {
-      "headline": "Altı marina, birinci sınıf adresler",
-      "blurb": "Göcek körfezin yatçılık başkenti. Düşük yoğunluk, yüksek değer ve kapsadığımız bölgeler içinde ikinci el fiyatını en iyi koruyan pazar."
+      "headline": "Altı marina, birinci sınıf konumlar",
+      "blurb": "Göcek, Körfez’in yatçılık başkentidir. Düşük yoğunluklu, yüksek değerli ve incelediğimiz pazarlar arasında ikinci el satış açısından en istikrarlı olanıdır."
     },
     "yaniklar": {
-      "headline": "Çam sahili, kalabalık yok",
-      "blurb": "Çalış'ın kuzeyinde, çam ormanıyla çevrili sakin bir sahil şeridi; büyük ve düşük yoğunluklu siteler üzerine kurulu. Bir yanda plaj ve orman, diğer yanda Fethiye'ye on beş dakika."
+      "headline": "Çam ormanlarıyla kaplı sahil, kalabalık yok",
+      "blurb": "Çalış'ın kuzeyinde, çam ağaçlarıyla çevrili sakin bir sahil şeridi; bu bölge, geniş ve düşük yoğunluklu konut kompleksleri etrafında şekillenmiştir. Bir tarafta plajlar ve ormanlar, diğer tarafta ise Fethiye'ye arabayla on beş dakikalık mesafede yer almaktadır."
     },
     "dalaman": {
-      "headline": "Piste on dakika",
-      "blurb": "Havalimanı kasabası ve bu sahildeki en kısa transfer. Sarıgerme'nin uzun kumsalı on beş dakika uzakta, fiyatlar ise Fethiye tatil bölgelerinin belirgin altında."
+      "headline": "Pistten on dakika uzaklıkta",
+      "blurb": "Havaalanının bulunduğu kasaba ve bu sahil şeridindeki en kısa ulaşım mesafesi. Sarıgerme’nin uzun kumsalı on beş dakika uzaklıkta yer alıyor ve fiyatlar Fethiye’deki tatil beldelerine kıyasla oldukça düşük."
     },
     "kalkan": {
-      "headline": "Yamaç villaları, sonsuzluk havuzları",
-      "blurb": "Fethiye'nin bir buçuk saat güneyinde, çalışan bir limanın üzerine kademelenmiş beyaz badanalı evler. Turkuaz Kıyı'nın en oturmuş lüks kiralama pazarı."
+      "headline": "Uçurum kenarındaki villalar, sonsuzluk havuzları",
+      "blurb": "Fethiye’nin bir buçuk saat güneyinde, hâlâ faaliyette olan bir limanın yukarısında sıralanan beyaz badanalı evler. Turkuaz Kıyısı’ndaki en köklü lüks kiralık konut pazarı."
     },
     "seydikemer": {
-      "headline": "Dağlar, nehirler, daha çok arazi",
-      "blurb": "Fethiye'ye otuz dakika, Saklıkent Kanyonu yolunda iç kesim tarım bölgesi. Buradaki parseller aynı paraya sahildekinin iki üç katı büyüklükte."
+      "headline": "Dağlar, nehirler, daha fazla arazi",
+      "blurb": "Fethiye’den otuz dakika uzaklıkta, Saklıkent Kanyonu yolunda yer alan bir tarım bölgesi. Buradaki arsaların büyüklüğü, aynı paraya sahil kesiminde alabileceğiniz arsaların iki ya da üç katıdır."
     },
     "bekciler": {
-      "headline": "Yayla havası, serin yazlar",
-      "blurb": "Deniz seviyesinin epey üzerinde, ağustos geceleri gerçekten serin olan ormanlık bir plato. Plajlara uzun bir sürüş mesafesinde ve fiyatlar buna göre."
+      "headline": "Dağ havası, daha serin yazlar",
+      "blurb": "Deniz seviyesinden oldukça yüksekte yer alan, ormanlarla kaplı bir plato; Ağustos geceleri burada gerçekten serindir. Plajlara arabayla uzun bir yolculuk mesafesinde olup, fiyatları da buna göre belirlenmiştir."
     }
   },
   "turkey": {
     "areaDetail": {
       "fethiye-centre": {
-        "intro": "Fethiye, yaz için kurulmuş bir tatil beldesi değil, gerçekten çalışan bir şehirdir. Liman şubatta da hareketlidir, salı ve cuma pazarları yıl boyu kurulur, beş kilometrelik sahil bandı tatil kuşağı kepenk indirdiğinde de açıktır.",
+        "intro": "Fethiye, yaz için inşa edilmiş bir tatil beldesi olmaktan ziyade, gerçek anlamda bir çalışma kasabasıdır. Liman Şubat ayında bile hareketlidir, Salı ve Cuma pazarları yıl boyunca devam eder ve üç mil uzunluğundaki sahil şeridi, tatil beldelerinin kapandığı zamanlarda bile hâlâ açıktır.",
         "points": [
-          "Likya kaya mezarları ve Roma amfitiyatrosu şehrin içindedir — bir tur otobüsüyle gidilecek mesafede değil.",
-          "Salı ve cuma pazarları şehrin haftalık ritmidir: üretici tezgâhları, tekstil ve bol gürültü.",
-          "Tam zamanlı altyapı: devlet ve özel hastaneler, bankalar, okullar ve yaklaşık 45 dakikalık havalimanı transferi.",
-          "Bu sahilin en hareketli kış sezonu — burada yaşamayı düşünüyorsanız, ziyaret etmeyi değil, bu belirleyici olur."
+          "Likya dönemine ait bir kaya mezarlığı ve bir Roma amfitiyatrosu, kasabanın içinde yer almaktadır; buraya otobüs turuyla gitmek gerekmez.",
+          "Salı ve cuma günleri kurulan pazarlar, kasabanın haftalık ritmini oluşturur — taze ürünler, tekstil ürünleri ve bolca gürültü.",
+          "Yerinde bulunan olanaklar: devlet ve özel hastaneler, bankalar, okullar ve havaalanına yaklaşık 45 dakikalık ulaşım süresi.",
+          "Bu sahildeki en hareketli kış sezonu; burayı sadece ziyaret etmek yerine burada yaşamayı düşünüyorsanız, bu husus son derece önemlidir."
         ],
-        "bestFor": "Dört mevsim yaşam ve ikinci elde en güçlü fiyat koruması"
+        "bestFor": "Yıl boyunca yaşanabilirlik ve en istikrarlı ikinci el emlak piyasası"
       },
       "oludeniz": {
-        "intro": "Ölüdeniz, Türkiye'nin en çok fotoğraflanan sahil şerididir ve pek çok alıcının bu bölgeye ilk kez bakmasının sebebidir. Mavi Lagün korunan bir tabiat parkıdır; yani satın aldığınız manzaranın arkası sonradan yapılaşamaz.",
+        "intro": "Ölüdeniz, Türkiye’nin en çok fotoğrafı çekilen sahil şerididir ve birçok alıcının ilk olarak bu bölgeye yönelmesinin nedenidir. Mavi Lagün, koruma altındaki bir milli parktır; bu da satın aldığınız manzaranın arkasında herhangi bir yapı inşa edilemeyeceği anlamına gelir.",
         "points": [
-          "Mavi Lagün koruma altındaki bir tabiat parkının içindedir — manzara kalıcıdır, bir sonraki imar başvurusuna bağlı değildir.",
-          "Körfezin üzerindeki Babadağ dünyanın en bilinen yamaç paraşütü noktalarından biridir ve her sonbahar Uluslararası Hava Oyunları'na ev sahipliği yapar.",
-          "Fethiye bölgesindeki en güçlü kısa dönem kiralama talebi, mayıstan ekime kadar istikrarlı biçimde buradadır.",
-          "Kelimenin tam anlamıyla bir tatil beldesi: kasım–mart arası gerçekten sakindir."
+          "Mavi Lagün, koruma altındaki bir doğa parkı içinde yer almaktadır — bu düzenleme kalıcıdır ve bir sonraki imar başvurusuna tabi değildir.",
+          "Körfezin yukarısında yer alan Babadağ, dünyanın en tanınmış yamaç paraşütü merkezlerinden biridir ve her sonbaharda Uluslararası Hava Oyunları’na ev sahipliği yapmaktadır.",
+          "Fethiye bölgesinde en yoğun kısa süreli kiralama talebi, her yıl mayıs ayından ekim ayına kadar güvenilir bir şekilde görülmektedir.",
+          "Gerçek anlamda bir tatil beldesi: Kasım’dan Mart’a kadar gerçekten sakin bir ortam bekleyebilirsiniz."
         ],
-        "bestFor": "Kira geliri ve insanların uçakla görmeye geldiği manzara"
+        "bestFor": "Kira geliri ve insanların uçağa atlayıp gitmek için tercih ettikleri manzara"
       },
       "hisaronu": {
-        "intro": "Hisarönü, Ölüdeniz ile Fethiye arasındaki tepede yer alır ve aynı plaj erişimini metrekare başına belirgin şekilde daha uygun bir bedelle sunar. Kompakt, yürünebilir ve sezon boyunca hiç çekinmeden hareketlidir.",
+        "intro": "Hisarönü, Ölüdeniz ile Fethiye arasındaki tepede yer alır ve metrekare başına belirgin şekilde daha düşük bir fiyata aynı plaj erişimini sunar. Küçük, yürüyerek gezilebilen bir yer olup, sezon boyunca hiç çekinmeden canlı bir atmosfer sunar.",
         "points": [
-          "Alışveriş caddeleri, pazarlar ve yoğun bir restoran şeridi neredeyse her adrese yürüme mesafesinde.",
-          "Lunapark ve aquapark gibi aile aktiviteleri, bölgeyi her yıl dönen ailelerle dolduruyor.",
-          "Ölüdeniz plajına ulaşılabilir bölgeler içinde en düşük giriş fiyatı.",
-          "Sezon zirvesindeki gürültü gerçektir. Sessizlik arayan alıcılar Ovacık veya Çalış'ta düzenli olarak daha memnun oluyor."
+          "Neredeyse her adresten yürüyüş mesafesinde alışveriş caddeleri, pazarlar ve yoğun bir restoran bölgesi.",
+          "Eğlence parkı ve su parkı gibi aileye yönelik atraksiyonlar sayesinde, buraya tekrar tekrar gelen ailelerle dolup taşmaya devam ediyor.",
+          "Ölüdeniz plajına yakın bölgeler arasında en düşük giriş fiyatı.",
+          "Yoğun sezonda gürültü sorunu gerçekten var. Sessiz bir ortam arayan alıcılar, Ovacık veya Çalış’ta her zaman daha memnun oluyorlar."
         ],
-        "bestFor": "Getiri odaklı yatırımcılar ve lagüne yakın en iyi fiyat/değer"
+        "bestFor": "Getiri odaklı yatırımcılar ve lagün çevresindeki en iyi fırsatlar"
       },
       "ovacik": {
-        "intro": "Ovacık vadiyi Hisarönü ile paylaşır ama gürültüye mesafesini korur. Parseller daha büyük, akşamlar daha serin, tempoyu ise birkaç dakika aşağıdaki bar şeridi değil aileler belirler.",
+        "intro": "Ovacık, Hisarönü ile aynı vadiyi paylaşsa da gürültüden uzak durur. Arsa alanları daha geniştir, akşamları hava daha serindir ve hayatın ritmini, yolun birkaç dakika ilerisindeki barlar sokağı değil, aileler belirler.",
         "points": [
-          "Ölüdeniz'e on dakika mesafedeki her yerden daha büyük parsel ve aynı paraya daha çok bahçe.",
-          "Hisarönü'nün restoranlarına yürüyecek kadar yakın, onları duymayacak kadar uzak.",
-          "Ağustosu gözle görülür biçimde daha yaşanır kılan yeşil bir vadi ve dağ havası.",
-          "Burada araba işinizi kolaylaştırır, ancak kesinlikle zorunlu değildir."
+          "Ölüdeniz’e on dakikalık mesafede, başka hiçbir yerde bulunamayacak kadar geniş arsalar ve paranızın karşılığında daha geniş bahçeler.",
+          "Hisarönü’deki restoranlara yürüyerek gidebileceğiniz kadar yakın, ama gürültüsünü duyamayacağınız kadar uzak.",
+          "Dağ havasının hakim olduğu yeşil bir vadi manzarası, Ağustos ayını çok daha rahat geçirmenizi sağlıyor.",
+          "Burada araba işinize yarar, ancak kesinlikle vazgeçilmez değildir."
         ],
-        "bestFor": "Alan isteyen ama izole olmak istemeyen aileler ve alıcılar"
+        "bestFor": "Yalıtılmış hissetmeden ferah bir ortam arayan aileler ve alıcılar, en yüksek kısa süreli kiralama gelirleri"
       },
       "calis": {
-        "intro": "Çalış Plajı; düz, yürünebilir ve yıl boyu açık seçenektir — burada gerçekten vakit geçirmeyi planlayan alıcılara en sık önerdiğimiz bölgedir. Sahilin bu kesimindeki en büyük yerleşik yabancı topluluğu buradadır.",
+        "intro": "Çalış Plajı, düz, yürüyüşe elverişli ve yıl boyunca açık bir seçenektir; burada gerçekten zaman geçirmeyi planlayan alıcılara en sık tavsiye ettiğimiz bölgedir. Bu sahil şeridinde en büyük yerleşik yabancı yerleşimci topluluğuna sahiptir.",
         "points": [
-          "Uzun ve tamamen araç trafiğine kapalı bir sahil bandı — ileriki yıllar düşünülürken sanılandan çok daha önemli.",
-          "Bölgenin en iyi gün batımları ve sezon boyunca Fethiye limanına deniz taksi bağlantısı.",
-          "Uluslararası mutfak ve yerleşik bir yabancı topluluk; yani kış boş değil, sosyal geçiyor.",
-          "Plaj kum değil çakıldır ve Fethiye merkez on beş dakikalık sürüş mesafesindedir."
+          "Uzun, trafiğin tamamen olmadığı bir gezinti yolu — bu, ileriki yaşam için plan yaparken insanların beklediğinden daha büyük önem taşıyor.",
+          "Bölgedeki en güzel gün batımları ve sezon boyunca Fethiye limanına giden su taksisi seferleri.",
+          "Uluslararası yemek seçenekleri ve köklü bir göçmen topluluğu sayesinde, kış mevsimi ıssız olmaktan ziyade sosyal bir atmosferde geçiyor.",
+          "Plaj kumlu değil, çakıllıdır ve Fethiye merkezine arabayla on beş dakikada ulaşılabilir."
         ],
-        "bestFor": "Emekliler, uzun süreli sakinler ve kışın da yaşanacak bir ev"
+        "bestFor": "Emekliler, uzun süreli konaklama sahipleri ve kış aylarında yaşamak"
       },
       "uzumlu": {
-        "intro": "Yeşil Üzümlü, Fethiye'nin yayla köyüdür: iç kesimde yirmi beş dakika ve birkaç derece daha serin. Gerçek bir Türk köyü — yerel pazarı, bağları ve her mayıs düzenlenen bilinen mantar festivaliyle.",
+        "intro": "Yeşil Üzümlü, Fethiye’nin iç kesimlerinde yer alan bir dağ köyüdür; şehir merkezinden yirmi beş dakika uzaklıkta bulunur ve hava sıcaklığı birkaç derece daha düşüktür. Burası, otantik bir yerel pazara, üzüm bağlarına ve her yıl mayıs ayında düzenlenen ünlü mantar festivaline sahip, yaşamın devam ettiği bir Türk köyüdür.",
         "points": [
-          "Kapsadığımız bölgeler içinde metrekare başına en düşük fiyat — bütçeniz belirgin şekilde daha çok ev ve arsa alıyor.",
-          "Geleneksel köy hayatı: yerel el sanatları, yöresel şarap ve turiste göre kurulmamış bir haftalık pazar.",
-          "Rakım sayesinde gözle görülür biçimde serin yazlar ve etkileyici bir dağ silüeti.",
-          "Araba şart ve kısa dönem kiralama talebi sahilin çok altında."
+          "Hizmet verdiğimiz tüm bölgeler arasında metrekare başına en düşük fiyat — bütçenizle çok daha fazla ev ve arsa satın alabilirsiniz.",
+          "Geleneksel köy yaşamı: yerel el sanatları, yöresel şarap ve turistlere yönelik olmayan haftalık pazar.",
+          "Rakım sayesinde yazlar belirgin şekilde daha serin geçiyor ve arka planda çarpıcı bir dağ manzarası bulunuyor.",
+          "Araba olmazsa olmazdır ve kısa süreli kiralama talebi, sahil kesimindeki talebin sadece bir kısmını oluşturmaktadır."
         ],
-        "bestFor": "Alan, fiyat/değer ve gerçekten Türk bir yaşam"
+        "bestFor": "Genişlik, değer ve tam anlamıyla Türk bir ortam"
       },
       "gocek": {
-        "intro": "Göcek körfezin yatçılık başkentidir: altı marina, beş yıldızlı oteller ve yüksek katlı yapılaşmayı bilinçli olarak dışarıda tutmuş düşük yoğunluklu bir imar rejimi. Fethiye'ye otuz, Dalaman havalimanına yirmi dakika.",
+        "intro": "Göcek, körfezin yatçılık başkentidir: altı marina, beş yıldızlı oteller ve yüksek katlı yapılaşmayı kasıtlı olarak dışarıda tutan düşük yoğunluklu bir imar düzeni. Fethiye’ye otuz dakika, Dalaman Havalimanı’na ise yirmi dakika uzaklıktadır.",
         "points": [
-          "Altı marina ve nisandan ekime kadar uluslararası bir kitle çeken bir denizcilik kültürü.",
-          "On İki Adalar'ı dolaşan tekne turları doğrudan kasabanın kendisinden kalkıyor.",
-          "Sıkı düşük yoğunluk planlaması çevreyi korudu — ve onunla birlikte değerleri de.",
-          "Kapsadığımız en pahalı pazar ve daralma dönemlerinde en dirençlisi."
+          "Altı marina ve Nisan’dan Ekim’e kadar uluslararası ziyaretçileri çeken bir tekne kültürü.",
+          "On İki Ada’yı gezen ada tekne turları, kasabanın merkezinden kalkıyor.",
+          "Sıkı ve düşük yoğunluklu imar planlaması, çevreyi — ve dolayısıyla değerleri — korumıştır.",
+          "İncelediğimiz piyasalar arasında en pahalı olanı ve ekonomik durgunluk dönemlerinde en dayanıklı olanı."
         ],
-        "bestFor": "İkinci elde birinci sınıf değer ve yatçı çevresi"
+        "bestFor": "Birinci sınıf ikinci el satış ve yatçılık camiası"
       },
       "yaniklar": {
-        "intro": "Sığla ormanları, narenciye bahçeleri ve el değmemiş plajlarla çevrili dingin bir sığınak. Merkeze kısa bir sürüş mesafesinde, doğayla iç içe ve daha yavaş bir yaşam sunuyor.",
+        "intro": "Amerikan akçaağaç ormanları, narenciye bahçeleri ve el değmemiş kumsallarla çevrili huzurlu bir sığınak. Şehir merkezine arabayla kısa bir mesafede, daha sakin ve doğa odaklı bir yaşam tarzı sunuyor.",
         "points": [],
-        "bestFor": "Doğaseverler, doğayla uyumlu yaşam ve huzurlu bir inziva"
+        "bestFor": "Doğa severler, çevre dostu yaşam ve huzur dolu dinlenme yerleri"
       },
       "kalkan": {
-        "intro": "Üst segment lüks villaları, sonsuzluk havuzları ve nefes kesen Akdeniz manzaralarıyla tanınan sofistike bir sahil kasabası. Dünya standartlarında mutfağı ve seçkin atmosferiyle biliniyor.",
+        "intro": "Lüks villaları, sonsuzluk havuzları ve nefes kesici Akdeniz manzaralarıyla ünlü, şık bir sahil kasabası. Dünya standartlarında yemek seçenekleri ve seçkin atmosferiyle tanınır.",
         "points": [],
-        "bestFor": "Lüks yaşam, birinci sınıf yatırım ve etkileyici deniz manzarası"
+        "bestFor": "Lüks yaşam tarzı, birinci sınıf yatırımlar ve muhteşem deniz manzaraları"
       }
     },
     "lifestyle": {
       "climate": {
         "title": "İklim",
-        "body": "Akdeniz düzeni: temmuz ve ağustosta düzenli olarak 35°C'yi aşan sıcak ve kurak yazlar, gündüz sıcaklığının çoğunlukla 15°C civarında seyrettiği ılıman kışlar. Yağış yıla yayılmak yerine aralık–şubat arasında yoğun aralıklarla gelir."
+        "body": "Akdeniz iklimi: Temmuz ve Ağustos aylarında sıcaklıkların düzenli olarak 35°C’nin üzerine çıktığı sıcak ve kurak yazlar ile gündüz sıcaklıklarının genellikle 10’lu ortalarda seyrettiği ılıman kışlar. Yağışlar yıl boyunca yayılmak yerine Aralık ile Şubat ayları arasında yoğun sağanaklar halinde görülür."
       },
       "getting-there": {
-        "title": "Ulaşım",
-        "body": "Dalaman havalimanı Fethiye'ye yaklaşık 45, Göcek'e 20 dakika. Sezon boyunca başlıca Avrupa, Körfez ve bölge merkezlerinden doğrudan ve aktarmalı uçuşlar, kışın ise seyrekleşen bir tarife var. Avrupa'nın büyük bölümünden uçuş süresi üç ilâ dört saat."
+        "title": "Oraya ulaşım",
+        "body": "Dalaman Havalimanı, Fethiye’ye yaklaşık 45 dakika, Göcek’e ise 20 dakika uzaklıktadır. Sezon boyunca Avrupa’nın önde gelen şehirlerinden, Körfez ülkelerinden ve bölgesel havalimanlarından direkt ve aktarmalı uçuşlar düzenlenmekte olup, kış aylarında uçuş sayısı azalmaktadır. Avrupa’nın çoğu yerinden buraya uçuş süresi yaklaşık üç ila dört saattir."
       },
       "healthcare": {
-        "title": "Sağlık",
-        "body": "Fethiye'de hem devlet hem özel hastane var; özel sektörde İngilizce konuşan personel yaygın. Oturum izni olan yabancı sakinler devlet sağlık sistemine (SGK) dâhil olabiliyor; özel sigorta ise kolay bulunuyor ve uluslararası ölçekte ucuz."
+        "title": "Sağlık Hizmetleri",
+        "body": "Fethiye’de hem devlet hem de özel hastaneler bulunmaktadır; özel sektörde İngilizce konuşan personel yaygın olarak görülmektedir. Oturma izni sahibi yabancı uyruklular, devlet sağlık sigortası sistemine (SGK) katılabilirler; özel sağlık sigortası ise yaygın olarak bulunmakta ve uluslararası standartlara göre uygun fiyatlıdır."
       },
       "cost": {
         "title": "Yaşam maliyeti",
-        "body": "Günlük giderler — market, dışarıda yemek, yakıt, ev yardımı ve bakım — Avrupa ve Kuzey Amerika'nın çoğundaki karşılıklarının belirgin şekilde altında. İthal ürünler, otomobil ve elektronik ise istisna; bunlar ülkenizdekinden pahalı olabilir."
+        "body": "Günlük harcamalar — taze gıda, dışarıda yemek, yakıt, ev işlerinde yardım ve mülk bakımı — Avrupa ve Kuzey Amerika’nın çoğu ülkesindeki benzer harcamaların oldukça altında kalmaktadır. İthal ürünler, otomobiller ve elektronik eşyalar ise istisna teşkil etmekte olup, kendi ülkelerindeki fiyatlardan daha pahalı olabilir."
       },
       "community": {
         "title": "Topluluk",
-        "body": "En büyük yerleşik uluslararası topluluklar Çalış ve Ovacık'ta; aktif sosyal kulüpler, İngilizce hizmetler ve sosyal geçen bir kış var. Üzümlü ve Seydikemer ise çok daha geleneksel biçimde Türk — ki bu bazı alıcılar için tam olarak aranan şey."
+        "body": "Çalış ve Ovacık, aktif sosyal kulüpler, İngilizce hizmetler ve hareketli bir kış mevsimi ile en büyük yerleşik uluslararası topluluklara ev sahipliği yapmaktadır. Üzümlü ve Seydikemer ise çok daha geleneksel bir Türk yaşam tarzına sahiptir; bu da bazı alıcıların tam da aradığı özelliklerdir."
       },
       "schooling": {
         "title": "Eğitim",
-        "body": "Devlet okulları ücretsiz ve eğitim dili Türkçe. Özel ve uluslararası seçenekler daha geniş Muğla bölgesinde mevcut; okul çağında çocuğu olup taşınan ailelerin çoğu bölge seçmeden önce bu başlığa dikkatle bakıyor."
+        "body": "Devlet okulları ücretsizdir ve dersler Türkçe olarak verilmektedir. Muğla bölgesinde özel ve uluslararası okul seçenekleri de mevcuttur; okul çağındaki çocukları olan ve buraya taşınan ailelerin çoğu, bir bölge seçmeden önce bu konuyu dikkatle değerlendirir."
       }
     },
     "investment": {
       "freehold": {
-        "title": "Kendi adınıza tam mülkiyet",
-        "body": "Yabancı uyruklular Türkiye'de gayrimenkulü doğrudan tam mülkiyetle satın alabilir ve tapu doğrudan kendi adlarına tescil edilir. Pek çok ülkeden alıcının alışkın olduğu türden bir kira mülkiyeti yapısı, arsa kirası veya aidat rejimi yoktur."
+        "title": "Kendi adınıza tapu mülkiyeti",
+        "body": "Yabancı uyruklular, Türkiye’de mülkiyet hakkı tam olan gayrimenkulleri doğrudan satın alabilirler ve tapu (TAPU) doğrudan kendi adlarına tescil edilir. Birçok ülkeden alıcıların alışık olduğu türden bir kira hakkı yapısı, arazi kirası veya hizmet bedeli uygulaması bulunmamaktadır."
       },
       "entry-price": {
-        "title": "Uluslararası alıcıyı hâlâ şaşırtan giriş fiyatları",
-        "body": "Bu sahilde özel havuzlu ve deniz manzaralı müstakil bir villa, İspanya, Portekiz veya Fransa'nın güneyindeki karşılığının hâlâ küçük bir bölümü. Alıcılarımızın çoğunu buraya ilk getiren şey bu fark."
+        "title": "Uluslararası alıcıları hâlâ şaşırtan giriş fiyatları",
+        "body": "Bu sahil şeridinde, özel havuzlu ve deniz manzaralı müstakil bir villanın fiyatı, İspanya, Portekiz veya Güney Fransa’daki benzer bir mülkün fiyatının sadece bir kısmı kadar. İşte bu fiyat farkı, alıcılarımızın çoğunu en başta buraya çeken en önemli faktördür."
       },
       "rental": {
-        "title": "Uzun ve güvenilir bir kiralama sezonu",
-        "body": "Fethiye sahiline turizm güçlü biçimde toparlandı; kısa dönem kiralama talebi mayıstan ekime uzanıyor ve en güçlü performansı Ölüdeniz ile Hisarönü gösteriyor. İyi yönetilen bir mülk işletme giderlerini rahatlıkla karşılayabiliyor."
+        "title": "Uzun ve istikrarlı bir kiralama sezonu",
+        "body": "Fethiye sahil şeridine yönelik turizm güçlü bir şekilde toparlandı ve kısa süreli kiralama talebi Mayıs’tan Ekim’e kadar devam ediyor; bu dönemde Ölüdeniz ve Hisarönü en yüksek performansı gösteren bölgeler. İyi yönetilen bir gayrimenkul, işletme masraflarını rahatlıkla karşılayabilir."
       },
       "residency": {
-        "title": "Anlaşılır bir oturum yolu",
-        "body": "Türkiye gayrimenkul sahipleri için erişilebilir kısa dönem oturum izinleri uyguluyor ve süreç yabancı başvuru sahipleri açısından oturmuş durumda. İzin başvurularını satış sonrası hizmetimizin parçası olarak destekliyoruz."
+        "title": "Basit bir ikamet izni yolu",
+        "body": "Türkiye, gayrimenkul sahipleri için erişilebilir kısa süreli oturma izinleri uygulamaktadır ve bu süreç yabancı başvuru sahipleri için oldukça alışılmış bir süreçtir. Oturma izni başvurularını, hizmet sonrası destek hizmetlerimizin bir parçası olarak destekliyoruz."
       },
       "citizenship": {
         "title": "Belirli bir eşikte vatandaşlık",
-        "body": "Yürürlükteki devlet eşiğine ulaşan veya onu aşan gayrimenkul yatırımı, ailenin tamamına Türk vatandaşlığı hakkı kazandırabiliyor — üstelik varlık bağışlanmıyor, elde tutuluyor."
+        "body": "Mevcut devlet eşiği düzeyinde veya bunun üzerinde bir gayrimenkul yatırımı, ailenin tamamının Türk vatandaşlığı almaya hak kazanmasını sağlayabilir; bu durumda varlık bağışlanmak yerine elinde tutulur."
       },
       "costs": {
-        "title": "Düşük sahip olma maliyetleri",
-        "body": "Yıllık emlak vergisi uluslararası ölçekte mütevazı; bakım, bahçe ve havuz servisi ise pek çok mülk sahibinin villasını yıl boyu bakımlı tutmayı ikinci kez düşünmeyeceği kadar uygun."
+        "title": "Düşük işletme maliyetleri",
+        "body": "Yıllık emlak vergisi uluslararası standartlara göre oldukça düşük olup, bakım, bahçe işleri ve havuz bakımı masrafları da o kadar makul düzeydedir ki, pek çok villa sahibi hiç tereddüt etmeden villasının bakımını yıl boyunca yaptırmaktadır."
       }
     },
     "nearby": {
       "kayakoy": {
         "name": "Kayaköy",
-        "blurb": "1923'te terk edilen ve bugün koruma altında olan taş hayalet köy. Birkaç yüz çatısız ev yamaca tırmanıyor; eteğinde birkaç butik otel ve uzun öğle yemeklerine uygun restoranlar var. Birden fazla kez film platosu oldu."
+        "blurb": "1923 yılında terk edilen ve günümüzde koruma altındaki bir tarihi miras alanı olan taş hayalet köy. Yamaçta yüzlerce çatısız ev sıralanırken, aşağıda dağınık halde butik oteller ve uzun öğle yemeği sunan restoranlar yer almaktadır. Burası, birden fazla kez film çekim yeri olarak kullanılmıştır."
       },
       "faralya": {
         "name": "Faralya",
-        "blurb": "Kelebekler Vadisi'nin üzerinde, konuşmayı kesen bir manzaraya sahip dağ yoluyla ulaşılan yamaç köyü. Aşağıdaki vadiye tekneyle ya da ciddi bir yürüyüşle iniliyor ve bölgenin tamamı bilinçli olarak yapılaşmamış durumda."
+        "blurb": "Kelebek Vadisi'nin yukarısında, bir uçurumun yamacında yer alan ve manzarası insanı suskun bırakan bir dağ yoluyla ulaşılan bir köy. Aşağıdaki vadiye tekneyle ya da oldukça zorlu bir yürüyüşle ulaşılabilir ve tüm bölge kasıtlı olarak gelişime açılmamıştır."
       },
       "seydikemer": {
         "name": "Seydikemer",
-        "blurb": "Fethiye'ye otuz beş dakika mesafede, dağlarla çevrili ve alışılmadık ölçüde suyu bol küçük bir iç kesim kasabası. Saklıkent Kanyonu'na yakın ve sahildeki her yerden gözle görülür biçimde daha uygun."
+        "blurb": "Fethiye’ye 35 dakika uzaklıkta, dağlarla çevrili ve alışılmadık derecede bol su kaynaklarına sahip küçük bir iç kasaba. Saklıkent Kanyonu’nun yakınında yer alır ve sahil şeridindeki diğer yerlere kıyasla belirgin şekilde daha uygun fiyatlıdır."
       }
     },
     "faq": {
-      "q1": "Gayrimenkul sahibi olarak Türkiye'de ne kadar kalabilirim?",
-      "a1": "Mülk sahipliği tek başına sınırsız kalış hakkı vermez. Vizesiz kalış süresi uyruğunuza bağlıdır ve pek çok pasaport için sınır 180 günde 90 gündür. Daha uzun kalmak isteyen mülk sahipleri kısa dönem oturum iznine başvurur; bu, gayrimenkul sahipleri için oturmuş bir yoldur ve satış sonrası hizmetimizin parçası olarak destekliyoruz.",
-      "q2": "Fethiye'de kışın hava nasıl olur?",
-      "a2": "Gündüz sıcaklıkları aralıktan şubata kadar çoğunlukla 15°C civarındadır; yağış sürekli çiselemek yerine yoğun dönemler hâlinde gelir. Ölüdeniz ve Hisarönü'ndeki tatil işletmelerinin çoğu sezon dışında kapanırken Fethiye ve Çalış yıl boyu açık kalır.",
+      "q1": "Mülk sahibi olarak Türkiye’de ne kadar süreyle kalabilirim?",
+      "a1": "Mülk sahibi olmak tek başına sınırsız ikamet hakkı vermez. Vizesiz kalış süreleri uyrukunuza bağlıdır ve birçok pasaport için sınır, herhangi bir 180 günlük dönemde 90 gündür. Daha uzun süre kalmak isteyen mülk sahipleri, kısa süreli oturma izni başvurusunda bulunurlar. Bu, mülk sahipleri için yaygın olarak kullanılan bir yoldur ve biz de bu konuda, hizmet sonrası destek kapsamında yardımcı olmaktayız.",
+      "q2": "Kışın Fethiye'de hava nasıl olur?",
+      "a2": "Aralık ayından Şubat ayına kadar gündüz sıcaklıkları genellikle 10'lu derecelerin ortalarında seyrediyor; sürekli çiseleyen yağmurdan ziyade yoğun yağış dönemleri görülüyor. Ölüdeniz ve Hisarönü'ndeki birçok tatil köyü işletmesi sezon boyunca kapalı kalırken, Fethiye ve Çalış tüm yıl boyunca açık kalıyor.",
       "q3": "Fethiye emeklilik için iyi bir yer mi?",
-      "a3": "Türkiye sahilindeki en oturmuş emeklilik destinasyonlarından biri: büyük ve yerleşik uluslararası topluluklar / yabancı sakinler, düz ve yürünebilir sokaklar, hem devlet hem özel sağlık hizmetine iyi erişim. Sorulmaya değer pratik sorular sağlık teminatı, kışın sosyal hayat ve ailenin ne kolaylıkla ziyaret edebileceğidir.",
-      "q4": "Fethiye'de yaşamak için Türkçe bilmem gerekir mi?",
-      "a4": "Günlük hayat için gerekmez. Fethiye, Ölüdeniz, Hisarönü ve Çalış'ta İngilizce yaygın olarak konuşuluyor; resmî işlemler yeminli tercümanlarla yürütülüyor. Biraz Türkçe öğrenmek köylerde ve pazarda günlük hayatı bambaşka bir yere taşır ve gerçekten takdir edilir — ama satın almanın ya da burada yaşamanın önünde bir engel değildir.",
-      "q5": "Fethiye'nin hangi bölgesi kira geliri için en iyisi?",
-      "a5": "En güçlü kısa dönem talebi Ölüdeniz ve Hisarönü'nde; sezon mayıstan ekime uzanıyor. Fethiye merkez ve Çalış haftalık olarak daha az getiriyor ama kış kiralamaları dâhil daha uzun bir dönem boyunca doluluk sağlıyor. Üzümlü, Ovacık ve Seydikemer'de mülk sahibi olmak keyifli ama sezon zirvesinde doldurmak belirgin şekilde daha zor."
+      "a3": "Burası, Türk sahil şeridindeki en köklü emeklilik destinasyonlarından biridir; burada kalıcı olarak yerleşmiş geniş uluslararası topluluklar / gurbetçiler bulunur, düz ve yürüyüşe elverişli caddeleri vardır ve hem devlet hem de özel sağlık hizmetlerine erişim kolaydır. Dikkate alınması gereken pratik konular arasında sağlık sigortası, kış aylarında sosyal yaşam ve ailenin ne kadar kolay ziyaret edebileceği sayılabilir.",
+      "q4": "Fethiye'de yaşamak için Türkçe bilmem gerekiyor mu?",
+      "a4": "Sadece idare etmek için değil. Fethiye, Ölüdeniz, Hisarönü ve Çalış’ta İngilizce yaygın olarak konuşulmaktadır ve resmi işlemler yeminli tercümanlar aracılığıyla yürütülmektedir. Biraz Türkçe öğrenmek, köylerde ve pazarlarda günlük hayatı büyük ölçüde kolaylaştırır ve gerçekten takdir edilir — ancak bu, burada alışveriş yapmanın ya da yaşamanın önünde bir engel değildir.",
+      "q5": "Fethiye’nin hangi bölgesi kira geliri açısından en uygunudur?",
+      "a5": "Ölüdeniz ve Hisarönü, Mayıs’tan Ekim’e kadar süren sezon boyunca en yüksek kısa süreli kiralama talebini çekmektedir. Fethiye merkezi ve Çalış’ta haftalık kiralar daha düşük olmakla birlikte, kış kiralamaları da dahil olmak üzere daha uzun bir süre boyunca doluluk sağlanmaktadır. Üzümlü, Ovacık ve Seydikemer, mülk sahibi olmak için harika yerler olmakla birlikte, yoğun sezonda doluluk sağlamak oldukça zordur."
     }
   },
   "aboutTurkey": {
     "areasHeading": "Bölgeler",
-    "availableNow": "Şu an satışta",
-    "bestForLabel": "Şunun için ideal",
-    "ctaHeading": "Okumak sizi ancak bir yere kadar götürür",
-    "ctaPrimary": "Görme turu planlayın",
-    "ctaSecondary": "Aklınıza takılanı sorun",
+    "availableNow": "Şu anda satışta",
+    "bestForLabel": "En uygun olduğu durumlar",
+    "ctaHeading": "Bu konuda okumakla ancak bir yere kadar varabilirsin",
+    "ctaPrimary": "Geziye çıkmayı planlayın",
+    "ctaSecondary": "Bize ne isterseniz sorun",
     "faqEyebrow": "Net cevaplar",
-    "faqHeading": "Türkiye'de yaşamak: bize en çok sorulanlar",
-    "faqLede": "Oturum, kışlar, sağlık ve dil — taşınmanın yürüyüp yürümeyeceğini belirleyen pratik başlıklar.",
+    "faqHeading": "Türkiye’de Yaşam: Bize Sıkça Sorulan Sorular",
+    "faqLede": "İkamet, kışlar, sağlık hizmetleri ve dil — taşınmanın başarılı olup olmayacağını belirleyen pratik konular.",
     "heroTitle": "Türkiye Hakkında",
-    "jumpToAreas": "Bölge rehberlerine geç",
+    "jumpToAreas": "Bölge rehberlerine git",
     "livingEyebrow": "Günlük yaşam",
-    "livingHeading": "Burada yaşamak gerçekte nasıl",
-    "mapHint": "Bir pime dokunun, o bölge Google Haritalar'da açılsın — gerçek fotoğraflar, Street View ve yol tarifi.",
-    "mapLabel": "Fethiye ve çevresinde hizmet verdiğimiz bölgelerin etkileşimli haritası",
-    "mapLede": "Hizmet verdiğimiz bütün bölgeler tek bir haritada. Bizim yorumumuzu okumadan önce bir pimi açın ve yeri kendi gözünüzle görün.",
-    "mapOpenLink": "Google Haritalar'da aç",
-    "mapPinLabel": "{area} bölgesini Google Haritalar'da aç (yeni sekmede açılır)",
-    "metaDescription": "Yaşam tarzı, iklim, sağlık, geçim maliyeti ve Türkiye'nin turkuaz kıyısına yatırımın gerekçesi — ayrıca Fethiye, Ölüdeniz, Hisarönü, Çalış, Göcek, Üzümlü ve Ovacık için dürüst bölge rehberleri.",
-    "metaTitle": "Fethiye'de Yaşamak: Türkiye'nin Turkuaz Kıyısı Rehberi",
+    "livingHeading": "Burada yaşamak aslında nasıl bir şey?",
+    "mapHint": "Bir iğneye dokunarak o bölgeyi Google Haritalar’da açın — gerçek fotoğraflar, Sokak Görünümü ve yol tarifi.",
+    "mapLabel": "Fethiye çevresinde hizmet verdiğimiz bölgelerin etkileşimli haritası",
+    "mapLede": "Kapsadığımız her bölge, tek bir haritada. Bir işaretçiyi açın ve bizim yorumumuzu okumadan önce o yeri kendiniz görün.",
+    "mapOpenLink": "Google Haritalar'da Görüntüle",
+    "mapPinLabel": "{area}'i Google Haritalar'da aç (yeni bir sekmede açılır)",
+    "metaDescription": "Yaşam tarzı, iklim, sağlık hizmetleri, yaşam maliyeti ve Türkiye’nin Turkuaz Kıyısı’na yatırım yapmanın gerekçeleri — ayrıca Fethiye, Ölüdeniz, Hisarönü, Çalış, Göcek, Üzümlü ve Ovacık hakkında samimi rehberler.",
+    "metaTitle": "Fethiye’de Yaşam: Türkiye’nin Turkuaz Kıyısı Rehberi",
     "propertyCount": {
       "one": "{count} ilan",
       "few": "{count} ilan",
       "many": "{count} ilan",
       "other": "{count} ilan"
     },
-    "seeForYourself": "Kendi gözünüzle görün",
-    "whyEyebrow": "Neden burası",
-    "whyHeading": "Uluslararası alıcıların bu sahili seçmeye devam etmesinin altı sebebi",
-    "whyLede": "Broşür dili değil. Bunlar, alıcılarımızın kararı evdeki aileye anlatırken gerçekten kullandığı gerekçeler."
+    "seeForYourself": "Kendiniz görün",
+    "whyEyebrow": "Neden buradan satın almalısınız?",
+    "whyHeading": "Uluslararası alıcıların bu sahili tercih etmeye devam etmelerinin altı nedeni",
+    "whyLede": "Broşürde yazanlardan değil. Bunlar, alıcılarımızın evdeki ailelerine bu kararı açıklarken gerçekten ortaya çıkan argümanlardır."
   },
   "process": {
     "buyingSteps": {
       "brief": {
-        "title": "Talebin tanımı",
-        "summary": "Tek bir ilan gönderilmeden önce bütçenizi, hedef bölgenizi ve alımın gerçek amacını birlikte netleştiriyoruz.",
+        "title": "Özet",
+        "summary": "Tek bir gayrimenkul bilgisi gönderilmeden önce bütçenizi, hedef bölgenizi ve satın almanın asıl amacını birlikte belirleriz.",
         "detail": [
-          "Tatil evi, kira getirisi ve kalıcı taşınma üç ayrı kısa liste demektir — bu ayrımı en baştan yapıyoruz.",
-          "Gerçekçi bir toplam bütçe belirliyoruz: villa bedeli artı %6–8 alım masrafı; böylece altıncı haftada sürpriz olmuyor.",
-          "Size bütçeye giren her şeyin döküldüğü bir portal listesi değil, dezavantajları da açıkça yazılmış bir kısa liste veriyoruz."
+          "Bir tatil evi, bir kiralık gayrimenkul ve kalıcı bir taşınma, üç farklı aday listesinin oluşmasına yol açar — bunları en başından ayırırız.",
+          "Gerçekçi bir toplam bütçe belirledik: villa fiyatı artı %6–8 oranında satın alma masrafları; böylece altıncı haftada hiçbir sürprizle karşılaşmayız.",
+          "Elde edeceğiniz şey, menzil içindeki her şeyi rastgele listeleyen bir portal değil, dürüstçe belirtilmiş dezavantajları da içeren yazılı bir aday listesidir."
         ],
-        "timing": "1. hafta",
-        "owner": "Siz ve size atanan danışmanınız"
+        "timing": "1. Hafta",
+        "owner": "Siz ve belirlediğiniz danışman"
       },
       "viewing-trip": {
-        "title": "Görme turu",
-        "summary": "Fethiye, Ölüdeniz, Hisarönü ve Göcek'i kapsayan iki günlük bir program — kendi portföyümüze göre değil, kısa listenize göre kurulur.",
+        "title": "Gezinti turu",
+        "summary": "Fethiye, Ölüdeniz, Hisarönü ve Göcek’i kapsayan iki günlük bir gezi programı; bu program, mevcut seçeneklerimizden ziyade ön eleme listesi temel alınarak oluşturulmuştur.",
         "detail": [
-          "İki günde altı ilâ sekiz mülk. Fazlası birbirine karışmaya başlıyor.",
-          "Sizi çarşıya, plaja ve okul yoluna da götürüyoruz; sadece terası değil, günlük gerçeği görün diye."
+          "İki gün içinde altı ila sekiz mülk. Bundan fazlası olursa, hepsi birbirine karışır.",
+          "Sizi mağazalara, plaja ve okula götürüyoruz; böylece sadece terası değil, günlük yaşamın gerçek yüzünü de görebilirsiniz."
         ],
-        "timing": "2.–3. hafta",
+        "timing": "2–3. Hafta",
         "owner": "Coast 2 Coast, sahada"
       },
       "offer": {
         "title": "Teklif ve rezervasyon",
-        "summary": "Pazarlığı sizin adınıza Türkçe yürütüyor, ardından satır satır tercüme edilmiş bir rezervasyon sözleşmesiyle mülkü bağlıyoruz.",
+        "summary": "Sizin adınıza Türkçe olarak pazarlık yaparız, ardından satılık mülkü satır satır çevrilmiş bir rezerve sözleşmesi ile tutarız.",
         "detail": [
-          "Genellikle 2.000–5.000 £ arası bir rezervasyon bedeli mülkü piyasadan çekiyor.",
-          "Sözleşme neyin dâhil olduğunu, devir için son tarihi ve rezervasyon bedelinin hangi koşullarda iade edileceğini açıkça yazar.",
-          "İngilizce tercümesini okumadan ve avukatınız görmeden hiçbir şey imzalanmıyor."
+          "Rezervasyon depozitosu — genellikle 2.000–5.000 sterlin — mülkü piyasadan çeker.",
+          "Sözleşmede, hizmetin kapsamı, tamamlanma tarihi ve depozitonuzun hangi koşullarda iade edileceği açıkça belirtilmiştir.",
+          "İngilizce çevirisini okuyana ve avukatınız bunu inceleyene kadar hiçbir belge imzalanmaz."
         ],
-        "timing": "3. hafta",
+        "timing": "3. Hafta",
         "owner": "Coast 2 Coast ve satıcı"
       },
       "legal-checks": {
         "title": "Bağımsız hukuki incelemeler",
-        "summary": "Kendi avukatınız Tapu Müdürlüğü'nde tapu araştırmasını yürütürken biz vergi numaranızı ve banka hesabınızı açıyoruz.",
+        "summary": "Biz sizin vergi numaranızı ve banka hesabınızı açarken, kendi avukatınız Tapu Sicil Dairesi’nde tapu araştırmasını yürütür.",
         "detail": [
-          "TAKBİS tapu sorgusu satıcının kayıtlı malik olduğunu doğrular ve mülk üzerindeki ipotek, haciz ya da ödenmemiş vergiyi ortaya çıkarır.",
-          "Mülkün askerî yasak bölge dışında kaldığını teyit ediyoruz — yabancı alıcılar için standart bir kontrol.",
-          "Devir tamamlanmadan önce zorunlu olan Türk vergi numaranızı ve yerel banka hesabınızı alıyorsunuz."
+          "TAKBİS tapu araştırması, satıcının tescilli malik olduğunu teyit eder ve gayrimenkul üzerinde bulunan herhangi bir ipotek, rehin veya ödenmemiş vergiyi ortaya çıkarır.",
+          "Mülkün, yabancı alıcılar için standart bir izin koşulu olan askeri kısıtlama bölgesi dışında yer aldığını teyit ediyoruz.",
+          "Bir Türk vergi numarası ve yerel bir banka hesabı alırsınız; her ikisi de transferin tamamlanabilmesi için gereklidir."
         ],
         "timing": "3.–5. hafta",
         "owner": "Bağımsız avukatınız"
       },
       "valuation": {
         "title": "Değerleme raporu ve DASK",
-        "summary": "Yabancı alıcıya yapılan her satışta SPK lisanslı değerleme raporu zorunludur; yanında deprem sigortası da gerekir.",
+        "summary": "Yabancı bir alıcıya yapılan her satışta, deprem sigortasının yanı sıra, devlet tarafından onaylanmış bir SPK değerleme raporu da zorunludur.",
         "detail": [
-          "SPK raporu lisanslı ve bağımsız bir değerleme uzmanı tarafından hazırlanır ve doğrudan Tapu Müdürlüğü'ne sunulur.",
-          "Değerleme anlaşılan bedelin altında çıkarsa size söyler ve yeniden pazarlık ederiz — raporun var oluş sebebi tam olarak budur.",
-          "DASK zorunlu deprem sigortası şarttır ve tapu devrinden önce yürürlükte olmalıdır."
+          "SPK raporu, lisanslı bağımsız bir değerleme uzmanı tarafından hazırlanır ve doğrudan Tapu Sicil Dairesi’ne sunulur.",
+          "Değerleme sonucu üzerinde anlaşılan fiyatın altında çıkarsa, size bunu bildirir ve yeniden müzakere ederiz — raporun amacı tam da bunu tespit etmektir.",
+          "DASK deprem sigortası zorunludur ve tapu devri yapılabilmesi için bu sigortanın yürürlükte olması gerekir."
         ],
         "timing": "4.–6. hafta",
         "owner": "Lisanslı değerleme uzmanı ve sigortacı"
       },
       "funds": {
-        "title": "Döviz transferi ve DAB",
-        "summary": "Bedel bir Türk bankası üzerinden çevrilir; banka da tapunun talep ettiği Döviz Alım Belgesi'ni (DAB) düzenler.",
+        "title": "Para transferi ve DAB",
+        "summary": "Para transferleri, sicil dairesinin talep ettiği döviz alım belgesini (DAB) düzenleyen bir Türk bankası aracılığıyla gerçekleştirilir.",
         "detail": [
-          "Yabancı alıcılar satış bedelini Türkiye'deki bir banka aracılığıyla Türk lirasına çevirmek ve DAB almak zorundadır.",
-          "Sizi düzenlenmiş bir döviz aracı kurumuyla tanıştırıyoruz — 600.000 £'lik bir alımda aracı kurum ile şube kuru arasındaki fark nadiren önemsizdir.",
-          "DAB sizin adınıza düzenlenir ve tapu randevusunun ön koşuludur; dolayısıyla son güne bırakılamaz."
+          "Yabancı alıcılar, satın alma tutarını Türkiye’deki bir banka aracılığıyla Türk lirası’na çevirmeli ve bir DAB belgesi almalıdır.",
+          "Düzenlemeye tabi bir döviz brokerını tanıtıyoruz — 600.000 sterlinlik bir alım işleminde, bir broker ile büyük bir banka arasındaki spread nadiren önemsiz bir rakamdır.",
+          "DAB, sizin adınıza düzenlenir ve tapu tescil işlemleri için bir ön koşuldur; bu nedenle son güne bırakılamaz."
         ],
         "timing": "5.–7. hafta",
-        "owner": "Siz, bankanız ve döviz aracınız"
+        "owner": "Siz, bankanız ve döviz komisyoncunuz"
       },
       "tapu": {
         "title": "Tapu devri (TAPU)",
-        "summary": "Devir Tapu Müdürlüğü'nde, bizzat ya da vekaletname ile ve baştan sona yeminli tercüman eşliğinde yapılır.",
+        "summary": "Tapu Sicilinde, şahsen veya vekaletname yoluyla, işlem süresince yeminli bir tercümanın hazır bulunması şartıyla devir işlemi gerçekleştirilir.",
         "detail": [
-          "%4 tapu harcı randevudan önce ödenir; kanunen paylaşılır, uygulamada oran pazarlığa tabidir.",
-          "Yeminli tercüman kanunen zorunludur; okumadığınız bir dilde hiçbir şey imzalamamanız için.",
-          "Randevudan tapusu kendi adınıza düzenlenmiş, kayıtlı malik olarak çıkarsınız."
+          "%4’lük gayrimenkul devir vergisi, randevudan önce ödenir; kanun gereği bu vergi paylaşıldığı belirtilse de, uygulamada pay dağılımı müzakere yoluyla belirlenir.",
+          "Okumadığınız bir dilde hiçbir belgeyi imzalamamanız için yeminli bir tercüman bulunması yasal bir zorunluluktur.",
+          "Randevudan, kendi adınıza düzenlenmiş tapu ile tescilli mülk sahibi olarak ayrılırsınız."
         ],
-        "timing": "6.–8. hafta",
-        "owner": "Tapu Müdürlüğü, biz de yanınızdayız"
+        "timing": "6.–8. Hafta",
+        "owner": "Tapu Sicili, bizim huzurumuzda"
       },
       "handover": {
-        "title": "Teslim ve satış sonrası",
-        "summary": "Abonelikler devredilir, yeni abonelikler açılır, anahtarlar teslim edilir — ve gelecek sezon da telefonu açan bir muhatabınız olur.",
+        "title": "Devir teslimi ve devir sonrası bakım",
+        "summary": "Faturalar devredildi, abonelikler açıldı, anahtarlar teslim edildi — ve gelecek sezon da hâlâ ulaşabileceğiniz bir irtibat kişisi.",
         "detail": [
-          "Elektrik, su ve internet sizin adınıza devredilir; evrak işini bizzat biz yürütürüz.",
-          "Oturum izni başvurularını destekliyor, gelir isterseniz sizi önceden değerlendirdiğimiz kiralama yönetim şirketleriyle tanıştırıyoruz.",
-          "Yıllık emlak vergisi, DASK yenilemesi ve bakım hatırlatmaları devirden sonra da sürüyor."
+          "Elektrik, su ve internet abonelikleri sizin adınıza devredilir; gerekli evrak işlemlerini bizzat biz hallederiz.",
+          "Oturma izni başvurularında destek sağlıyoruz ve gelir elde etmek istediğiniz yerlerde güvenilir kiralama yönetim şirketlerini size tanıtıyoruz.",
+          "İnşaatın tamamlanmasının ardından yıllık emlak vergisi, DASK yenileme ve bakım hatırlatmaları devam etmektedir."
         ],
-        "timing": "Devirden itibaren",
-        "owner": "Coast 2 Coast satış sonrası"
+        "timing": "Tamamlanma tarihinden itibaren",
+        "owner": "Coast 2 Coast sonrası bakım hizmetleri"
       }
     },
     "sellingSteps": {
       "valuation": {
         "title": "Dürüst değerleme",
-        "summary": "Mülkünüzü komşuların istediği fiyata göre değil, çevrede gerçekten tamamlanmış satışlara göre değerliyoruz.",
+        "summary": "Mülkünüzün değerini, komşularınızın talep ettiği fiyatlara göre değil, yakın çevrede fiilen tamamlanmış satışlara göre belirliyoruz.",
         "detail": [
-          "Fethiye ve Ölüdeniz'de istenen fiyatlar gerçekleşen fiyatların epey üstünde olabiliyor; biz tamamlanmış emsallerden hareket ediyoruz.",
-          "Size gerçekçi bir fiyat aralığı ve bu aralıktaki her fiyat noktası için olası satış süresini veriyoruz.",
-          "İhtiyacınız olan rakam bu sezon ulaşılabilir değilse, ilanı alıp öylece bekletmek yerine bunu açıkça söylüyoruz."
+          "Fethiye ve Ölüdeniz’deki satış fiyatları, gerçekleşen fiyatların oldukça üzerinde olabilir; biz ise tamamlanmış benzer satış örneklerini temel alıyoruz.",
+          "Her bir fiyat aralığı için gerçekçi bir aralık ve bu aralık içindeki her bir fiyat noktasında satışın gerçekleşmesi muhtemel süreyi öğrenirsiniz.",
+          "Eğer aradığınız rakam bu sezon ulaşılamazsa, ilanı kabul edip bir kenarda durmasına izin vermek yerine bunu açıkça belirtiriz."
         ],
-        "timing": "1. hafta",
+        "timing": "1. Hafta",
         "owner": "Coast 2 Coast değerleme ziyareti"
       },
       "paperwork": {
-        "title": "Evrak ve uygunluk",
-        "summary": "İlan yayına girmeden önce tapuyu, iskânı, enerji kimlik belgesini ve DASK'ı baştan sona denetliyoruz.",
+        "title": "Evrak işleri ve mevzuata uygunluk",
+        "summary": "Gayrimenkulün satışa sunulmasından önce tapu, ikamet belgesi, enerji belgesi ve DASK belgelerini denetliyoruz.",
         "detail": [
-          "Tapu; satışı tapu dairesinde durduracak ipotek, haciz ve ödenmemiş borçlar açısından kontrol edilir.",
-          "Satış için iskân (yapı kullanma izin belgesi) ve geçerli bir Enerji Kimlik Belgesi kanunen zorunludur.",
-          "Evrakı pazarlamadan önce düzeltmek birkaç gün alır; teklif kabul edildikten sonra fark etmek alıcıya mal olur."
+          "TAPU'da, tapu sicilinde satış işlemini geciktirebilecek rehinler, ipotekler ve ödenmemiş aidatlar olup olmadığı kontrol edilir.",
+          "Satış için iskan belgesi ve geçerli bir enerji performans belgesi (Enerji Kimlik Belgesi) yasal olarak zorunludur.",
+          "Pazarlama öncesinde evrak işlerini halletmek günler sürer; kabul edilen bir teklifin ardından bu durumun farkına varılması ise alıcıya maliyete neden olur."
         ],
         "timing": "1.–2. hafta",
         "owner": "Coast 2 Coast ve avukatınız"
       },
       "presentation": {
         "title": "Sunum",
-        "summary": "Profesyonel fotoğraf ve kat planı — doğru saatte çekilmiş, öğle vakti telefonla değil.",
+        "summary": "Profesyonel fotoğraflar ve bir kat planı — doğru saatte çekilmiş, öğle vakti bir cep telefonuyla değil.",
         "detail": [
-          "Altın saatte mimari fotoğraf ve mülkü kendi koyunun ya da vadisinin içine yerleştiren geniş açılı kareler.",
-          "Ölçülü bir kat planı, ilk taleplerde en sık sorulan soruyu tamamen ortadan kaldırıyor.",
-          "Çekimden önce hafif düzenleme önerileri: harcanan liraya en yüksek getiriyi verecek şekilde neyin kaldırılacağı, boyanacağı ya da yeniden dikileceği."
+          "Altın saatte çekilmiş mimari fotoğraflar ile mülkü körfez veya vadi içinde gösteren geniş genel çekimler.",
+          "Ölçülmüş bir kat planı, ilk taleplerde en sık sorulan soruyu ortadan kaldırır.",
+          "Çekim öncesi hafif dekor düzenleme önerileri: Harcanan her lira başına en yüksek getiriyi elde etmek için neleri kaldırmalı, yeniden boyamalı veya yeniden dikmeli?"
         ],
-        "timing": "2. hafta",
+        "timing": "2. Hafta",
         "owner": "Fotoğrafçımız"
       },
       "marketing": {
-        "title": "Doğru alıcıya pazarlama",
-        "summary": "Mülkünüz yalnızca yerel Türk portallarına değil, doğrudan uluslararası alıcının önüne konuyor.",
+        "title": "Doğru alıcıya yönelik pazarlama",
+        "summary": "Gayrimenkulünüz sadece Türkiye’deki yerel portallarda değil, doğrudan uluslararası alıcıların karşısına sunulur.",
         "detail": [
-          "Kendi sitemizde tam SEO ile İngilizce yayımlanır; ayrıca alıcınızın gerçekten aradığı uluslararası portallarda listelenir.",
-          "Önce kayıtlı alıcı listemize gönderilir — satışların kayda değer bir bölümü hiçbir zaman halka açık bir portala düşmez.",
-          "Türkçe dağıtım, yurt içi ve vatandaşlık programı alıcıları için paralel yürür."
+          "Kendi sitemizde tam SEO ile İngilizce olarak listelenir; ayrıca alıcınızın gerçekten arama yaptığı uluslararası portallarda da yer alır.",
+          "Öncelikle kayıtlı alıcı listemize duyurulur — satışların önemli bir kısmı hiçbir zaman halka açık bir platforma ulaşmaz.",
+          "Türkçe dilinde dağıtım, yurt içi alıcılar ve vatandaşlık programı katılımcıları için eşzamanlı olarak yürütülmektedir."
         ],
         "timing": "3. haftadan itibaren",
-        "owner": "Coast 2 Coast pazarlama"
+        "owner": "Coast 2 Coast Pazarlama"
       },
       "viewings": {
-        "title": "Nitelikli görüşmeler",
-        "summary": "Talepleri bütçe ve niyet açısından süzüyor, her görüşmeye eşlik ediyor ve her birinin ardından size yazılı geri bildirim gönderiyoruz.",
+        "title": "Uygun ziyaretler",
+        "summary": "Talep gelenleri bütçe ve amaç açısından değerlendiriyor, her ev gezisine eşlik ediyor ve her gezinin ardından size yazılı geri bildirim gönderiyoruz.",
         "detail": [
-          "Alıcılar adresiniz verilmeden önce bütçe ve zaman planı açısından değerlendirilir.",
-          "Yurt dışında yaşıyorsanız hiçbir zaman orada olmanız gerekmez — anahtarları biz tutar, girişi biz yönetiriz.",
-          "Her görüşmeden sonra itirazlar dâhil yazılı geri bildirim; böylece fiyat kararları kanıta dayanır."
+          "Alıcılara adresiniz verilmeden önce, bütçe ve zaman planı açısından uygunlukları değerlendirilir.",
+          "Yurtdışında yaşıyorsanız, oraya gitmenize hiç gerek kalmaz — anahtarları biz saklıyoruz ve giriş-çıkışları biz yönetiyoruz.",
+          "Her incelemenin ardından, itirazlar da dahil olmak üzere yazılı geri bildirim sunulur; böylece fiyatlandırma kararları somut verilere dayandırılır."
         ],
-        "timing": "Süreç boyunca",
-        "owner": "Coast 2 Coast, eşlikli"
+        "timing": "Devam ediyor",
+        "owner": "Coast 2 Coast, eşliğinde"
       },
       "offer": {
-        "title": "Teklif ve pazarlık",
-        "summary": "Her teklifi alıcının konumu ve finansmanıyla birlikte size yazılı olarak sunuyor, ardından sizin şartlarınızla pazarlık ediyoruz.",
+        "title": "Teklif ve müzakere",
+        "summary": "Size sunulan her teklifi, alıcının tutumunu ve finansman durumunu da ekleyerek yazılı olarak iletiriz; ardından sizin şartlarınız doğrultusunda pazarlık yaparız.",
         "detail": [
-          "Alıcının kim olduğunu, alımı nasıl finanse ettiğini ve ne kadar hızlı tamamlayabileceğini görüyorsunuz.",
-          "Biraz daha düşük teklif veren nakit bir alıcı, ülkesindeki bir satışa bağlı yüksek tekliften çoğu zaman daha iyidir.",
-          "Anlaşma sağlandığında rezervasyon sözleşmesi fiyatı ve devir tarihini sabitler."
+          "Alıcının kim olduğunu, satın alma işlemini nasıl finanse ettiğini ve işlemi ne kadar hızlı tamamlayabileceğini görebilirsiniz.",
+          "Biraz daha düşük bir rakamla nakit ödeme yapan bir alıcı, genellikle kendi ülkesinde bir satışa bağlı olan daha yüksek bir teklifi geride bırakır.",
+          "Anlaşma sağlandıktan sonra, rezervasyon sözleşmesi fiyatı ve tamamlanma tarihini kesinleştirir."
         ],
-        "timing": "Teklif geldiğinde",
-        "owner": "Kararı siz verirsiniz, pazarlığı biz yürütürüz"
+        "timing": "İndirimde",
+        "owner": "Karar sizin, pazarlığı biz yaparız"
       },
       "buyer-checks": {
-        "title": "Alıcının hukuk ve değerleme aşaması",
-        "summary": "Alıcının avukatı tapu araştırmasını yürütürken mülkünüzde zorunlu SPK değerlemesi yapılır.",
+        "title": "Alıcının hukuki ve değerleme aşaması",
+        "summary": "Mülkünüz üzerinde zorunlu SPK değerleme işlemi gerçekleştirilirken, alıcının avukatı tapu araştırmasını yürütür.",
         "detail": [
-          "Alıcınız yabancıysa SPK lisanslı değerleme raporu zorunludur — mülkü ve evrakı bunun için biz hazırlarız.",
-          "İki avukatı da hareket hâlinde tutar, devir tarihini tehdit eden her şeyi erkenden işaretleriz.",
-          "Değerleme anlaşılan bedelin altında kalırsa, satışın çökmesine izin vermek yerine yeniden pazarlığı biz yönetiriz."
+          "Alıcınız yabancı ise, SPK lisanslı bir değerleme raporu zorunludur — bu rapor için gayrimenkulü ve gerekli belgeleri biz hazırlıyoruz.",
+          "Her iki avukatı da işin akışını sürdürmelerini sağlıyor ve tamamlanma tarihini tehlikeye atabilecek her türlü durumu erkenden bildiriyoruz.",
+          "Değerleme sonucu, üzerinde anlaşılan fiyatın altında çıkarsa, satışın bozulmasına izin vermek yerine yeniden müzakere sürecini biz yürütürüz."
         ],
         "timing": "2–4 hafta",
         "owner": "Alıcının avukatı ve değerleme uzmanı"
       },
       "completion": {
-        "title": "Devir ve bedelin tahsili",
-        "summary": "Tapu Müdürlüğü'nde devir, bedelin size aktarılması, aboneliklerin kapatılması ve vergilerin doğru biçimde ödenmesi.",
+        "title": "Tamamlanma ve fonlar",
+        "summary": "Tapu Sicilinde tapu devri gerçekleştirilir, paranız size aktarılır, kamu hizmet sözleşmeleri sonlandırılır ve vergiler usulüne uygun olarak ödenir.",
         "detail": [
-          "Devir bizzat ya da seyahat edemiyorsanız vekaletname ile yapılır.",
-          "Alımdan sonraki beş yıl içinde satarsanız değer artış kazancı vergisi doğar; beş yılı aşan sürede gerçek kişiler için kazanç istisnadır.",
-          "Abonelik hesaplarını kapatır ve otomatik ödeme talimatlarını iptal ederiz; arkanızdan hiçbir fatura gelmesin diye."
+          "Devir işlemi şahsen gerçekleştirilir; seyahat edemiyorsanız ise vekaletname yoluyla yapılır.",
+          "Satın alım tarihinden itibaren beş yıl içinde satış yaparsanız sermaye kazancı vergisi uygulanır; beş yıldan sonra ise bireyler için bu kazanç vergiden muaftır.",
+          "Faturalarınızın evinize gelmemesi için kamu hizmetleri hesaplarınızı kapatır ve otomatik ödeme talimatlarınızı iptal ederiz."
         ],
-        "timing": "Devir günü",
-        "owner": "Tapu Müdürlüğü, biz de yanınızdayız"
+        "timing": "Tamamlanma günü",
+        "owner": "Tapu Sicili, bizim huzurumuzda"
       }
     },
     "buyingCosts": {
       "transfer-tax": {
-        "item": "Tapu harcı",
-        "amount": "Beyan edilen değerin %4'ü",
-        "note": "Kanunen alıcı ve satıcı arasında paylaşılır; uygulamada genellikle pazarlığa tabidir."
+        "item": "Gayrimenkul devir vergisi (tapu harcı)",
+        "amount": "Beyan edilen değerin %4’ü",
+        "note": "Yasal olarak alıcı ve satıcı arasında bölünür; uygulamada ise genellikle müzakere yoluyla belirlenir."
       },
       "legal": {
-        "item": "Bağımsız hukuki danışmanlık",
+        "item": "Bağımsız hukuki temsil",
         "amount": "1.000 £ – 1.800 £",
-        "note": "Daima kendi avukatınızı görevlendirin, satıcının avukatını değil."
+        "note": "Her zaman kendi avukatınıza talimat verin, asla satıcının avukatına değil."
       },
       "notary": {
         "item": "Noter, yeminli tercüman ve vekaletname",
         "amount": "250 £ – 500 £",
-        "note": "Devri uzaktan vekaletname ile tamamlıyorsanız daha yüksek olur."
+        "note": "Vekaletname yoluyla uzaktan işlem yaparsanız ücret daha yüksek olur."
       },
       "dask": {
-        "item": "DASK zorunlu deprem sigortası",
-        "amount": "Yılda 60 £ – 150 £",
-        "note": "Zorunludur ve tapu devrinden önce yürürlükte olmalıdır."
+        "item": "DASK deprem sigortası",
+        "amount": "Yılda 60 – 150 sterlin",
+        "note": "Zorunludur ve tapu devri yapılabilmesi için ön koşul olarak gereklidir."
       },
       "utilities": {
-        "item": "Abonelikler ve bağlantı bedelleri",
-        "amount": "£150'den az",
-        "note": "Tek seferlik; hesaplar sizin adınıza geçerken ödenir."
+        "item": "Kamu hizmetleri abonelikleri ve bağlantı",
+        "amount": "150 sterlin'den az",
+        "note": "Tek seferlik ödeme; hesaplar sizin adınıza devredildiğinde ödenir."
       }
     },
     "buyingFaq": {
-      "q1": "Yabancı uyruklu biri Fethiye'de gayrimenkul alabilir mi?",
-      "a1": "Evet. Yabancı uyruklular Türkiye'de kendi adlarına tam mülkiyetle gayrimenkul satın alabilir ve tapu doğrudan sizin adınıza tescil edilir. Fethiye, Ölüdeniz, Hisarönü, Ovacık, Çalış, Üzümlü ve Göcek'teki alımlar askerî yasak bölgelerin dışında kalır; standart tapu kontrolü bunu devirden önce teyit eder.",
-      "q2": "Türkiye'de villa almak ne kadar sürer?",
-      "a2": "Fethiye bölgesindeki alımların çoğu, teklifin kabulünden itibaren dört ilâ sekiz hafta içinde tamamlanır — mülkün müstakil tapusu olması ve üzerinde borç bulunmaması koşuluyla. Süreyi en sık uzatan iki aşama SPK değerleme raporu ve Döviz Alım Belgesi'dir (DAB).",
-      "q3": "Alımı tamamlamak için Türkiye'de bulunmam gerekir mi?",
-      "a3": "Hayır. Devri, avukatınıza verilen bir vekaletname ile tamamlayabilirsiniz; vekaletname görme turunuz sırasında Türkiye'de bir noterde ya da kendi ülkenizdeki Türk konsolosluğunda veya büyükelçiliğinde düzenlenebilir. Alıcılarımızın çoğu tapu randevusuna bizzat katılıyor, ancak bu bir zorunluluk değil.",
-      "q4": "Villa fiyatının üzerine eklenen toplam masraf nedir?",
-      "a4": "Satış bedelinin yaklaşık %6–8'ini ayırın. Bu, %4 tapu harcını, zorunlu SPK değerleme raporunu, noter ve yeminli tercüme ücretlerini, DASK zorunlu deprem sigortasını ve bağımsız hukuki danışmanlığı kapsar.",
-      "q5": "Fethiye'den alım yapmak Türk vatandaşlığı için uygunluk sağlar mı?",
-      "a5": "Yürürlükteki devlet yatırım eşiğine ulaşan veya onu aşan alımlar uygun olabilir; koşul, mülkün üç yıl elde tutulması ve ödemenin öngörülen biçimde yapılmasıdır. Eşiği karşılayan ilanları ayrıca işaretliyor ve bu temelde bir taahhüde girmeden önce sizi bu alanda uzman bir göçmenlik avukatına yönlendiriyoruz."
+      "q1": "Yabancı bir vatandaş Fethiye’de gayrimenkul satın alabilir mi?",
+      "a1": "Evet. Yabancı uyruklular Türkiye’de kendi adlarına mülkiyet hakkı olan gayrimenkul satın alabilirler ve tapu doğrudan sizin adınıza tescil edilir. Fethiye, Ölüdeniz, Hisarönü, Ovacık, Çalış, Üzümlü ve Göcek’teki alımlar, askeri kısıtlama bölgeleri dışında yer almaktadır ve standart tapu sicili onayı, işlem tamamlanmadan önce bunu teyit eder.",
+      "q2": "Türkiye'de bir villa satın almak ne kadar sürer?",
+      "a2": "Fethiye bölgesindeki satın alma işlemlerinin çoğu, gayrimenkulün ayrı bir tapusuna sahip olması ve ödenmemiş borcu bulunmaması koşuluyla, teklifin kabul edilmesinden itibaren dört ila sekiz hafta içinde tamamlanır. Süreci en çok uzatan iki aşama, SPK değerleme raporu ve döviz transfer belgesidir (DAB).",
+      "q3": "Satın alma işlemini tamamlamak için Türkiye'de olmam gerekiyor mu?",
+      "a3": "Hayır. Avukatınıza verilmiş bir vekaletname kapsamında işlemleri tamamlayabilirsiniz; bu vekaletname, gayrimenkulü inceleme geziniz sırasında bir Türk noteri nezdinde ya da kendi ülkenizdeki bir Türk konsolosluğu veya büyükelçiliğinde imzalanmış olabilir. Alıcılarımızın çoğu tapu tescil randevusuna şahsen katılır, ancak bu bir zorunluluk değildir.",
+      "q4": "Villa fiyatına ek olarak toplam maliyetler nelerdir?",
+      "a4": "Satın alma fiyatının yaklaşık %6–8’ini bütçeye dahil edin. Bu tutar, %4’lük tapu devir vergisini, zorunlu SPK değerleme raporunu, noter ve yeminli tercüme ücretlerini, DASK deprem sigortasını ve bağımsız hukuki temsil masraflarını kapsamaktadır.",
+      "q5": "Fethiye’de gayrimenkul satın almak, bana Türk vatandaşlığı hakkı kazandırır mı?",
+      "a5": "Mevcut devlet yatırım eşiği düzeyinde veya bunun üzerindeki alımlar, mülkün üç yıl boyunca elde tutulması ve ödemenin belirtilen şekilde yapılması koşuluyla programa dahil edilebilir. Uygun olan ilanları size bildiririz ve bu temelde herhangi bir taahhütte bulunmadan önce sizi bir göçmenlik hukuku uzmanına yönlendiririz."
     },
     "sellingFaq": {
-      "q1": "Türkiye'de gayrimenkul satmanın maliyeti nedir?",
-      "a1": "Fethiye bölgesinde emlak komisyonu tipik olarak %3 artı KDV'dir ve devirde ödenir. Satıcının %4 tapu harcındaki payı pazarlığa tabidir ve uygulamada çoğu zaman alıcıya kalır. Ayrıca geçerli bir Enerji Kimlik Belgesi gerekir; elinizde yoksa birkaç bin liralık bir masraftır.",
-      "q2": "Satarken değer artış kazancı vergisi öder miyim?",
-      "a2": "Alım tarihinden itibaren beş yıl içinde satarsanız kazanç, endekslenmiş alım bedeli ile satış bedeli arasındaki fark üzerinden artan oranlı gelir vergisine tabidir. Beş yılı aşan mülkiyetten sonra gerçek kişilerin elde ettiği kazanç istisnadır. Kendi ülkenizdeki vergi durumunuz ayrıdır ve oradaki bir danışmana sorulması yerinde olur.",
-      "q3": "Fethiye'de bir villa ne kadar sürede satılır?",
-      "a3": "Doğru fiyatlanmış bir villa Ölüdeniz, Hisarönü veya Fethiye merkezde genellikle üç ilâ altı ay içinde alıcısını bulur; talep en yoğun olarak şubat–haziran arasında gelir, çünkü uluslararası alıcılar görme turlarını o dönemde planlar. Teklifin kabulünden devre kadar ise dört ilâ sekiz hafta daha geçer.",
-      "q4": "Mülkümü satmak için Türkiye'de bulunmam gerekir mi?",
-      "a4": "Hayır. Anahtarları biz tutar, tüm görüşmeleri biz yönetiriz; devri de avukatınıza verilen bir vekaletname ile tamamlayabilirsiniz. Satıcılarımızın çoğu tüm süreci yurt dışından yürütüyor.",
-      "q5": "İlan vermeden önce hangi belgeler gerekir?",
-      "a5": "Tapunuz (TAPU), iskân (yapı kullanma izin belgesi), geçerli bir Enerji Kimlik Belgesi, yürürlükteki DASK zorunlu deprem sigortası ve emlak vergisi ile varsa site aidatlarının ödendiğini gösteren güncel belgeler. İlan yayına girmeden önce bunların tamamını biz denetliyoruz."
+      "q1": "Türkiye'de bir gayrimenkul satmanın maliyeti nedir?",
+      "a1": "Fethiye bölgesinde emlak komisyonu genellikle %3 artı KDV’dir ve işlem tamamlandığında ödenir. %4’lük tapu devir vergisinin satıcıya düşen kısmı pazarlığa açıktır ve uygulamada genellikle alıcıya kalır. Ayrıca geçerli bir enerji performans belgesine de ihtiyacınız olacaktır; henüz böyle bir belgeniz yoksa, bunun maliyeti birkaç bin liradır.",
+      "q2": "Satış yaptığımda sermaye kazancı vergisi ödeyecek miyim?",
+      "a2": "Satın alma tarihinden itibaren beş yıl içinde satış yaparsanız, elde ettiğiniz kazanç, endeksli satın alma fiyatı ile satış fiyatı arasındaki fark üzerinden hesaplanan kademeli bir ölçekte Türk gelir vergisine tabidir. Beş yıllık mülkiyet süresinin ardından, bireyler tarafından elde edilen kazançlar vergiden muaftır. Kendi ülkenizdeki vergi durumunuz ayrı bir konudur ve kendi ülkenizdeki bir danışmana danışmanızda fayda vardır.",
+      "q3": "Fethiye'de bir villayı satmak ne kadar sürer?",
+      "a3": "Ölüdeniz, Hisarönü veya Fethiye merkezinde fiyatı uygun bir villa, genellikle üç ila altı ay içinde alıcı bulur; uluslararası alıcıların ev gezileri planladığı Şubat ile Haziran ayları arasında talep en yoğun seviyededir. Teklifin kabul edilmesinden işlemin tamamlanmasına kadar ise dört ila sekiz hafta daha geçer.",
+      "q4": "Gayrimenkulümü satmak için Türkiye’de olmam gerekir mi?",
+      "a4": "Hayır. Anahtarlar bizde bulunur ve tüm ev gösterimlerini biz yönetiriz; siz de avukatınıza verdiğiniz vekaletname kapsamında devir işlemlerini tamamlayabilirsiniz. Satıcılarımızın çoğu, tüm süreci yurt dışından yürütmektedir.",
+      "q5": "İlan vermeden önce hangi belgelere ihtiyacım var?",
+      "a5": "Tapu belgeniz (TAPU), iskan belgeniz, geçerli bir enerji performans belgesi (Enerji Kimlik Belgesi), yürürlükte olan DASK deprem sigortası ve emlak vergisi ile site aidatlarının ödendiğine dair güncel kanıtlar. Mülkün satışa sunulmasından önce tüm bunları kontrol ediyoruz."
     },
     "painPoints": {
       "reach": {
-        "problem": "Mülküm doğru pazara ulaşmıyor",
-        "answer": "Çoğu ilan, o sırada kim geziniyorsa ona gösterilir. Sizinkinin ulaşması gereken kitle ise Fethiye'de aktif olarak alım planlayan uluslararası alıcılar — çok daha küçük ve çok daha değerli bir kitle."
+        "problem": "Mülküm doğru pazara ulaşamıyor",
+        "answer": "İlanların çoğu, o anda siteyi gezen kişilere gösteriliyor. Sizin ilanınızın ise Fethiye’de aktif olarak satın alma planı yapan uluslararası alıcılara ulaşması gerekiyor — bu, çok daha küçük ama çok daha değerli bir hedef kitle."
       },
       "communication": {
-        "problem": "Emlakçım bana hiçbir şey söylemiyor",
-        "answer": "Her görüşmenin ardından itirazlar dâhil yazılı geri bildirim alıyorsunuz; ayrıca aylık olarak talep sayıları ve bu taleplerin nereden geldiği özetleniyor."
+        "problem": "Menajerim bana hiçbir şey söylemez",
+        "answer": "Her bir görüntüleme sonrasında, itirazlar da dahil olmak üzere yazılı geri bildirim alırsınız; ayrıca, aylık olarak gelen talep sayılarının ve bunların nereden geldiğinin özetini de alırsınız."
       },
       "viewings": {
-        "problem": "Mülküm yeterince görüşme almıyor",
-        "answer": "Görüşme sayısı neredeyse her zaman bir görünürlük sorunu değil, fiyat ya da sunum sorunudur. Hangisi olduğunu size dürüstçe söyler ve ne yapılması gerektiğini anlatırız."
+        "problem": "Mülküm yeterince ziyaretçi çekmiyor",
+        "answer": "Görüntüleme hacmi, maruz kalma sorunundan ziyade neredeyse her zaman fiyatlandırma ya da sunum sorunudur. Size dürüstçe, bu iki sorundan hangisinin söz konusu olduğunu ve bu konuda ne yapmanız gerektiğini söyleyeceğiz."
       }
     },
     "marketing": {
       "massTitle": "Kitlesel pazarlama",
       "massTraits": [
         "Çaresiz",
-        "Dağınık",
+        "Sporadik",
         "Kontrolsüz",
-        "Fiyat hataları",
-        "Her yerde listeli, hiçbir yerde sahipli"
+        "Fiyatlandırma hataları",
+        "Her yerde listelenmiş, kimseye ait değil"
       ],
       "targetedTitle": "Hedefli pazarlama",
       "targetedTraits": [
         "Yüksek etki",
-        "Doğru kitle",
-        "Nitelikli pazarlama",
+        "Doğru hedef kitle",
+        "Kaliteli pazarlama",
         "Kontrollü",
-        "Mülkünüze özel"
+        "Mülkünüz için özel olarak tasarlanmıştır"
       ]
     },
     "soleAgent": [
-      "Altı ay, üstelik münhasırlığın kendisi için ek ücret yok.",
-      "Mülkünüz beş ajans arasında paylaşılan bir yığında beklemek yerine hakkıyla çalışılır.",
-      "Profesyonel fotoğraf ve ölçülü kat planı yatırımını baştan biz yaparız.",
-      "Yurt dışındaki iş ortağı emlakçı ağımıza erişim — bu bölgedeki rakiplerimizin kullanmadığı kanallar.",
-      "Altı ayın ötesinde hiçbir bağlayıcılık yok. Sözümüzü tutmadıysak, çekip gidersiniz."
+      "Altı ay; münhasırlık hakkı için ek bir ücret alınmaz.",
+      "Mülkünüz, beş emlak acentesi arasında paylaşılan bir yığın içinde kalmak yerine, düzgün bir şekilde pazarlanıyor.",
+      "Başlangıçta profesyonel fotoğraf çekimlerine ve ölçülü bir kat planına yatırım yapıyoruz.",
+      "Yurtdışındaki iş ortağı acenteler ağımıza erişim — bu bölgedeki rakiplerimizin kullanmadığı kanallar.",
+      "Altı aydan sonra herhangi bir bağlayıcılık kalmaz. Eğer sözümüzü yerine getirmezsek, siz de çekip gidersiniz."
     ]
   },
   "buyingProcess": {
-    "askStage": "Bir aşamayı sorun",
-    "colAmount": "Tipik tutar",
-    "colItem": "Kalem",
+    "askStage": "Bir sahne hakkında bilgi alın",
+    "colAmount": "Tipik miktar",
+    "colItem": "Ürün",
     "colNotes": "Notlar",
-    "costsDisclaimer": "Yalnızca bilgilendirme amaçlıdır, yazıldığı tarih itibarıyla günceldir ve hukuki ya da vergisel danışmanlık değildir. Oranlar ve eşikler Türkiye Cumhuriyeti tarafından belirlenir ve değişir — siz taahhüt altına girmeden önce alımınıza ait kesin rakamları yazılı olarak teyit ediyoruz.",
-    "costsEyebrow": "Gerçek rakam",
-    "costsHeading": "Fiyatın üzerine eklenen alım maliyeti",
-    "costsLede": "Satış bedelinin %6–8'ini ayırın. Aşağıdaki yüzdeler kanunla belirlenir; nakit tutarlar ise Fethiye bölgesinde gördüğümüz piyasa aralığıdır ve işlem başına verilmiştir.",
-    "costsTableCaption": "Fethiye'de gayrimenkul alırken satış bedeline ek olarak ortaya çıkan tipik masraflar",
-    "ctaBrowse": "Satılık villaları inceleyin",
-    "ctaHeading": "Kısa listeyi görmeye hazır mısınız?",
-    "ctaSelling": "Fethiye'de nasıl satış yaptığımızı görün",
-    "ctaTrip": "Görme turu ayarlayın",
+    "costsDisclaimer": "Bu bilgiler yalnızca kılavuz niteliğindedir, yazım tarihi itibarıyla günceldir ve hukuki veya vergi danışmanlığı niteliği taşımaz. Oranlar ve eşikler Türkiye Cumhuriyeti Hükümeti tarafından belirlenir ve değişiklik gösterebilir — satın alma işleminizi kesinleştirmeden önce, satın alacağınız ürünle ilgili kesin rakamları size yazılı olarak teyit ederiz.",
+    "costsEyebrow": "Gerçek sayı",
+    "costsHeading": "Bir satın alımın fiyatına ek olarak ne kadar tutar",
+    "costsLede": "Satın alma fiyatının %6–8’ini bütçeye ayırın. Aşağıdaki yüzdeler kanunla belirlenmiştir; nakit rakamlar ise Fethiye bölgesinde gözlemlediğimiz piyasa aralığını yansıtmaktadır ve işlem başına belirtilmiştir.",
+    "costsTableCaption": "Fethiye’de bir gayrimenkul satın alırken, satın alma fiyatına ek olarak ortaya çıkan tipik masraflar",
+    "ctaBrowse": "Satılık villalara göz atın",
+    "ctaHeading": "Aday listesini görmeye hazır mısınız?",
+    "ctaSelling": "Fethiye’de gayrimenkul satışımızı nasıl gerçekleştirdiğimizi görün",
+    "ctaTrip": "Bir gezi düzenleyin",
     "faqEyebrow": "Net cevaplar",
-    "faqFooter": "Burada yer almayan bir konu mu var? Sorun — karşınızda bir form yanıtı değil, bir insan olacak.",
+    "faqFooter": "Burada ele alınmayan bir konu mu var? Sorun — size bir form yanıtı değil, gerçek bir kişi cevap verecektir.",
     "faqHeading": "Alıcıların bize ilk sorduğu sorular",
-    "heroTitle": "Alım Süreci",
-    "metaDescription": "Fethiye'de gayrimenkul almak gerçekte nasıl işler — ilk görüşmeden tapuya kadar. Sekiz aşama, dört ilâ sekiz hafta ve taahhüt altına girmeden önce açıkça yazılmış %6–8'lik alım masrafı.",
-    "metaTitle": "Fethiye'de Alım Süreci, Adım Adım",
+    "heroTitle": "Satın Alma Süreci",
+    "metaDescription": "Fethiye’de gayrimenkul satın alma süreci, ilk görüşmeden tapu teslimi aşamasına kadar nasıl işliyor? Sekiz aşama, dört ila sekiz hafta süren bir süreç ve taahhütte bulunmadan önce satın alma maliyetlerinin %6–8’i oranındaki tutarın tamamı size önceden bildirilir.",
+    "metaTitle": "Fethiye’de Satın Alma Süreci, Adım Adım",
     "stagesEyebrow": "Aşama aşama",
-    "stagesHeading": "İlk görüşmeden anahtar teslimine",
-    "stagesLede": "Bu listedeki hiçbir adım sizin yazılı onayınız olmadan atılmaz ve her aşamanın adı belli bir sorumlusu vardır."
+    "stagesHeading": "İlk görüşmeden anahtarların teslimine kadar",
+    "stagesLede": "Bu listedeki hiçbir işlem, sizin yazılı onayınız olmadan gerçekleştirilmez ve her aşamanın sorumlusu olarak belirlenmiş bir kişi vardır."
   },
   "sellingProcess": {
     "approachEyebrow": "Yaklaşımımız",
-    "approachHeading": "Kitlesel değil, hedefli pazarlama",
-    "approachLede": "Bir mülkü her yere listelemek strateji değildir. Fethiye'de aktif olarak alım planlayan az sayıdaki alıcıya ulaşmak stratejidir.",
+    "approachHeading": "Kitlesel pazarlama değil, hedef odaklı pazarlama",
+    "approachLede": "Bir gayrimenkulü her yerde ilan etmek bir strateji değildir. Fethiye’de aktif olarak satın alma planı yapan az sayıdaki alıcıya ulaşmak ise bir stratejidir.",
     "ctaHeading": "Mülkünüzün gerçek değerini öğrenin",
-    "ctaPrimary": "Değerleme isteyin",
-    "ctaSecondary": "Alım sürecini okuyun",
-    "docsDisclaimer": "Yalnızca bilgilendirme amaçlıdır, yazıldığı tarih itibarıyla günceldir ve hukuki ya da vergisel danışmanlık değildir. Türkiye'deki değer artış kazancı kuralları ile kendi ülkenizdeki vergi durumunuz ayrı konulardır — ikisi için de sizi uzmanlara yönlendiriyoruz.",
-    "docsEyebrow": "İlan vermeden önce",
-    "docsHeading": "Hazır bulundurmanız gereken altı belge",
-    "docsLede": "Bunları pazarlamadan önce toplamak birkaç gün alır. Teklif kabul edildikten sonra bir eksik fark etmek ise size alıcıya mal olur.",
+    "ctaPrimary": "Değerlendirme talebinde bulunun",
+    "ctaSecondary": "Satın alma sürecini okuyun",
+    "docsDisclaimer": "Bu bilgiler yalnızca rehber niteliğindedir, yazıldığı tarihte geçerlidir ve hukuki ya da vergi danışmanlığı niteliği taşımaz. Türkiye’deki sermaye kazancı kuralları ile kendi ülkenizdeki vergi durumunuz ayrı konulardır — her iki konuda da uzmanlara yönlendireceğiz.",
+    "docsEyebrow": "Listeleme yapmadan önce",
+    "docsHeading": "Hazır bulundurulması gereken altı belge",
+    "docsLede": "Bunları pazarlama öncesinde toplamak birkaç gün sürer. Kabul edilen bir teklifin ardından bir eksiklik fark etmek, alıcıyı kaybetmenize mal olur.",
     "documents": {
       "tapu": {
-        "title": "Tapu (TAPU)",
-        "body": "Adınıza düzenlenmiş asıl tapu. İlan yayına girmeden önce ipotek, haciz ve ödenmemiş borçlar açısından tapu kayıtlarıyla karşılaştırıyoruz."
+        "title": "Tapu belgesi (TAPU)",
+        "body": "Adınıza düzenlenmiş orijinal tapu belgesi. İlan vermeden önce, tapu sicilinde herhangi bir rehin, ipotek veya ödenmemiş borç olup olmadığını kontrol ederiz."
       },
       "iskan": {
-        "title": "İskân (yapı kullanma izin belgesi)",
-        "body": "Yapının onaylı projesine uygun biçimde tamamlandığını gösterir. Fethiye'de bir satışın takılmasının en yaygın tek sebebi bu belgenin olmayışıdır."
+        "title": "İskân belgesi",
+        "body": "Binanın onaylanmış planlara uygun olarak tamamlandığını teyit eder. Bu belgenin bulunmaması, Fethiye’de bir satış işleminin tıkanmasının en yaygın tek nedenidir."
       },
       "energy": {
-        "title": "Enerji Kimlik Belgesi",
-        "body": "Satış için kanunen zorunludur. Elinizde yoksa düzenlenmesini biz sağlıyoruz — birkaç hafta değil, birkaç gün sürer."
+        "title": "Enerji performans sertifikası",
+        "body": "Satış için Enerji Kimlik Belgesi yasal olarak zorunludur. Eğer elinizde yoksa, biz hallederiz — bu işlem birkaç gün sürer, haftalar sürmez."
       },
       "dask": {
-        "title": "Yürürlükteki DASK poliçesi",
-        "body": "Tapunun devredilebilmesi için zorunlu deprem sigortasının güncel olması gerekir. Yenileme tarihini sürecin sonunda değil, en başında kontrol ediyoruz."
+        "title": "Etkin DASK poliçesi",
+        "body": "Tapu devri için zorunlu deprem sigortasının geçerli olması gerekir. Yenileme tarihini son tarihi değil, başlangıç tarihini dikkate alarak kontrol ediyoruz."
       },
       "tax": {
-        "title": "Ödenmiş emlak vergisi ve site aidatları",
-        "body": "Yıllık emlak vergisi ve varsa site bakım aidatları tapu randevusundan önce ödenmiş ve belgelenmiş olmalıdır."
+        "title": "Ödenmiş vergi ve arsa aidatları",
+        "body": "Yıllık emlak vergisi ve site bakım masrafları, tapu randevusundan önce ödenmiş ve ilgili belgeler ibraz edilmiş olmalıdır."
       },
       "passport": {
         "title": "Pasaport ve vergi numarası",
-        "body": "Devir günü Türkiye'de olmayacaksanız ayrıca vekaletname. Bu belge kendi ülkenizdeki bir Türk konsolosluğunda veya büyükelçiliğinde de düzenlenebilir."
+        "body": "Ayrıca, teslimat gününde Türkiye’de bulunmayacaksanız bir vekaletname de gereklidir. Bu belge, kendi ülkenizdeki bir Türk konsolosluğunda veya büyükelçiliğinde imzalanabilir."
       }
     },
     "faqEyebrow": "Net cevaplar",
-    "faqFooter": "Sorunuz kendi mülkünüzle ilgiliyse doğrudan sorun — cevap genellikle ne zaman aldığınıza ve ne ödediğinize bağlı.",
-    "faqHeading": "Satıcıların bize en çok sorduğu şeyler",
-    "formMessage": "Mülküm için değerleme istiyorum. ___ (bölge) içinde ___ yatak odalı bir ___, yaklaşık ___ m².",
-    "formSubmit": "Değerleme isteyin",
-    "heroCta": "Ücretsiz değerleme isteyin",
+    "faqFooter": "Sorunuz kendi mülkünüzle ilgiliyse, doğrudan sorun — cevap genellikle ne zaman satın aldığınıza ve ne kadar ödediğinize bağlıdır.",
+    "faqHeading": "Satıcıların bize en sık sorduğu sorular",
+    "formMessage": "Mülkümün değerinin belirlenmesini istiyorum. Mülk, ___ (bölge) ‘de bulunan, ___ yatak odalı, yaklaşık ___ m² büyüklüğünde bir ___.",
+    "formSubmit": "Değerlendirme talebi",
+    "heroCta": "Ücretsiz değerleme talebinde bulunun",
     "heroTitle": "Satış Süreci",
-    "metaDescription": "Fethiye'de villa veya daire nasıl satılır — dürüst değerlemeden paranın hesabınıza geçmesine kadar. Sekiz aşama, önceden hazırlamanız gereken evraklar ve Türkiye'de satmanın maliyeti.",
-    "metaTitle": "Fethiye'de Mülkünüzü Satmak: Süreç",
-    "painEyebrow": "Tanıdık geldi mi?",
+    "metaDescription": "Fethiye’de bir villa veya daire nasıl satılır: dürüst değerlemeden paranın hesabınıza yatmasına kadar. Sekiz aşama, önceden hazırlamanız gereken evraklar ve Türkiye’de satışın maliyeti.",
+    "metaTitle": "Fethiye’de Gayrimenkulünüzü Satmak: Süreç",
+    "painEyebrow": "Kulağa tanıdık geliyor mu?",
     "painHeading": "Satıcılardan her hafta duyduğumuz üç şey",
-    "soleBody": "Münhasırlık için ek ücret yok. Karşılığında elde ettiğiniz şey, beş ajans arasında paylaşılan bir yığında bekleyen değil, gerçekten çalışılan bir mülk.",
-    "soleHeading": "Altı ay boyunca tek yetkili emlakçınız olalım",
+    "soleBody": "Münhasırlık için ek ücret alınmaz. Karşılığında elde edeceğiniz şey, beş acentenin paylaştığı bir yığın içinde kalmış bir gayrimenkul yerine, gerçekten üzerinde çalışılmış bir gayrimenkul olacaktır.",
+    "soleHeading": "Bizi altı ay boyunca tek temsilciniz olarak belirleyin",
     "stagesEyebrow": "Aşama aşama",
-    "stagesHeading": "Değerlemeden paranın ödenmesine",
-    "stagesLede": "Satışın tamamını yurt dışından yürütebilirsiniz. Anahtarları biz tutar, girişi biz yönetir, her görüşmeye eşlik eder ve seyahat etmek istemezseniz devri vekaletname ile tamamlarız.",
-    "valuationBody": "Yandaki villanın istediği fiyata değil, çevrede gerçekten tamamlanmış satışlara dayanan yazılı bir rapor. Sonrasında bizimle ilan verme zorunluluğu yok.",
+    "stagesHeading": "Değerlemeden fonların serbest bırakılmasına kadar",
+    "stagesLede": "Satış sürecinin tamamını yurt dışından yürütebilirsiniz. Seyahat etmek istememeniz durumunda, anahtarları biz saklar, erişimi yönetir, her ev gezisine eşlik eder ve vekaletname yetkisiyle işlemleri tamamlarız.",
+    "valuationBody": "Yakın çevrede gerçekten tamamlanmış projelere dayanan yazılı bir değerleme — yolun aşağısındaki villanın satış fiyatı değil. Sonrasında bizimle satışa çıkma zorunluluğu yoktur.",
     "valuationEyebrow": "Hiçbir yükümlülük yok",
-    "valuationHeading": "Ücretsiz gayrimenkul değerlemesi isteyin",
-    "valuationWhatsapp": "WhatsApp'tan değerleme",
-    "whatsappMessage": "Merhaba Coast 2 Coast — Fethiye'deki mülküm için ücretsiz değerleme istiyorum."
+    "valuationHeading": "Ücretsiz emlak değerleme talebinde bulunun",
+    "valuationWhatsapp": "WhatsApp üzerinden değerleme",
+    "whatsappMessage": "Merhaba Coast 2 Coast — Fethiye’deki gayrimenkulüm için ücretsiz bir değerleme yaptırmak istiyorum."
   },
   "citizenship": {
     "steps": {
       "eligibility": {
-        "title": "Uygunluğu doğrulayın ve kısa listeyi çıkarın",
-        "summary": "Yalnızca istenen fiyata göre değil, lisanslı bir değerlemede {threshold} eşiğini rahatça aşan mülkleri belirliyoruz.",
+        "title": "Uygunluğu doğrulama ve aday listesini oluşturma",
+        "summary": "Sadece satış fiyatına göre değil, lisanslı bir değerleme raporunda “{threshold}” eşiğini rahatlıkla aşan gayrimenkulleri belirliyoruz.",
         "detail": [
-          "Nitelikli tutar {threshold} ABD dolarıdır ve resmî bir değerlemeyle tespit edilir — ilandaki fiyat ya da tapuda beyan edilen bedel değil.",
-          "Eşiğe ulaşmak için birden fazla mülkü birleştirebilirsiniz; tek bir alım olması gerekmez.",
-          "Değerleme ve ödeme koşulları karşılandığı sürece konut, ticari mülk ve arsa alımlarının tamamı uygundur."
+          "Belirleyici rakam, resmi bir değerlemeyle tespit edilen {threshold} ABD dolarıdır — ilandaki fiyat ya da sicil kaydında beyan edilen rakam değildir.",
+          "Eşiğe ulaşmak için birden fazla gayrimenkulü birleştirebilirsiniz; bunların tek bir satın alma işlemiyle gerçekleştirilmesi gerekmez.",
+          "Değerleme ve ödeme koşullarının yerine getirilmesi şartıyla, konut, ticari gayrimenkul ve arsa alımlarının tümü bu kapsamda yer alır."
         ],
         "timing": "1.–2. hafta",
         "owner": "Coast 2 Coast, avukatınızla birlikte"
       },
       "valuation": {
-        "title": "Resmî değerleme raporunu alın",
-        "summary": "SPK lisanslı bir değerleme şirketi mülkü yerinde inceler ve değerin eşiği karşıladığını teyit eden raporu sunar.",
+        "title": "Resmi değerleme raporunu temin edin",
+        "summary": "Devlet tarafından lisanslı (SPK) bir değerleme şirketi, gayrimenkulü inceler ve değerin eşik tutarı karşıladığını teyit eden bir rapor hazırlar.",
         "detail": [
-          "Rapor, resmî listede yer alan lisanslı bir değerleme uzmanı tarafından hazırlanmalı ve doğrudan yetkili makama sunulmalıdır.",
-          "Değerleme, eşiğin alım anında karşılandığını teyit etmelidir — aylar önce alınmış bir rapor geçerli olmaz.",
-          "Değerleme eşiğin altında kalırsa başvuru başarısız olur. Siz taahhüt altına girmeden önce bunu kontrol etmemizin sebebi tam olarak budur."
+          "Rapor, resmi listede yer alan lisanslı bir değerleme uzmanı tarafından hazırlanmalı ve doğrudan ilgili makamlara sunulmalıdır.",
+          "Değerleme, satın alma anında eşiğin aşıldığını teyit etmelidir — aylar önce alınmış bir rapor geçerli sayılmayacaktır.",
+          "Değerlendirme sonucu eşik değerin altında çıkarsa, başvuru reddedilir. İşte bu yüzden, siz onaylamadan önce bunu kontrol ediyoruz."
         ],
-        "timing": "2.–3. hafta",
-        "owner": "SPK lisanslı değerleme uzmanı"
+        "timing": "2–3. Hafta",
+        "owner": "Lisanslı SPK değerleme uzmanı"
       },
       "payment": {
-        "title": "Bedeli bir Türk bankası üzerinden transfer edin",
-        "summary": "Satış bedeli Türkiye'deki bir bankaya aktarılır ve Türk lirasına çevrilir; başvurunun gerektirdiği belge de bu işlemden doğar.",
+        "title": "Bir Türk bankası aracılığıyla para transferi yapın",
+        "summary": "Satın alma tutarı Türkiye’deki bir bankaya aktarılır ve Türk lirası’na çevrilir; bu işlem sonucunda, başvurunun gerektirdiği belge düzenlenir.",
         "detail": [
-          "Ödeme Türk bankacılık sistemi üzerinden yapılmalı ve belgelenmelidir — nakit alımlar uygun değildir.",
-          "Banka, bozdurulan tutara karşılık sizin adınıza Döviz Alım Belgesi (DAB) düzenler.",
-          "Banka dekontları alıcının satıcıya doğrudan ödeme yaptığını göstermelidir; üçüncü kişi ödemeleri başvuruların reddine yol açar."
+          "Ödeme, Türk bankacılık sistemi üzerinden gerçekleştirilmeli ve belgelendirilmelidir — nakit ödemeler kabul edilmez.",
+          "Banka, döviz bozdurma tutarı karşılığında sizin adınıza bir döviz alım sertifikası (DAB) düzenler.",
+          "Banka makbuzlarında, alıcının satıcıya doğrudan ödeme yaptığı açıkça belirtilmelidir; üçüncü taraflar aracılığıyla yapılan ödemeler, başvuruların reddedilmesine neden olur."
         ],
-        "timing": "3.–4. hafta",
-        "owner": "Siz, bankanız ve döviz aracınız"
+        "timing": "3.–4. Hafta",
+        "owner": "Siz, bankanız ve döviz komisyoncunuz"
       },
       "tapu": {
-        "title": "Tapu devri ve 3 yıllık şerh",
-        "summary": "Tapu, mülkün {years} yıl satılmayacağına dair resmî bir şerhle birlikte sizin adınıza devredilir.",
+        "title": "3 yıllık ibare içeren tapu devri",
+        "summary": "Tapu, mülkün {years} yıl boyunca satılmayacağına dair resmi bir notla birlikte sizin adınıza devredilir.",
         "detail": [
-          "Şerh, özel bir taahhüt değil, doğrudan TAPU'ya işlenen hukuki bir kısıtlamadır.",
-          "Tapu randevusunda yeminli tercüman bulunur; okumadığınız bir dilde hiçbir şey imzalanmaz.",
-          "O gün kayıtlı malik olursunuz ve elde tutma süresi boyunca mülkü tam olarak kullanırsınız."
+          "Bu ipotek, özel bir taahhüt değil, Tapu Sicili’nin kendisinde kayıtlı yasal bir taahhüttür.",
+          "Yeminli bir tercüman, Tapu Dairesi’ndeki randevuya eşlik eder; anlamadığınız bir dilde hiçbir belge imzalanmaz.",
+          "O gün itibarıyla mülkün tescilli tam mülkiyet sahibi olursunuz ve mülkü elinizde tuttuğunuz süre boyunca tam olarak kullanma hakkına sahip olursunuz."
         ],
         "timing": "4.–6. hafta",
-        "owner": "Tapu Müdürlüğü, biz de yanınızdayız"
+        "owner": "Tapu Sicili, bizim huzurumuzda"
       },
       "conformity": {
-        "title": "Uygunluk Belgesi",
-        "summary": "Bakanlık değerlemeyi, ödeme belgelerini ve tapuyu inceler; ardından yatırımın nitelikli olduğunu teyit eden belgeyi düzenler.",
+        "title": "Uygunluk belgesi",
+        "summary": "Bakanlık, değerleme raporunu, ödeme belgelerini ve tapuyu inceledikten sonra, yatırımın şartları karşıladığını teyit eden sertifikayı düzenler.",
         "detail": [
-          "Vatandaşlık başvurusunun önünü açan belge budur.",
-          "Önceki aşamalardan gelen her delil bir arada incelenir — sıralamanın bu kadar önemli olmasının sebebi budur.",
-          "Bu başvuruyu sizin adınıza avukatınız yapar ve takip eder."
+          "Bu sertifika, vatandaşlık başvurusunun yapılabilmesini sağlayan belgedir.",
+          "Önceki aşamalardan elde edilen tüm deliller bir arada incelenir — işte bu yüzden olayların sırası bu kadar önemlidir.",
+          "Avukatınız bunu sizin adınıza sunar ve takip eder."
         ],
-        "timing": "6.–8. hafta",
+        "timing": "6.–8. Hafta",
         "owner": "Göçmenlik avukatınız"
       },
       "residence-permit": {
-        "title": "Oturum izni ve vatandaşlık başvurusu",
-        "summary": "Başvurular sizin, eşinizin ve 18 yaş altındaki çocuklarınızın adına Göç İdaresi Başkanlığı'na sunulur.",
+        "title": "Oturma izni ve vatandaşlık başvurusu",
+        "summary": "Başvurular, siz, eşiniz ve 18 yaşın altındaki çocuklarınız adına Göç Yönetimi Genel Müdürlüğü’ne yapılır.",
         "detail": [
-          "Başvuru sahibi, eşi ve 18 yaş altındaki çocukları aynı başvuruya dâhil edilir.",
-          "Biyometrik veriler ve belgeler birlikte teslim edilir; dil sınavı ya da mülakat şartı yoktur.",
-          "Onaydan önce de sonra da Türkiye'de yaşama zorunluluğunuz yoktur."
+          "Başvuru sahibi, eşi ve 18 yaşın altındaki çocukları aynı başvuruya dahil edilir.",
+          "Biyometrik veriler ve belgeler birlikte sunulur; dil sınavı veya mülakat şartı yoktur.",
+          "Onay öncesinde veya sonrasında Türkiye’de ikamet etmeniz gerekmemektedir."
         ],
-        "timing": "8.–10. hafta",
-        "owner": "Göç İdaresi Başkanlığı"
+        "timing": "8.–10. Hafta",
+        "owner": "Göç Yönetimi Genel Müdürlüğü"
       },
       "approval": {
         "title": "Onay, kimlik kartı ve pasaport",
-        "summary": "Onay genellikle yaklaşık üç ay içinde gelir; ardından aileye Türk kimlik kartları ve pasaportları düzenlenir.",
+        "summary": "Onay genellikle yaklaşık üç ay içinde verilir; bunun ardından aileye Türk kimlik kartları ve pasaportları verilir.",
         "detail": [
-          "Süreler yaklaşık değerlerdir ve başvuru yoğunluğuna bağlıdır — üç ay tipik bir süredir, garanti değildir.",
-          "Vatandaşlık verildikten sonra doğan çocuklar kendiliğinden Türk vatandaşı olur.",
-          "Türkiye çifte vatandaşlığa izin verir; mevcut pasaportunuz bundan etkilenmez."
+          "Süreler yaklaşık değerlerdir ve başvuru sayısına bağlıdır — üç ay, garanti edilen bir süre değil, genel bir süre olarak kabul edilir.",
+          "Vatandaşlık verildikten sonra doğan tüm çocuklar otomatik olarak Türk vatandaşı olurlar.",
+          "Türkiye çifte vatandaşlığa izin verdiği için mevcut pasaportunuzdan herhangi bir değişiklik olmayacaktır."
         ],
         "timing": "~3 ay",
         "owner": "Türkiye Cumhuriyeti"
@@ -811,557 +811,557 @@
     },
     "benefits": {
       "family": {
-        "title": "Tüm aile, tek başvuruda",
-        "body": "Ana başvuru sahibi, eşi ve 18 yaş altındaki tüm çocukları birlikte vatandaşlık kazanır. Sonrasında doğan çocuklar kendiliğinden Türk vatandaşıdır."
+        "title": "Tüm aile, tek bir uygulamada",
+        "body": "Ana başvuru sahibi, eşi ve 18 yaşın altındaki tüm çocuklarına vatandaşlık birlikte verilir. Daha sonra doğan çocuklar otomatik olarak Türk vatandaşı olurlar."
       },
       "dual": {
-        "title": "Çifte vatandaşlığa izin veriliyor",
-        "body": "Türkiye mevcut vatandaşlığınızdan çıkmanızı istemez; Türk pasaportunun yanında eski pasaportunuzu da korursunuz."
+        "title": "Çifte vatandaşlık izin verilmektedir",
+        "body": "Türkiye, mevcut vatandaşlığınızdan vazgeçmenizi şart koşmadığından, Türk pasaportunuzun yanı sıra mevcut pasaportunuzu da elinizde tutabilirsiniz."
       },
       "no-residence": {
-        "title": "Oturma zorunluluğu yok",
-        "body": "Karardan önce ya da sonra Türkiye'de yaşama zorunluluğu, dil sınavı ve mülakat yoktur."
+        "title": "İkamet şartı yoktur",
+        "body": "Hibe öncesinde veya sonrasında Türkiye’de ikamet etme zorunluluğu yoktur; dil sınavına girme veya mülakata katılma zorunluluğu da yoktur."
       },
       "retained": {
-        "title": "Yatırım harcanmaz, elinizde kalır",
-        "body": "Bağış esaslı programların aksine varlık sizde kalır. {years} yılın sonunda satmakta serbestsiniz ve vatandaşlık kalıcıdır."
+        "title": "Yatırım harcanmıyor, elinde tutuluyor",
+        "body": "Bağış temelli bir programın aksine, varlığı elinizde tutarsınız. {years} yıllarının ardından satmakta özgürsünüz ve vatandaşlık kalıcı olarak devam eder."
       },
       "e2": {
         "title": "E-2 yatırımcı yoluna erişim",
-        "body": "Türkiye'nin ABD ile E-2 anlaşması vardır; Türk vatandaşları bu anlaşma üzerinden yatırımcı vizesine başvurabilir — çoğu uyruğa doğrudan açık olmayan bir yol."
+        "body": "Türkiye, Amerika Birleşik Devletleri ile bir E-2 anlaşmasına sahiptir; Türk vatandaşları bu anlaşma kapsamında yatırımcı vizesi başvurusunda bulunabilirler — bu yol, diğer çoğu ülke vatandaşları için doğrudan açık değildir."
       },
       "rights": {
-        "title": "Tam yurttaşlık hakları",
-        "body": "Vatandaşlar sağlık, eğitim, mülk edinme ve şirket kurma konularında diğer tüm Türk vatandaşlarıyla aynı haklara sahiptir."
+        "title": "Yurtiçi hakların tamamı",
+        "body": "Vatandaşlar, sağlık hizmetleri, eğitim, mülk edinme ve işletme tesciline diğer tüm Türk vatandaşlarıyla aynı haklara sahiptir."
       }
     },
     "documents": [
-      "Her başvuru sahibi için noter onaylı ve tercüme edilmiş pasaport kopyaları",
-      "Başvuru sahibi, eşi ve varsa çocuklar için doğum belgeleri",
-      "Evlilik cüzdanı veya medeni hâli gösteren belge",
-      "Güncel adresi teyit eden yerleşim yeri belgeleri",
-      "Geçerli Türk sağlık sigortası teminatı",
-      "Resmî ölçülere uygun biyometrik fotoğraflar",
-      "Üç yıllık şerhi taşıyan tapu (TAPU)",
+      "Her başvuru sahibi için noter tasdikli ve tercüme edilmiş pasaport fotokopileri",
+      "Başvuru sahibi, eşi ve varsa çocuklarının doğum belgeleri",
+      "Evlilik cüzdanı veya medeni durum belgesi",
+      "Mevcut adresi teyit eden ikamet belgeleri",
+      "Geçerli bir Türk sağlık sigortası kapsamı",
+      "Resmi şartnameye uygun biyometrik fotoğraflar",
+      "Üzerinde üç yıllık not bulunan tapu (TAPU)",
       "SPK değerleme raporu ve banka ödeme belgesi (DAB)"
     ],
     "faq": {
-      "q1": "2026'da Türk vatandaşlığı için ne kadar yatırım yapmam gerekir?",
-      "a1": "Asgari gayrimenkul yatırımı {threshold} ABD dolarıdır ve devlet lisanslı bir değerleme şirketinin resmî raporuyla teyit edilir. Eşik Haziran 2022'de 250.000 dolardan {threshold} dolara yükseldi. Bu tutara ulaşmak için birden fazla mülkü birleştirebilirsiniz; konut, ticari mülk ve arsa alımlarının tamamı uygundur.",
-      "q2": "Mülkü ne kadar süre elimde tutmam gerekir?",
-      "a2": "En az {years} yıl. Bu taahhüt doğrudan tapuya resmî bir şerh olarak işlenir; yani gayriresmî bir söz değil, hukuki bir kısıtlamadır. Süre boyunca mülkü tam olarak kullanırsınız ve süre dolduğunda satmakta serbestsiniz — vatandaşlığınız kalıcıdır ve satıştan etkilenmez.",
+      "q1": "2026 yılında Türk vatandaşlığı almak için ne kadar yatırım yapmam gerekiyor?",
+      "a1": "Gayrimenkul yatırımı için asgari tutar, devlet tarafından lisanslı bir değerleme şirketinin resmi değerleme raporu ile teyit edilen {threshold} ABD dolarıdır. Bu eşik, Haziran 2022’de 250.000 dolardan {threshold}’a yükseltilmiştir. Bu tutara ulaşmak için birden fazla gayrimenkulü birleştirebilirsiniz; konut, ticari gayrimenkul ve arsa alımlarının tümü bu şartlara uygundur.",
+      "q2": "Mülkü ne kadar süreyle elimde tutmam gerekiyor?",
+      "a2": "En az {years} yıl. Bu taahhüt, tapu belgesinin üzerine resmi bir not olarak kaydedildiğinden, gayri resmi bir taahhüt değil, yasal bir kısıtlamadır. Bu süre boyunca gayrimenkulü tam olarak kullanabilirsiniz ve süre sona erdiğinde satmakta özgürsünüz — vatandaşlığınız kalıcıdır ve satıştan etkilenmez.",
       "q3": "Vatandaşlık süreci ne kadar sürer?",
-      "a3": "Onay, eksiksiz bir başvurunun sunulmasından itibaren genellikle yaklaşık üç ay içinde gelir; bundan önce gayrimenkul alımı ve uygunluk belgesi yaklaşık altı ilâ sekiz hafta sürer. Süreler yaklaşıktır ve Göç İdaresi Başkanlığı'ndaki başvuru yoğunluğuna bağlıdır.",
-      "q4": "Ailemden kimler kapsama giriyor?",
-      "a4": "Ana başvuru sahibi, eşi ve 18 yaş altındaki tüm çocukları aynı başvuruyla vatandaşlık kazanır. Vatandaşlık verildikten sonra doğan çocuklar kendiliğinden Türk vatandaşı olur. Yetişkin çocuklar kapsam dışıdır ve kendi başlarına uygunluk sağlamaları gerekir.",
-      "q5": "Mevcut vatandaşlığımdan vazgeçmem gerekir mi?",
-      "a5": "Türkiye tarafında hayır — çifte vatandaşlığa açıkça izin verilir. Çoğu ülke de aynı yaklaşımı benimser ve başvuru sahipleri iki pasaportu da korur; sınırlama getiren birkaç ülke vardır, bu yüzden başvurudan önce kendi makamlarınıza teyit ettirmeniz yerinde olur.",
-      "q6": "Türkiye'de yaşamam ya da Türkçe bilmem gerekir mi?",
-      "a6": "İkisi de gerekmez. Karardan önce ya da sonra oturma zorunluluğu, dil sınavı ve mülakat yoktur. Yalnızca biyometrik işlemler için ve vekaletname ile tamamlamıyorsanız tapu randevusu için fiziken bulunmanız gerekir.",
-      "q7": "Üç yıl boyunca mülkü kiraya verebilir miyim?",
-      "a7": "Evet. Şerh satışı kısıtlar, kullanımı değil. Elde tutma süresi boyunca mülkte oturabilir, boş bırakabilir ya da ticari olarak kiraya verebilirsiniz; kira geliri sizindir.",
-      "q8": "Değerleme eşiğin altında çıkarsa ne olur?",
-      "a8": "Başvuru o mülk üzerinden ilerleyemez. Olası değerlemeyi siz taahhüt altına girdikten sonra değil, öncesinde kontrol etmemizin sebebi budur — {threshold} olarak pazarlanan bir mülk kendiliğinden {threshold} değerlenmez ve tek geçerli rakam resmî rapordur."
+      "a3": "Onay, genellikle eksiksiz bir başvurunun sunulmasından yaklaşık üç ay sonra verilir; buna kadar geçen sürede gayrimenkul satın alma işlemi ve uygunluk belgesinin alınması yaklaşık altı ila sekiz hafta sürer. Bu süreler yaklaşık değerlerdir ve Göç Yönetimi Genel Müdürlüğü’ndeki başvuru sayısına bağlıdır.",
+      "q4": "Ailemden kimler bu kapsamda yer alıyor?",
+      "a4": "Ana başvuru sahibi, eşi ve 18 yaşın altındaki tüm çocuklara aynı başvuru kapsamında vatandaşlık verilir. Vatandaşlığın verilmesinden sonra doğan çocuklar otomatik olarak Türk vatandaşı olurlar. Yetişkin çocuklar bu kapsamda yer almazlar ve kendi başlarına başvuru şartlarını yerine getirmeleri gerekir.",
+      "q5": "Mevcut vatandaşlığımdan vazgeçmek zorunda mıyım?",
+      "a5": "Hayır, Türkiye’de durum böyle değil — Türkiye çifte vatandaşlığı açıkça izin vermektedir. Çoğu ülke de aynı görüşü benimsemektedir, bu nedenle başvuru sahipleri her iki pasaportu da elinde tutar; ancak birkaçı bu konuda kısıtlamalar getirmektedir; bu nedenle başvurmadan önce kendi yetkili makamlarınıza danışmanızda fayda vardır.",
+      "q6": "Türkiye'de yaşamam ya da Türkçe konuşmam gerekiyor mu?",
+      "a6": "İkisi de değil. Hibe öncesinde veya sonrasında ikamet şartı, dil sınavı ya da mülakat yoktur. Biyometrik verilerin alınması için ve tapu randevusu için şahsen bulunmanız gerekir; ancak vekaletname yoluyla işlemleri tamamlamanız durumunda bu şart geçerli değildir.",
+      "q7": "Bu üç yıl boyunca bu mülkü kiraya verebilir miyim?",
+      "a7": "Evet. Bu kısıtlama, mülkün satışını sınırlar, kullanımını değil. Mülkiyet süresi boyunca bu gayrimenkulde ikamet edebilir, boş bırakabilir veya ticari amaçla kiraya verebilirsiniz; kira geliri size aittir.",
+      "q8": "Değerleme sonucu eşik değerin altında çıkarsa ne olur?",
+      "a8": "Bu gayrimenkul için başvuru süreci devam edemez. İşte bu nedenle, taahhütte bulunmadan önce, sonra değil, olası değerleme tutarını kontrol ediyoruz — {threshold} adresinde satışa sunulan bir gayrimenkulün değeri otomatik olarak {threshold} adresinde belirtilen tutara eşit değildir ve tek geçerli rakam resmi rapordaki rakamdır."
     }
   },
   "citizenshipPage": {
-    "benefitsDisclaimer": "Vizesiz seyahat düzenlemeleri her varış ülkesi tarafından belirlenir ve düzenli olarak değişir. Buna güvenmeden önce gitmeyi düşündüğünüz ülkeler için güncel durumu kontrol edin — seyahat hakları konusunda danışmanlık vermiyoruz.",
-    "benefitsEyebrow": "İnsanlar neden yapıyor",
-    "benefitsHeading": "Türk vatandaşlığı size ne kazandırır",
-    "cond1Body": "İstenen fiyata göre değil, resmî SPK değerleme raporuyla tespit edilir. Tek bir mülk ya da birleştirilmiş birkaç mülk — ikisi de kabul edilir.",
-    "cond1Title": "{threshold} ve üzeri değerde mülk",
-    "cond2Body": "TAPU, mülkün {years} yıl satılmayacağına dair resmî bir şerh taşır. Bu süre boyunca mülkü tam olarak kullanmaya devam edersiniz.",
-    "cond2Title": "Tapuya işlenen {years} yıllık taahhüt",
-    "cond3Body": "Alım, Türk bankacılık sistemi üzerinden ödenmeli ve liraya çevrilmelidir; başvurunun gerektirdiği DAB belgesi bu işlemden doğar.",
-    "cond3Title": "Bedelin bir Türk bankası üzerinden ödenmesi",
-    "cond4Body": "Mülkün; ipotek, haciz ve ödenmemiş borç taşımayan müstakil bir tapusu olmalıdır. Siz kapora ödemeden önce bunu biz doğruluyoruz.",
-    "cond4Title": "Temiz ve devredilebilir bir tapu",
+    "benefitsDisclaimer": "Vizesiz seyahat düzenlemeleri her bir varış ülkesi tarafından belirlenir ve düzenli olarak değişir. Bu bilgilere güvenmeden önce, gitmeyi planladığınız yerler için güncel durumu kontrol edin — seyahat hakları konusunda tavsiye vermiyoruz.",
+    "benefitsEyebrow": "İnsanlar bunu neden yapıyor?",
+    "benefitsHeading": "Türk vatandaşlığı size neler sağlar?",
+    "cond1Body": "İstenen fiyat üzerinden değil, resmi bir SPK değerleme raporu temelinde değerlendirilir. Tek bir gayrimenkul ya da birden fazla gayrimenkulün birleştirilmesi — her iki seçenek de kabul edilir.",
+    "cond1Title": "{threshold} veya daha fazla değerinde gayrimenkul",
+    "cond2Body": "TAPU’da, söz konusu gayrimenkulün {years} yıl boyunca satılmayacağına dair resmi bir not bulunmaktadır. Bu süre boyunca gayrimenkulü tam olarak kullanmaya devam edebilirsiniz.",
+    "cond2Title": "Tapu belgesinde “{years}” yılına kadar geçerli bir taahhüt",
+    "cond3Body": "Satın alma işlemi, Türk bankacılık sistemi üzerinden ödenmeli ve lira'ya çevrilmeli; böylece başvuruda istenen DAB sertifikası alınmalıdır.",
+    "cond3Title": "Bir Türk bankası üzerinden aktarılan fonlar",
+    "cond4Body": "Mülkün, üzerinde herhangi bir rehin, ipotek veya ödenmemiş masraf bulunmayan ayrı bir tapusu olması gerekir. Depozito ödemenizden önce bunu doğrularız.",
+    "cond4Title": "Temiz ve devredilebilir bir mülkiyet hakkı",
     "condEyebrow": "Dört koşul",
-    "condHeading": "Gerçekte sağlanması gerekenler",
-    "condLede": "Başarısız başvuruların çoğu bu dört noktadan birinde takılır ve neredeyse her zaman ilkinde. {threshold} olarak pazarlanan bir mülk kendiliğinden {threshold} değerlenmez.",
-    "consultBody": "Bütçenizin gerçek bir değerlemede eşiği aşıp aşmadığını, toplam maliyetin nasıl göründüğünü ve ailenizin süreci ne kadar sürebileceğini size dürüstçe söyleyeceğiz.",
-    "consultEyebrow": "Ücretsiz danışma",
-    "consultHeading": "Vatandaşlık danışması alın",
-    "consultNote": "Bizim değil, sizin görevlendirdiğiniz İngilizce konuşan göçmenlik avukatlarıyla birlikte çalışıyoruz.",
-    "consultWhatsapp": "WhatsApp'tan sorun",
-    "ctaHeading": "Bütçenizin neye yettiğini öğrenin",
-    "ctaPrimary": "Uygun ilanları görün",
-    "ctaSecondary": "Alım nasıl işliyor",
-    "disclaimer": "Coast 2 Coast Properties Turkey bir gayrimenkul danışmanlığıdır; hukuk bürosu ya da lisanslı göçmenlik danışmanı değildir. Bu sayfadaki rakamlar yazıldığı tarihte yürürlükte olan kuralları yansıtır ve bunları değiştiren Türkiye Cumhuriyeti belirler — eşik 2022'de 250.000 dolardan {threshold} seviyesine taşındı. Burada yer alan hiçbir şey hukuki ya da göçmenlik danışmanlığı değildir. Sizi, sizin görevlendirdiğiniz ve herhangi bir ödeme yapmadan önce durumunuzu yazılı olarak teyit eden İngilizce konuşan avukatlarla tanıştırıyoruz.",
-    "docsHeading": "Sizden istenecek belgeler",
-    "docsNote": "Yurt dışında düzenlenen her belgenin noter onaylı Türkçe tercümesi gerekir; birkaçı için de düzenleyen ülkeden apostil şarttır. Buna erken başlamak, takvimi kısaltmanın en kolay yoludur.",
+    "condHeading": "Aslında neyin doğru olması gerekir?",
+    "condLede": "Reddedilen başvuruların çoğu bu dört noktadan birinde, neredeyse her zaman da ilkinde başarısız olmaktadır. {threshold} adresinde pazarlanan bir gayrimenkulün değeri otomatik olarak {threshold} adresinde belirtilen değerle eşleşmez.",
+    "consultBody": "Bütçenizin gerçek bir değerleme sonucunda eşiği aşıp aşmadığını, toplam maliyetin ne kadar olacağını ve aileniz için bu sürecin ne kadar süreceğini size dürüstçe anlatacağız.",
+    "consultEyebrow": "Ücretsiz danışmanlık",
+    "consultHeading": "Vatandaşlık danışmanlığı alın",
+    "consultNote": "Sizin tarafınızdan görevlendirilen, bizim tarafımızdan değil, İngilizce konuşan göçmenlik avukatlarıyla birlikte çalışıyoruz.",
+    "consultWhatsapp": "WhatsApp'ta sor",
+    "ctaHeading": "Bütçenizin hangi seçeneklere uygun olduğunu öğrenin",
+    "ctaPrimary": "Uygun mülkleri inceleyin",
+    "ctaSecondary": "Satın alma süreci nasıl işliyor?",
+    "disclaimer": "Coast 2 Coast Properties Turkey, bir hukuk bürosu veya lisanslı göçmenlik danışmanı değil, bir emlak danışmanlık şirketidir. Bu sayfadaki rakamlar, yazının kaleme alındığı tarihte yürürlükte olan kuralları yansıtmaktadır ve bunları belirleyen Türk hükümeti tarafından değiştirilebilir — eşik tutarı 2022 yılında 250.000 dolardan {threshold}'a yükseltilmiştir. Buradaki hiçbir bilgi hukuki veya göçmenlik danışmanlığı niteliğinde değildir. Size, sizin talimatınızla hareket eden ve herhangi bir ödeme yapmadan önce durumunuzu yazılı olarak teyit eden İngilizce konuşan avukatları tanıştırıyoruz.",
+    "docsHeading": "Sizden istenecekler",
+    "docsNote": "Yurtdışında düzenlenmiş her belge için noter tasdikli bir Türkçe tercüme gereklidir; bazı belgeler için ise düzenleyen ülkeden apostil alınması gerekir. Süreci kısaltmanın en kolay yolu, bu işlere erkenden başlamaktır.",
     "faqEyebrow": "Net cevaplar",
-    "faqFooter": "Durumunuz alışılmışın dışındaysa — şirket üzerinden alım, hisseli tapu, yetişkin çocuk — doğrudan bize sorun. Cevap gerçekten ayrıntıya bağlı.",
-    "faqHeading": "Türk vatandaşlığı soruları, cevaplarıyla",
-    "formMessage": "Gayrimenkul yatırımı yoluyla Türk vatandaşlığıyla ilgileniyorum. Bütçemin neye yeteceğini öğrenebilir miyim?",
-    "formSubmit": "Danışma talep edin",
+    "faqFooter": "Durumunuz olağan dışıysa — bir şirket satın alımı, ortak tapu, reşit bir çocuk gibi — bize doğrudan danışın. Cevap gerçekten de ayrıntılara bağlıdır.",
+    "faqHeading": "Türk vatandaşlığı ile ilgili sorular ve cevapları",
+    "formMessage": "Gayrimenkul yatırımı yoluyla Türk vatandaşlığı almakla ilgileniyorum. Lütfen, sahip olduğum bütçeyle hangi seçeneklere hak kazanabileceğimi bana söyleyebilir misiniz?",
+    "formSubmit": "Danışmanlık talebi",
     "heroTitle": "Türk Vatandaşlığı",
     "importantLabel": "Önemli:",
-    "metaDescription": "{threshold} ve üzeri gayrimenkul yatırımıyla Türk vatandaşlığı. Sürecin tamamı, {years} yıllık elde tutma şartı, gerekli belgeler ve ailenizden kimlerin kapsandığı — alımı baştan sona yürüten bir Fethiye danışmanlığı tarafından anlatılıyor.",
-    "metaTitle": "Gayrimenkul Yatırımıyla Türk Vatandaşlığı",
+    "metaDescription": "{threshold} aracılığıyla gayrimenkul yatırımı yoluyla Türk vatandaşlığı. Sürecin tamamı, {years} - yıllık mülkiyet süresi, gerekli belgeler ve ailenizden kimlerin kapsama dahil olduğu — satın alma sürecini baştan sona yürüten bir Fethiye danışmanlık şirketi tarafından açıklanıyor.",
+    "metaTitle": "Gayrimenkul Yatırımı Yoluyla Türk Vatandaşlığı",
     "stagesEyebrow": "Aşama aşama",
-    "stagesHeading": "Kısa listeden pasaporta",
-    "stagesLede": "Yedi aşama, uçtan uca genellikle beş ilâ altı ay. Gayrimenkul tarafını biz yürütüyor, başvurunun kendisini üstlenen İngilizce konuşan avukatlarla eşgüdüm sağlıyoruz."
+    "stagesHeading": "Aday listesinden pasaporta",
+    "stagesLede": "Yedi aşama; baştan sona genellikle beş ila altı ay sürer. Gayrimenkul ile ilgili işlemleri biz üstleniyoruz ve başvurunun kendisini yürüten İngilizce konuşan avukatlarla koordinasyonu sağlıyoruz."
   },
   "insurance": {
     "policies": {
       "dask": {
         "name": "DASK — zorunlu deprem sigortası",
-        "status": "Kanunen zorunlu",
-        "summary": "Devlet destekli deprem sistemi (Doğal Afet Sigortaları Kurumu). Tapulu arsa üzerindeki her konutun yürürlükte bir poliçesi olmak zorundadır.",
+        "status": "Yasaya göre zorunludur",
+        "summary": "Devlet destekli deprem sigortası programı (Doğal Afet Sigortaları Kurumu). Tapusu bulunan her konut mülkü için geçerli bir sigorta poliçesi bulunmalıdır.",
         "detail": [
-          "Tapu devrinden ve abonelik açılışı ya da devrinden önce zorunludur.",
-          "Prim; mülkün metrekaresi, yapı tarzı ve deprem risk bölgesi üzerinden hesaplanır — ödediğiniz bedel üzerinden değil.",
-          "DASK açıkça belirtir: yalnızca yapının çıplak yeniden inşa maliyetini, devletin belirlediği ve her yıl güncellenen azami teminat tutarına kadar karşılar.",
-          "Bu tavanın üzerindeki her şey ve binanın içindeki her şey ayrıca sigortalanmak üzere sizin sorumluluğunuzdadır."
+          "Tapu devri yapılabilmesi ve kamu hizmetleri aboneliklerinin açılabilmesi veya adınıza devredilebilmesi için gerekli olan şartlar.",
+          "Prim, mülkün metrekare cinsinden büyüklüğü, inşaat türü ve sismik risk bölgesine göre hesaplanır — satın alırken ödediğiniz bedele göre değil.",
+          "DASK, yalnızca “temel” yeniden inşa masraflarını, devletin belirlediği ve her yıl güncellenen azami sigorta tutarı sınırına kadar karşıladığını açıkça belirtmektedir.",
+          "Bu sınırın üzerindeki her şey ve binanın içindeki her şey için ayrı bir sigorta yaptırmak sizin sorumluluğunuzdadır."
         ]
       },
       "buildings": {
-        "name": "Konut (bina) sigortası",
-        "status": "Kesinlikle önerilir",
-        "summary": "Yapının kendisi için özel teminat; piyasa değeri üzerinden değil yeniden inşa değeri üzerinden düzenlenir — ikisi çok farklı rakamlardır.",
+        "name": "Bina sigortası",
+        "status": "Kesinlikle tavsiye edilir",
+        "summary": "Binanın kendisi için, piyasa değeri yerine yeniden inşa değeri üzerinden düzenlenen özel sigorta poliçesi — bu iki rakam birbirinden oldukça farklıdır.",
         "detail": [
-          "Yeniden inşa değeri, tapudaki metrekare ile güncel metrekare başına inşa maliyetinin çarpımıyla bulunur.",
-          "600.000 £'ye satılabilecek bir villanın yeniden inşası çok daha ucuza gelebilir; piyasa değeri üzerinden sigortalamak, hiçbir zaman talep edemeyeceğiniz bir teminata prim ödemek demektir.",
-          "Depremin ötesinde yangın, fırtına, sel, boru patlaması, çarpma ve kötü niyetli hasarı da kapsar.",
-          "DASK'ın yasal teminat tavanının yüksek değerli mülklerde bıraktığı boşluğu tamamlar."
+          "Yeniden inşa değeri, TAPU’dan alınan gayrimenkulün metrekare alanı ile yeniden inşa için geçerli olan metrekare başına maliyetin çarpılmasıyla hesaplanır.",
+          "600.000 sterline satılabilecek bir villanın yeniden inşası çok daha ucuza mal olabilir; piyasa değeri üzerinden sigorta yaptırmak, tazminat talebinde bulunamayacağınız bir teminat için ödeme yapmak anlamına gelir.",
+          "Kapsamı depremle sınırlı kalmayıp yangın, fırtına, sel, boru patlamaları, çarpma ve kasıtlı hasarları da içerir.",
+          "DASK’ın yasal üst sınırının yüksek değerli gayrimenkullerde bıraktığı boşluğu doldurur."
         ]
       },
       "contents": {
-        "name": "Eşya (muhteviyat) sigortası",
-        "status": "İsteğe bağlı, ancak tavsiye edilir",
-        "summary": "Binayı baş aşağı çevirseniz dökülecek olan her şey: mobilya, beyaz eşya, kişisel değerli eşyalar ve dış mekân eşyaları.",
+        "name": "Eşya sigortası",
+        "status": "İsteğe bağlı ancak tavsiye edilir",
+        "summary": "Binayı baş aşağı çevirirseniz içinden düşecek her şey: mobilyalar, ev aletleri, kişisel değerli eşyalar ve dış mekan eşyaları.",
         "detail": [
-          "Genellikle mobilya, yatak ve yatak takımları, giysiler, elektrikli cihazlar, bahçe mobilyası ve mücevheri kapsar.",
-          "Yüksek değerli tekil eşyalar — mücevher, saat, sanat eseri, bisiklet — genellikle ayrı ayrı listelenip değerlenmelidir.",
-          "Muafiyete dikkat edin: her hasarda sizin üstlendiğiniz tutar. Düşük prim ile yüksek muafiyetin birleşimi kötü bir anlaşma olabilir.",
-          "Mülk kiraya veriliyorsa ya da aylarca boş kalıyorsa özellikle önemlidir."
+          "Genellikle mobilya, yataklar, yatak takımları, giysiler, elektrikli cihazlar, bahçe mobilyaları ve mücevherleri kapsar.",
+          "Yüksek değerli tekil ürünler — mücevherler, saatler, sanat eserleri, bisikletler — genellikle tek tek listelenmeli ve değerleri belirlenmelidir.",
+          "Muafiyete dikkat edin: her hasar talebinde sizin karşılamanız gereken tutar. Düşük primli ancak yüksek muafiyetli bir poliçe, uygun bir seçenek olmayabilir.",
+          "Özellikle mülk kiraya verilmişse veya aylarca boş kalıyorsa, bu sigortayı yaptırmak özellikle önemlidir."
         ]
       }
     },
     "daskCovered": [
-      "Depremin binanın yapısında yol açtığı hasar",
-      "Depremin neden olduğu yangın",
-      "Depremin neden olduğu patlama",
-      "Depremin neden olduğu heyelan",
-      "Depremin neden olduğu tsunami",
-      "Yapının yeniden inşa maliyeti — devletin belirlediği yıllık tavana kadar"
+      "Bina yapısında depremden kaynaklanan hasar",
+      "Deprem sonucu çıkan yangın",
+      "Deprem sonucu meydana gelen patlama",
+      "Deprem sonucu meydana gelen heyelan",
+      "Deprem sonucu meydana gelen tsunami",
+      "Yapının yeniden inşa maliyeti, eyalet tarafından belirlenen yıllık üst sınıra kadar"
     ],
     "daskNotCovered": [
-      "Her türlü eşya — mobilya, elektronik, giysi, mücevher",
-      "Depremden kaynaklanmayan yangın, sel veya fırtına hasarı",
-      "Depremden sonra olsun ya da olmasın, hırsızlık",
-      "Patlayan borular veya arızalanan cihazlardan kaynaklanan su hasarı",
-      "Devletin belirlediği azami teminatı aşan yeniden inşa maliyeti",
-      "Mülk oturulamaz durumdayken kaybedilen kira geliri",
-      "Mülkte biri yaralanırsa doğan kişisel sorumluluk",
-      "Yüzme havuzları, bahçe duvarları, peyzaj ve müştemilat"
+      "Her türlü eşya — mobilya, elektronik eşya, giysi, mücevher",
+      "Depremden kaynaklanmayan yangın, sel veya fırtına hasarları",
+      "Hırsızlık ya da haneye tecavüz, depremden sonra gerçekleşsin ya da gerçekleşmesin",
+      "Patlayan borular veya ev aletlerinin arızalanmasından kaynaklanan su hasarı",
+      "Eyalet tarafından belirlenen azami sigorta tutarını aşan her türlü yeniden inşa maliyeti",
+      "Mülkün ikamet edilemez durumda olduğu süre boyunca kira gelirinin kaybı",
+      "Mülkte bir kişinin yaralanması durumunda kişisel sorumluluk",
+      "Yüzme havuzları, bahçe duvarları, peyzaj düzenlemeleri ve müştemilatlar"
     ],
     "privateCovered": [
       "Yangın, duman, yıldırım ve patlama",
-      "Fırtına, sel ve patlayan borular",
-      "Hırsızlık ve hırsızlık girişimi, zorla giriş hasarı dâhil",
-      "Cam ve vitrifiye ürünlerin kazayla kırılması",
-      "DASK tavanının üzerindeki yeniden inşa maliyeti",
-      "Onarımlar sürerken alternatif konaklama",
-      "Ziyaretçilerin yaralanmasına karşı kişisel sorumluluk teminatı",
-      "İsteğe bağlı ekler: kira geliri koruması, havuz ve bahçe teminatı"
+      "Fırtına, sel ve su borularının patlaması",
+      "Hırsızlık ve hırsızlık teşebbüsü, zorla girme sonucu oluşan hasarlar dahil",
+      "Cam ve sıhhi tesisat eşyalarının kazara kırılması",
+      "DASK üst sınırının üzerindeki yeniden inşa maliyeti",
+      "Onarım çalışmaları sürerken alternatif konaklama imkânı",
+      "Ziyaretçilerin yaralanmasına karşı kişisel sorumluluk sigortası",
+      "İsteğe bağlı ek teminatlar: kira geliri teminatı, havuz ve bahçe teminatı"
     ],
     "privateNotCovered": [
-      "Yıpranma, aşınma ve zamanla bozulma",
-      "Poliçe başlamadan önce mevcut olan hasar",
-      "Mülkün bakımsız bırakılmasından doğan hasar",
-      "Poliçede belirtilen süreyi aşan boş kalma — genellikle 30 ilâ 60 gün",
-      "Tekil eşya limitini aşan, beyan edilmemiş yüksek değerli eşyalar",
-      "Özellikle beyan edilmedikçe tadilat sırasında oluşan hasar"
+      "Aşınma, yıpranma ve kademeli bozulma",
+      "Poliçenin yürürlüğe girmesinden önce mevcut olan hasar",
+      "Mülkün bakımının yapılmamasından kaynaklanan hasar",
+      "Poliçede belirtilen sürenin ötesinde boş kalma durumu — genellikle 30 ila 60 gün",
+      "Tek parça sınırını aşan, beyan edilmemiş yüksek değerli eşyalar",
+      "İnşaat çalışmaları sırasında meydana gelen hasarlar, aksi açıkça belirtilmedikçe"
     ],
     "checklist": {
       "tapu": {
-        "title": "Tapunuz",
-        "body": "Tapu, kayıtlı metrekareyi verir; hem DASK primini hem de yeniden inşa hesabını bu belirler."
+        "title": "TAPU'nuz",
+        "body": "Tapu belgesinde kayıtlı metrekare bilgisi yer alır; bu bilgi, hem DASK primini hem de yeniden inşa hesaplamasını belirler."
       },
       "construction": {
-        "title": "Yapı tarzı ve yapım yılı",
-        "body": "Betonarme, çelik ya da yığma olması ve yapım yılı — üçü de deprem risk derecesini değiştirir."
+        "title": "İnşaat türü ve yapım yılı",
+        "body": "Betonarme, çelik veya tuğla yapı, ayrıca inşaat yılı — bu üç faktörün tümü deprem risk derecesini etkiler."
       },
       "inventory": {
-        "title": "Yazılı bir eşya envanteri",
-        "body": "Aramadan önce kapsanmasını istediğiniz her şeyi fotoğraflayın ve listeleyin. Bunu hasardan sonra yeniden oluşturmak çok daha zordur."
+        "title": "Yazılı bir envanter",
+        "body": "Araymadan önce, sigorta kapsamına alınmasını istediğiniz her şeyi fotoğrafını çekin ve bir liste haline getirin. Bir hasar meydana geldikten sonra bunları yeniden derlemek, şu anda yapmaktan çok daha zordur."
       },
       "valuations": {
-        "title": "Yüksek değerli eşyalar için ekspertiz",
-        "body": "Mücevher, saat ve sanat eserleri tam değeriyle teminat altına alınabilmek için genellikle ayrı fatura veya değerleme ister."
+        "title": "Yüksek değerli eşyaların değerlemeleri",
+        "body": "Takı, saat ve sanat eserlerinin tam değerinde sigorta kapsamına alınabilmesi için genellikle ayrı faturalar veya değerleme raporları gereklidir."
       },
       "occupancy": {
-        "title": "Kullanım düzeniniz",
-        "body": "Mülkün yılda kaç ay boş kaldığı ve ticari olarak kiraya verilip verilmediği. İkisi de teminatı etkiler ve beyan edilmelidir."
+        "title": "Konaklama alışkanlıklarınız",
+        "body": "Mülkün yılda kaç ay boş kaldığı ve ticari amaçla kiraya verilip verilmediği. Her iki durum da sigorta kapsamını etkiler ve beyan edilmesi gerekir."
       },
       "excess": {
-        "title": "Rahat ettiğiniz muafiyet tutarı",
-        "body": "Primleri karşılaştırmadan önce her hasarda ne kadar üstleneceğinize karar verin; yoksa en ucuz teklif yanlış ölçüte göre kazanır."
+        "title": "Sizin için uygun olan ek tutar",
+        "body": "Primleri karşılaştırmadan önce her bir hasar talebi başına ne kadar katkı payı ödeyeceğinize karar verin; aksi takdirde en ucuz teklif, yanlış bir kritere göre tercih edilecektir."
       }
     },
     "faq": {
-      "q1": "Türkiye'de DASK sigortası zorunlu mu?",
-      "a1": "Evet. DASK (Doğal Afet Sigortaları Kurumu) tapulu arsa üzerindeki konutlar için zorunludur. Tapu devrinden ve elektrik ile su aboneliklerinin açılmasından veya sizin adınıza geçmesinden önce yürürlükte bir poliçe gerekir. Yıllık olarak yenilenir ve poliçenin düşmesi abonelik işlemlerini durdurabilir.",
+      "q1": "Türkiye’de DASK sigortası zorunlu mu?",
+      "a1": "Evet. DASK (Doğal Afet Sigortaları Kurumu), tapulu araziler üzerindeki konutlar için zorunludur. Tapu devri yapılabilmesi ve elektrik ile su aboneliklerinin açılabilmesi veya adınıza devredilebilmesi için geçerli bir sigorta poliçesi gereklidir. Poliçe yıllık olarak yenilenir ve süresinin dolması, kamu hizmetleri ile ilgili işlemleri engelleyebilir.",
       "q2": "DASK tek başına yeterli mi?",
-      "a2": "Hayır ve DASK bu konuda açıktır. Yalnızca yapının çıplak yeniden inşa maliyetini, devletin her yıl belirlediği azami teminat tutarına kadar ve sadece depreme bağlı hasarlar için karşılar. Hiçbir eşyayı, hırsızlığı, su hasarını kapsamaz; yangını da ancak deprem kaynaklıysa kapsar. Mülk sahiplerinin çoğu DASK'ın yanında özel bir bina ve eşya poliçesi bulundurur.",
+      "a2": "Hayır, ve DASK’ın kendisi de bu konuda nettir. DASK, her yıl devlet tarafından belirlenen azami teminat tutarına kadar, yalnızca depremle ilgili hasarlar için yapının salt yeniden inşa maliyetini karşılar. Eşyalar, hırsızlık, su hasarı ve yangın (yangının depremden kaynaklanmadığı sürece) hiçbir şekilde teminat kapsamına girmez. Çoğu mülk sahibi, DASK’ın yanı sıra özel bir bina ve eşya sigortası da yaptırmaktadır.",
       "q3": "DASK primim nasıl hesaplanıyor?",
-      "a3": "Tapuda kayıtlı metrekare, yapı tarzı ve bulunduğu deprem risk bölgesi üzerinden. Satış bedeline veya piyasa değerine göre değil; bu yüzden farklı risk bölgelerindeki aynı fiyatlı iki villa gözle görülür biçimde farklı prim ödeyebilir.",
-      "q4": "Villamı piyasa değeri üzerinden mi sigortalamalıyım?",
-      "a4": "Hayır — yeniden inşa değeri üzerinden. Yeniden inşa değeri, kayıtlı metrekarenin güncel metrekare inşa maliyetiyle çarpımıdır ve arsayı içermediği için genellikle piyasa fiyatının epey altındadır. Piyasa değeri üzerinden sigortalamak, asla talep edemeyeceğiniz bir teminat için daha yüksek prim ödemek demektir.",
-      "q5": "Muafiyet nedir ve neden önemli?",
-      "a5": "Muafiyet, sigortacı ödeme yapmadan önce her hasarda sizin üstlendiğiniz tutardır. Düşük primli ama yüksek muafiyetli bir poliçe, gerçek bir hasarda biraz daha pahalı ama makul muafiyetli bir poliçeden çok daha fazlaya mal olabilir. Teklifleri karşılaştırmaya başlamadan önce rahat ettiğiniz muafiyeti belirleyin.",
-      "q6": "Kiraya verdiğim veya boş bıraktığım bir mülkü sigortalatabilir miyim?",
-      "a6": "Evet, ancak ikisi de beyan edilmelidir. Özel poliçelerin çoğu kesintisiz boş kalmayı 30 ilâ 60 gün arasında sınırlar ve ticari kiralama genellikle özel bir zeyilname gerektirir. Beyan edilmemiş kullanım, geçerli bir hasar talebinin reddedilmesinin en yaygın sebebidir.",
-      "q7": "Sigortayı İngilizce yaptırabilir miyim?",
-      "a7": "Evet. Fethiye'de, ekibi konut, araç ve sağlık poliçelerini Türkçenin yanı sıra İngilizce ve Rusça da yürüten yerel bir sigorta sağlayıcısıyla çalışıyoruz; böylece poliçe metni imzadan sonra değil, önce açıklanıyor."
+      "a3": "TAPU’da kayıtlı olan gayrimenkulün metrekare cinsinden büyüklüğüne, inşaat türüne ve içinde bulunduğu sismik risk bölgesine göre belirlenir. Satın alma fiyatı veya piyasa değerine dayalı değildir; bu nedenle, farklı risk bölgelerinde bulunan ve fiyatı aynı olan iki villa arasında belirgin ölçüde farklı primler söz konusu olabilir.",
+      "q4": "Villamı piyasa değeri üzerinden sigortalatmalı mıyım?",
+      "a4": "Hayır — binayı yeniden inşa değerine göre sigortalayın. Yeniden inşa değeri, kayıtlı metrekare sayısının, yeniden inşa için geçerli metrekare başına maliyetle çarpılmasıyla elde edilir ve arsa bedelini içermediği için genellikle piyasa fiyatının oldukça altındadır. Piyasa değerine göre sigortalamak, asla tazminat talebinde bulunamayacağınız bir teminat için daha yüksek prim ödemek anlamına gelir.",
+      "q5": "Aşım nedir ve neden önemlidir?",
+      "a5": "Muafiyet, sigorta şirketi herhangi bir ödeme yapmadan önce her hasar talebinde sizin karşılamanız gereken tutardır. Düşük primli ve yüksek muafiyetli bir poliçe, gerçek bir hasar durumunda, makul bir muafiyete sahip biraz daha pahalı bir poliçeden çok daha fazla masrafa neden olabilir. Teklifleri karşılaştırmaya başlamadan önce, sizin için uygun olan muafiyet tutarını belirleyin.",
+      "q6": "Kiraya verdiğim ya da boş bıraktığım bir gayrimenkulü sigortalayabilir miyim?",
+      "a6": "Evet, ancak her ikisi de poliçede belirtilmelidir. Çoğu özel sigorta poliçesi, mülkün kesintisiz boş kalma süresini 30 ile 60 gün arasında bir süreyle sınırlamaktadır ve ticari amaçla kiraya verilmesi genellikle özel bir ek madde gerektirir. Beyan edilmeyen kullanım, aksi takdirde geçerli olacak bir tazminat talebinin reddedilmesinin en yaygın nedenidir.",
+      "q7": "Sigortayı İngilizce olarak yaptırabilir miyim?",
+      "a7": "Evet. Fethiye’de faaliyet gösteren yerel bir sigorta şirketiyle çalışıyoruz; bu şirketin ekibi, konut, araba ve sağlık sigortası poliçelerini Türkçe’nin yanı sıra İngilizce ve Rusça dillerinde de düzenliyor. Böylece, poliçeyi imzalamadan önce, imzaladıktan sonra değil, poliçe metninin içeriği size açıklanmış oluyor."
     }
   },
   "insurancePage": {
-    "buyingProcessLink": "alım süreci",
-    "checklistEyebrow": "Teklif almadan önce",
-    "checklistHeading": "Önünüzde bulunması gereken altı şey",
-    "checklistLede": "Bunları önceden toplamak, belirsiz bir teklifi doğru bir teklife çevirir — ve beklediğiniz tutarı ödeyen tek teklif türü doğru olanıdır.",
-    "coverEyebrow": "Kapsamda olan ve olmayan",
-    "coverHeading": "Kapsandığınızı varsaymadan önce bunu okuyun",
-    "coverLede": "Aşağıdaki iki liste ekran görüntüsü almaya değer olanlar. Hasar sonrasındaki tatsız sürprizlerin neredeyse tamamı sağdaki sütunda duruyor.",
-    "ctaHeading": "Doğru şekilde sigortalı olduğunuzdan emin değil misiniz?",
+    "buyingProcessLink": "satın alma süreci",
+    "checklistEyebrow": "Fiyat teklifi almadan önce",
+    "checklistHeading": "Elinizin altında olması gereken altı şey",
+    "checklistLede": "Bunları bir araya getirmek, belirsiz bir alıntıyı doğru bir alıntıya dönüştürür — ve sadece doğru alıntılar, beklediğiniz sonucu verir.",
+    "coverEyebrow": "Kapsam dahilinde olanlar ve kapsam dışı olanlar",
+    "coverHeading": "Sigorta kapsamına girdiğinizi varsaymadan önce bunu okuyun",
+    "coverLede": "Aşağıdaki iki liste, ekran görüntüsünü almaya değer listelerdir. Bir talep sonrasında yaşanan neredeyse tüm hoş olmayan sürprizler sağdaki sütunda yer almaktadır.",
+    "ctaHeading": "Sigorta kapsamınızın yeterli olup olmadığından emin değil misiniz?",
     "ctaPrimary": "Bize ulaşın",
-    "daskBuyingNote": "Yenileme değil de yeni bir alım yapıyorsanız DASK, alımın bir parçası olarak düzenlenir — bkz. ",
-    "daskCapNote": "Azami teminat tutarı devlet tarafından belirlenir ve her yıl güncellenir — buna güvenmeden önce yürürlükteki rakamı bize sorun.",
-    "daskCoversLabel": "DASK neyi kapsar",
-    "daskHeading": "DASK — zorunlu deprem teminatı",
-    "daskNotCoversLabel": "DASK neyi kapsamaz",
-    "disclaimer": "Coast 2 Coast Properties Turkey bir gayrimenkul danışmanlığıdır; düzenlemeye tabi bir sigorta brokeri değildir. Burada anlatılan teminat tipik olanıdır, evrensel değil — her sigortacı poliçesini farklı yazar ve DASK azami teminat tutarı devlet tarafından belirlenip her yıl değişir. Satın almadan önce daima poliçe ekini ve istisnaları okuyun, güncel rakamları da sağlayıcıya teyit ettirin.",
+    "daskBuyingNote": "Yenileme yerine satın alıyorsanız, DASK satın alma işleminin bir parçası olarak düzenlenir — bkz. ",
+    "daskCapNote": "Maksimum sigorta tutarı devlet tarafından belirlenir ve her yıl güncellenir — bu tutara güvenmeden önce, şu anda geçerli olan rakamı bize sorunuz.",
+    "daskCoversLabel": "DASK’ın kapsamı",
+    "daskHeading": "DASK — zorunlu deprem sigortası",
+    "daskNotCoversLabel": "DASK’ın kapsamadığı durumlar",
+    "disclaimer": "Coast 2 Coast Properties Turkey, bir emlak danışmanlık şirketidir; denetime tabi bir sigorta aracısı değildir. Burada açıklanan teminat kapsamı genel bir örnektir, her durum için geçerli değildir — her sigorta şirketi poliçesini farklı şekilde düzenler ve DASK’ın maksimum teminat tutarı devlet tarafından belirlenir ve her yıl değişir. Satın almadan önce mutlaka poliçe şartlarını ve istisnaları okuyun ve güncel rakamları sigorta şirketiyle teyit edin.",
     "faqEyebrow": "Net cevaplar",
-    "faqHeading": "Mülk sahiplerinin sorduğu sigorta soruları",
-    "formMessage": "Konut sigortası için teklif almak istiyorum. Mülküm ___ (bölge) içinde yaklaşık ___ m², ___ yılında inşa edilmiş.",
-    "formSubmit": "Teklif isteyin",
-    "heroTitle": "Konut Sigortası",
-    "metaDescription": "DASK deprem teminatı Türkiye'de zorunludur, ancak yalnızca yapının çıplak yeniden inşa maliyetini güvence altına alır. DASK'ın kapsadıkları, kapsamadıkları ve boşluğu dolduran bina ile eşya poliçeleri.",
-    "metaTitle": "Türkiye'de Konut Sigortası: DASK ve Ötesi",
-    "policiesEyebrow": "Üç poliçe",
-    "policiesHeading": "Hangisi ne işe yarar",
-    "policiesLede": "Biri kanunen zorunlu, ikisi değil — mülk sahiplerinin çoğu eksik sigortalı olduğunu tam da aradaki bu boşlukta fark ediyor.",
-    "privateCoversLabel": "Genellikle kapsamda",
-    "privateHeading": "Özel bina ve eşya teminatı",
-    "privateNotCoversLabel": "Genellikle kapsam dışı",
-    "quoteBody": "Bize tapunuzdaki metrekareyi ve kabaca neyi güvence altına almak istediğinizi iletin. Size İngilizce bir karşılaştırma göndereceğiz — DASK, bina ve eşya ayrı ayrı fiyatlandırılmış olarak, her birinin maliyetini görebilesiniz diye.",
+    "faqHeading": "Ev sahiplerinin sorduğu sigorta soruları",
+    "formMessage": "Mülk sigortası için bir fiyat teklifi almak istiyorum. Mülküm, ___ (bölge)‘de yer almakta olup, yaklaşık ___ m² büyüklüğünde ve ___ yılında inşa edilmiştir.",
+    "formSubmit": "Fiyat teklifi isteyin",
+    "heroTitle": "Mülk Sigortası",
+    "metaDescription": "Türkiye’de DASK deprem sigortası zorunludur, ancak yalnızca yapının yeniden inşa masraflarını karşılar. DASK’ın neleri kapsadığı, neleri kapsamadığı ve bu boşluğu dolduran bina ve eşya sigortaları.",
+    "metaTitle": "Türkiye’de Mülk Sigortası: DASK ve Ötesi",
+    "policiesEyebrow": "Üç politika",
+    "policiesHeading": "Her birinin ne işe yaradığı",
+    "policiesLede": "Bir tanesi yasal olarak zorunludur, ikincisi ise değildir — ve aralarındaki fark, çoğu araç sahibinin sigorta kapsamının yetersiz olduğunu fark ettiği noktadır.",
+    "privateCoversLabel": "Genellikle kapsananlar",
+    "privateHeading": "Özel binalar ve iç eşyalar sigortası",
+    "privateNotCoversLabel": "Genellikle hariç tutulur",
+    "quoteBody": "TAPU’nuzdaki metrekare bilgisini ve yaklaşık olarak hangi alanların sigortalanmasını istediğinizi bize iletin. Size İngilizce olarak bir karşılaştırma sunacağız — DASK, binalar ve eşya sigortası ayrı ayrı fiyatlandırılacak, böylece her birinin maliyetini görebileceksiniz.",
     "quoteHeading": "Sigorta teklifi isteyin",
-    "quoteWhatsapp": "WhatsApp'tan teklif"
+    "quoteWhatsapp": "WhatsApp'ta alıntı yapma"
   },
   "about": {
-    "ctaHeading": "Alımınızı yürütecek kişiyle doğrudan konuşun",
+    "ctaHeading": "Satın alma işleminizi yürütecek kişiyle görüşün",
     "ctaPrimary": "Bize ulaşın",
-    "ctaWhatsapp": "WhatsApp'tan yazın",
-    "heroEyebrow": "Coast 2 Coast hakkında",
-    "heroLede": "Coast 2 Coast Properties Turkey basit bir gözlemin üzerine kuruldu: bu sahilde alım yapanların çoğu, hayatlarının en büyük alımını bilmedikleri bir hukuk sistemi ve bilmedikleri bir dilde yapıyor. Bu, bir portal ilanından ve bir el sıkışmadan fazlasını hak ediyor.",
-    "heroTitle": "Sahada duran, uluslararası alıcıya hesap veren küçük bir ekip",
-    "imageAlt": "Coast 2 Coast Properties Turkey'in merkezi olduğu Fethiye körfezi ve çevresindeki sahil şeridi",
-    "metaDescription": "Coast 2 Coast Properties Turkey, Fethiye merkezli butik bir uluslararası gayrimenkul danışmanlığıdır. Daha az ilan alıyor, alıcıyı gerçek anlamda temsil ediyor ve tapu imzalandıktan çok sonra da ulaşılabilir kalıyoruz.",
-    "metaTitle": "Hakkımızda — Fethiye'de Butik Bir Gayrimenkul Danışmanlığı",
-    "missionBody": "Bir Fethiye alımının her aşamasını — kısa liste, görme turu, pazarlık, bağımsız hukuki incelemeler, değerleme, döviz, tapu ve satış sonrası — hepsinden sorumlu tek bir muhatap üzerinden yürütmek ve mülk sağlam durmuyorsa işi geri çevirmek.",
+    "ctaWhatsapp": "WhatsApp üzerinden bize mesaj gönderin",
+    "heroEyebrow": "Coast 2 Coast Hakkında",
+    "heroLede": "Coast 2 Coast Properties Turkey, basit bir gözlemden yola çıkarak kuruldu: Bu sahil şeridinde gayrimenkul satın alan çoğu kişi, hayatlarının en büyük alımını, bilmedikleri bir hukuk sistemi ve dil içinde gerçekleştiriyor. Bu durum, sadece bir emlak portalı ilanı ve bir el sıkışmasından daha fazlasını hak ediyor.",
+    "heroTitle": "Uluslararası alıcılara hizmet veren, sahada faaliyet gösteren küçük bir firma",
+    "imageAlt": "Coast 2 Coast Properties Turkey’nin merkezinin bulunduğu Fethiye Körfezi ve çevresindeki sahil şeridi",
+    "metaDescription": "Coast 2 Coast Properties Turkey, Fethiye merkezli butik bir uluslararası emlak danışmanlık şirketidir. Daha az sayıda gayrimenkul ilanı kabul ediyoruz, alıcıyı özenle temsil ediyoruz ve tapu devri tamamlandıktan sonra da uzun süre boyunca ulaşılabilir kalıyoruz.",
+    "metaTitle": "Hakkımızda — Fethiye’de Bir Butik Emlak Danışmanlık Şirketi",
+    "missionBody": "Fethiye’de bir gayrimenkul satın alma sürecinin her aşamasını — aday listesi, inceleme gezisi, pazarlık, bağımsız hukuki incelemeler, değerleme, döviz işlemleri, tapu işlemleri ve satış sonrası hizmetler — tüm bu süreçlerden sorumlu tek bir irtibat kişisi aracılığıyla yürütmek ve gayrimenkulün şartları karşılamaması durumunda işlemi reddetmek.",
     "missionLabel": "Misyonumuz",
-    "notDoingEyebrow": "En az onun kadar önemli",
+    "notDoingEyebrow": "Aynı derecede önemli",
     "notDoingHeading": "Yapmadığımız şeyler",
-    "notDoingLede": "Yurt dışı gayrimenkul sektörü kötü ününün bir kısmını hak etti. Aşağıdakiler, şirketi bilinçli olarak uzak tutacak şekilde kurduğumuz uygulamalar.",
-    "principlesEyebrow": "Nasıl çalışıyoruz",
-    "principlesHeading": "Yazılı olarak vereceğimiz dört taahhüt",
-    "visionBody": "Türkiye sahilinde ev almanın, ailelerin cesaretini toplayarak değil güvenle yaptığı bir şey hâline gelmesi — çünkü süreç anlatılmış, riskler açıkça adlandırılmış ve yol gösteren kişinin saklayacak hiçbir şeyi olmamıştır.",
+    "notDoingLede": "Yurtdışı gayrimenkul sektörü, itibarının bir kısmını hak etmiştir. İşte bunlar, şirketimizi kurarken kasıtlı olarak kaçınmak üzere tasarladığımız uygulamalardır.",
+    "principlesEyebrow": "Çalışma şeklimiz",
+    "principlesHeading": "Yazılı olarak taahhüt edeceğimiz dört husus",
+    "visionBody": "Türkiye’nin sahil kesimlerinde ev satın almanın, aileler için endişe kaynağı olmaktan ziyade güvenle gerçekleştirdikleri bir şey haline gelmesi — çünkü süreç ayrıntılı bir şekilde açıklandı, riskler açıkça belirtildi ve onlara rehberlik eden kişinin saklayacak hiçbir şeyi yoktu.",
     "visionEyebrow": "Vizyonumuz ve misyonumuz",
     "visionLabel": "Vizyonumuz",
-    "whatsappMessage": "Merhaba Coast 2 Coast — nasıl çalıştığınız hakkında daha fazla bilgi almak istiyorum.",
+    "whatsappMessage": "Merhaba Coast 2 Coast — Çalışma şekliniz hakkında daha fazla bilgi almak istiyorum.",
     "story": {
-      "eyebrow": "Deneyim. Güven. Kişisel hizmet.",
-      "heading": "Coast2Coast Properties Turkey",
-      "lede": "Coast2Coast Properties Turkey'e hoş geldiniz. 15 yılı aşkın deneyimimizle, dünyanın dört bir yanından gelen müşterilerimizin Türkiye'de kendilerine en uygun mülkü bulmasına yardımcı olan, köklü ve güvenilir bir gayrimenkul şirketiyiz.",
+      "eyebrow": "Deneyim. Güven. Kişiye Özel Hizmet.",
+      "heading": "Coast2Coast Emlak Türkiye",
+      "lede": "Coast2Coast Properties Türkiye’ye hoş geldiniz. 15 yılı aşkın bir süredir dünyanın dört bir yanından gelen müşterilerimizin Türkiye’de kendilerine en uygun gayrimenkulü bulmalarına yardımcı olan, köklü ve güvenilir bir emlak şirketiyiz.",
       "intro": [
-        "Merkezimiz, eşsiz güzellikteki Fethiye'de bulunuyor. Fethiye ve çevresindeki bölgelerde — Çalış, Hisarönü, Ovacık, Ölüdeniz, Seydikemer, Yeşilüzümlü ve yakın yerleşimlerde — gayrimenkul alanında uzmanlaşıyoruz.",
-        "Bizim için gayrimenkul, alıp satmaktan çok daha fazlasıdır. Mesele insanlar, kurulan ilişkiler ve hayatın en büyük kararlarından birini olabildiğince anlaşılır, keyifli ve kaygısız hâle getirmektir."
+        "Güzel Fethiye kasabasında faaliyet gösteren firmamız, Fethiye ve çevresindeki Çalış, Hisarönü, Ovacık, Ölüdeniz, Seydikemer, Yeşilüzümlü ve diğer bölgeler dahil olmak üzere tüm Fethiye ve çevresindeki gayrimenkuller konusunda uzmanlaşmıştır.",
+        "Bizim için emlak, sadece alım satımdan çok daha fazlasını ifade eder. Bu, insanlarla ve ilişkilerle ilgilidir; hayatta alınabilecek en önemli kararlardan birini olabildiğince basit, keyifli ve stresten uzak bir şekilde gerçekleştirmeyi amaçlar."
       ],
       "foundersHeading": "Ronnie ve Nilay ile tanışın",
       "founders": [
-        "Coast2Coast Properties Turkey bir aile şirketidir. Ronnie yurt dışından gelen müşterilerimizle, eşi Nilay ise Türk müşterilerimizle ilgilenir.",
-        "Ronnie İskoçyalı ve 26 yıldır Türkiye'de yaşıyor. Bu süre içinde bölgeyi, gayrimenkul piyasasını, hukuki ve idari süreçleri derinlemesine tanıdı; yöre genelinde güvenilir isimlerden oluşan geniş bir bağlantı ağı kurdu.",
-        "Türkiye'ye yerleşmeden önce Ronnie, İngiltere'de uzun yıllar satış yöneticiliği yaptı; bu dönemde Sears Group bünyesinde de görev aldı. Bu geçmiş ona güçlü bir satış, iletişim ve müzakere becerisi kazandırdı; daha da önemlisi, müşterileri ve onların kendine özgü ihtiyaçlarını gerçekten anlama yetisi verdi.",
-        "Ronnie, her müşteri için bir adım fazlasını atmaya inanır. Hangi bölgenin size uygun olabileceğine dair ilk sohbetten mülk arayışına, görüntülemelere, pazarlığa ve satış sürecine kadar amacımız her zaman dürüst, profesyonel ve kişiye özel bir hizmet sunmaktır."
+        "Coast2Coast Properties Türkiye, bir aile işletmesidir. Ronnie uluslararası müşterilerimizle ilgilenirken, eşi Nilay ise Türk müşterilerimizle ilgilenmektedir.",
+        "Ronnie İskoçyalıdır ve 26 yıldır Türkiye’de yaşamaktadır. Bu süre zarfında, yerel bölge, emlak piyasası, hukuk ve idari sistemler hakkında kapsamlı bir bilgi birikimi edinmiş ve bölge genelinde güvenilir kişilerden oluşan güçlü bir ağ kurmuştur.",
+        "Türkiye’ye taşınmadan önce Ronnie, Sears Group’taki deneyimi de dahil olmak üzere Birleşik Krallık’ta satış yönetimi alanında uzun yıllar çalıştı. Bu geçmişi sayesinde mükemmel satış, iletişim ve müzakere becerileri edindi; ancak daha da önemlisi, müşterileri ve onların bireysel ihtiyaçlarını derinlemesine anlamayı başardı.",
+        "Ronnie, her müşteri için bir adım daha ileri gitmenin önemine yürekten inanmaktadır. Sizin için en uygun bölgenin hangisi olabileceğine dair ilk görüşmeden başlayarak, emlak aramaları ve gezileri, pazarlıklar ve satış süreci boyunca hedefimiz her zaman dürüst, profesyonel ve kişisel bir hizmet sunmaktır."
       ],
-      "foundersQuote": "Her müşterimizin kendini güvende, tam bilgilendirilmiş ve deneyiminden %100 memnun hissetmesini isteriz.",
-      "nilay": "Mülk üzerinde anlaşma sağlandıktan sonra satışa ilişkin önemli evrak ve resmî işlemleri Nilay üstlenir; sürecin eksiksiz ve doğru biçimde yürütülmesini sağlar.",
-      "rangeHeading": "Uygun fiyatlı dairelerden lüks konutlara",
+      "foundersQuote": "Her müşterimizin kendine güvenmesini, bilgilendirilmiş olmasını ve yaşadığı deneyimden %100 memnun kalmasını istiyoruz.",
+      "nilay": "Bir gayrimenkul üzerinde anlaşmaya varıldıktan sonra, Nilay satışla ilgili önemli evrak işlerini ve işlemleri üstlenerek, sürecin verimli ve doğru bir şekilde yürütülmesine katkıda bulunur.",
+      "rangeHeading": "Uygun Fiyatlı Dairelerden Lüks Gayrimenkullere",
       "range": [
-        "Yıllar içinde müşterilerimize, Türkiye gayrimenkul piyasasının çok geniş bir yelpazesinde mülk edinmelerinde eşlik ettik.",
-        "Tek yatak odalı dairelerden ve uygun fiyatlı yazlıklardan 1 milyon £ ve üzeri değerdeki lüks konutlara kadar; her müşterinin farklı, her gayrimenkul yolculuğunun kendine özgü olduğunu biliyoruz.",
-        "Tam olarak ne aradığınızı anlamak için zaman ayırırız — ister yazlık, ister kalıcı bir yaşam alanı, ister yatırım fırsatı, kira getirisi sağlayacak bir mülk ya da güneşin altındaki kendi lüks eviniz olsun.",
-        "Coast2Coast Properties'i İngiltere'deki gayrimenkul fuarlarında temsil etmekten de gurur duyduk; uluslararası alıcıların Türkiye'deki fırsatları keşfetmesine katkıda bulunduk."
+        "Yıllar boyunca, müşterilerimizin Türkiye emlak piyasasının geniş bir yelpazesinde gayrimenkul satın almalarına yardımcı olduk.",
+        "Tek yatak odalı dairelerden ve uygun fiyatlı tatil evlerinden, değeri 1 milyon sterlin veya daha fazla olan lüks gayrimenkullere kadar, her müşterinin farklı olduğunu ve her gayrimenkul serüveninin benzersiz olduğunu biliyoruz.",
+        "Ne aradığınızı tam olarak anlamak için zaman ayırıyoruz — ister tatil evi, ister kalıcı ikametgah, ister yatırım fırsatı, ister kiraya vermek amacıyla satın alınacak bir gayrimenkul, ister güneşli bir bölgede kendinize ait lüks bir ev olsun.",
+        "Ayrıca, Birleşik Krallık’ta düzenlenen emlak fuarlarında Coast2Coast Properties’i gururla temsil ederek, uluslararası alıcıların Türkiye’deki fırsatları keşfetmelerine yardımcı olduk."
       ],
-      "clientsHeading": "Dünyanın dört bir yanından müşteriler",
+      "clientsHeading": "Dünyanın Dört Bir Yanından Müşteriler",
       "clients": [
-        "Müşterilerimiz; Avustralya, ABD, Avrupa ve Asya başta olmak üzere dünyanın her köşesinden geldi.",
-        "Ama bizi asıl gururlandıran, geçmişte birlikte çalıştığımız müşterilerimizin pek çoğunun bugün hâlâ dostumuz olması.",
-        "Bu, bizim için başarıyla tamamlanmış bir gayrimenkul işleminden çok daha fazlasını ifade ediyor.",
-        "Yurt dışında mülk almak büyük bir karardır; müşterilerin süreç boyunca güvenebilecekleri, yaslanabilecekleri ve açık yüreklilikle konuşabilecekleri birine ihtiyaç duyduğunu biliyoruz.",
-        "Eski müşterilerimizin birçoğu bizimle iletişimini sürdürüyor, yeniden alım yapmak istediklerinde bize dönüyor ya da Coast2Coast'u dostlarına ve ailelerine tavsiye ediyor.",
-        "Bu, son derece gurur duyduğumuz bir şey."
+        "Müşterilerimiz, Avustralya, ABD, Avrupa ve Asya dahil olmak üzere dünyanın dört bir yanından gelmektedir.",
+        "Ancak bizi özellikle gururlandıran şey, eski müşterilerimizin birçoğunun bugün hâlâ dostlarımız olmasıdır.",
+        "Bizim için bu, sadece başarılı bir gayrimenkul işlemini tamamlamaktan çok daha fazlasını ifade ediyor.",
+        "Yurtdışında gayrimenkul satın almak önemli bir karardır ve müşterilerimizin bu süreç boyunca güvenebilecekleri, dayanabilecekleri ve samimi bir şekilde konuşabilecekleri birine ihtiyaç duyduklarını biliyoruz.",
+        "Eski müşterilerimizin birçoğu bizimle iletişimini sürdürüyor, yeniden satın alma kararı aldıklarında bize geri dönüyor ya da Coast2Coast’u arkadaşlarına ve ailelerine tavsiye ediyor.",
+        "Bu, bizim için inanılmaz derecede gurur verici bir şey."
       ],
-      "clientsQuote": "Coast2Coast olarak inanıyoruz ki müşterimizle ilişkimiz, anahtarları teslim aldığı gün bitmez.",
-      "whyHeading": "Neden Coast2Coast Properties Turkey?",
-      "whyLede": "İtibarımız üç yalın ilke üzerine kuruludur:",
+      "clientsQuote": "Coast2Coast olarak, müşterilerimizle olan ilişkimizin anahtarları teslim aldıkları anda sona ermediğine inanıyoruz.",
+      "whyHeading": "Neden Coast2Coast Properties Türkiye?",
+      "whyLede": "İtibarımız üç basit ilke üzerine kurulmuştur:",
       "pillars": [
         "Dürüstlük",
         "Deneyim",
-        "Kişisel hizmet"
+        "Kişisel Hizmet"
       ],
-      "whyBody": "Müşteriye yalnızca mülk gösterip satışın kendiliğinden olmasını ummak bizim anlayışımız değildir.",
+      "whyBody": "Müşterilere sadece gayrimenkulleri gösterip bir satışın gerçekleşmesini ummak gibi bir yaklaşım benimsemiyoruz.",
       "creed": [
-        "Dinleriz.",
-        "Anlarız.",
-        "Yol gösteririz."
+        "Sizi dinliyoruz.",
+        "Anlıyoruz.",
+        "Tavsiyemiz şudur:"
       ],
-      "creedClose": "Ve mülkün de konumun da o müşteri için gerçekten doğru olduğundan emin oluruz.",
-      "whyClose": "Türkiye'de geçen 26 yıl, gayrimenkul sektöründe 15 yılı aşkın deneyim, derin yerel bilgi ve güçlü bir bağlantı ağıyla müşterilerimize standart bir emlak ofisinin sunabileceğinden çok daha fazlasını sunuyoruz.",
-      "cta": "Bir alımın nasıl işlediğini tam olarak görün"
+      "creedClose": "Ayrıca, gayrimenkulün ve konumun her bir müşteriye uygun olduğundan emin oluyoruz.",
+      "whyClose": "Türkiye’de 26 yıldır yaşamakta, emlak sektöründe 15 yılı aşkın bir deneyime sahip, kapsamlı yerel bilgi birikimi ve güçlü bir iletişim ağına sahip olduğumuzdan, müşterilerimize standart bir emlak acentesinden çok daha fazlasını sunabiliyoruz.",
+      "cta": "Bir satın alma işleminin tam olarak nasıl gerçekleştiğini görün"
     },
     "principles": {
       "represent": {
-        "title": "Hem sizi hem satıcıyı temsil ediyoruz",
-        "body": "Avukatınız sizin tarafınızdan görevlendirilir ve bizden bağımsızdır. Türkiye'de avukat tutmak zorunlu değildir; ancak yabancı uyrukluysanız bir avukatla çalışmanızı tavsiye ederiz."
+        "title": "Sizi ve satıcıyı temsil ediyoruz",
+        "body": "Avukatınız sizin talimatınızla hareket eder ve bizden bağımsızdır. Türkiye’de avukat tutmak zorunlu değildir, ancak yabancı uyrukluysanız bir avukat tutmanızı tavsiye ederiz."
       },
       "language": {
-        "title": "Okuyamadığınız bir dilde hiçbir şey imzalanmaz",
-        "body": "Her rezervasyon sözleşmesi, değerleme raporu ve tapu belgesi siz imzalamadan önce eksiksiz tercüme edilir. Tapu randevusuna yeminli tercüman talep üzerine değil, kural gereği katılır."
+        "title": "Okumadığınız bir dilde hiçbir şey imzalanmaz",
+        "body": "Her rezervasyon sözleşmesi, değerleme raporu ve tapu belgesi, siz imzalamadan önce eksiksiz olarak çevrilir. Yeminli çevirmen, talep üzerine değil, standart bir prosedür olarak tapu tescil randevusuna katılır."
       },
       "contact": {
-        "title": "Baştan sona tek muhatap",
-        "body": "Satış ekibi, hukuk ekibi ve satış sonrası ekibi arasında elden ele geçirilmezsiniz. Sizi Dalaman'da karşılayan kişi, şubatta telefonu açan kişidir."
+        "title": "Baştan sona tek bir irtibat kişisi",
+        "body": "Satış ekibi, hukuk ekibi ve müşteri hizmetleri ekibi arasında oradan oraya yönlendirilmezsiniz. Dalaman’da sizi karşılayan kişi, Şubat ayında telefona cevap veren kişidir."
       },
       "say-no": {
-        "title": "Evet'ten çok hayır diyoruz",
-        "body": "Tapu sorunu olan, iskânı eksik veya fazla iyimser fiyatlanmış mülkler bu siteye hiç girmiyor. Portföyün kısa olması bir kısıt değil, bilinçli bir tercih."
+        "title": "\"Hayır\"ı \"evet\"ten daha sık söylüyoruz",
+        "body": "Mülkiyet durumu netleşmemiş, ikamet belgesi eksik veya fiyatı gerçekçi olmayan gayrimenkuller bu siteye alınmaz. Amacımız, portföyümüzü kısa tutmaktır; bu bir sınırlama değildir."
       }
     },
     "notDoing": [
-      "Sekiz alıcının aynı villayı birlikte gezdiği ve o gün rezervasyon için baskı gördüğü otobüs turları düzenlemiyoruz.",
-      "Sizi belirli bir projeye yönlendirmek için müteahhitten komisyon almıyoruz.",
-      "Vitrin fiyatını söyleyip %6–8'lik alım masrafını siz karar verdikten sonra açıklamıyoruz.",
-      "Tapu devrolunca ortadan kaybolmuyoruz — mülkiyetin beşinci yılı da en az birincisi kadar önemli."
+      "Sekiz alıcının aynı villayı gezip o gün içinde rezervasyon yapmaya zorlandığı otobüs turları düzenlemiyoruz.",
+      "Sizi belirli bir projeye yönlendirmek için geliştiriciden komisyon almıyoruz.",
+      "Başlangıç fiyatı belirtmiyoruz; satın alma kararınızı verdikten sonra, satın alma maliyetlerinin %6–8’ini açıklıyoruz.",
+      "Tapu devri tamamlandıktan sonra ortadan kaybolmuyoruz — mülkiyetin beşinci yılı, ilk yılı kadar önemlidir."
     ]
   },
   "viewingDay": {
-    "bookBody": "Bize kabaca ne zaman seyahat edebileceğinizi ve ne aradığınızı söyleyin. Size önerilen bir program ve onayınıza sunulan bir kısa listeyle döneceğiz — daha kimse uçak bileti almadan önce.",
-    "bookHeading": "Görme turunuzu ayarlayın",
-    "bookWhatsapp": "WhatsApp'tan sormayı mı tercih edersiniz?",
+    "bookBody": "Bize yaklaşık olarak ne zaman seyahat edebileceğinizi ve ne tür bir seyahat aradığınızı belirtin. Kimse uçak bileti almadan önce, size bir seyahat programı önerisi ve onaylamanız için bir aday listesi sunacağız.",
+    "bookHeading": "Gezinizi rezerve edin",
+    "bookWhatsapp": "WhatsApp'tan sormak mı istersiniz?",
     "ctaAsk": "Önce bir soru sorun",
-    "ctaBook": "Görme turunuzu ayarlayın",
+    "ctaBook": "Gezinizi rezerve edin",
     "faq": {
-      "q1": "Görme turunun maliyeti nedir?",
-      "a1": "Harcadığımız zaman, gezi sırasındaki ulaşım ve program planlaması için hiçbir ücret almıyoruz. Kendi uçuşunuzu ve konaklamanızı siz karşılıyorsunuz; ikisi için de öneride bulunmaktan ya da yardımcı olmaktan memnuniyet duyarız. Kapora yok, satın alma yükümlülüğü yok.",
-      "q2": "Kaç mülk göreceğim?",
-      "a2": "Tam bir günde altı ilâ sekiz mülk makul üst sınırdır ve gezilerin çoğu iki ya da üç güne yayılır. Fazlası olduğunda mülkler gerçekten birbirine karışmaya başlar — sizi yirmi evden geçirmektense daha az sayıda evi doğru dürüst göstermeyi tercih ederiz.",
-      "q3": "Ne kadar kalmalıyım?",
-      "a3": "Üç ilâ dört gece alıcıların çoğuna uyuyor. Bu, iki tam görme günü, favorilere geri dönmek ya da bir avukatla görüşmek için üçüncü bir gün ve birkaç bölgede günün farklı saatlerinde oturup ortamı hissetmek için yeterli zaman demek — sadece arabadan görmek yerine.",
-      "q4": "Yılın hangi dönemi ziyaret için en iyisi?",
-      "a4": "Şubat–haziran arası ideal: hava mülkleri gezmek için rahat, her yer açık ve ağustos sıcağından kaçınıyorsunuz. Kışın gelmenin gerçek bir avantajı var — hangi bölgelerin gerçekten açık kaldığını görürsünüz ki bunu temmuzda anlamak zordur.",
-      "q5": "Uçuş ve konaklama konusunda yardımcı olur musunuz?",
-      "a5": "Evet. Görmek istediğiniz bölgelere göre nerede kalmanız gerektiğini öneririz — doğru yerde kalmak, o bölgeyi değerlendirme işinin yarısını hallediyor — ve Fethiye'ye yaklaşık 45 dakika mesafedeki Dalaman'a uçuş bulmanıza yardımcı olabiliriz.",
-      "q6": "Ülkeme döndükten sonra almak istersem ne olur?",
-      "a6": "Bu gayet kolay. Devri, avukatınıza verilen bir vekaletname ile tamamlayabilirsiniz; vekaletname gezi sırasında Türkiye'de bir noterde ya da kendi ülkenizdeki Türk konsolosluğunda düzenlenebilir. Alıcılarımızın önemli bir kısmı ikinci bir uçuş yapmadan alımı tamamlıyor."
+      "q1": "Bir keşif gezisinin maliyeti ne kadardır?",
+      "a1": "Zamanımız, gezi sırasındaki ulaşım ve güzergâh planlaması için herhangi bir ücret talep edilmez. Uçak biletleri ve konaklama masraflarınızı kendiniz karşılarsınız; her ikisi için de öneride bulunmaktan veya düzenlemede yardımcı olmaktan memnuniyet duyarız. Depozito talep edilmez ve satın alma zorunluluğu yoktur.",
+      "q2": "Kaç tane emlak göreceğim?",
+      "a2": "Tam bir gün içinde altı ila sekiz ev, makul bir üst sınırdır ve çoğu gezi iki ya da üç gün sürer. Bundan fazlası olursa evler gerçekten birbirine karışmaya başlar — size yirmi evi aceleyle gezdirmek yerine, daha az sayıda evi ama daha ayrıntılı bir şekilde göstermeyi tercih ederiz.",
+      "q3": "Ne kadar süre kalmalıyım?",
+      "a3": "Çoğu alıcı için üç ila dört gece konaklama uygun olur. Bu, iki tam gün ev gezme fırsatı, üçüncü gün ise beğendiklerinizi tekrar ziyaret etmek veya bir avukatla görüşmek için zaman ve ayrıca bazı bölgeleri sadece arabadan görmek yerine günün farklı saatlerinde yerinde incelemek için yeterli zaman sağlar.",
+      "q4": "Ziyaret etmek için yılın en uygun zamanı ne zamandır?",
+      "a4": "Şubat’tan Haziran’a kadar olan dönem idealdir: hava, mülkleri gezmek için çok elverişlidir, her yer açıktır ve Ağustos sıcağından da kaçınmış olursunuz. Kışın ziyaret etmenin tek gerçek avantajı şudur: hangi bölgelerin gerçekten açık kaldığını görebilirsiniz; bunu Temmuz ayında anlamak zordur.",
+      "q5": "Uçak biletleri ve konaklama konusunda yardımcı olabilir misiniz?",
+      "a5": "Evet. Görmek istediğiniz bölgelere göre nerede kalabileceğinizi öneririz — doğru yerde konaklamak, o yeri keşfetmenin işinin yarısını halleder — ve Fethiye’ye yaklaşık 45 dakika uzaklıktaki Dalaman’a uçuş bulmanıza da yardımcı olabiliriz.",
+      "q6": "Ya eve döndükten sonra satın almak istersem ne olur?",
+      "a6": "Bu oldukça basit. Avukatınıza verilmiş bir vekaletname kapsamında işlemleri tamamlayabilirsiniz; bu vekaletnameyi ya buradayken bir Türk noteri nezdinde ya da kendi ülkenizdeki bir Türk konsolosluğu veya büyükelçiliğinde imzalayabilirsiniz. Alıcılarımızın çoğu bu şekilde işlemleri tamamlamaktadır."
     },
     "faqEyebrow": "Net cevaplar",
-    "faqHeading": "Görme turu soruları",
-    "faqLede": "Maliyetler, süreler, kaç mülk görüleceği ve almamaya karar verirseniz ne olacağı — ki bu son derece normal bir sonuçtur.",
+    "faqHeading": "Seyahatle ilgili soruları görüntüleme",
+    "faqLede": "Maliyetler, zaman çizelgesi, kaç tane gayrimenkul olduğu ve satın almamaya karar verirseniz ne olacağı — ki bu tamamen normal bir durumdur.",
     "finalHeading": "Henüz uçmaya hazır değil misiniz?",
-    "finalPrimary": "Satılık villaları inceleyin",
-    "finalSecondary": "Bölge hakkında okuyun",
-    "heroTitle": "Görme Turu",
+    "finalPrimary": "Satılık villalara göz atın",
+    "finalSecondary": "Bölge hakkında bilgi edinin",
+    "heroTitle": "Görüntüleme Günü",
     "included": [
-      "Gezinin her günü konaklamanızdan alınma ve geri bırakılma",
-      "Her mülk arasında özel, klimalı ulaşım",
-      "Baştan sona yanınızda, adı belli tek bir danışman",
-      "Siz yola çıkmadan önce yazılı olarak mutabık kalınan bir kısa liste",
-      "Her bölgeye dair yerel bilgi: kış kapanışları, ulaşım, kira talebi, ikinci el değeri",
-      "İhtiyaç duyarsanız bağımsız ve İngilizce konuşan bir avukatla tanıştırma",
-      "Tam satış sonrası destek"
+      "Seyahatin her günü, konaklama yerinizden alınma ve konaklama yerinize geri bırakma hizmeti",
+      "Her tesis arasında özel, klimalı ulaşım hizmeti",
+      "Başından sonuna kadar size eşlik edecek, adı bilinen bir danışman — baştan sona aynı kişi",
+      "Seyahate çıkmadan önce sizinle yazılı olarak kararlaştırılan aday listesi",
+      "Her bölgeye ilişkin yerel bilgiler: kış aylarında kapalı olan yerler, ulaşım, kiralama talebi, yeniden satış",
+      "İhtiyacınız olursa, İngilizce konuşan bağımsız bir avukatla tanıştırma hizmeti",
+      "Kapsamlı satış sonrası destek"
     ],
-    "includedHeading": "Neler dâhil",
-    "metaDescription": "Fethiye, Ölüdeniz ve Göcek'e gayrimenkul görme turu planlayın. Siz yola çıkmadan mutabık kalınan bir kısa liste, özel ulaşım, baştan sona adı belli bir danışman ve harcadığımız zaman için hiçbir ücret yok.",
-    "metaTitle": "Fethiye'de Gayrimenkul Görme Turları",
+    "includedHeading": "Pakete neler dahildir",
+    "metaDescription": "Fethiye, Ölüdeniz ve Göcek’e emlak gezisi planlayın. Uçuş öncesinde üzerinde anlaşmaya varılan bir aday listesi, özel ulaşım, gezi boyunca size özel bir danışman ve hizmetimiz için herhangi bir ücret talep edilmez.",
+    "metaTitle": "Türkiye’nin Fethiye Şehrinde Emlak Gezileri",
     "notDoing": [
-      "Sekiz alıcının aynı sabah aynı villayı gezdiği otobüs turları yok",
-      "Diğerlerini makul göstermek için belirttiğiniz bütçenin üzerinde mülk gösterme yok",
-      "'Sadece bugüne özel' fiyat yok ve ülkenize dönmeden rezervasyon baskısı yok",
-      "Gezinin ortasında sürece dâhil olan ikinci bir emlakçı yok",
-      "Hiçbir yükümlülük yok — alımla bitmeyen bir gezi son derece normal bir sonuçtur"
+      "Aynı sabah aynı villayı sekiz alıcıyla birlikte gezilen otobüs turları yapılmaz",
+      "Belirttiğiniz bütçenin üzerinde hiçbir gayrimenkul gösterilmedi; böylece diğer seçenekler makul görünsün diye",
+      "“Sadece bugün” fiyatlandırması yok ve eve dönmeden önce rezervasyon yaptırmanız için baskı yapılmıyor",
+      "Yolculuğun ortasında ikinci bir acente katılmayacaktır",
+      "Hiçbir şekilde yükümlülük yoktur — satın alma yapmadan sona eren bir gezi, gayet normal bir durumdur"
     ],
     "notDoingHeading": "Yapmadığımız şeyler",
-    "notDoingLede": "Yurt dışı gayrimenkul görme turlarının bir ünü var. Aşağıdakiler, turu bilinçli olarak uzak tutacak şekilde kurguladığımız uygulamalar.",
-    "serviceName": "Fethiye, Türkiye'de gayrimenkul görme turları",
-    "whatsappMessage": "Merhaba Coast 2 Coast — Fethiye'ye bir görme turu ayarlamak istiyorum."
+    "notDoingLede": "Yurtdışında emlak gezileri, kötü bir şöhrete sahip. Bu gezi programını, tam da bu tür uygulamalardan kaçınmak amacıyla özenle tasarladık.",
+    "serviceName": "Fethiye, Türkiye’de emlak gezileri",
+    "whatsappMessage": "Merhaba Coast 2 Coast — Fethiye'ye bir keşif gezisi düzenlemek istiyorum."
   },
   "blog": {
-    "allArticles": "Tüm yazılar",
-    "ctaHeading": "Okumak iyi bir başlangıç. Kısa liste daha iyisi.",
-    "ctaProperties": "Gerçek ilanlara bakmaya hazır mısınız?",
-    "empty": "İlk yazılar hazırlanıyor. Bu arada alım ve satım süreci rehberleri konuyu ayrıntısıyla ele alıyor.",
-    "eyebrow": "Yazılar",
-    "heading": "Fethiye gayrimenkul piyasasından notlar",
-    "inThisArticle": "Bu yazıda",
+    "allArticles": "Tüm makaleler",
+    "ctaHeading": "Okumak iyi bir başlangıçtır. Aday listesi ise daha iyidir.",
+    "ctaProperties": "Gerçek gayrimenkulleri incelemeye hazır mısınız?",
+    "empty": "İlk makaleler yazılmaya başlandı. Bu arada, alım-satım süreçlerine ilişkin kılavuzlar konuyu ayrıntılı bir şekilde ele almaktadır.",
+    "eyebrow": "Görüşler",
+    "heading": "Fethiye emlak piyasasından notlar",
+    "inThisArticle": "Bu makalede",
     "keepReading": "Okumaya devam edin",
-    "lede": "Geri dönüştürülmüş basın bülteni ve piyasa abartısı yok. Bunlar her hafta telefonda anlatmak zorunda kaldığımız konular — biz konuşmadan önce okuyabilesiniz diye düzgünce yazıldı.",
-    "listCtaText": "Bize bütçenizi, zaman planınızı ve mülkü nasıl kullanmayı düşündüğünüzü anlatın. Size gerçekten uyanlarla — ve kaçınmanız gerekenlerle — döneceğiz.",
-    "listCtaWhatsapp": "Merhaba Coast 2 Coast — rehberlerinizi okuyordum, Fethiye'den alım üzerine konuşmak istiyorum.",
-    "metaTitle": "Fethiye Gayrimenkul Yazıları ve Alım Rehberleri",
-    "notFoundBody": "Bu yazı artık yayında değil. Fethiye'de gayrimenkul alımına dair güncel rehberlerimize göz atın.",
-    "notFoundTitle": "Yazı bulunamadı",
-    "postCtaText": "Portföyümüzdeki her villayı bizzat kendi ayağımızla gezdik ve hepsinin temiz, müstakil tapusu var. Neye ihtiyacınız olduğunu söyleyin, kısa listeyi gönderelim."
+    "lede": "Geri dönüştürülmüş basın bültenleri yok, pazardaki abartılı iddialar da yok. Bunlar, her hafta telefonda açıklamak zorunda kaldığımız konular — konuşmadan önce okuyabilmeniz için düzgün bir şekilde yazıya dökülmüş haliyle.",
+    "listCtaText": "Bize bütçenizi, zaman planınızı ve mülkü nasıl kullanmayı düşündüğünüzü söyleyin. Size gerçekten uygun olan seçenekleri ve kaçınmanız gerekenleri size sunacağız.",
+    "listCtaWhatsapp": "Merhaba Coast 2 Coast — Rehberlerinizi okuyorum ve Fethiye'de gayrimenkul satın alma konusunda görüşmek istiyorum.",
+    "metaTitle": "Fethiye Emlak Bilgileri ve Satın Alma Kılavuzları",
+    "notFoundBody": "Bu makale artık mevcut değildir. Fethiye’de gayrimenkul satın almaya ilişkin en güncel rehberlerimize göz atın.",
+    "notFoundTitle": "Makale bulunamadı",
+    "postCtaText": "Kayıtlarımızda bulunan her villayı bizzat gezip inceledik ve her birinin temiz bir tapusu bulunmaktadır. İhtiyaçlarınızı bize bildirin, size uygun seçeneklerin listesini gönderelim."
   },
   "properties": {
     "aboutProperty": "Bu mülk hakkında",
     "area": "Alan",
     "areaGuideCta": "Bölge rehberini okuyun",
-    "areasEyebrow": "Bölgeye göre gezinin",
-    "areasHeading": "Semt fark eder",
-    "areasHeadingSub": "evden daha çok",
-    "askWhatsapp": "WhatsApp'tan sorun",
-    "bathrooms": "Banyo",
-    "bedrooms": "Yatak odası",
+    "areasEyebrow": "Bölgeye göre göz at",
+    "areasHeading": "Mahalle önemlidir",
+    "areasHeadingSub": "evden daha fazla",
+    "askWhatsapp": "WhatsApp'ta sor",
+    "bathrooms": "Banyolar",
+    "bedrooms": "Yatak odaları",
     "citizenshipProgramme": "Vatandaşlık programı",
     "deedStatus": "Tapu durumu",
-    "featured": "Öne çıkan",
+    "featured": "Öne Çıkanlar",
     "features": "Özellikler",
-    "floors": "Kat",
+    "floors": "Katlar",
     "galleryClose": "Galeriyi kapat",
-    "galleryOpen": "Galeriyi aç",
+    "galleryOpen": "Galeriyi görüntüle",
     "heading": "Fethiye'de satılık villalar",
-    "internal": "iç alan",
+    "internal": "iç",
     "internalArea": "İç alan",
-    "keyFacts": "Temel bilgiler",
-    "lede": "Her mülkü bizzat kendi ayağımızla gezdik; hepsinin temiz ve müstakil tapusu var.",
+    "keyFacts": "Önemli bilgiler",
+    "lede": "Her bir gayrimenkulü bizzat yerinde inceledik ve her birinin tapu kaydı temizdir.",
     "legalHeading": "Tapu ve hukuki durum",
     "location": "Konum",
-    "moreFromPortfolio": "Portföyden diğerleri",
+    "moreFromPortfolio": "Portföyden diğer örnekler",
     "nextPhoto": "Sonraki fotoğraf",
-    "nextProperties": "Sonraki ilanlar",
-    "noPhotos": "Fotoğraflar yakında",
-    "notFoundBody": "Bu ilan artık yayında değil. Fethiye, Ölüdeniz ve Göcek'teki güncel satılık villalarımıza göz atın.",
-    "notFoundTitle": "Mülk bulunamadı",
-    "offMarketHeading": "En iyi mülkler bu sayfaya nadiren ulaşır",
-    "plot": "arsa",
+    "nextProperties": "Sonraki mülkler",
+    "noPhotos": "Fotoğraflar yakında eklenecek",
+    "notFoundBody": "Bu mülk artık listelenmemektedir. Fethiye, Ölüdeniz ve Göcek’te satılık güncel villalarımıza göz atın.",
+    "notFoundTitle": "Eşya bulunamadı",
+    "offMarketHeading": "En iyi mülkler nadiren bu sayfaya ulaşır",
+    "plot": "konu",
     "previousPhoto": "Önceki fotoğraf",
-    "previousProperties": "Önceki ilanlar",
-    "priceOnApplication": "Fiyat için görüşün",
-    "readBuying": "Alım sürecinin tamamını okuyun",
-    "reference": "İlan kodu",
-    "register": "Taleplerinizi kaydedin",
-    "type": "Tip",
+    "previousProperties": "Önceki mülkler",
+    "priceOnApplication": "Fiyat talep üzerine verilir",
+    "readBuying": "Satın alma sürecinin tamamını okuyun",
+    "reference": "Kaynak",
+    "register": "İhtiyaçlarınızı bildirin",
+    "type": "Tür",
     "view": "Görüntüle",
-    "viewAll": "Tüm ilanları görün",
-    "whyThisOne": "Neden bu mülk"
+    "viewAll": "Tüm gayrimenkulleri görüntüle",
+    "whyThisOne": "Neden bu?"
   },
   "explorer": {
-    "anyArea": "Tüm bölgeler",
-    "anyBedrooms": "Farketmez",
-    "anyPrice": "Tüm fiyatlar",
-    "anyType": "Tüm tipler",
-    "areaCount": "{count} bölge",
-    "bedrooms": "Yatak odası",
+    "anyArea": "Herhangi bir bölge",
+    "anyBedrooms": "Herhangi bir",
+    "anyPrice": "Herhangi bir fiyat",
+    "anyType": "Herhangi bir tür",
+    "areaCount": "{count} alanlar",
+    "bedrooms": "Yatak odaları",
     "categoryApartment": "Daire",
-    "categoryPlot": "Arsa",
+    "categoryPlot": "Konu",
     "categoryVilla": "Villa",
     "clearFilters": "Tüm filtreleri temizle",
     "clearSearch": "Aramayı temizle",
     "closeFilters": "Filtreleri kapat",
-    "emptyBody": "Sattıklarımızın kayda değer bir bölümü bu sayfaya hiç ulaşmıyor. Bize ne aradığınızı söyleyin; uygun olanları geldikçe gönderelim.",
+    "emptyBody": "Sattığımız ürünlerin önemli bir kısmı bu sayfaya hiç ulaşmaz. Bize talebinizi bildirin, uygun ürünler gelir gelmez size gönderelim.",
     "filters": "Filtreler",
-    "filtersTitle": "İlanları filtrele",
-    "gridView": "Izgara görünümü",
-    "layout": "Sonuç görünümü",
+    "filtersTitle": "Filtre özellikleri",
+    "gridView": "Tablo görünümü",
+    "layout": "Sonuç düzeni",
     "listView": "Liste görünümü",
-    "loadMore": "Daha fazla ilan yükle",
+    "loadMore": "Daha fazla emlak göster",
     "location": "Konum",
-    "maxPrice": "Azami fiyat",
+    "maxPrice": "En yüksek fiyat",
     "minPrice": "Asgari fiyat",
-    "oneArea": "1 bölge",
+    "oneArea": "1 alan",
     "price": "Fiyat",
-    "priceNote": "Bilgilendirme amaçlı fiyatlardır. Alım masrafları bunun üzerine yaklaşık %6–8 ekler.",
+    "priceNote": "Tavsiye edilen fiyatlar. Satın alma maliyetleri bu fiyatlara yaklaşık %6–8 oranında eklenir.",
     "removeFilter": "Filtreyi kaldır",
     "reset": "Sıfırla",
-    "resultCountOne": "Filtrelerinize 1 ilan uyuyor",
-    "resultCountOther": "Filtrelerinize {count} ilan uyuyor",
-    "results": "İlan sonuçları",
-    "searchLabel": "İlanlarda anahtar kelimeyle arayın",
-    "searchPlaceholder": "Anahtar kelimeyle arayın…",
+    "resultCountOne": "Filtrelerinize uyan 1 emlak var",
+    "resultCountOther": "{count} mülkler, filtrelerinize uyuyor",
+    "results": "Emlak sonuçları",
+    "searchLabel": "Anahtar kelimeye göre emlakları ara",
+    "searchPlaceholder": "Anahtar kelimeyle arama…",
     "showResults": "Sonuçları göster",
     "sort": "Sırala",
     "sortNewest": "En yeni",
-    "sortPriceAsc": "Fiyat: Artan",
-    "sortPriceDesc": "Fiyat: Azalan",
+    "sortPriceAsc": "Fiyat: Düşükten Yüksek'e",
+    "sortPriceDesc": "Fiyat: Yüksekten Düşüğe",
     "sortRecommended": "Önerilen",
-    "type": "Tip"
+    "type": "Tür"
   },
   "panel": {
-    "detailsBody": "Kat planları, işletme giderleri ve güncel kira rakamları — genellikle aynı iş günü içinde, bir insan tarafından gönderilir.",
-    "enquire": "Bilgi isteyin",
-    "lookingFor": "Fethiye'de mülk mü arıyorsunuz?",
-    "priceAndEnquiry": "Fiyat ve talep",
-    "requestDetails": "Ayrıntıların tamamını isteyin",
-    "viewingsNote": "Görüşmeler 48 saat içinde ayarlanır. Hiçbir yükümlülük yok ve süreç ortasında dâhil olan üçüncü bir emlakçı yok.",
-    "whatsappInfo": "WhatsApp'tan bilgi alın",
-    "whatsappUs": "WhatsApp'tan yazın"
+    "detailsBody": "Kat planları, işletme masrafları ve güncel kira rakamları — genellikle iş günü içinde bir kişi tarafından gönderilir.",
+    "enquire": "Bilgi Al",
+    "lookingFor": "Fethiye'de bir gayrimenkul mü arıyorsunuz?",
+    "priceAndEnquiry": "Fiyat ve bilgi talebi",
+    "requestDetails": "Tüm ayrıntıları isteyin",
+    "viewingsNote": "48 saat içinde ev gezileri düzenlenir. Hiçbir yükümlülük yoktur ve süreçte hiçbir üçüncü taraf aracı devreye girmez.",
+    "whatsappInfo": "WhatsApp üzerinden bilgi alın",
+    "whatsappUs": "Bize WhatsApp'tan mesaj gönderin"
   },
   "tripForm": {
-    "arrival": "Geliş",
-    "datesHint": "Henüz emin değil misiniz? Boş bırakın — görmek istediklerinize göre en uygun haftaları biz önerelim.",
+    "arrival": "Varış",
+    "datesHint": "Henüz karar veremediniz mi? Bu alanları boş bırakın — görmek istediklerinize göre size en uygun haftaları önereceğiz.",
     "family": "Çocuklu aile",
     "friends": "Arkadaş grubu",
-    "justMe": "Yalnız",
+    "justMe": "Sadece ben",
     "lookingFor": "Ne arıyorsunuz?",
-    "lookingForPlaceholder": "Yatak odası sayısı, olmazsa olmazlarınız, ilgi duyduğunuz bölgeler ve bunun tatil evi mi, kira geliri mi yoksa taşınma mı olduğu.",
-    "note": "Kapora yok, yükümlülük yok. Kimse uçak bileti almadan önce kısa listeyi sizinle birlikte teyit ediyoruz.",
+    "lookingForPlaceholder": "Yatak odası sayısı, olmazsa olmazlar, ilgilendiğiniz bölgeler ve bunun bir tatil evi, kiraya verilecek bir gayrimenkul mü yoksa taşınmak için mi olduğu.",
+    "note": "Para yatırma zorunluluğu yok, taahhüt yok. Kimse uçak bileti rezervasyonu yapmadan önce aday listesini sizinle teyit ediyoruz.",
     "phoneLabel": "Telefon / WhatsApp",
     "preferredDates": "Tercih edilen tarihler (isteğe bağlı)",
-    "returnDate": "Dönüş",
-    "submit": "Görme turunuzu ayarlayın",
-    "successBody": "Size önerilen bir program ve inceleyeceğiniz bir kısa listeyle döneceğiz — siz hiçbir şey ayırtmadan önce.",
-    "successTitle": "Gezi talebiniz bize ulaştı",
-    "successWhatsapp": "Daha hızlı yanıt mı gerekiyor? WhatsApp'tan yazın",
-    "travellingAs": "Kiminle geliyorsunuz"
+    "returnDate": "Geri Dön",
+    "submit": "Gezinizi rezerve edin",
+    "successBody": "Rezervasyon yapmadan önce, size bir seyahat programı önerisi ve inceleyebileceğiniz bir aday listesi sunacağız.",
+    "successTitle": "Seyahat talebiniz bize ulaştı",
+    "successWhatsapp": "Daha çabuk bir yanıt mı istiyorsunuz? WhatsApp üzerinden bize mesaj gönderin",
+    "travellingAs": "Şu şekilde seyahat etmek:"
   },
   "validation": {
-    "checkFields": "Lütfen işaretli alanları kontrol edip tekrar deneyin.",
-    "email": "Lütfen size yanıt verebileceğimiz bir e-posta adresi girin.",
-    "message": "Ne aradığınıza dair bir iki cümle, size doğru düzgün yanıt vermemizi sağlar.",
-    "name": "Lütfen adınızı yazın.",
-    "returnBeforeArrival": "Dönüş tarihi geliş tarihinden önce olamaz.",
-    "sendFailed": "Talebinizi şu anda gönderemedik. Lütfen tekrar deneyin ya da bizi {phone} numarasından arayın.",
-    "success": "Teşekkürler — talebiniz bize ulaştı. Her mesaja bizzat yanıt veriyoruz, genellikle bir iş günü içinde."
+    "checkFields": "Lütfen vurgulanmış alanları kontrol edip tekrar deneyin.",
+    "email": "Lütfen yanıt gönderebileceğimiz bir e-posta adresi girin.",
+    "message": "Aradığınız şey hakkında bir iki cümle yazarsanız, size doğru şekilde yanıt vermemize yardımcı olur.",
+    "name": "Lütfen bize adınızı söyleyin.",
+    "returnBeforeArrival": "İade tarihi, varış tarihinden önce olamaz.",
+    "sendFailed": "Sorgunuzu şu anda gönderemedik. Lütfen tekrar deneyin veya {phone} numaralı telefondan bizi arayın.",
+    "success": "Teşekkür ederiz — talebiniz bize ulaştı. Her mesaja genellikle bir iş günü içinde bizzat yanıt veriyoruz."
   },
   "imagery": {
     "named": {
-      "homeHero": "Fethiye'nin üzerindeki dağ yolundan görünen Ölüdeniz'in turkuaz Mavi Lagünü",
-      "homeCredentials": "Akdeniz kıyısında deniz manzaralı terası ve sonsuzluk havuzu olan lüks villa",
-      "homeProcess": "Temiz beyaz hatları ve tam boy camlarıyla modern sahil mimarisi",
-      "homeCta": "Suya bakan çağdaş bir lüks villada sonsuzluk havuzu",
-      "propertiesHero": "Akdeniz villa sitesinde servi ağaçlarıyla çevrelenmiş teraslı sonsuzluk havuzları",
-      "propertiesCta": "Sabah pusunun ardından görünen Fethiye Körfezi'ndeki adalar ve burunlar",
-      "about": "Coast 2 Coast Properties Turkey'in merkezi olduğu Fethiye körfezi ve çevresindeki sahil şeridi",
-      "aboutTurkey": "Yamaç terasında, Akdeniz'e bakan yüzme havuzu",
-      "aboutTurkeyDailyLife": "Gün doğumunda Fethiye limanına demirlemiş yatlar ve kasabanın ardında yükselen çam kaplı tepeler",
-      "revealAreas": "Ormanlık dağlarla çevrili Ölüdeniz'deki Mavi Lagün",
-      "revealProcess": "Akdeniz'in üzerinde, uçurum tepesinde yüzme havuzu",
-      "blog": "Fethiye sahilinde korunaklı bir koyda demirlemiş yatlar",
-      "buyingProcess": "Yamaç yolundan görünen Ölüdeniz plajı ve arkasındaki tatil beldesi",
-      "sellingProcess": "Alacakaranlıkta içeriden aydınlanan cam cepheli çağdaş villa ve ışıklandırılmış havuz",
-      "citizenship": "Fethiye sahilinde parlak mavi denize inen yeşil dağlar",
-      "insurance": "Fethiye'nin üzerindeki yamaç yolundan görünen körfez ve şehir",
-      "viewingDay": "Türkiye sahilinde havuzu ve palmiyeleriyle beyaz modern villa",
-      "contact": "Büyük mavi yüzme havuzuyla güneş alan villa cephesi"
+      "homeHero": "Fethiye’nin yukarısındaki dağ yolundan görülen Ölüdeniz’deki turkuaz renkli Mavi Lagün",
+      "homeCredentials": "Akdeniz tarzı bir villa kompleksinde, selvi ağaçlarıyla çevrili teraslı sonsuzluk havuzları",
+      "homeProcess": "Sabah sisinin ardında görünen Fethiye Körfezi’ndeki adalar ve burunlar",
+      "homeCta": "Akdeniz’e bakan bir yamaç terasında yer alan yüzme havuzu",
+      "propertiesHero": "Ölüdeniz’deki Mavi Lagün, ormanlık dağlarla çevrilidir",
+      "propertiesCta": "Akdeniz’in üzerinde, uçurumun tepesinde yer alan yüzme havuzu",
+      "about": "Fethiye sahilindeki korunaklı bir koyda demirlemiş yatlar",
+      "aboutTurkey": "Yamaç yolundan görülen Ölüdeniz plajı ve arkasındaki tatil beldesi",
+      "aboutTurkeyDailyLife": "Güneş doğarken Fethiye limanında demirlemiş yatlar; kasabanın arkasında çam ağaçlarıyla kaplı tepeler yükseliyor",
+      "revealAreas": "Kıyıya açılan çağdaş mimari iç mekan",
+      "revealProcess": "Fethiye sahilinde parlak mavi denize uzanan yeşil dağlar",
+      "blog": "Fethiye’nin yukarısındaki yamaç yolundan görülen koy ve kasaba",
+      "buyingProcess": "Türkiye sahilinde, havuzlu ve palmiye ağaçlarıyla çevrili beyaz, modern bir villa",
+      "sellingProcess": "Alacakaranlıkta, ışıklandırılmış bir havuzun yanında, içinden ışık saçan çağdaş, cam cepheli villa",
+      "citizenship": "Turkuaz renkli bir Akdeniz koyunun üzerindeki sahil kasabasının çatıları",
+      "insurance": "Üstü kapalı teraslı ve yüzme havuzlu modern ev",
+      "viewingDay": "Akdeniz’deki bir malikanede, selvi ağaçlarıyla çevrili teraslı havuzlar",
+      "contact": "Fethiye kıyıları açıklarındaki burunlar ve açık deniz üzerinde gün batımı"
     },
     "slides": [
-      "Temiz beyaz hatları ve tam boy camlarıyla modern sahil mimarisi",
-      "Suya bakan çağdaş bir lüks villada sonsuzluk havuzu",
-      "Akdeniz kıyısında deniz manzaralı terası ve sonsuzluk havuzu olan lüks villa"
+      "Temiz beyaz çizgiler ve tavandan tabana camlarla karakterize edilen modern kıyı mimarisi",
+      "Suya bakan çağdaş bir lüks villadaki sonsuzluk havuzu",
+      "Akdeniz kıyısında, deniz manzaralı terası ve sonsuzluk havuzu bulunan lüks villa"
     ]
   }
 }
