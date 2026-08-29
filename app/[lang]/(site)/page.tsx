@@ -1,32 +1,25 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { LocaleLink as Link } from "@/components/locale-link";
 import { CtaSurface } from "@/components/cta-surface";
-import { ArrowRight, ArrowUpRight, MessageCircle } from "lucide-react";
+import { ArrowRight, MessageCircle } from "lucide-react";
 import { FeaturedProperties } from "@/components/featured-properties";
 import { HomeHero } from "@/components/home-hero";
 import { JsonLd } from "@/components/json-ld";
 import { Reveal } from "@/components/reveal";
 import { RevealWindow } from "@/components/reveal-window";
 import { currentLocale, currentLanguage } from "@/lib/current-locale";
-import {
-  getAreaCopy,
-  getDictionary,
-  getPlural,
-  getT,
-} from "@/lib/i18n/server";
+import { getT } from "@/lib/i18n/server";
 import type { TranslationKey } from "@/lib/i18n";
 import { pageMetadata } from "@/lib/seo";
 import { imagery } from "@/lib/imagery";
 import { getSettings, whatsappHref } from "@/lib/settings";
 import { faqSchema, featuredListSchema } from "@/lib/schema";
 import {
-  DISTRICT_AREA_SLUG,
   FEATURED_AREA_SLUGS,
   getServiceArea,
   siteConfig,
 } from "@/lib/site";
-import { getAreaCounts, getFeaturedVillas } from "@/lib/villas";
+import { getFeaturedVillas } from "@/lib/villas";
 
 /**
  * Ana sayfa başlığında `absolute` kullanıyoruz: layout'taki
@@ -91,12 +84,9 @@ export default async function HomePage() {
   /* Sunucu tarafı çeviri: metin HTML'e girer, istemciye JS inmez
      (gerekçe lib/i18n/server.ts). */
   const t = await getT();
-  const plural = await getPlural();
-  const dict = await getDictionary();
 
   const settings = await getSettings();
   const featuredVillas = await getFeaturedVillas(6);
-  const areaCounts = await getAreaCounts();
 
   const FAQS = buildFaqs(t);
 
@@ -104,23 +94,21 @@ export default async function HomePage() {
    * Vitrin bölgeleri — `FEATURED_AREA_SLUGS` sırasıyla (bkz. lib/site.ts).
    *
    * `flatMap` + boş dizi, `map` + `!` yerine: slug listesinde bir yazım
-   * hatası olursa kart hiç basılmıyor. `map` kullansaydık `undefined` bir
+   * hatası olursa blok hiç basılmıyor. `map` kullansaydık `undefined` bir
    * kayıt ızgaraya girer ve sayfa `area.name` okurken çökerdi.
+   *
+   * ⚠️ ARTIK YALNIZCA SLUG VE AD OKUNUYOR. Blok tipografik hâle gelince
+   * (bkz. aşağıdaki ızgara notu) üç veri kaynağı gereksizleşti ve
+   * kaldırıldı: `getAreaCounts` (ilan sayacı), `getAreaCopy` (başlık/
+   * tanıtım metni) ve `area.image`. İkisi de sunucuda ekstra iş yapıyordu;
+   * sayaç için 57 ilan bölgeye göre gruplanıyordu.
+   *
+   * İSİM ÇEVRİLMİYOR: "Ölüdeniz" her dilde Ölüdeniz. Bölümdeki çevrilen
+   * metinler (eyebrow, başlık, CTA) sözlükten geliyor.
    */
-  const areaCopy = await getAreaCopy();
   const areas = FEATURED_AREA_SLUGS.flatMap((slug) => {
     const area = getServiceArea(slug);
-    if (!area) return [];
-
-    return [
-      {
-        ...area,
-        /* İsim ÇEVRİLMİYOR: "Ölüdeniz" her dilde Ölüdeniz. Yalnızca başlık
-           ve tanıtım metni sözlükten geliyor. */
-        ...areaCopy(area.slug, { headline: area.headline, blurb: area.blurb }),
-        count: areaCounts[area.slug] ?? 0,
-      },
-    ];
+    return area ? [{ slug: area.slug, name: area.name }] : [];
   });
 
   return (
@@ -174,19 +162,35 @@ export default async function HomePage() {
             </Reveal>
 
             {/*
-              EŞİT KARTLAR — asimetrik "bento" KALDIRILDI.
+              TİPOGRAFİK IZGARA — FOTOĞRAF YOK, MİKRO METİN YOK.
 
-              ⚠️ Eski ızgarada ilk bölge iki sütun iki satır kaplıyor,
-              yalnızca o kart `blurb` gösteriyor ve başlığı iki kat büyük
-              basılıyordu. Beş kartın dördü aynı, biri bambaşkaydı: göz
-              hiyerarşiyi görüyordu ama diğer dört bölge ikinci sınıf
-              görünüyordu. Vitrin dörde inince o hiyerarşiye gerek kalmadı —
-              dördü de eşit ağırlıkta, tek satırda.
+              ⚠️ GÖRSELLER NEDEN KALDIRILDI. Kartlar bölge başına bir
+              fotoğraf basıyordu, ama elimizde bölgeye ÖZGÜ fotoğraf yok:
+              aynı kıyı şeridinin birbirinin yerine geçebilecek kareleriydi.
+              Ölüdeniz'in altında Ölüdeniz olmayan bir koy göstermek, lüks
+              bir markada "stok görsel" hissi veren tek şey — ve bir emlak
+              sayfasında doğrudan güven kaybı. Yanlış fotoğraf yerine HİÇ
+              fotoğraf göstermek daha dürüst ve daha pahalı duruyor.
 
-              Mobilde de iki sütun: dört kartı alt alta dizmek bu bölümü
+              ⚠️ SAYAÇ VE BAŞLIK DA GİTTİ ("11 İLAN", "Marina hayatı…").
+              Bölüm artık bir vitrin değil, bir İÇİNDEKİLER TABLOSU: tek işi
+              /about-turkey'e yönlendirmek. Kartın üstünde üç ayrı metin
+              varken göz nereye bakacağını seçmek zorunda kalıyordu; tek
+              kelime kalınca bölge adı afiş gibi okunuyor.
+
+              Sayaç ayrıca bir BAKIM YÜKÜYDÜ: ilan sayısı değiştikçe
+              değişen bir sayıyı ana sayfada göstermek, portföy küçüldüğünde
+              "3 ilan" gibi zayıf bir sinyal basmak demekti.
+
+              YÜKSEKLİK KORUNDU (14rem/18rem değil, 11rem/15rem): fotoğraf
+              gidince aynı yükseklik tek bir kelimenin etrafında fazla boşluk
+              bırakıyordu. Yine de cömert — daralttıkça ızgara "düğme sırası"
+              gibi görünmeye başlıyor, afiş gibi değil.
+
+              Mobilde de iki sütun: dört bloğu alt alta dizmek bu bölümü
               telefonda dört ekran boyu uzatıyordu.
             */}
-            <ul className="mt-12 grid auto-rows-[14rem] grid-cols-2 gap-px border border-line bg-line sm:auto-rows-[18rem] lg:grid-cols-4">
+            <ul className="mt-12 grid auto-rows-[11rem] grid-cols-2 gap-px border border-line bg-line sm:auto-rows-[15rem] lg:grid-cols-4">
               {areas.map((area, index) => (
                 <li key={area.slug}>
                   <Reveal
@@ -195,69 +199,49 @@ export default async function HomePage() {
                     y={20}
                     amount={0.15}
                   >
+                    {/*
+                      ⚠️ HEDEF HÂLÂ ÇAPALI (`#area-<slug>`), düz
+                      /about-turkey değil. Blok artık yalnızca bölge adını
+                      taşıyor; "ÖLÜDENİZ"e basan kişi Ölüdeniz bölümünü
+                      görmek istiyor, sayfanın başını değil. Aynı sayfaya
+                      gidiyor, doğru yerinde açılıyor.
+
+                      RENK TERSİNMESİ — hover'ın tamamı bu. Fotoğraf yokken
+                      "tıklanabilir" sinyalini taşıyacak tek şey renk ve
+                      hareket. Koyu yeşilden kreme dönmek, dört blok
+                      arasında hangisinin altında olduğunuzu bir metrelik
+                      mesafeden bile belli ediyor.
+
+                      `focus-visible` hover ile AYNI durumu veriyor: klavye
+                      kullanıcısı da aynı geri bildirimi almalı, yoksa
+                      sekmeyle gezerken seçili blok görünmez olurdu.
+                    */}
                     <Link
                       href={`/about-turkey#area-${area.slug}`}
-                      className="group relative isolate flex h-full flex-col justify-end overflow-hidden bg-sea-deep p-5 text-shell sm:p-6"
+                      className="group flex h-full flex-col items-center justify-center gap-3 bg-sea-deep px-4 text-center text-shell transition-colors duration-500 ease-out hover:bg-shell hover:text-sea-deep focus-visible:bg-shell focus-visible:text-sea-deep"
                     >
-                      <Image
-                        src={area.image}
-                        alt={t("home.areaImageAlt", {
-                          /*
-                            İlçe adı ŞABLONDAN ÇIKARILDI ve buraya taşındı.
-                            Şablonda gömülüyken ("… in {area}, Fethiye …")
-                            Fethiye bölgesinin kartı "in Fethiye, Fethiye"
-                            diyordu — bölge adından "Merkez" düşünce ad ile
-                            ilçe aynılaştı.
-
-                            Karşılaştırma SLUG üzerinden, ad üzerinden değil:
-                            ilçe adı çevriliyor (Rusça'da "Фетхие"), bölge
-                            adı çevrilmiyor. Dize eşitliği o iki dizeyi asla
-                            eşit görmez ve Rusça kart "Fethiye, Фетхие" derdi.
-                          */
-                          area:
-                            area.slug === DISTRICT_AREA_SLUG
-                              ? t("home.areaImageAltDistrict")
-                              : `${area.name}, ${t("home.areaImageAltDistrict")}`,
-                          headline: area.headline,
-                        })}
-                        fill
-                        /* Dört kart eşit: tek bir `sizes` hepsini anlatıyor. */
-                        sizes="(min-width: 1024px) 25vw, 50vw"
-                        className="-z-10 object-cover transition-transform duration-[1200ms] ease-out group-hover:scale-110"
-                      />
-                      <span
-                        aria-hidden="true"
-                        className="absolute inset-0 -z-10 bg-gradient-to-t from-ink via-ink/45 to-transparent"
-                      />
-
-                      <span className="font-sans text-[10px] font-bold uppercase tracking-[0.2em] text-gold">
-                        {/*
-                          Çoğul `Intl.PluralRules` üzerinden: elle yazılan
-                          `count === 1 ? "" : "s"` Rusça'da üç biçimin
-                          ikisini kaçırırdı (bkz. lib/i18n/index.ts).
-                        */}
-                        {area.count > 0
-                          ? plural(dict.home.listingCount, area.count)
-                          : t("home.areaGuide")}
-                      </span>
-
-                      <span className="mt-2 font-display text-lg font-semibold uppercase leading-tight tracking-[0.02em]">
+                      <span className="font-display text-lg uppercase leading-tight tracking-[0.06em] sm:text-2xl lg:text-[1.6rem]">
                         {area.name}
                       </span>
 
                       {/*
-                        Başlık artık HER kartta — eskiden yalnızca büyük
-                        kartta vardı. Bir bölge adı tek başına "neden
-                        tıklamalıyım"ı cevaplamıyor; `line-clamp-2` de dar
-                        mobil sütunda kart yüksekliğinin kaymasını önlüyor.
-                      */}
-                      <span className="mt-2 line-clamp-2 text-xs leading-relaxed text-shell/75">
-                        {area.headline}
-                      </span>
+                        OK ADIN ALTINDA, YANINDA DEĞİL — ve her zaman akışta.
 
-                      <ArrowUpRight
+                        Önce ad ile ok yan yanaydı (`inline-flex … gap`). O
+                        dizilimde ok görünmez olsa bile yer kapladığı için
+                        bölge adı blok merkezinin ~13px SOLUNA kayıyordu:
+                        boşluğun yarısı kadar. Dört blok yan yana dizilince
+                        bu kayma göze çarpıyor — tek işi tipografi olan bir
+                        ızgarada adın optik merkezde olmaması kabul edilemez.
+
+                        Dikey dizilimde ad yatayda TAM ORTADA kalıyor, ok
+                        altında ortalanıyor. Ok yine akışta duruyor
+                        (`opacity-0`), yani belirdiğinde hiçbir şey zıplamıyor:
+                        yalnızca opaklık ve 4px'lik bir yükselme değişiyor.
+                      */}
+                      <ArrowRight
                         aria-hidden="true"
-                        className="absolute right-5 top-5 size-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+                        className="size-4 shrink-0 translate-y-1 text-gold opacity-0 transition duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
                       />
                     </Link>
                   </Reveal>

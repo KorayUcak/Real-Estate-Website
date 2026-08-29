@@ -34,8 +34,8 @@ import { formatAreaLabel, getServiceArea } from "@/lib/site";
 import { safeMapCoordinates, villaSummaryLine } from "@/lib/villa-format";
 import {
   getAllVillaSlugs,
-  getAllVillas,
   getVillaBySlug,
+  getVillasByArea,
 } from "@/lib/villas";
 
 /** Tüm ilan sayfaları build anında üretilir — çalışma zamanında veri okuması yok. */
@@ -213,10 +213,33 @@ export default async function PropertyPage(
     lines: { value: string; note: string }[];
   }[];
 
-  /** Aynı bölgeden değil, portföyün geri kalanından öneri — liste kısa. */
-  const otherVillas = (await getAllVillas())
+  /**
+   * ÇAPRAZ SATIŞ ARTIK AYNI BÖLGEDEN — ve bu, önceki kararın TERSİ.
+   *
+   * Eskiden liste `getAllVillas()`ten geliyordu ve notu "aynı bölgeden
+   * değil, portföyün geri kalanından" diyordu. O yaklaşım alıcının nasıl
+   * karar verdiğini yansıtmıyordu: Hisarönü'nde bir villaya bakan kişi
+   * Hisarönü'nü seçmiş demektir; ona Üzümlü'den bir ilan göstermek, aynı
+   * kararı baştan aldırmaya çalışmaktır. Bölge sabitken karşılaştırılabilir
+   * ilan göstermek, ziyaretçiyi listeye geri döndürmeden ikinci bir sayfaya
+   * taşıyor.
+   *
+   * `getVillasByArea` `getAllVillas` üzerine kurulu, yani `off-market`
+   * kayıtlar burada da elenmiş durumda.
+   *
+   * ⚠️ BÖLÜM TAMAMEN DÜŞEBİLİR. Bölgesinde tek olan ilanlarda liste boş
+   * kalıyor ve aşağıdaki `otherVillas.length > 0` kontrolü bölümü hiç
+   * basmıyor. Mevcut veride bu 57 ilandan 4'ü (Dalaman, Kalkan, Seydikemer,
+   * Bekçiler). Boş bir "portföyden daha fazlası" başlığı basmaktansa
+   * bölümü hiç göstermemek doğru davranış.
+   *
+   * Üst sınır 3 değil 6: aynı bölgede 17 ilana kadar çıkan alanlar var
+   * (Ovacık) ve altı kart, mobil karuselde kaydırmayı hak eden en küçük
+   * sayı — üçü tek ekranda bitiyordu.
+   */
+  const otherVillas = (await getVillasByArea(villa.location.areaSlug))
     .filter((item) => item.slug !== villa.slug)
-    .slice(0, 3);
+    .slice(0, 6);
 
   return (
     <>
@@ -484,7 +507,7 @@ export default async function PropertyPage(
                   id="features-heading"
                   className="font-display text-2xl text-sea-deep sm:text-3xl"
                 >
-                  Features
+                  {t("properties.features")}
                 </h2>
                 {/* Rozet biçimi: taranabilir, kısa ve metin duvarı üretmez. */}
                 <ul className="mt-8 flex flex-wrap gap-2">
@@ -538,7 +561,7 @@ export default async function PropertyPage(
                   </div>
                   <div>
                     <dt className="text-[10px] uppercase tracking-widest text-ink-40">
-                      Reference
+                      {t("properties.reference")}
                     </dt>
                     <dd className="mt-2 text-sm text-ink-70">
                       {villa.reference}
@@ -581,7 +604,7 @@ export default async function PropertyPage(
                     id="location-heading"
                     className="font-display text-2xl text-sea-deep sm:text-3xl"
                   >
-                    Location
+                    {t("properties.location")}
                   </h2>
                   <p className="mt-4 max-w-prose text-sm leading-relaxed text-ink-70">
                     {mapPoint.approximate
@@ -642,23 +665,56 @@ export default async function PropertyPage(
               </Reveal>
 
               {/*
-                `li` ve `Reveal` üzerindeki `flex`: kartın `h-full`u YÜZDE
-                bir yüksekliktir ve ancak ataları belirli bir yükseklik
-                verirse çalışır. Araya yüksekliği `auto` olan bir sarmalayıcı
-                (burada `Reveal`) girdiği anda zincir kopuyor ve kartlar
-                kendi içerik yüksekliklerinde kalıyordu — satırdaki fiyat ve
-                "View" düğmeleri farklı hizalarda bitiyordu. Aynı zincir
-                components/featured-properties.tsx içinde de kuruluyor.
+                MOBİLDE YATAY KARUSEL, `sm`DEN İTİBAREN IZGARA.
+
+                Altı kart mobilde alt alta dizilince bu bölüm ~2.400px'lik
+                bir şeride dönüşüyordu; sayfanın en altındaki bir çapraz
+                satış bloğu için bu, kaydırma yorgunluğundan başka bir şey
+                değil. Yatay şerit, liste uzunluğunu sayfa uzunluğuna
+                çevirmiyor.
+
+                CSS KAYDIRMA-YAPIŞMASI, embla DEĞİL. Ana sayfadaki vitrin
+                (components/featured-carousel.tsx) embla kullanıyor çünkü
+                orada ok düğmeleri ve nokta göstergeleri var. Burada
+                gerekmiyor: bu bölüm sayfanın kuyruğunda, ikincil bir blok.
+                `snap-x` + `overflow-x-auto` aynı dokunmatik hissi sıfır JS
+                ile veriyor — istemci paketi büyümüyor.
+
+                `w-[86%]`: ana sayfadaki slayt genişliğiyle (`flex-[0_0_86%]`)
+                birebir aynı. Yüzde ondört boşluk, SONRAKİ KARTIN KENARINI
+                gösteriyor — kaydırılabilirliğin en sessiz işareti bu, bir
+                ok düğmesinden daha etkili.
+
+                `sm:w-auto` ŞART: ızgaraya geçerken genişliği geri almazsak
+                iki sütunlu ızgarada kartlar hücrenin %86'sında kalır.
+
+                ⚠️ `Reveal` KARTLARIN İÇİNDEN ÇIKARILDI, dışına alındı.
+                `.reveal` `animation-timeline: view()` kullanıyor ve bu, en
+                yakın KAYDIRMA KAPSAYICISINA bağlanıyor. Kartlar yatay bir
+                kaydırıcının içindeyken o kapsayıcı artık sayfa değil şerit
+                oluyor; dikey eksende hiç kaydırma olmadığı için animasyon
+                ilerlemiyor ve kartlar `opacity: 0`da takılı kalabiliyordu.
+                Tek bir `Reveal` şeridin tamamını sarıyor: kademeli gecikme
+                gitti, ama görünmez kart riski de gitti.
+
+                `li` üzerindeki `flex`: kartın `h-full`u YÜZDE bir
+                yüksekliktir ve ancak atası belirli bir yükseklik verirse
+                çalışır. `items-stretch` hem şeritte hem ızgarada bunu
+                sağlıyor — satırdaki fiyat ve "View" düğmeleri aynı hizada
+                bitiyor.
               */}
-              <ul className="mt-12 grid items-stretch gap-6 sm:grid-cols-2 lg:grid-cols-3">
-                {otherVillas.map((item, index) => (
-                  <li key={item.id} className="flex">
-                    <Reveal className="flex w-full" delay={index * 0.08} y={24}>
+              <Reveal className="mt-12" y={24}>
+                <ul className="no-scrollbar flex snap-x snap-mandatory items-stretch gap-6 overflow-x-auto pb-1 sm:grid sm:grid-cols-2 sm:overflow-visible sm:pb-0 lg:grid-cols-3">
+                  {otherVillas.map((item) => (
+                    <li
+                      key={item.id}
+                      className="flex w-[86%] shrink-0 snap-start sm:w-auto"
+                    >
                       <PropertyCard villa={toPropertyCardData(item, language)} />
-                    </Reveal>
-                  </li>
-                ))}
-              </ul>
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
             </div>
           </section>
         ) : null}
