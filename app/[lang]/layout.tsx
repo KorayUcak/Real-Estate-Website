@@ -97,7 +97,33 @@ const playfair = Playfair_Display({
 });
 
 const inter = Inter({
-  subsets: ["latin", "latin-ext"],
+  /*
+    ⚠️ `cyrillic` — GÖVDE METNİ İÇİN, başlıklarla aynı gerekçeyle.
+
+    Montserrat'a Kiril alt kümesi eklendiğinde iş yarım kalmıştı: Rusça
+    BAŞLIKLAR marka yazı tipine döndü ama PARAGRAFLAR hâlâ bu ailenin
+    dışındaydı. Inter de yalnızca `latin` + `latin-ext` ile yükleniyordu,
+    yani /ru sayfalarındaki her gövde cümlesi `--font-sans` yığınının bir
+    sonrasına — `ui-sans-serif` / `system-ui`, yani ziyaretçinin işletim
+    sistemine — düşüyordu. Sonuç, Rusça sayfalarda Montserrat başlık +
+    sistem yazı tipi gövde eşleşmesiydi; tek dilde ikiye bölünmüş bir
+    tipografi.
+
+    İNGİLİZCE VE TÜRKÇE ZİYARETÇİYE MALİYETİ YOK: next/font her alt küme
+    için ayrı bir `@font-face` ve `unicode-range` üretiyor, tarayıcı da
+    yalnızca ekranda gerçekten çizilen glif aralıklarını indiriyor.
+    Latin bir sayfada Kiril dosyası hiç istenmiyor.
+
+    ⚠️ PLAYFAIR'İN LİSTESİNE DOKUNULMADI. O aile yalnızca logo kelime
+    işaretini diziyor ("Coast 2 Coast Properties"), yani her dilde Latin;
+    Kiril'e ihtiyacı yok.
+
+    (Üretilen CSS'te Playfair için yine de bir Kiril `@font-face`i
+    görünüyor — Google bu aileyi öyle sunuyor, biz istemedik. Sonuca
+    etkisi yok: `unicode-range` o dosyayı yalnızca ekranda Kiril harfi
+    çizilirse istetir ve kelime işaretinde hiç çizilmez.)
+  */
+  subsets: ["latin", "latin-ext", "cyrillic"],
   variable: "--font-inter",
   display: "swap",
   weight: ["400", "500", "600", "700"],
