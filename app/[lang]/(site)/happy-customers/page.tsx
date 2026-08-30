@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import { LocaleLink as Link } from "@/components/locale-link";
 import { ArrowRight, Quote, Star } from "lucide-react";
+import { cn } from "@/lib/cn";
+import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
-import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/reveal";
 import { breadcrumbSchema } from "@/lib/schema";
 import { currentLanguage, currentLocale } from "@/lib/current-locale";
 import { getT } from "@/lib/i18n/server";
 import { LANGUAGE_META } from "@/lib/locale";
 import { getReviews } from "@/lib/reviews";
+import { siteConfig } from "@/lib/site";
 import { HOME_CRUMB, pageMetadata, type Crumb } from "@/lib/seo";
 
 /**
@@ -52,14 +54,14 @@ export async function generateMetadata(): Promise<Metadata> {
  * çiziyor. Dolgusuz bir yıldız "boş yıldız" demektir, yani tam tersi bir
  * puan gösterirdi.
  */
-function Stars({ label }: { label: string }) {
+function Stars({ label, size = "size-4" }: { label: string; size?: string }) {
   return (
     <div className="flex items-center gap-1" role="img" aria-label={label}>
       {Array.from({ length: 5 }, (_, index) => (
         <Star
           key={index}
           aria-hidden="true"
-          className="size-4 fill-gold text-gold"
+          className={cn(size, "fill-gold text-gold")}
         />
       ))}
     </div>
@@ -84,6 +86,23 @@ export default async function HappyCustomersPage() {
       day: "numeric",
     }).format(new Date(iso));
 
+  /**
+   * ORTALAMA PUAN VERİDEN HESAPLANIYOR, "5.0" diye yazılmıyor.
+   *
+   * Sabit yazılsaydı, dosyaya dört yıldızlı tek bir yorum eklendiği anda
+   * rozet yalan söylemeye başlardı — ve bunu kimse fark etmezdi.
+   *
+   * Biçimlendirme `Intl`den: ondalık ayırıcı dile göre değişiyor
+   * ("5.0" / "5,0"). Elle nokta yazmak Türkçe ve Rusça'da yanlış olurdu.
+   */
+  const average =
+    reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length;
+
+  const score = new Intl.NumberFormat(LANGUAGE_META[language].tag, {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  }).format(average);
+
   const ratingLabel = t("happyCustomers.ratingLabel");
 
   return (
@@ -104,27 +123,85 @@ export default async function HappyCustomersPage() {
 
       <main id="main">
         {/*
-          GÖRSELSİZ HERO — ve bu bir eksiklik değil.
+          KOMPAKT ÖZET BAŞLIĞI — `PageHero` KALDIRILDI.
 
-          `PageHero` görsel verilmediğinde `veil-tint` zeminde sade bir
-          bant basıyor. Buraya stok bir "mutlu çift" fotoğrafı koymak,
-          altında gerçek insanların gerçek cümleleri duran bir sayfada tam
-          da güveni zedeleyen şey olurdu: ziyaretçi stok görseli tanır.
-          Sayfanın kanıtı fotoğraf değil, metin.
+          `PageHero` bu sayfada yanlış aracı seçmekti: ortalanmış, cömert
+          boşluklu ve TAM GENİŞLİKTE bir bant üretiyor. Görselsiz hâlinde
+          ekranın üst üçte biri neredeyse boş kalıyordu ve sayfanın tek
+          işi olan yorumlar katlamanın altına düşüyordu. Sosyal kanıt
+          sayfasında kaydırma gerektiren bir giriş, kanıtı geciktirmek
+          demek.
+
+          ⚠️ `<h1>` KORUNDU. Bant küçüldü ama başlık silinmedi: sayfadaki
+          tek h1 buydu ve kaldırmak hem belge yapısını hem de arama
+          motorunun sayfanın konusunu okuduğu ana sinyali götürürdü.
+          Yalnızca ölçüsü küçüldü (`text-4xl` → `text-3xl`) ve ortadan
+          sola alındı.
+
+          ⚠️ BREADCRUMB DA `PageHero`DAN GELİYORDU. Yukarıdaki
+          `breadcrumbSchema(CRUMBS)` ekranda karşılığı olan bir iz
+          bekliyor; bileşen kalkınca izi elle basmak gerekti.
+
+          MASAÜSTÜNDE İKİ SÜTUN: solda başlık, sağda rozet. Dikey olarak
+          dizilselerdi blok yeniden uzardı — yatay boşluk zaten boştu.
+          `lg:items-end` ikisini aynı taban çizgisine oturtuyor.
         */}
-        <PageHero
-          eyebrow={t("happyCustomers.eyebrow")}
-          title={t("happyCustomers.heroTitle")}
-          lede={t("happyCustomers.heroLede")}
-          crumbs={CRUMBS}
-        >
-          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-5">
-            <Stars label={ratingLabel} />
-            <p className="text-sm text-ink-70">{t("happyCustomers.sourceNote")}</p>
-          </div>
-        </PageHero>
+        <section className="border-b border-line bg-shell">
+          <div className="container-page py-8 sm:py-10">
+            <Breadcrumbs crumbs={CRUMBS} />
 
-        <section aria-labelledby="reviews-heading" className="bg-shell py-section">
+            <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
+              <div className="max-w-xl">
+                <p className="eyebrow text-gold-deep">
+                  {t("happyCustomers.eyebrow")}
+                </p>
+                <h1 className="mt-4 font-display text-3xl leading-tight text-sea-deep sm:text-4xl">
+                  {t("happyCustomers.heroTitle")}
+                </h1>
+                <p className="mt-5 leading-relaxed text-ink-70">
+                  {t("happyCustomers.heroLede")}
+                </p>
+              </div>
+
+              {/*
+                GÜVEN ROZETİ — Google'ın özet kartının sessiz karşılığı.
+
+                Beyaz zemin + ince çerçeve: krem bandın üstünde ayrı bir
+                nesne gibi duruyor, kendi başına okunabiliyor.
+
+                `lg:shrink-0` + `lg:w-auto`: dar ekranda blok tam genişlik,
+                masaüstünde içeriği kadar. Aksi hâlde esnek satırda başlık
+                sütunu rozeti ezip puanı iki satıra kırıyordu.
+
+                Puan `font-display` ve 5xl: sayfada göz ilk buraya düşsün
+                diye. Yıldızlar `size-5` — gövde metnindeki `size-4`ten bir
+                kademe büyük, çünkü burada bilgi taşıyorlar, süs değiller.
+              */}
+              <div className="w-full border border-line bg-white p-6 sm:p-7 lg:w-auto lg:shrink-0">
+                <p className="text-[11px] uppercase tracking-[0.18em] text-ink-40">
+                  {siteConfig.name}
+                </p>
+
+                <div className="mt-4 flex items-center gap-4">
+                  <span className="font-display text-5xl leading-none text-sea-deep">
+                    {score}
+                  </span>
+                  <Stars label={ratingLabel} size="size-5" />
+                </div>
+
+                <p className="mt-4 text-xs text-ink-70">
+                  {t("happyCustomers.basedOn")}
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Üst boşluk kısıldı: okuyucu başlıktan yorumlara doğrudan geçsin. */}
+        <section
+          aria-labelledby="reviews-heading"
+          className="bg-shell pb-section pt-12 sm:pt-16"
+        >
           <div className="container-page">
             <h2 id="reviews-heading" className="sr-only">
               {t("happyCustomers.metaTitle")}
