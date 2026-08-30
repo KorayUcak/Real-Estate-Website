@@ -277,8 +277,50 @@ export default async function AboutPage() {
           `--color-gold-deep` notu), o yüzden okunan hiçbir cümle o renkte
           değil — `gold-deep` yalnızca eyebrow'un küçük büyük harfinde.
         */}
-        <section aria-labelledby="story-heading" className="bg-shell py-section">
+        <section aria-labelledby="story-heading" className="bg-shell py-section lg:pt-0">
           <div className="container-page">
+            {/*
+              YÜZEN KART — YALNIZCA MASAÜSTÜNDE.
+
+              ⚠️ ÇÖZDÜĞÜ SORUN ÖLÇÜLDÜ. 1440×900'de başlık 112px, hero
+              `75vh` yani 675px; ikisi 787px ediyor ve geriye 113px kalıyor.
+              Bölümün `py-section` üst boşluğu tam 112px (`--spacing-section:
+              7rem`) — yani ilk ekranda kalan o şerit BİREBİR boşluktu:
+              ziyaretçi kaydırmadan tek bir kelime görmüyordu. Kremin
+              üstünde krem, hiçbir şey söylemeyen bir bant.
+
+              İki değişiklik birlikte çalışıyor:
+                · bölümde `lg:pt-0` — o 112px'lik boşluk kalkıyor,
+                · kartta `lg:-mt-32` (128px) — kart hero'nun son 128px'ine
+                  biniyor.
+
+              Sonuç: kart 659px'te başlıyor, `lg:pt-16` sonrası eyebrow
+              723'te, `<h2>` ("Coast2Coast Properties Turkey") 763–807
+              arasında. İkisi de 900px'lik ekranda, katlamanın üstünde.
+
+              ⚠️ 128px NEDEN GÜVENLİ: hero bandı görselin ~%3–%73 aralığını
+              gösteriyor (bkz. yukarıdaki `object-[center_10%]` notu). Son
+              128px o bandın ~%19'u, yani görselin ~%60'ından aşağısı —
+              karede bel hizası. Yüzler %5–%46 aralığında kalıyor, kart
+              onlara yaklaşmıyor bile.
+
+              ⚠️ 36 (144px) DENENDİ VE GERİ ALINDI: kısa bir dizüstünde
+              (813px'lik gerçek içerik yüksekliği) kartın üst kenarı
+              Nilay'ın çenesine ~24px kalıyordu. Katlama kazancı birkaç
+              piksel, risk ise portrenin kesilmesi.
+
+              ⚠️ `relative z-10` ŞART: hero `isolate` ile kendi yığma
+              bağlamını kuruyor. Kart konumlandırılmamış bırakılsaydı
+              negatif kenar boşluğu onu yukarı taşır ama fotoğrafın ALTINDA
+              boyanmasına yol açabilirdi.
+
+              ⚠️ MOBİL VE TABLET DEĞİŞMEDİ. Kenar boşluğu, iç boşluk ve
+              gölge yalnızca `lg:` önekli. `bg-shell` bölümün zemini ile
+              AYNI renk, `max-w-4xl` de dar ekranlarda kaba kalıyor
+              (`container-page` zaten daha dar) — yani `lg` altında bu
+              sarmalayıcının ölçülebilir hiçbir etkisi yok.
+            */}
+            <div className="relative z-10 mx-auto max-w-4xl bg-shell lg:-mt-32 lg:px-16 lg:pt-16 lg:shadow-soft">
             <article className="mx-auto max-w-3xl">
               <header className="text-center">
                 <p className="eyebrow text-gold-deep">
@@ -422,6 +464,7 @@ export default async function AboutPage() {
                 />
               </Link>
             </article>
+            </div>
           </div>
         </section>
         {/* ------------------------------------------------- VİZYON & MİSYON */}
