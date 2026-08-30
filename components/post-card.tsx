@@ -35,7 +35,10 @@ export function PostCard({
           src={post.image.src}
           alt={post.image.alt}
           fill
-          priority={priority}
+          /* Dışarıdaki prop adı `priority` kalıyor (çağrı yerleri için
+             anlamlı); `next/image`e `preload` olarak geçiyor çünkü
+             `priority` Next 16'da kullanımdan kaldırıldı. */
+          preload={priority}
           sizes={
             featured
               ? "(min-width: 1024px) 60vw, 100vw"

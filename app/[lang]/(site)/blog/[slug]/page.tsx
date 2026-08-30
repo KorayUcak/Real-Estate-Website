@@ -153,8 +153,10 @@ export default async function BlogPostPage(props: PageProps<"/[lang]/blog/[slug]
                 src={post.image.src}
                 alt={post.image.alt}
                 fill
-                /* Sayfanın LCP öğesi — erken yüklenmesi gerekiyor. */
-                priority
+                /* Sayfanın LCP öğesi — erken yüklenmesi gerekiyor.
+                   `priority` Next 16'da kullanımdan kaldırıldı; `preload`
+                   aynı <link rel="preload"> etiketini üretiyor. */
+                preload
                 quality={85}
                 sizes="(min-width: 1024px) 82vw, 100vw"
                 className="object-cover"

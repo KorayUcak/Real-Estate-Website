@@ -246,7 +246,10 @@ export default async function AboutPage() {
             src={ABOUT_BANNER.src}
             alt={ABOUT_BANNER.alt}
             fill
-            priority
+            /* Next 16'da `priority` kullanımdan kaldırıldı; `preload`
+               aynı işi yapıyor (bkz. node_modules/next/dist/docs →
+               image.md, "priority"). */
+            preload
             quality={95}
             sizes="100vw"
             className="object-cover object-[center_10%]"

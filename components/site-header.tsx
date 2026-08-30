@@ -348,16 +348,44 @@ export function SiteHeader() {
             ekranda `20/viewBoxYüksekliği × yükseklik` piksel eder. Kelime
             işareti çatıya yaklaştırılıp viewBox 192'den 166'ya inince
             (logo.tsx) aynı `h-*` değerleri daha büyük tipografi veriyor:
-                h-16          (64px) → 6.7px  ⇒  7.7px   (mobil)
-                sm:h-20       (80px) → 8.3px  ⇒  9.6px
-                lg:h-[5.5rem] (88px) → 9.2px  ⇒ 10.6px
-            Karşılaştırma: yatay dizilim h-11'de 9.6px veriyordu — mobil
-            dışındaki her kademe artık onu geçiyor, mobil de eşiğe yaklaştı.
+                h-20          (80px) → 9.6px   (mobil + sm)
+                lg:h-[5.5rem] (88px) → 10.6px
+            Karşılaştırma: yatay dizilim h-11'de 9.6px veriyordu.
+
+            ⚠️ MOBİL KADEMESİ h-16'DAN h-20'YE ÇIKARILDI (+%25). Eski değer
+            "Properties" satırını 7.7px'te bırakıyordu — bir marka adının
+            okunabilirlik eşiğinin altında.
+
+            ÜST BANT AŞILMIYOR, çünkü BU ÖLÇÜ ZATEN KANITLI: bant `h-24`
+            (96px) ve `sm`den itibaren logo hep 80px'ti. Mobil artık aynı
+            oranı kullanıyor — 96px'lik bantta 8px'lik dikey pay.
+
+            ⚠️ 360px ALTINDA ESKİ ÖLÇÜ KORUNUYOR — ve bu ölçülerek bulundu.
+
+            Sağdaki grup telefon düğmesi DEĞİL: mobilde dil/para birimi
+            anahtarı (~104px) + menü düğmesi (44px) + `gap-2` (8px) = 156px.
+            `gap-3` (12px) ile birlikte logoya kalan genişlik:
+
+                320px ekran → içerik 272px → logoya 104px
+                360px ekran → içerik 312px → logoya 144px
+
+            Logo `w-auto` ile oranını koruyor ve ekranda ~1.6 en/boy
+            veriyor (viewBox 280×166, artı SVG'nin iç boşluğu):
+
+                h-16 (64px) → ~102px      h-20 (80px) → ~128px
+
+            Yani 320px'te yalnızca h-16 sığıyor; h-20 menü düğmesini
+            ekranın dışına itiyordu (render edilip görüldü, 6px taşma).
+            360px'ten itibaren 128px rahatça giriyor, 16px pay kalıyor.
+
+            Bu yüzden artış `min-[360px]:` ile sınırlandı: en dar cihazlar
+            bugünkü davranışını AYNEN koruyor, geri kalan her telefon
+            %25 daha büyük bir logo görüyor.
           */}
           <Logo
             variant="stacked"
             decorative
-            className="h-16 w-auto sm:h-20 lg:h-[5.5rem]"
+            className="h-16 w-auto min-[360px]:h-20 lg:h-[5.5rem]"
           />
         </Link>
 

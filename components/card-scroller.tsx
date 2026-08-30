@@ -1,8 +1,10 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { cn } from "@/lib/cn";
 import { useT } from "@/components/translation";
+import { TRACK_CLASS } from "@/lib/carousel-classes";
+import { useScrollCarousel } from "@/lib/use-scroll-carousel";
 
 /**
  * MOBİL/TABLET YATAY ŞERİT + OK DÜĞMELERİ, `lg`den itibaren IZGARA.
@@ -33,70 +35,15 @@ import { useT } from "@/components/translation";
  */
 export function CardScroller({ children }: { children: React.ReactNode }) {
   const { t } = useT();
-  const ref = useRef<HTMLUListElement>(null);
 
   /*
-    İKİSİ DE `false` BAŞLIYOR ve düğme sırası ancak kaydırılabilirlik
-    ölçüldükten sonra basılıyor (aşağıdaki `scrollable`).
-
-    Sunucuda viewport genişliği bilinmiyor, dolayısıyla şeridin taşıp
-    taşmadığı da bilinemez: bölgesinde tek komşusu olan bir ilanda (veride
-    Yanıklar böyle) iki ok da ölü doğardı. Ölü kontrol göstermektense
-    hidrasyondan sonra göstermek doğru taraf — blok zaten sayfanın en
-    altında, katlamanın çok aşağısında.
+    ⚠️ MANTIK ARTIK PAYLAŞILIYOR. Ölçüm, adım hesabı ve uç algılama
+    `lib/use-scroll-carousel.ts`e taşındı; ana sayfa vitrini de aynı
+    kancayı kullanıyor. İki bölümün fiziği artık kopyalanmış iki kod
+    parçasına değil, tek bir dosyaya bağlı.
   */
-  const [canPrev, setCanPrev] = useState(false);
-  const [canNext, setCanNext] = useState(false);
-
-  const measure = useCallback(() => {
-    const el = ref.current;
-    if (!el) return;
-
-    /* 1px tolerans: alt piksel kaydırma konumları uçlarda tam 0 / tam
-       `scrollWidth - clientWidth` vermiyor ve ok sonsuza dek etkin kalıyordu. */
-    setCanPrev(el.scrollLeft > 1);
-    setCanNext(el.scrollLeft < el.scrollWidth - el.clientWidth - 1);
-  }, []);
-
-  useEffect(() => {
-    measure();
-
-    /* Kırılma noktası değişince (şerit → ızgara) ölçüm yenilenmeli. */
-    const observer = new ResizeObserver(measure);
-    if (ref.current) observer.observe(ref.current);
-    window.addEventListener("resize", measure);
-
-    return () => {
-      observer.disconnect();
-      window.removeEventListener("resize", measure);
-    };
-  }, [measure]);
-
-  /**
-   * BİR KART KAYDIR — sabit piksel değil, ÖLÇÜLEN adım.
-   *
-   * Adım, ilk iki öğenin sol kenarları arasındaki fark: kart genişliği +
-   * boşluk, ikisini ayrı ayrı bilmeye gerek kalmadan. Sabit bir değer
-   * yazılsaydı `w-[86%]` → `sm:w-[52%]` geçişinde yanlış olurdu.
-   */
-  const step = (direction: 1 | -1) => {
-    const el = ref.current;
-    if (!el) return;
-
-    const items = el.children;
-    const delta =
-      items.length > 1
-        ? (items[1] as HTMLElement).offsetLeft - (items[0] as HTMLElement).offsetLeft
-        : el.clientWidth;
-
-    /* Hareket kısıtlaması: `scrollBy` CSS'teki `scroll-behavior`ı ezer,
-       o yüzden tercih burada da ayrıca sorulmak zorunda. */
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    el.scrollBy({ left: direction * delta, behavior: reduced ? "auto" : "smooth" });
-  };
-
-  const scrollable = canPrev || canNext;
+  const { ref, canPrev, canNext, scrollable, measure, step } =
+    useScrollCarousel<HTMLUListElement>();
 
   return (
     <div>
@@ -104,14 +51,14 @@ export function CardScroller({ children }: { children: React.ReactNode }) {
         ref={ref}
         onScroll={measure}
         /*
-          Kart genişlikleri ana sayfayla aynı: %86 mobil, %52 tablet.
-          Ondört puanlık artık, SONRAKİ KARTIN KENARINI gösteriyor —
-          kaydırılabilirliğin en sessiz işareti.
-
-          `lg:` üçlüsü şeridi ızgaraya çeviriyor: `w-auto` (slayt genişliği
-          sıfırlanır), `grid-cols-3`, `overflow-visible`.
+          Kart genişlikleri ana sayfayla aynı: %86 mobil, %52 tablet
+          (bkz. ilan sayfasındaki `<li>` sınıfları). `lg:` üçlüsü şeridi
+          ızgaraya çeviriyor.
         */
-        className="no-scrollbar flex snap-x snap-mandatory items-stretch gap-6 overflow-x-auto pb-1 lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0"
+        className={cn(
+          TRACK_CLASS,
+          "gap-6 pb-1 lg:grid lg:grid-cols-3 lg:overflow-visible lg:pb-0",
+        )}
       >
         {children}
       </ul>

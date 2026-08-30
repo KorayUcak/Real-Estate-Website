@@ -14,6 +14,8 @@ import {
 } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CardScroller } from "@/components/card-scroller";
+import { cn } from "@/lib/cn";
+import { SLIDE_CLASS } from "@/lib/carousel-classes";
 import { EnquiryPanel, MobileEnquiryBar } from "@/components/enquiry-panel";
 import { JsonLd } from "@/components/json-ld";
 import { toPropertyCardData } from "@/lib/property-card-data";
@@ -748,7 +750,15 @@ export default async function PropertyPage(
                   {otherVillas.map((item) => (
                     <li
                       key={item.id}
-                      className="flex w-[86%] shrink-0 snap-start sm:w-[52%] lg:w-auto"
+                      /*
+                        HİZALAMA SINIFLARI ORTAK SABİTTEN: `SLIDE_CLASS`
+                        (`flex shrink-0 snap-start snap-always`) ana sayfa
+                        vitrininin slaytlarıyla BİREBİR aynı. Sınıflar iki
+                        dosyada elle tekrarlansaydı, birinde yapılan bir
+                        hizalama düzeltmesi diğerinde eksik kalırdı — nitekim
+                        `snap-always` bu turda tam olarak öyle eklendi.
+                      */
+                      className={cn(SLIDE_CLASS, "w-[86%] sm:w-[52%] lg:w-auto")}
                     >
                       <PropertyCard villa={toPropertyCardData(item, language)} />
                     </li>

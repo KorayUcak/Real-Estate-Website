@@ -53,7 +53,10 @@ export function PageHero({
             src={image.src}
             alt={image.alt}
             fill
-            priority
+            /* Next 16'da `priority` kullanımdan kaldırıldı; `preload`
+               aynı işi yapıyor (bkz. node_modules/next/dist/docs →
+               image.md, "priority"). */
+            preload
             quality={85}
             sizes="100vw"
             className="-z-10 object-cover"
