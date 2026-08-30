@@ -36,12 +36,41 @@ export type Review = {
  * yorum büyük ihtimalle sona eklenecek. Tarihe göre sıralamak, o eklemenin
  * sayfanın en altında kaybolmasını engelliyor.
  *
- * `slice()` önce: `sort` diziyi YERİNDE değiştiriyor ve statik import
- * modül düzeyinde paylaşılan tek bir nesne — sıralamayı doğrudan uygulamak
- * o modülü içe aktaran her yerin sırasını da değiştirirdi.
+ * ⚠️ `sort` DİZİYİ YERİNDE DEĞİŞTİRİR ve statik import modül düzeyinde
+ * paylaşılan TEK bir nesne — doğrudan sıralamak, o modülü içe aktaran her
+ * yerin sırasını da kalıcı olarak değiştirirdi. Burada güvenli olmasının
+ * sebebi `filter`ın zaten YENİ bir dizi döndürmesi; `sort` o kopyayı
+ * diziyor. (Önceki sürümde bu işi başta duran bir `slice()` yapıyordu;
+ * `filter` eklenince gereksizleşti.)
  */
 export function getReviews(): Review[] {
   return (reviewsJson as Review[])
-    .slice()
+    .filter(isUsable)
     .sort((a, b) => b.date.localeCompare(a.date));
+}
+
+/**
+ * BOZUK KAYIT SAYFAYA ÇIKMAZ.
+ *
+ * `reviewsJson as Review[]` DENETLENMEYEN bir dönüşüm: TypeScript JSON'un
+ * içeriğini doğrulamıyor, yalnızca öyle olduğunu varsayıyor. Bu dosya elle
+ * düzenleniyor — on gerçek yorum Google'dan tek tek yapıştırılacak — ve
+ * tek bir yazım hatası (`author` yerine `authorName`) tipe takılmadan
+ * ekrana "undefined" olarak basılırdı. `rating` eksikse ortalama da `NaN`
+ * olur ve rozette "NaN" yazardı.
+ *
+ * Eleme SESSİZ DEĞİL: hatalı kayıt listeden düşünce yorum sayısı da düşer,
+ * yani gözden kaçmaz. Alternatif olan "hata fırlat" ise 227 sayfanın
+ * tamamının derlemesini durdururdu — tek bir yorumdaki virgül hatası için
+ * orantısız bir ceza.
+ */
+function isUsable(review: Review): boolean {
+  return (
+    typeof review?.authorName === "string" &&
+    review.authorName.trim().length > 0 &&
+    typeof review?.text === "string" &&
+    review.text.trim().length > 0 &&
+    typeof review?.date === "string" &&
+    Number.isFinite(review?.rating)
+  );
 }

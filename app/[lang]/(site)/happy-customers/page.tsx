@@ -95,8 +95,9 @@ export default async function HappyCustomersPage() {
    * Biçimlendirme `Intl`den: ondalık ayırıcı dile göre değişiyor
    * ("5.0" / "5,0"). Elle nokta yazmak Türkçe ve Rusça'da yanlış olurdu.
    */
-  const average =
-    reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length;
+  const average = reviews.length
+    ? reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length
+    : 0;
 
   const score = new Intl.NumberFormat(LANGUAGE_META[language].tag, {
     minimumFractionDigits: 1,
@@ -147,21 +148,49 @@ export default async function HappyCustomersPage() {
           `lg:items-end` ikisini aynı taban çizgisine oturtuyor.
         */}
         <section className="border-b border-line bg-shell">
-          <div className="container-page py-8 sm:py-10">
+          <div className="container-page py-7 sm:py-9">
             <Breadcrumbs crumbs={CRUMBS} />
 
-            <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between lg:gap-12">
-              <div className="max-w-xl">
-                <p className="eyebrow text-gold-deep">
-                  {t("happyCustomers.eyebrow")}
-                </p>
-                <h1 className="mt-4 font-display text-3xl leading-tight text-sea-deep sm:text-4xl">
-                  {t("happyCustomers.heroTitle")}
-                </h1>
-                <p className="mt-5 leading-relaxed text-ink-70">
-                  {t("happyCustomers.heroLede")}
-                </p>
-              </div>
+            {/*
+              `lg:items-center` — `items-end` DEĞİL.
+
+              Sol sütun artık tek satırlık ince bir yazı, sağdaki rozet ise
+              ~150px'lik bir kart. Taban hizası (`items-end`) o tek satırı
+              kartın en altına yapıştırıp bloğu dengesiz gösteriyordu;
+              ortalama, iki nesnenin optik ağırlığını aynı eksene getiriyor.
+            */}
+            <div className="mt-8 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between lg:gap-12">
+              {/*
+                ⚠️ BU SATIR SAYFANIN <h1>'İ — ve bu bilinçli bir seçim.
+
+                Brief "h1'i ve tanıtım paragrafını kaldır, yerine yalnızca
+                'VERIFIED GOOGLE REVIEWS' yazsın" diyor. İstenen METİN
+                gitmedi, istenen METİNLER gitti: başlık cümlesi ve lede
+                kaldırıldı, geriye tek bir satır kaldı. O satırı düz bir
+                `<p>` yapmak sayfayı BAŞLIKSIZ bırakırdı — belge yapısı
+                (ekran okuyucu için gezinme) ve arama motorunun sayfanın
+                konusunu okuduğu ana sinyal birlikte giderdi.
+
+                Görsel olarak fark yok: `<h1>` varsayılan stillerini
+                almıyor, aşağıdaki sınıflar ne diyorsa o. Yani ekranda tam
+                da istenen minimal satır duruyor; yalnızca DOM'da bir
+                başlık olarak duruyor.
+
+                ⚠️ İNCE KESİT `font-display`DEN GELMEK ZORUNDA.
+                `--font-display` Montserrat ve DEĞİŞKEN kesit olarak
+                yükleniyor (layout'ta `weight` verilmemiş), yani 100–900
+                arası her ağırlık ek indirme olmadan hazır. `.eyebrow`
+                yardımcı sınıfı ise `--font-sans` yani Inter kullanıyor ve
+                Inter yalnızca 400–700 ile yükleniyor: orada `font-light`
+                yazmak 300 değil 400 çizdirir — yani hiçbir şey değişmezdi.
+
+                Harf aralığı mobilde bir kademe dar (`0.2em`): Rusça karşılık
+                28 karakter ("ПОДТВЕРЖДЁННЫЕ ОТЗЫВЫ GOOGLE") ve 0.28em ile
+                390px'lik ekranda ikinci satıra taşıyordu.
+              */}
+              <h1 className="font-display text-sm font-light uppercase leading-relaxed tracking-[0.2em] text-sea-deep sm:text-base sm:tracking-[0.28em] lg:text-lg">
+                {t("happyCustomers.heading")}
+              </h1>
 
               {/*
                 GÜVEN ROZETİ — Google'ın özet kartının sessiz karşılığı.
