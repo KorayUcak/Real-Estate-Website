@@ -5,6 +5,7 @@ import path from "node:path";
 import { cache } from "react";
 import type { Villa } from "@/lib/types";
 import { coerceLocalized } from "@/lib/localized";
+import { stockRank } from "@/lib/property-filters";
 
 /**
  * ⚠️ STATİK `import` → ÇALIŞMA ZAMANI OKUMASI. Bu dosyanın tamamı bu yüzden değişti.
@@ -105,10 +106,18 @@ export async function getAllVillas(): Promise<Villa[]> {
 export async function getFeaturedVillas(limit = 3): Promise<Villa[]> {
   const villas = await getAllVillas();
 
-  return villas
-    .filter((villa) => villa.featured)
-    .sort((a, b) => b.price.gbp - a.price.gbp)
-    .slice(0, limit);
+  return (
+    villas
+      .filter((villa) => villa.featured)
+      /*
+        STOK ÖNCE, FİYAT SONRA. Vitrin en pahalı ilanları öne alıyordu ve
+        `featured` bayrağı statüden bağımsız: satılmış ama öne çıkarılmış
+        pahalı bir villa ana sayfanın ilk kartı olabiliyordu. Kural artık
+        tüm listelerle aynı (bkz. lib/property-filters.ts `byStock`).
+      */
+      .sort((a, b) => stockRank(a.status) - stockRank(b.status) || b.price.gbp - a.price.gbp)
+      .slice(0, limit)
+  );
 }
 
 export async function getVillaBySlug(slug: string): Promise<Villa | undefined> {

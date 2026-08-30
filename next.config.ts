@@ -30,6 +30,41 @@ const nextConfig: NextConfig = {
    */
   allowedDevOrigins: ["192.168.*.*", "10.*.*.*", "172.*.*.*"],
 
+  /**
+   * KALICI YÖNLENDİRMELER.
+   *
+   * /happy-customers → /testimonials. Rota yeniden adlandırıldı ve eski
+   * adres yayına çıkmıştı: sitemap'te listelenmişti, yani taranmış olabilir.
+   * Yönlendirme olmadan o adres 404 döner ve varsa dizindeki kaydı da,
+   * dışarıdan verilmiş bağlantıları da çöpe atar.
+   *
+   * `permanent: true` → 308. Google 308'i 301 gibi işler; fark, 308'in
+   * HTTP metodunu koruması (301 bazı istemcilerde POST'u GET'e çeviriyor).
+   *
+   * İKİ KURAL GEREKİYOR çünkü varsayılan dil ÖNEKSİZ yayınlanıyor:
+   * İngilizce sayfa /testimonials, diğerleri /tr/… ve /ru/… adresinde.
+   * `:lang` yakalaması yalnızca bilinen üç dille sınırlı — serbest
+   * bırakılsaydı /herhangi-bir-sey/happy-customers de eşleşirdi.
+   *
+   * `proxy.ts` ile ÇAKIŞMIYOR: yapılandırma yönlendirmeleri proxy'den önce
+   * değerlendiriliyor, ve /en/… zaten proxy tarafından öneksiz adrese
+   * çekildiği için iki katman aynı yöne çalışıyor (test edildi).
+   */
+  async redirects() {
+    return [
+      {
+        source: "/happy-customers",
+        destination: "/testimonials",
+        permanent: true,
+      },
+      {
+        source: "/:lang(en|tr|ru)/happy-customers",
+        destination: "/:lang/testimonials",
+        permanent: true,
+      },
+    ];
+  },
+
   images: {
     /**
      * Uzak görsel kaynakları allowlist'i. Bu tanım olmadan `next/image`

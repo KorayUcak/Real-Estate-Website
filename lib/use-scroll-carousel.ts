@@ -56,20 +56,54 @@ export function useScrollCarousel<T extends HTMLElement>() {
     setCanNext(el.scrollLeft < el.scrollWidth - el.clientWidth - 1);
   }, []);
 
+  /**
+   * KAYDIRMA SIRASINDA ÖLÇÜM — KARE BAŞINA EN FAZLA BİR KEZ.
+   *
+   * ⚠️ ÖNCEKİ HÂL: `onScroll={measure}`. Tarayıcı kaydırma olayını saniyede
+   * onlarca kez üretiyor ve her birinde `scrollLeft`, `scrollWidth`,
+   * `clientWidth` okunuyordu. Üçü de DÜZEN OKUMASI: tarayıcıyı bekleyen
+   * düzeni hesaplamaya zorlayabilen türden erişimler. Değerler çoğu olayda
+   * aynı kalıyor (React aynı değerde yeniden render etmiyor), yani iş
+   * büyük ölçüde boşa gidiyordu.
+   *
+   * `requestAnimationFrame` ile ölçüm kare hızına bağlanıyor: art arda
+   * gelen yirmi kaydırma olayı tek bir ölçüme düşüyor ve okuma tarayıcının
+   * zaten düzen hesapladığı ana denk geliyor.
+   *
+   * ⚠️ `passive` BURADA KONU DEĞİL. `scroll` olayı iptal edilemez
+   * (`preventDefault` etkisiz), dolayısıyla dinleyicinin pasif olup
+   * olmaması kaydırmayı bloklamıyor — `passive` yalnızca `wheel` ve
+   * `touchstart` gibi İPTAL EDİLEBİLİR olaylarda fark yaratır.
+   */
+  const frame = useRef<number | null>(null);
+
+  const onScroll = useCallback(() => {
+    if (frame.current !== null) return;
+    frame.current = requestAnimationFrame(() => {
+      frame.current = null;
+      measure();
+    });
+  }, [measure]);
+
   useEffect(() => {
     measure();
 
     /*
       `ResizeObserver`: kırılma noktası değiştiğinde (şerit → ızgara, ya da
-      kart genişliğinin %86'dan %52'ye inmesi) taşma durumu da değişiyor.
-      `resize` olayı tek başına yetmez — kap, viewport değişmeden de
-      yeniden boyutlanabiliyor (yazı tipi yüklenmesi, görsel yerleşimi).
+      kart genişliğinin değişmesi) taşma durumu da değişiyor. `resize`
+      olayı tek başına yetmez — kap, viewport değişmeden de yeniden
+      boyutlanabiliyor (yazı tipi yüklenmesi, görsel yerleşimi).
     */
     const observer = new ResizeObserver(measure);
     const el = ref.current;
     if (el) observer.observe(el);
 
-    return () => observer.disconnect();
+    return () => {
+      observer.disconnect();
+      /* Sökülürken bekleyen kare iptal ediliyor: aksi hâlde geri çağrı
+         DOM'dan kalkmış bir elemanı ölçmeye çalışırdı. */
+      if (frame.current !== null) cancelAnimationFrame(frame.current);
+    };
   }, [measure]);
 
   /**
@@ -100,5 +134,5 @@ export function useScrollCarousel<T extends HTMLElement>() {
     el.scrollBy({ left: direction * delta, behavior: reduced ? "auto" : "smooth" });
   }, []);
 
-  return { ref, canPrev, canNext, scrollable: canPrev || canNext, measure, step };
+  return { ref, canPrev, canNext, scrollable: canPrev || canNext, onScroll, step };
 }

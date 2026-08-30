@@ -28,7 +28,7 @@ import { useScrollCarousel } from "@/lib/use-scroll-carousel";
  */
 export function FeaturedCarousel({ cards }: { cards: PropertyCardData[] }) {
   const { t } = useT();
-  const { ref, canPrev, canNext, measure, step } =
+  const { ref, canPrev, canNext, onScroll, step } =
     useScrollCarousel<HTMLUListElement>();
 
   return (
@@ -54,7 +54,7 @@ export function FeaturedCarousel({ cards }: { cards: PropertyCardData[] }) {
       */}
       <ul
         ref={ref}
-        onScroll={measure}
+        onScroll={onScroll}
         className={cn(TRACK_CLASS, "gap-5 sm:gap-6")}
       >
         {cards.map((card, index) => (
@@ -73,7 +73,7 @@ export function FeaturedCarousel({ cards }: { cards: PropertyCardData[] }) {
             */
             className={cn(
               SLIDE_CLASS,
-              "min-w-0 w-[86%] sm:w-[52%] lg:w-[calc(33.333%-1rem)]",
+              "min-w-0 w-[calc(100vw-5rem)] sm:w-[52%] lg:w-[calc(33.333%-1rem)]",
             )}
             role="group"
             aria-roledescription="slide"

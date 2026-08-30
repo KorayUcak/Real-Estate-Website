@@ -317,7 +317,47 @@ export type SortableProperty = {
   price: number;
   publishedAt: string;
   featured: boolean;
+  /** Stok sırası için — bkz. `stockRank`. */
+  status: string;
 };
+
+/**
+ * SATILAN İLANLAR HER ZAMAN EN SONA — sitenin TAMAMINDA geçerli kural.
+ *
+ * Bu sıralama önce yalnızca ilan sayfasının çapraz satış şeridinde vardı.
+ * Oysa aynı sorun her listede var: 57 ilanın 19'u `sold` ve fiyata göre
+ * sıralanmış bir listede satılmış bir villa pekâlâ ilk sırada olabiliyor.
+ * Ziyaretçiye satın alamayacağı bir evi listenin başında göstermek, vitrini
+ * arşive çeviriyor.
+ *
+ * ⚠️ BİLİNMEYEN DURUM 0 SAYILIYOR, 2 DEĞİL. Veriye yeni bir statü
+ * eklendiğinde (ör. "under-offer") bu harita güncellenene kadar o ilanlar
+ * MÜSAİT stokla birlikte sıralanır. Tersi — bilinmeyeni sona atmak — yeni
+ * bir statüyü sessizce listenin dibine gömerdi ve kimse fark etmezdi.
+ */
+const STOCK_RANK: Record<string, number> = {
+  "for-sale": 0,
+  reserved: 1,
+  sold: 2,
+  "off-market": 3,
+};
+
+export function stockRank(status: string): number {
+  return STOCK_RANK[status] ?? 0;
+}
+
+/**
+ * Stok sırası karşılaştırıcısı — her sıralamanın BİRİNCİL anahtarı.
+ *
+ * ⚠️ PARAMETRE `SortableProperty` DEĞİL, yalnızca `{ status }`. İki farklı
+ * şekil bunu çağırıyor: kart verisi (`PropertyCardData`, `price: number`) ve
+ * ham kayıt (`Villa`, `price: { gbp, currency }`). `Villa` sıralanabilir
+ * arayüze uymuyor ve uyması da gerekmiyor — bu karşılaştırıcı fiyatı hiç
+ * okumuyor. En dar imza ikisini de kabul ediyor.
+ */
+export function byStock(a: { status: string }, b: { status: string }): number {
+  return stockRank(a.status) - stockRank(b.status);
+}
 
 /** `label` bir ÇEVİRİ ANAHTARI — gerekçe CATEGORY_LABEL'de. */
 export const SORT_OPTIONS: { value: SortKey; label: string }[] = [
@@ -362,6 +402,10 @@ export function sortVillas<T extends SortableProperty>(
     case "price-asc":
     case "price-desc":
       return list.sort((a, b) => {
+        /* Stok önce: satılanlar fiyat ne olursa olsun aşağıda kalıyor. */
+        const stock = byStock(a, b);
+        if (stock !== 0) return stock;
+
         const left = priced(a);
         const right = priced(b);
         if (left === null || right === null) {
@@ -377,11 +421,18 @@ export function sortVillas<T extends SortableProperty>(
         taşıyor — WordPress taşımasında ilanlar toplu damgalanmış. Eşit
         tarihlerde `sort` kararlı olduğu için kaynak sırası korunuyor.
       */
-      return list.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
+      return list.sort(
+        (a, b) => byStock(a, b) || b.publishedAt.localeCompare(a.publishedAt),
+      );
 
     case "recommended":
     default:
-      /* Öne çıkanlar başa; gerisi kaynak sırasında (kararlı sıralama). */
-      return list.sort((a, b) => Number(b.featured) - Number(a.featured));
+      /*
+        Stok → öne çıkanlar → kaynak sırası (sıralama kararlı olduğu için
+        son kademe kendiliğinden korunuyor).
+      */
+      return list.sort(
+        (a, b) => byStock(a, b) || Number(b.featured) - Number(a.featured),
+      );
   }
 }

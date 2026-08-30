@@ -19,6 +19,7 @@ import { SLIDE_CLASS } from "@/lib/carousel-classes";
 import { EnquiryPanel, MobileEnquiryBar } from "@/components/enquiry-panel";
 import { JsonLd } from "@/components/json-ld";
 import { toPropertyCardData } from "@/lib/property-card-data";
+import { byStock } from "@/lib/property-filters";
 import { Price } from "@/components/price";
 import { PropertyGallery } from "@/components/property-gallery";
 import { Reveal } from "@/components/reveal";
@@ -40,21 +41,6 @@ import {
   getVillaBySlug,
   getVillasByArea,
 } from "@/lib/villas";
-
-/**
- * ÇAPRAZ SATIŞ SIRALAMASI — küçük olan önce gelir.
- *
- * `off-market` burada geçmiyor: `getVillasByArea` onu zaten eliyor.
- * Yine de haritada duruyor, çünkü eksik bir anahtar `undefined` döndürüp
- * karşılaştırmayı `NaN`e çevirirdi — o durumda sıralama sessizce
- * rastgeleleşir.
- */
-const STOCK_ORDER: Record<Villa["status"], number> = {
-  "for-sale": 0,
-  reserved: 1,
-  sold: 2,
-  "off-market": 3,
-};
 
 /** Tüm ilan sayfaları build anında üretilir — çalışma zamanında veri okuması yok. */
 export async function generateStaticParams() {
@@ -267,6 +253,10 @@ export default async function PropertyPage(
       göstermek, çapraz satış bloğunu vitrin olmaktan çıkarıp arşive
       çeviriyor.
 
+      ⚠️ Sıralama artık ORTAK: `byStock` lib/property-filters.ts'te ve
+      /properties ile ana sayfa vitrini de aynı karşılaştırıcıyı kullanıyor.
+      Yerel bir kopya, kuralın üç yerde ayrışmasına açık kapı bırakıyordu.
+
       ⚠️ `.sort()` `.slice()`TEN ÖNCE olmak zorunda. Sonra gelseydi altılık
       pencere hâlâ satılmışlarla dolar, sıralama yalnızca o altısını kendi
       içinde dizerdi.
@@ -280,7 +270,7 @@ export default async function PropertyPage(
       `sort` ES2019'dan beri KARARLI: aynı kademedeki ilanlar
       `getVillasByArea`ten geldikleri sırayı koruyor.
     */
-    .sort((a, b) => STOCK_ORDER[a.status] - STOCK_ORDER[b.status])
+    .sort(byStock)
     .slice(0, 6);
 
   return (
@@ -758,7 +748,7 @@ export default async function PropertyPage(
                         hizalama düzeltmesi diğerinde eksik kalırdı — nitekim
                         `snap-always` bu turda tam olarak öyle eklendi.
                       */
-                      className={cn(SLIDE_CLASS, "w-[86%] sm:w-[52%] lg:w-auto")}
+                      className={cn(SLIDE_CLASS, "w-[calc(100vw-5rem)] sm:w-[52%] lg:w-auto")}
                     >
                       <PropertyCard villa={toPropertyCardData(item, language)} />
                     </li>

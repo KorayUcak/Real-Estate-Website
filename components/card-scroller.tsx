@@ -42,14 +42,14 @@ export function CardScroller({ children }: { children: React.ReactNode }) {
     kancayı kullanıyor. İki bölümün fiziği artık kopyalanmış iki kod
     parçasına değil, tek bir dosyaya bağlı.
   */
-  const { ref, canPrev, canNext, scrollable, measure, step } =
+  const { ref, canPrev, canNext, scrollable, onScroll, step } =
     useScrollCarousel<HTMLUListElement>();
 
   return (
     <div>
       <ul
         ref={ref}
-        onScroll={measure}
+        onScroll={onScroll}
         /*
           Kart genişlikleri ana sayfayla aynı: %86 mobil, %52 tablet
           (bkz. ilan sayfasındaki `<li>` sınıfları). `lg:` üçlüsü şeridi
