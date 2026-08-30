@@ -24,7 +24,8 @@
     "Insights & Guides": "Bilgiler ve Kılavuzlar",
     "About": "Hakkında",
     "Contact": "İletişim",
-    "Guides": "Kılavuzlar"
+    "Guides": "Kılavuzlar",
+    "Happy Customers": "Mutlu Müşteriler"
   },
   "navDescriptions": {
     "/about-turkey": "Kıyı şeridi, bölgeler ve burada yaşamak nasıl bir şey?",
@@ -1363,5 +1364,18 @@
       "Suya bakan çağdaş bir lüks villadaki sonsuzluk havuzu",
       "Akdeniz kıyısında, deniz manzaralı terası ve sonsuzluk havuzu bulunan lüks villa"
     ]
+  },
+  "happyCustomers": {
+    "metaTitle": "Mutlu Müşteriler — Google Yorumlarımız",
+    "metaDescription": "Alıcılar Coast 2 Coast Properties Turkey ile çalışmayı nasıl anlatıyor? Buradaki her yorum, Google İşletme Profilimizde yayımlanmış beş yıldızlı bir değerlendirme.",
+    "eyebrow": "Doğrulanmış Google yorumları",
+    "heroTitle": "Sadece bizim sözümüze güvenmeyin",
+    "heroLede": "Yurt dışında ev almak, telefonun diğer ucundaki kişiye güvenip güvenmediğinize bakar. Aşağıdakiler güvenen insanlar — kendi cümleleriyle, hiç düzeltilmeden.",
+    "ratingLabel": "5 üzerinden 5",
+    "sourceNote": "Aşağıdaki yorumların tamamı Google İşletme Profilimizde yayımlanmış beş yıldızlı değerlendirmelerdir.",
+    "ctaHeading": "Kendi arayışınıza başlamaya hazır mısınız?",
+    "ctaBody": "Ne aradığınızı anlatın; uçmaya değer bir aday listesi hazırlayalım — hiçbir yükümlülük ve satın alma baskısı olmadan.",
+    "ctaPrimary": "Bize ulaşın",
+    "ctaSecondary": "Portföye göz atın"
   }
 }

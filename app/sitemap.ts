@@ -127,6 +127,17 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "yearly",
       priority: 0.5,
     },
+    /*
+      Yorum sayfası `monthly`: içerik yeni bir değerlendirme geldikçe
+      değişiyor, /about gibi yılda bir değil. Öncelik 0.6 — dönüşüme
+      yakın bir sayfa, ama arama niyeti /properties kadar güçlü değil.
+    */
+    {
+      path: "/happy-customers",
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.6,
+    },
     {
       path: "/contact",
       lastModified: now,
