@@ -1,23 +1,72 @@
 [
   {
-    "id": "rev-0001",
-    "authorName": "Sarah Whitfield",
+    "id": 1,
+    "authorName": "Mariia Buianova",
     "rating": 5,
-    "date": "2026-07-18",
-    "text": "Ronnie and Nilay looked after us from the first email to the day we collected the keys. We flew out with a shortlist already agreed, saw six properties in two days and never once felt pushed towards something outside our budget. The legal side was handled by our own solicitor, exactly as they had explained on the phone weeks earlier."
+    "date": "2026-07-30",
+    "text": "It was a pleasure working with Ronnie and Nilay! This team made the entire process smooth and comfortable, and we always felt supported and well taken care of. Thank you so much for your professionalism and great cooperation. We are very happy with the experience and highly recommend Coast2Coast to anyone looking for trustworthy and reliable real estate agents. The dream apartment in Akarca is ours now"
   },
   {
-    "id": "rev-0002",
-    "authorName": "David and Anne Marshall",
+    "id": 2,
+    "authorName": "suzie higgins",
     "rating": 5,
-    "date": "2026-05-02",
-    "text": "We had been let down by another agent before we found Coast 2 Coast. The difference was obvious within a week. Every question got a straight answer, including the ones about costs that other agents had avoided. Nilay dealt with the paperwork and the tapu transfer went through without a single surprise."
+    "date": "2026-05-30",
+    "text": "Absolutely fantastic service from Ronnie and Nilay at Coast2Coast Properties. They listened to all our requirements before showing us around a few properties which were all to our taste. We decided on a beautiful 3 bed apartment in Calis. Ronnie and Nilay helped us through the whole process successfully with no hassles at all, we would totally recommend them to anyone buying or selling property in Turkey. Thank you for finding us our perfect home in the sun!!!"
   },
   {
-    "id": "rev-0003",
-    "authorName": "Michael O'Donnell",
+    "id": 3,
+    "authorName": "Howard Jones",
     "rating": 5,
-    "date": "2026-03-24",
-    "text": "Genuinely the most straightforward property purchase I have made, and I have bought three houses in the UK. They talked me out of one villa because the deed was not clean, which cost them a sale and earned my trust completely. I have already recommended them to two friends in Ireland."
+    "date": "2026-05-30",
+    "text": "Absolutely fantastic company!! We sold our house with them. From start to finish Ronnie and Nilay were with us all the way. The house was sold within weeks and all monies transferred to us in the UK. We had problems with our Turkish bank however Nilay went the extra mile in sorting it out for us. If I was to buy again I would 100% use them. 5 star service from a lovely couple. Thank you"
+  },
+  {
+    "id": 4,
+    "authorName": "graham overell",
+    "rating": 5,
+    "date": "2026-05-30",
+    "text": "We can thoroughly recommend Ronnie and Nilay from Coast2Coast Properties Turkey. We recently engaged them to sell our apartment in Fethiye and gave them a very short timeline as we are moving away. We were very happy with all aspects of the service rendered. From the professional advertising campaign, to discussing the property market, keeping us informed through meetings and WhatsApp communication, arriving on time for viewings, negotiations with the buyer, and guiding us through Turkish bureaucracy."
+  },
+  {
+    "id": 5,
+    "authorName": "Jackie Catlin",
+    "rating": 5,
+    "date": "2026-05-30",
+    "text": "This agency is a perfect combination of Turkish and Scottish inheritance, hence dealing with the local paperwork whilst assisting with opening a bank account are part of the job. We highly recommend them as buyers and sellers. The whole process from advertising to completion of sale took 4 weeks."
+  },
+  {
+    "id": 6,
+    "authorName": "Karen Nichols",
+    "rating": 5,
+    "date": "2026-05-30",
+    "text": "Excellent service ,very professional company and Ronnie and Nilay will be with you the whole way through and will explain everything. Everything is done legally and correctly with this company which is very important as some companies do not do this . I have absolutely no problem recommending this company you will be in safe hands ."
+  },
+  {
+    "id": 7,
+    "authorName": "John Mcgill",
+    "rating": 5,
+    "date": "2026-05-30",
+    "text": "Fantastic company and very nice couple they sold our apartment in four days very professional and they dealt with everything would recommend them for buying or selling you won't be disappointed recommended give them a call."
+  },
+  {
+    "id": 8,
+    "authorName": "Cisem Kutluer",
+    "rating": 5,
+    "date": "2025-08-30",
+    "text": "Nilay and Ronnie, with their open and honest attitude, considered the rights of both the buyer and the seller, anticipating potential problems and offering solutions, thus bringing the process to a very good conclusion in a short time. Thank you. Nilay and Ronnie were very clear and honest. They were always easy to communicate with the buyer and seller throughout our process. They won back our damaged trust 🙈. We are thankful to be able to buy our new home with them 💙 Nilay and Ronnie were transparent, honest, and courteous with us from the beginning. They anticipated possible difficulties and were always responsive and solution-oriented. We bought our new home thanks to them in a short time."
+  },
+  {
+    "id": 9,
+    "authorName": "Carolyn Galey",
+    "rating": 5,
+    "date": "2023-08-30",
+    "text": "Very helpful, efficient, friendly and at all times professional. They made the process of buying a property as smooth and as painless as possible"
+  },
+  {
+    "id": 10,
+    "authorName": "Bertie Boo",
+    "rating": 5,
+    "date": "2023-08-30",
+    "text": "Excellent service and very professional"
   }
 ]

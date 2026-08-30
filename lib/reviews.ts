@@ -20,7 +20,13 @@ import reviewsJson from "@/data/reviews.json";
  */
 
 export type Review = {
-  id: string;
+  /*
+    SAYI, dize değil: gerçek yorumlar 1..10 diye numaralandı. Tip `string`
+    kalsaydı `reviewsJson as Review[]` dönüşümü derlenmezdi — TypeScript
+    örtüşmeyen iki tip arasında `as` kullanılmasına izin vermiyor. Yani
+    veri ile tipin ayrışması sessizce geçmiyor, derlemede duruyor.
+  */
+  id: number;
   authorName: string;
   /** Sayfa yalnızca 5 yıldızlıları yayımlıyor; alan yine de veride tutuluyor. */
   rating: number;

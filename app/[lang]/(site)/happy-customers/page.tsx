@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
-import { LocaleLink as Link } from "@/components/locale-link";
-import { ArrowRight, Quote, Star } from "lucide-react";
+import { Quote, Star } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JsonLd } from "@/components/json-ld";
@@ -309,35 +308,6 @@ export default async function HappyCustomersPage() {
           </div>
         </section>
 
-        {/* --------------------------------------------------------- CTA */}
-        <section
-          aria-labelledby="reviews-cta-heading"
-          className="border-t border-line bg-shell-deep py-section"
-        >
-          <div className="container-page">
-            <Reveal className="mx-auto max-w-2xl text-center">
-              <h2
-                id="reviews-cta-heading"
-                className="font-display text-3xl leading-tight text-sea-deep sm:text-4xl"
-              >
-                {t("happyCustomers.ctaHeading")}
-              </h2>
-              <p className="mt-6 leading-relaxed text-ink-70">
-                {t("happyCustomers.ctaBody")}
-              </p>
-
-              <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
-                <Link href="/contact" className="btn btn-solid">
-                  {t("happyCustomers.ctaPrimary")}
-                  <ArrowRight className="size-4" aria-hidden="true" />
-                </Link>
-                <Link href="/properties" className="btn btn-light">
-                  {t("happyCustomers.ctaSecondary")}
-                </Link>
-              </div>
-            </Reveal>
-          </div>
-        </section>
       </main>
     </>
   );
