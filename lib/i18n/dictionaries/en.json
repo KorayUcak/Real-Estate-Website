@@ -25,7 +25,7 @@
     "About": "About",
     "Contact": "Contact",
     "Guides": "Guides",
-    "Happy Customers": "Happy Customers"
+    "Testimonials": "Testimonials"
   },
   "navDescriptions": {
     "/about-turkey": "The coast, the areas and what living here is like",
@@ -1365,8 +1365,8 @@
       "Luxury villa with a sea view terrace and infinity pool on the Mediterranean coast"
     ]
   },
-  "happyCustomers": {
-    "metaTitle": "Happy Customers — Our Google Reviews",
+  "testimonials": {
+    "metaTitle": "Testimonials — Our Google Reviews",
     "metaDescription": "Read what buyers say about working with Coast 2 Coast Properties Turkey. Every review is a verified five-star rating from our Google Business Profile.",
     "heading": "Verified Google reviews",
     "ratingLabel": "Rated 5 out of 5",

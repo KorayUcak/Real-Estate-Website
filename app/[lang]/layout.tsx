@@ -61,7 +61,7 @@ const montserrat = Montserrat({
 
     ⚠️ 300 (light) SONRADAN EKLENDİ ve bir HATAYI düzeltiyor.
 
-    /happy-customers başlığı `font-light` ile yazılmıştı; bu ailenin
+    /testimonials başlığı `font-light` ile yazılmıştı; bu ailenin
     değişken kesit olarak yüklendiği varsayılmıştı. Değil — liste
     yukarıdaki üç ağırlıktan ibaretti ve tarayıcı 300 isteğini en yakın
     MEVCUT kesite, yani 600'e eşliyordu. Yani "ince" olması istenen tek

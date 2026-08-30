@@ -13,24 +13,24 @@ import { siteConfig } from "@/lib/site";
 import { HOME_CRUMB, pageMetadata, type Crumb } from "@/lib/seo";
 
 /**
- * ⚠️ ROTA `(site)` GRUBUNUN İÇİNDE, `app/[lang]/happy-customers` DEĞİL.
+ * ⚠️ ROTA `(site)` GRUBUNUN İÇİNDE, `app/[lang]/testimonials` DEĞİL.
  *
  * Brief ikincisini yazıyordu ama parantezli grup URL'e girmiyor: her iki
- * yolda da adres `/[lang]/happy-customers`. Fark KABUKTA. Başlık, footer,
+ * yolda da adres `/[lang]/testimonials`. Fark KABUKTA. Başlık, footer,
  * dil/para birimi bağlamı, rıza katmanı ve arka plan silueti
  * `(site)/layout.tsx` içinde; grubun dışına konsaydı sayfa bunların
  * hiçbirini almaz, gezinmesiz ve footersız çıplak bir belge olurdu.
  */
-const PATH = "/happy-customers";
-const CRUMBS: Crumb[] = [HOME_CRUMB, { name: "Happy Customers", path: PATH }];
+const PATH = "/testimonials";
+const CRUMBS: Crumb[] = [HOME_CRUMB, { name: "Testimonials", path: PATH }];
 
 export async function generateMetadata(): Promise<Metadata> {
   const locale = await currentLocale();
   const t = await getT();
 
   return pageMetadata({
-    title: t("happyCustomers.metaTitle"),
-    description: t("happyCustomers.metaDescription"),
+    title: t("testimonials.metaTitle"),
+    description: t("testimonials.metaDescription"),
     path: PATH,
     locale,
     keywords: [
@@ -103,7 +103,7 @@ export default async function HappyCustomersPage() {
     maximumFractionDigits: 1,
   }).format(average);
 
-  const ratingLabel = t("happyCustomers.ratingLabel");
+  const ratingLabel = t("testimonials.ratingLabel");
 
   return (
     <>
@@ -191,7 +191,7 @@ export default async function HappyCustomersPage() {
                 390px'lik ekranda ikinci satıra taşıyordu.
               */}
               <h1 className="font-display text-sm font-light uppercase leading-relaxed tracking-[0.2em] text-sea-deep sm:text-base sm:tracking-[0.28em] lg:text-lg">
-                {t("happyCustomers.heading")}
+                {t("testimonials.heading")}
               </h1>
 
               {/*
@@ -221,7 +221,7 @@ export default async function HappyCustomersPage() {
                 </div>
 
                 <p className="mt-4 text-xs text-ink-70">
-                  {t("happyCustomers.basedOn")}
+                  {t("testimonials.basedOn")}
                 </p>
               </div>
             </div>
@@ -235,7 +235,7 @@ export default async function HappyCustomersPage() {
         >
           <div className="container-page">
             <h2 id="reviews-heading" className="sr-only">
-              {t("happyCustomers.metaTitle")}
+              {t("testimonials.metaTitle")}
             </h2>
 
             {/*

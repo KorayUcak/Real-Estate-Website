@@ -133,7 +133,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       yakın bir sayfa, ama arama niyeti /properties kadar güçlü değil.
     */
     {
-      path: "/happy-customers",
+      path: "/testimonials",
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.6,

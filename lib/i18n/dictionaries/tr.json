@@ -25,7 +25,7 @@
     "About": "Hakkında",
     "Contact": "İletişim",
     "Guides": "Kılavuzlar",
-    "Happy Customers": "Mutlu Müşteriler"
+    "Testimonials": "Müşteri Yorumları"
   },
   "navDescriptions": {
     "/about-turkey": "Kıyı şeridi, bölgeler ve burada yaşamak nasıl bir şey?",
@@ -1365,8 +1365,8 @@
       "Akdeniz kıyısında, deniz manzaralı terası ve sonsuzluk havuzu bulunan lüks villa"
     ]
   },
-  "happyCustomers": {
-    "metaTitle": "Mutlu Müşteriler — Google Yorumlarımız",
+  "testimonials": {
+    "metaTitle": "Müşteri Yorumları — Google Değerlendirmelerimiz",
     "metaDescription": "Alıcılar Coast 2 Coast Properties Turkey ile çalışmayı nasıl anlatıyor? Buradaki her yorum, Google İşletme Profilimizde yayımlanmış beş yıldızlı bir değerlendirme.",
     "heading": "Doğrulanmış Google yorumları",
     "ratingLabel": "5 üzerinden 5",

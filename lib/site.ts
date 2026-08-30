@@ -349,7 +349,7 @@ export const primaryNav = [
   { href: "/citizenship", label: "Citizenship" },
   { href: "/insurance", label: "Insurance" },
   { href: "/about", label: "About" },
-  { href: "/happy-customers", label: "Happy Customers" },
+  { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
 ] as const;
 
@@ -410,7 +410,7 @@ export const headerNav: readonly HeaderNavItem[] = [
   { href: "/viewing-day", label: "Viewing Day" },
   { href: "/about", label: "About" },
   /*
-    "Happy Customers" ALTINCI ÖĞE — ve üst sınır burada.
+    "Testimonials" ALTINCI ÖĞE — ve üst sınır burada.
 
     Bu dizinin altındaki not "header'ı altı öğede tutuyoruz" diyor;
     yedincisi masaüstünde satırı sıkıştırıyor. Sayfa o son yeri hak
@@ -418,7 +418,7 @@ export const headerNav: readonly HeaderNavItem[] = [
     duruyor ve footer'a gömülürse ziyaretçinin karar anında görmediği
     bir sayfa olur.
   */
-  { href: "/happy-customers", label: "Happy Customers" },
+  { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
 ];
 
