@@ -176,13 +176,16 @@ export default async function HappyCustomersPage() {
                 da istenen minimal satır duruyor; yalnızca DOM'da bir
                 başlık olarak duruyor.
 
-                ⚠️ İNCE KESİT `font-display`DEN GELMEK ZORUNDA.
-                `--font-display` Montserrat ve DEĞİŞKEN kesit olarak
-                yükleniyor (layout'ta `weight` verilmemiş), yani 100–900
-                arası her ağırlık ek indirme olmadan hazır. `.eyebrow`
-                yardımcı sınıfı ise `--font-sans` yani Inter kullanıyor ve
-                Inter yalnızca 400–700 ile yükleniyor: orada `font-light`
-                yazmak 300 değil 400 çizdirir — yani hiçbir şey değişmezdi.
+                ⚠️ İNCE KESİT `font-display`DEN GELİYOR — ve o kesit
+                LAYOUT'TA AÇILMAK ZORUNDAYDI. Montserrat sabit ağırlık
+                listesiyle yükleniyor; liste bir süre 600/700/800'den
+                ibaretti ve buradaki `font-light` sessizce 600 çiziyordu.
+                `app/[lang]/layout.tsx` içindeki listeye 300 eklendi.
+
+                `.eyebrow` yardımcı sınıfı bu iş için kullanılamazdı:
+                o `--font-sans` yani Inter üzerine kurulu ve Inter
+                400–700 ile yükleniyor — orada `font-light` yazmak 300
+                değil 400 çizdirir.
 
                 Harf aralığı mobilde bir kademe dar (`0.2em`): Rusça karşılık
                 28 karakter ("ПОДТВЕРЖДЁННЫЕ ОТЗЫВЫ GOOGLE") ve 0.28em ile

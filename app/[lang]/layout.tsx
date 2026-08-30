@@ -37,7 +37,20 @@ import "../globals.css";
  * başlıklar için değil. Gerekçe tanımının başında.
  */
 const montserrat = Montserrat({
-  subsets: ["latin", "latin-ext"], // latin-ext: Türkçe ş/ğ/ı karakterleri
+  /*
+    ⚠️ `cyrillic` EKLENDİ — Rusça başlıklar marka yazı tipine dönsün diye.
+
+    Önceden yalnızca `latin` + `latin-ext` yükleniyordu, yani Kiril
+    karakterlerinin hiçbiri bu ailede yoktu ve /ru sayfalarındaki HER
+    başlık `--font-display` yığınının bir sonrasına, Helvetica'ya (ya da
+    işletim sistemi neyse ona) düşüyordu. Türkçe ve İngilizce Montserrat,
+    Rusça sistem yazı tipi — aynı sitede iki farklı marka sesi.
+
+    İngilizce ve Türkçe ziyaretçiye MALİYETİ YOK: next/font her alt küme
+    için ayrı bir `@font-face` ve `unicode-range` üretiyor; Kiril dosyası
+    yalnızca ekranda Kiril harfi çizildiğinde indiriliyor.
+  */
+  subsets: ["latin", "latin-ext", "cyrillic"], // latin-ext: Türkçe ş/ğ/ı
   variable: "--font-montserrat",
   display: "swap",
   /*
@@ -45,8 +58,18 @@ const montserrat = Montserrat({
     ve panel etiketleri daha hafif kesitlerde diziliyor ve tarayıcının
     eksik kesiti sentezlemesine (fake bold) izin vermek, geometrik bir
     ailede harf formlarını gözle görülür biçimde bozar.
+
+    ⚠️ 300 (light) SONRADAN EKLENDİ ve bir HATAYI düzeltiyor.
+
+    /happy-customers başlığı `font-light` ile yazılmıştı; bu ailenin
+    değişken kesit olarak yüklendiği varsayılmıştı. Değil — liste
+    yukarıdaki üç ağırlıktan ibaretti ve tarayıcı 300 isteğini en yakın
+    MEVCUT kesite, yani 600'e eşliyordu. Yani "ince" olması istenen tek
+    satır, sayfada yarı kalın çiziliyordu ve bunu ne tip denetimi ne de
+    lint yakalar: `font-light` geçerli bir sınıf, eksik olan şey fontun
+    kendisi.
   */
-  weight: ["600", "700", "800"],
+  weight: ["300", "600", "700", "800"],
 });
 
 /** Inter = gövde metni ve arayüz. Nötr, yoğun bilgi bloklarında yorulmayan bir grotesk. */
